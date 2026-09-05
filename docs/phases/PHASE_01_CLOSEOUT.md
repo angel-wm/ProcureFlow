@@ -6,9 +6,9 @@ Phase 1 — Data Design
 
 ## Status
 
-READY FOR GITHUB GATE
+COMPLETED
 
-## Target Version
+## Version
 
 `v0.2.0`
 
@@ -642,7 +642,7 @@ Confirmed:
 
 Technical Phase 1 work is complete.
 
-Formal phase completion remains subject to the GitHub Gate.
+The GitHub Gate has been completed successfully.
 
 ## Git Evidence
 

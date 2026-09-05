@@ -6,89 +6,95 @@ IN DEVELOPMENT
 
 ## Current Version
 
-v0.1.0
+v0.2.0
 
 ## Current Phase
 
 Phase 1 — Data Design
 
-Status: IN PROGRESS
-
-Target Version: `v0.2.0`
-
-Phase Branch:
-
-`phase/01-data-design`
+Status: COMPLETED
 
 ## Last Completed Phase
 
-Phase 0 — Project Design
+Phase 1 — Data Design
 
-Version: `v0.1.0`
+Version: `v0.2.0`
 
-GitHub Pull Request: `#1 — Phase 0 — Project Design`
+GitHub Pull Request: `#2 — Phase 1 — Data Design`
 
-Merge Commit: `4a30476`
+Merge Commit: `36da5ac`
 
-Final Phase 0 Commit: `3cbab55`
+Phase Tag: `phase-1-complete`
 
-Phase Tag: `phase-0-complete`
-
-Version Tag: `v0.1.0`
+Version Tag: `v0.2.0`
 
 ## Implemented
 
-Project governance and design baseline only.
+Project governance and formal data-design baseline.
 
-Implemented project assets:
+Implemented project assets include:
 
-- local and GitHub repository structure;
-- canonical Markdown documentation;
-- dataset policy;
-- Git/GitHub workflow;
-- roadmap;
-- architecture baseline;
-- requirements baseline;
-- business-rule baseline;
-- acceptance criteria;
-- Definition of Done.
+- repository and documentation governance;
+- official dataset policy;
+- validated source schemas;
+- validated source grains;
+- validated keys and relationships;
+- field-level data dictionary;
+- source-to-target mappings;
+- logical dimension/fact model;
+- Date dimension design;
+- source-supported data-quality rules;
+- Phase 1 validation evidence.
 
 No Excel workbook functionality has been implemented yet.
 
 No Power Query queries, formulas, PivotTables, VBA procedures, automation, operational reports or dashboards are considered implemented.
 
-## Phase 1 Progress
+## Phase 1 Completion
 
-Source inspection and data-design validation are currently in progress.
+Phase 1 formally validated the four official source files and established the logical data model required for workbook construction.
 
-Validated locally so far:
+Confirmed source populations:
 
-- official source-file availability;
-- source row counts;
-- source column schemas;
-- primary-key uniqueness for Products, Purchase Orders and Quality Incidents;
-- composite Inventory History grain;
-- Product, Site and Supplier populations;
-- Product, Site and Supplier referential integrity;
-- mandatory identifier completeness;
-- source null behavior;
-- observed categorical domains;
-- observed numeric ranges;
-- date ranges;
-- weekly historical continuity;
-- Product × Site historical completeness;
-- Purchase Order chronological consistency;
-- partial-receipt behavior;
-- Lead-Time ranges;
-- Supplier-to-Product cardinality;
-- Supplier Risk dependency;
-- forecast type / uplift consistency;
-- source identifier formats;
-- candidate logical data types.
+- Products: 300
+- Sites: 6
+- Suppliers: 40
+- Inventory History: 280,800 rows
+- Purchase Orders: 29,666 rows
+- Quality Incidents: 368 rows
 
-These validations are data-design evidence only.
+Validated Inventory History grain:
 
-No workbook, Power Query pipeline or operational functionality is considered implemented.
+1 Product × 1 Site × 1 Week
+
+Validated structure:
+
+- 1,800 Product × Site combinations;
+- 156 weeks per Product × Site;
+- 156 distinct weekly dates;
+- all weekly dates are Mondays;
+- historical range: 2022-01-03 through 2024-12-23.
+
+Logical dimensions:
+
+- `DimProduct`
+- `DimSite`
+- `DimSupplier`
+- `DimDate`
+
+Logical facts:
+
+- `FactInventoryWeekly`
+- `FactPurchaseOrders`
+- `FactQualityIncidents`
+
+Validated continuous Date dimension range:
+
+`2022-01-03` through `2025-04-14`
+
+Current maximum Inventory Reporting Date:
+
+`2024-12-23`
 
 ## Official Dataset
 
@@ -107,40 +113,25 @@ The files are stored locally in:
 
 and are excluded from Git.
 
-## Confirmed Source Counts
-
-- Products: 300
-- Inventory History: 280,800
-- Purchase Orders: 29,666
-- Quality Incidents: 368
-- Sites: 6
-- Suppliers: 40
-
-## Confirmed Historical Grain
-
-Inventory History:
-
-1 Product × 1 Site × 1 Week
-
-Validated population:
-
-- 1,800 Product × Site combinations;
-- 156 weeks per Product × Site;
-- 156 distinct weekly dates;
-- all weekly dates are Mondays;
-- historical range: 2022-01-03 through 2024-12-23.
-
 ## Known Issues
 
 None currently classified as critical.
 
-`shelf_life_days` is nullable in 274 of 300 Product records and is being treated as an optional source attribute.
+Known source characteristic:
+
+`shelf_life_days` is nullable in 274 of 300 Product records and is intentionally treated as an optional attribute.
 
 ## Relevant Decisions
 
-Confirmed Phase 0 decisions:
+Confirmed decisions through Phase 0:
 
 `DEC-001` through `DEC-041`
+
+Confirmed during Phase 1:
+
+`DEC-042` through `DEC-045`
+
+No decisions are currently marked SUPERSEDED.
 
 See:
 
@@ -148,16 +139,9 @@ See:
 
 ## Next Immediate Step
 
-Complete the formal Phase 1 data specification.
+Begin Phase 2 — Workbook Foundation after creating the Phase 1 completion and version tags.
 
-Immediate work:
-
-- complete `docs/DATA_DICTIONARY.md`;
-- document source-to-target mappings;
-- finalize dimension and fact specifications;
-- finalize Date dimension design;
-- document relationships and cardinalities;
-- record Phase 1 test evidence.
+Phase 2 must begin by reviewing the canonical Phase 1 handoff documentation.
 
 ## Next Phase
 
@@ -167,4 +151,4 @@ Status: NOT STARTED
 
 Target Version: `v0.3.0`
 
-Phase 2 must not begin until Phase 1 satisfies its exit criteria and GitHub gate.
+Phase 2 must not be considered started until work begins on its dedicated phase branch.

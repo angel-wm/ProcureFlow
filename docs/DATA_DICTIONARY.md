@@ -2,7 +2,7 @@
 
 ## Document Status
 
-Status: IN PROGRESS — PHASE 1 DATA DESIGN
+Status: COMPLETED — PHASE 1 DATA DESIGN
 
 Phase: Phase 1 — Data Design
 
