@@ -1,0 +1,17 @@
+# Excel temporary and lock files
+~$*
+*.tmp
+
+# Raw dataset files
+data/raw/*
+
+# Keep folder structure
+!data/raw/.gitkeep
+
+# Local backups and exports
+*.bak
+*.backup
+
+# Windows
+Thumbs.db
+Desktop.ini
