@@ -6,9 +6,11 @@ Phase 0 — Project Design
 
 ## Status
 
-IN PROGRESS
+IN PROGRESS — GITHUB GATE PENDING
 
-This document is being prepared during Phase 0.9 and will be finalized only after the Phase 0 GitHub publication gate is completed.
+All local Phase 0 design and documentation work has been completed.
+
+The phase will only become COMPLETED after the approved Phase 0 state is merged into `main`, published to GitHub and tagged.
 
 ## Objective
 
@@ -74,17 +76,36 @@ No workbook implementation has started.
 
 No formulas, Power Query queries, PivotTables, macros, VBA or dashboard components are considered implemented.
 
+## Local Completion Evidence
+
+Completed locally:
+
+- repository initialized;
+- repository structure created;
+- raw-data exclusion configured;
+- official source CSV files placed locally in `data/raw/`;
+- canonical documentation created;
+- Phase 0 design baseline committed;
+- dedicated Phase 0 branch created.
+
+Current branch:
+
+`phase/00-project-design`
+
 ## Remaining Phase 0 Tasks
 
-- Finish canonical documents
-- Validate repository structure
-- Commit Phase 0 locally
 - Create GitHub repository
-- Push `main`
-- Create tags `phase-0-complete` and `v0.1.0`
-- Update this file to COMPLETED
-- Update `CURRENT_STATE.md` to IN DEVELOPMENT / Phase 1 next
+- Publish repository
+- Open Phase 0 Pull Request
+- Review and merge into `main`
+- Push final `main`
+- Create and push tag `phase-0-complete`
+- Create and push tag `v0.1.0`
+- Update this document to COMPLETED
+- Update `CURRENT_STATE.md` for transition to Phase 1
+- Update `ROADMAP.md` Phase 0 status to COMPLETED
 
 ## Next Phase
 
 Phase 1 — Data Design
+

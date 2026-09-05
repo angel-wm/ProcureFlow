@@ -48,20 +48,34 @@ No workbook functionality has been implemented.
 
 No Power Query queries, formulas, PivotTables, VBA procedures, dashboard components or automation are considered implemented.
 
+## Local Phase 0 Status
+
+Local design work: COMPLETE
+
+GitHub Gate: PENDING
+
+The Phase 0 design baseline has been documented and committed locally on:
+
+`phase/00-project-design`
+
 ## Pending in Phase 0
 
-- Complete canonical documentation
-- Validate repository contents
-- Create first local Git commit
 - Create GitHub repository
-- Push Phase 0 to GitHub
-- Create tag `phase-0-complete`
-- Create tag `v0.1.0`
-- Finalize `PHASE_00_CLOSEOUT.md`
+- Publish local repository
+- Open Phase 0 Pull Request
+- Review and merge Phase 0 into `main`
+- Push final `main`
+- Create and push tag `phase-0-complete`
+- Create and push tag `v0.1.0`
+- Finalize Phase 0 status after publication
 
 ## Known Issues
 
 None.
+
+## Next Immediate Step
+
+Create the GitHub repository and publish the local Phase 0 branch for review and merge.
 
 ## Next Phase
 
@@ -94,3 +108,4 @@ Convert the selected Aerospace dataset into a formally documented and validated 
 5. `docs/ROADMAP.md`
 6. `docs/DECISIONS.md`
 7. `docs/DATA_DICTIONARY.md`
+
