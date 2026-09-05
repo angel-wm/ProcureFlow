@@ -638,6 +638,92 @@ Third-party datasets and other external materials retain their own applicable li
 MIT provides a simple and permissive license suitable for a portfolio software project while maintaining the required copyright and license notice.
 
 ---
+## DEC-042 — Supplier Risk Logical Ownership
+
+**Status:** CONFIRMED
+
+**Decision:**
+`SupplierRiskClass` belongs logically to `DimSupplier`, even though the physical source field `supplier_risk_class` is provided in `parts_master.csv`.
+
+`DimProduct` will retain `PrimarySupplierID` as its Supplier relationship but will not duplicate Supplier Risk as a Product-owned attribute.
+
+**Rationale:**
+Phase 1 validation confirmed 40 Suppliers and showed that every Supplier has exactly one observed Supplier Risk Class while each Supplier serves multiple Products.
+
+The validated dependency is therefore Supplier → Supplier Risk Class.
+
+---
+
+## DEC-043 — Inventory Weekly Date Semantics
+
+**Status:** CONFIRMED
+
+**Decision:**
+The `date` field in `supply_chain_history.csv` represents `WeekStartDate`.
+
+The weekly business period starts on Monday.
+
+The logical key of `FactInventoryWeekly` is:
+
+`WeekStartDate + SiteID + ProductID`
+
+**Rationale:**
+Phase 1 validation confirmed 156 distinct historical dates, all occurring on Monday, with exactly 7 days between consecutive periods and exactly 156 periods for every Product × Site combination.
+
+---
+
+## DEC-044 — Date Dimension Coverage and Inventory Reporting Boundary
+
+**Status:** CONFIRMED
+
+**Decision:**
+`DimDate` will have daily grain and continuous coverage across all dates required by the validated official sources.
+
+With the current source data, the validated range is:
+
+`2022-01-03` through `2025-04-14`
+
+for 1,198 calendar rows.
+
+The maximum date in `DimDate` does not define the maximum valid Inventory Reporting Date.
+
+Inventory Reporting Date must remain bounded by available Inventory History evidence.
+
+With the current source data, the maximum Inventory Reporting Date is:
+
+`2024-12-23`
+
+**Rationale:**
+Purchase Order promised/receipt dates and Quality Incident dates extend beyond the final Inventory History observation.
+
+Allowing those later dates to extend Inventory Reporting Date would imply inventory state for periods where no inventory snapshot exists.
+
+---
+
+## DEC-045 — ISO Weekly Calendar Convention
+
+**Status:** CONFIRMED
+
+**Decision:**
+ProcureFlow will use ISO 8601 week semantics for calendar-week attributes.
+
+The Date dimension will include:
+
+- `ISOYear`
+- `ISOWeekNumber`
+- `ISOYearWeek`
+- `WeekStartDate`
+
+`WeekStartDate` will always resolve to Monday.
+
+Calendar `Year` and ISO `ISOYear` will remain separate attributes because ISO week-years can differ from calendar years near year boundaries.
+
+**Rationale:**
+The validated Inventory History uses Monday-based weekly periods.
+
+ISO 8601 provides an established Monday-based week convention and avoids ambiguous week-number interpretation across year boundaries.
+
+---
 # 3. Confirmed Replenishment Policy
 
 The following business-rule decisions are also part of the confirmed Phase 0 baseline.
@@ -797,7 +883,11 @@ and the replacement decision should identify what changed and why.
 
 Decisions confirmed through Phase 0:
 
-`DEC-001` through `DEC-040`
+`DEC-001` through `DEC-041`
+
+Decisions confirmed during Phase 1 — Data Design:
+
+`DEC-042` through `DEC-045`
 
 Current superseded decisions:
 
@@ -809,5 +899,7 @@ None.
 
 Next major decision review:
 
-Phase 1 — Data Design, if detailed source validation reveals evidence requiring a change to the Phase 0 design baseline.
+Phase 2 — Workbook Foundation, unless additional Phase 1 evidence requires a documented change before Phase 1 closeout.
+
+
 

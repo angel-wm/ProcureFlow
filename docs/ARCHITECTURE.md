@@ -258,43 +258,162 @@ It does not require Power Pivot or the Excel Data Model.
 
 ## 10.1 Product Dimension
 
+Logical name:
+
+`DimProduct`
+
 Grain:
 
 1 row = 1 Product
+
+Primary Key:
+
+`ProductID`
 
 Primary source:
 
 `parts_master.csv`
 
+Core logical attributes:
+
+- ProductID
+- PartFamily
+- CriticalityClass
+- UnitCost
+- MasterLeadTimeDays
+- PrimarySupplierID
+- IsRepairable
+- ShelfLifeDays
+
+`SupplierRiskClass` is not Product-owned data.
+
+It is sourced physically from `parts_master.csv` but belongs logically to `DimSupplier`.
+
 ## 10.2 Site Dimension
+
+Logical name:
+
+`DimSite`
 
 Grain:
 
 1 row = 1 Site
 
-Derived from unique Site identifiers.
+Primary Key:
+
+`SiteID`
+
+Derived from unique official source Site identifiers.
+
+Validated current population:
+
+6 Sites
+
+No unsupported Site names, regions, addresses or other attributes will be invented.
 
 ## 10.3 Supplier Dimension
+
+Logical name:
+
+`DimSupplier`
 
 Grain:
 
 1 row = 1 Supplier
 
-Derived from official source identifiers.
+Primary Key:
+
+`SupplierID`
+
+Derived from official Supplier identifiers and validated Supplier-level attributes.
+
+Core logical attributes:
+
+- SupplierID
+- SupplierRiskClass
+
+Validated current population:
+
+40 Suppliers
+
+Validated dependency:
+
+1 Supplier → 1 Supplier Risk Class
+
+Validated cardinality:
+
+1 Supplier → many Products
+
+Observed Products per Supplier:
+
+4 through 14
 
 ## 10.4 Date Dimension
+
+Logical name:
+
+`DimDate`
 
 Grain:
 
 1 row = 1 calendar date
 
-The final required date attributes will be designed during Phase 1 — Data Design.
+Primary Key:
+
+`Date`
+
+The Date dimension must be continuous across all dates required by the official source facts.
+
+Validated current range:
+
+`2022-01-03` through `2025-04-14`
+
+Current required rows:
+
+1,198
+
+Required logical attributes:
+
+- Date
+- Year
+- Quarter
+- MonthNumber
+- MonthName
+- YearMonth
+- ISOYear
+- ISOWeekNumber
+- ISOYearWeek
+- WeekStartDate
+- DayOfWeekNumber
+- DayName
+
+Weekly calendar convention:
+
+ISO 8601
+
+Week start:
+
+Monday
+
+Important:
+
+The Date dimension range and the Inventory Reporting Date range are different concepts.
+
+The current maximum valid Inventory Reporting Date is:
+
+`2024-12-23`
+
+because Inventory History does not extend beyond that date.
 
 ---
 
 # 11. Fact Grain
 
 ## 11.1 Inventory Weekly Fact
+
+Logical name:
+
+`FactInventoryWeekly`
 
 Grain:
 
@@ -304,11 +423,39 @@ Source:
 
 `supply_chain_history.csv`
 
+Composite Key:
+
+- WeekStartDate
+- SiteID
+- ProductID
+
+Validated current structure:
+
+- 300 Products
+- 6 Sites
+- 1,800 Product × Site combinations
+- 156 weekly periods per Product × Site
+- 280,800 rows
+
+Validated weekly semantics:
+
+- WeekStartDate is Monday;
+- consecutive periods are exactly 7 days apart;
+- no Product × Site historical week is missing in the validated source range.
+
 ## 11.2 Purchase Order Fact
+
+Logical name:
+
+`FactPurchaseOrders`
 
 Grain:
 
 1 row = 1 Purchase Order record for one Product
+
+Primary Key:
+
+`PurchaseOrderID`
 
 Source:
 
@@ -318,18 +465,58 @@ Important:
 
 ProcureFlow must not model the source as a traditional Purchase Order Header → Purchase Order Lines architecture unless future source evidence supports that structure.
 
+Objective transaction-derived fields may include:
+
+- PromisedLeadTimeDays
+- ActualLeadTimeDays
+- IsLateReceipt
+- IsPartialReceipt
+
+Reporting-Date-dependent status such as `IsOpenPO` must not be stored as a permanent transaction state.
+
 ## 11.3 Quality Incident Fact
+
+Logical name:
+
+`FactQualityIncidents`
 
 Grain:
 
-1 row = 1 quality incident
+1 row = 1 Quality Incident
+
+Primary Key:
+
+`QualityIncidentID`
 
 Source:
 
 `quality_incidents.csv`
 
----
+## 11.4 Logical Relationship Diagram
 
+```mermaid
+erDiagram
+    DimSupplier ||--o{ DimProduct : supplies
+    DimProduct ||--o{ FactInventoryWeekly : product
+    DimSite ||--o{ FactInventoryWeekly : site
+    DimDate ||--o{ FactInventoryWeekly : week_start
+
+    DimProduct ||--o{ FactPurchaseOrders : product
+    DimSupplier ||--o{ FactPurchaseOrders : supplier
+    DimSite ||--o{ FactPurchaseOrders : site
+    DimDate ||--o{ FactPurchaseOrders : dates
+
+    DimProduct ||--o{ FactQualityIncidents : product
+    DimSupplier ||--o{ FactQualityIncidents : supplier
+    DimSite ||--o{ FactQualityIncidents : site
+    DimDate ||--o{ FactQualityIncidents : incident_date
+```
+
+The diagram represents logical analytical relationships.
+
+It does not imply that Power Pivot or the Excel Data Model is required.
+
+---
 # 12. Excel Table Architecture
 
 Planned structured tables include:
@@ -337,6 +524,7 @@ Planned structured tables include:
 - `tblProducts`
 - `tblSites`
 - `tblSuppliers`
+- `tblDate`
 - `tblInventoryHistory`
 - `tblPurchaseOrders`
 - `tblQualityIncidents`
@@ -578,11 +766,32 @@ Planned table:
 
 ## `16_DATA_Date`
 
-Status:
+Planned table:
 
-Physical implementation to be confirmed when the date-dimension design is completed.
+`tblDate`
 
-Conceptually, a date dimension is required.
+Logical source:
+
+derived continuous calendar
+
+Grain:
+
+1 row = 1 calendar date
+
+Validated current required range:
+
+`2022-01-03` through `2025-04-14`
+
+Required current row count:
+
+1,198
+
+Weekly convention:
+
+ISO 8601, Monday-based
+
+Physical implementation remains pending and must not be considered implemented until the corresponding workbook / Power Query phase provides evidence.
+---
 
 ---
 
@@ -1226,3 +1435,6 @@ Implemented:
 NONE
 
 Physical workbook construction begins only after Phase 1 — Data Design is completed and Phase 2 — Workbook Foundation begins.
+
+
+

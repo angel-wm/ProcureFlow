@@ -390,12 +390,14 @@ Planned attributes:
 - `MonthNumber`
 - `MonthName`
 - `YearMonth`
-- `WeekOfYear`
+- `ISOYear`
+- `ISOWeekNumber`
+- `ISOYearWeek`
 - `WeekStartDate`
 - `DayOfWeekNumber`
 - `DayName`
 
-`WeekOfYear` convention remains to be finalized before physical implementation.
+Weekly calendar convention is ISO 8601, with Monday as Week Start.
 
 The Inventory History Reporting Date range is narrower than the complete Date dimension range.
 
@@ -1878,19 +1880,26 @@ It must provide a continuous calendar spanning all required source-supported dat
 
 ---
 
-# 18. Data Design Decisions Still Pending
+# 18. Phase 1 Data-Design Resolution
 
-Before Phase 1 closeout, confirm:
+The material logical data-design questions identified during source validation are resolved.
 
-- final `WeekOfYear` convention for `DimDate`;
-- final physical naming convention to be consumed by Phase 3 Power Query implementation;
-- whether any additional objective Purchase Order derived fields are required in the fact specification;
-- final diagram / equivalent relationship documentation.
+Confirmed:
 
-No unresolved critical source-data ambiguity is currently known.
+- Supplier Risk belongs logically to `DimSupplier`;
+- Inventory History `date` represents Monday-based `WeekStartDate`;
+- `DimDate` has daily continuous grain;
+- the current Date range is `2022-01-03` through `2025-04-14`;
+- Inventory Reporting Date remains bounded by Inventory History, currently through `2024-12-23`;
+- weekly calendar attributes use ISO 8601 semantics;
+- objective Purchase Order derivations are specified;
+- logical fact/dimension relationships are documented in `ARCHITECTURE.md`.
+
+Exact implementation details such as Power Query query names or final Excel physical column placement may be refined during their implementation phases without changing this logical data specification.
+
+No unresolved critical data-design ambiguity is currently known.
 
 ---
-
 # 19. Implementation Status
 
 [CONFIRMADO]
@@ -1917,3 +1926,5 @@ No unresolved critical source-data ambiguity is currently known.
 - VBA.
 
 Those items belong to later roadmap phases.
+
+
