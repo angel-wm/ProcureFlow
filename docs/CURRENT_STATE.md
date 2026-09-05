@@ -2,80 +2,87 @@
 
 ## Project Status
 
-PRE-PROJECT
+IN DEVELOPMENT
 
 ## Current Version
 
-Unreleased
-
-Target after Phase 0 closeout: `v0.1.0`
+v0.1.0
 
 ## Current Phase
 
 Phase 0 — Project Design
 
-Current subphase: Phase 0.9 — Canonical Documents & Phase 0 Publication
-
-Status: IN PROGRESS
-
-## Last Completed Subphase
-
-Phase 0.8 — Acceptance Criteria & Definition of Done
-
 Status: COMPLETED
 
-## Confirmed
+## Last Completed Phase
 
-- Official dataset: Aerospace Supply Chain Performance & Forecasting
-- Excel-centered technology stack
-- Functional requirements
-- Non-functional requirements
-- Business rules
-- Replenishment logic design
-- Workbook architecture
-- Technical architecture
-- Quality-control strategy
-- Git/GitHub strategy
-- Repository structure
-- Phase-based GitHub handoff protocol
-- Sequential roadmap from Phase 0 through Phase 12
-- Acceptance criteria
-- Definition of Done
+Phase 0 — Project Design
+
+Version: `v0.1.0`
+
+GitHub Pull Request: `#1 — Phase 0 — Project Design`
+
+Merge Commit: `4a30476`
+
+Phase Tag: `phase-0-complete`
 
 ## Implemented
 
-No workbook functionality has been implemented.
+Project governance and design baseline only.
 
-No Power Query queries, formulas, PivotTables, VBA procedures, dashboard components or automation are considered implemented.
+Implemented project assets:
 
-## Local Phase 0 Status
+- local and GitHub repository structure;
+- canonical Markdown documentation;
+- dataset policy;
+- Git/GitHub workflow;
+- roadmap;
+- architecture baseline;
+- requirements baseline;
+- business-rule baseline;
+- acceptance criteria;
+- Definition of Done.
 
-Local design work: COMPLETE
+No Excel workbook functionality has been implemented yet.
 
-GitHub Gate: PENDING
+No Power Query queries, formulas, PivotTables, VBA procedures, automation, operational reports or dashboards are considered implemented.
 
-The Phase 0 design baseline has been documented and committed locally on:
+## Official Dataset
 
-`phase/00-project-design`
+Aerospace Supply Chain Performance & Forecasting
 
-## Pending in Phase 0
+Official local source files:
 
-- Create GitHub repository
-- Publish local repository
-- Open Phase 0 Pull Request
-- Review and merge Phase 0 into `main`
-- Push final `main`
-- Create and push tag `phase-0-complete`
-- Create and push tag `v0.1.0`
-- Finalize Phase 0 status after publication
+- `parts_master.csv`
+- `supply_chain_history.csv`
+- `purchase_orders.csv`
+- `quality_incidents.csv`
+
+The files are stored locally in:
+
+`data/raw/`
+
+and are excluded from Git.
 
 ## Known Issues
 
 None.
 
+## Relevant Decisions
+
+Confirmed decisions:
+
+`DEC-001` through `DEC-041`
+
+See:
+
+`docs/DECISIONS.md`
+
 ## Next Immediate Step
 
-Create the GitHub repository and publish the local Phase 0 branch for review and merge.
+Begin Phase 1 — Data Design in a dedicated project chat.
+
+The first task is to formally inspect and document the official source files, their fields, grain, keys, data types, relationships and integrity rules.
 
 ## Next Phase
 
@@ -83,29 +90,20 @@ Phase 1 — Data Design
 
 Status: NOT STARTED
 
-## Phase 1 Objective
+Target Version: `v0.2.0`
 
-Convert the selected Aerospace dataset into a formally documented and validated data specification covering:
-
-- source files
-- grain
-- columns
-- data types
-- keys
-- relationships
-- required and optional fields
-- integrity rules
-- dimensions
-- fact tables
-- date dimension design
-
-## Required Reading for the Next Phase
+## Required Reading for Phase 1
 
 1. `docs/CURRENT_STATE.md`
 2. `docs/phases/PHASE_00_CLOSEOUT.md`
-3. `docs/PROJECT_SPEC.md`
-4. `docs/ARCHITECTURE.md`
-5. `docs/ROADMAP.md`
+3. `docs/ROADMAP.md`
+4. `docs/PROJECT_SPEC.md`
+5. `docs/ARCHITECTURE.md`
 6. `docs/DECISIONS.md`
 7. `docs/DATA_DICTIONARY.md`
 
+## Phase Handoff
+
+Phase 0 has completed its design and GitHub publication gate.
+
+Phase 1 must use the GitHub repository as the authoritative project context rather than relying on a manual summary of the Phase 0 conversation.
