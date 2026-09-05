@@ -2,9 +2,9 @@
 
 ## Document Status
 
-Status: CONFIRMED  
-Project State: PRE-PROJECT  
-Current Phase: Phase 0 — Project Design  
+Status: CONFIRMED
+Project State: PRE-PROJECT
+Current Phase: Phase 0 — Project Design
 Target Phase 0 Version: v0.1.0
 
 This document records material project decisions that affect ProcureFlow scope, architecture, business rules, implementation strategy, governance or release management.
@@ -29,10 +29,10 @@ A material change to a CONFIRMED decision should be documented explicitly rather
 
 **Status:** CONFIRMED
 
-**Decision:**  
+**Decision:**
 ProcureFlow will use the Aerospace Supply Chain Performance & Forecasting dataset as its official base dataset.
 
-**Rationale:**  
+**Rationale:**
 It provides stronger support than the evaluated alternatives for historical inventory by site, consumption, backorders, blocked stock, procurement, receipt dates, Lead Times and supplier quality.
 
 AdventureWorks remains outside ProcureFlow and may be used in a separate future project.
@@ -43,7 +43,7 @@ AdventureWorks remains outside ProcureFlow and may be used in a separate future 
 
 **Status:** CONFIRMED
 
-**Decision:**  
+**Decision:**
 The official source set consists of:
 
 - `parts_master.csv`
@@ -51,7 +51,7 @@ The official source set consists of:
 - `purchase_orders.csv`
 - `quality_incidents.csv`
 
-**Rationale:**  
+**Rationale:**
 Together these files provide the minimum required procurement, inventory, supplier and quality domains for ProcureFlow.
 
 ---
@@ -60,12 +60,12 @@ Together these files provide the minimum required procurement, inventory, suppli
 
 **Status:** CONFIRMED
 
-**Decision:**  
+**Decision:**
 Original source CSV files must remain unchanged.
 
 Cleaning, typing, validation and preparation must occur reproducibly through Power Query.
 
-**Rationale:**  
+**Rationale:**
 This preserves traceability and prevents undocumented manual preprocessing.
 
 ---
@@ -74,7 +74,7 @@ This preserves traceability and prevents undocumented manual preprocessing.
 
 **Status:** CONFIRMED
 
-**Decision:**  
+**Decision:**
 The main operational replenishment model will use:
 
 1 Product × 1 Site
@@ -85,7 +85,7 @@ Historical inventory remains at:
 
 1 Product × 1 Site × 1 Week.
 
-**Rationale:**  
+**Rationale:**
 Replenishment decisions must reflect location-specific inventory conditions.
 
 ---
@@ -94,7 +94,7 @@ Replenishment decisions must reflect location-specific inventory conditions.
 
 **Status:** CONFIRMED
 
-**Decision:**  
+**Decision:**
 ProcureFlow will not fabricate business attributes that are absent from the official dataset.
 
 This includes, unless future evidence supports them:
@@ -105,7 +105,7 @@ This includes, unless future evidence supports them:
 - order multiples;
 - warehouse attributes.
 
-**Rationale:**  
+**Rationale:**
 Portfolio realism must come from transparent modeling, not from invented source semantics.
 
 ---
@@ -114,7 +114,7 @@ Portfolio realism must come from transparent modeling, not from invented source 
 
 **Status:** CONFIRMED
 
-**Decision:**  
+**Decision:**
 ProcureFlow will use distinct workbook layers for:
 
 - configuration;
@@ -125,7 +125,7 @@ ProcureFlow will use distinct workbook layers for:
 - operational reporting;
 - dashboard.
 
-**Rationale:**  
+**Rationale:**
 Separation of responsibility improves maintainability, usability and auditability.
 
 ---
@@ -134,12 +134,12 @@ Separation of responsibility improves maintainability, usability and auditabilit
 
 **Status:** CONFIRMED
 
-**Decision:**  
+**Decision:**
 ProcureFlow will not create a dedicated RAW worksheet containing copies of the original source files.
 
 Raw CSV files remain external.
 
-**Rationale:**  
+**Rationale:**
 This avoids redundant storage and preserves a clean ingestion architecture.
 
 ---
@@ -148,7 +148,7 @@ This avoids redundant storage and preserves a clean ingestion architecture.
 
 **Status:** CONFIRMED
 
-**Decision:**  
+**Decision:**
 Power Query will handle ingestion and reproducible data preparation.
 
 Primary responsibilities include:
@@ -161,7 +161,7 @@ Primary responsibilities include:
 - fact preparation;
 - appropriate pre-aggregation.
 
-**Rationale:**  
+**Rationale:**
 Power Query is the appropriate Extract, Transform and Load layer within an Excel-centered solution.
 
 ---
@@ -170,10 +170,10 @@ Power Query is the appropriate Extract, Transform and Load layer within an Excel
 
 **Status:** CONFIRMED
 
-**Decision:**  
+**Decision:**
 Core configurable operational business logic will primarily be implemented using auditable Excel formulas.
 
-**Rationale:**  
+**Rationale:**
 Business rules such as Safety Stock, Reorder Point and recommended purchasing quantities should remain inspectable and educational rather than hidden in code.
 
 ---
@@ -182,10 +182,10 @@ Business rules such as Safety Stock, Reorder Point and recommended purchasing qu
 
 **Status:** CONFIRMED
 
-**Decision:**  
+**Decision:**
 Visual Basic for Applications will be used for orchestration and automation rather than as the hidden mathematical engine.
 
-**Rationale:**  
+**Rationale:**
 VBA is most valuable for repeatable workflows such as refresh, validation, report preparation and export.
 
 ---
@@ -194,12 +194,12 @@ VBA is most valuable for repeatable workflows such as refresh, validation, repor
 
 **Status:** CONFIRMED
 
-**Decision:**  
+**Decision:**
 Power Pivot / Excel Data Model will not be included initially.
 
 It may be added only if later evidence shows material value.
 
-**Rationale:**  
+**Rationale:**
 The project should not add technology merely for demonstration purposes.
 
 ---
@@ -208,7 +208,7 @@ The project should not add technology merely for demonstration purposes.
 
 **Status:** CONFIRMED
 
-**Decision:**  
+**Decision:**
 ProcureFlow will maintain separate outputs for:
 
 - operational replenishment;
@@ -219,7 +219,7 @@ Planned sheets:
 - `40_RPT_Replenishment`
 - `41_DASH_Management`
 
-**Rationale:**  
+**Rationale:**
 Operational purchasing decisions and management summaries serve different users and information needs.
 
 ---
@@ -228,12 +228,12 @@ Operational purchasing decisions and management summaries serve different users 
 
 **Status:** CONFIRMED
 
-**Decision:**  
+**Decision:**
 The final workbook, field naming and technical nomenclature will primarily use business English.
 
 Development explanations may be provided in Spanish.
 
-**Rationale:**  
+**Rationale:**
 This improves professional portfolio value while allowing progressive learning.
 
 ---
@@ -242,10 +242,10 @@ This improves professional portfolio value while allowing progressive learning.
 
 **Status:** CONFIRMED
 
-**Decision:**  
+**Decision:**
 ProcureFlow targets Microsoft Excel 365 Desktop for Windows.
 
-**Rationale:**  
+**Rationale:**
 The planned stack depends on modern Excel capabilities including Dynamic Arrays, XLOOKUP and Power Query.
 
 ---
@@ -254,10 +254,10 @@ The planned stack depends on modern Excel capabilities including Dynamic Arrays,
 
 **Status:** CONFIRMED
 
-**Decision:**  
+**Decision:**
 User-editable business configuration must be clearly separated from formulas, refreshed data and outputs.
 
-**Rationale:**  
+**Rationale:**
 This reduces accidental changes and improves usability.
 
 ---
@@ -266,10 +266,10 @@ This reduces accidental changes and improves usability.
 
 **Status:** CONFIRMED
 
-**Decision:**  
+**Decision:**
 ProcureFlow will not indiscriminately hide errors through blanket error-handling formulas.
 
-**Rationale:**  
+**Rationale:**
 Errors that affect trust in calculations must remain visible or be handled explicitly.
 
 ---
@@ -278,10 +278,10 @@ Errors that affect trust in calculations must remain visible or be handled expli
 
 **Status:** CONFIRMED
 
-**Decision:**  
+**Decision:**
 Critical formulas and structures will be protected against accidental editing while legitimate inputs remain editable.
 
-**Rationale:**  
+**Rationale:**
 Protection must support usability without obstructing auditability.
 
 ---
@@ -290,7 +290,7 @@ Protection must support usability without obstructing auditability.
 
 **Status:** CONFIRMED
 
-**Decision:**  
+**Decision:**
 ProcureFlow will use the approved structured repository containing:
 
 - workbook;
@@ -300,7 +300,7 @@ ProcureFlow will use the approved structured repository containing:
 - phase closeouts;
 - screenshots.
 
-**Rationale:**  
+**Rationale:**
 The repository must represent the full engineering project rather than only the binary workbook.
 
 ---
@@ -309,10 +309,10 @@ The repository must represent the full engineering project rather than only the 
 
 **Status:** CONFIRMED
 
-**Decision:**  
+**Decision:**
 `ProcureFlow.xlsm` will be versioned in Git despite being a binary file.
 
-**Rationale:**  
+**Rationale:**
 The workbook is the primary executable artifact and must be preserved with each approved project state.
 
 ---
@@ -321,10 +321,10 @@ The workbook is the primary executable artifact and must be preserved with each 
 
 **Status:** CONFIRMED
 
-**Decision:**  
+**Decision:**
 Relevant VBA modules will be exported as text files such as `.bas`.
 
-**Rationale:**  
+**Rationale:**
 Text-based VBA source enables direct inspection, review and meaningful Git diffs.
 
 ---
@@ -333,12 +333,12 @@ Text-based VBA source enables direct inspection, review and meaningful Git diffs
 
 **Status:** CONFIRMED
 
-**Decision:**  
+**Decision:**
 The complete raw Aerospace dataset will not initially be committed to Git.
 
 `data/raw/` remains ignored except for structural placeholder files.
 
-**Rationale:**  
+**Rationale:**
 This reduces repository size and keeps source-distribution concerns separate from project code and documentation.
 
 ---
@@ -347,10 +347,10 @@ This reduces repository size and keeps source-distribution concerns separate fro
 
 **Status:** CONFIRMED
 
-**Decision:**  
+**Decision:**
 Canonical project documents will use Markdown rather than JSON.
 
-**Rationale:**  
+**Rationale:**
 Markdown is easier for humans, GitHub and future project chats to inspect while remaining versionable.
 
 ---
@@ -359,12 +359,12 @@ Markdown is easier for humans, GitHub and future project chats to inspect while 
 
 **Status:** CONFIRMED
 
-**Decision:**  
+**Decision:**
 The repository will not maintain a permanent `releases/` directory.
 
 Formal release artifacts will use GitHub Releases when justified.
 
-**Rationale:**  
+**Rationale:**
 GitHub already provides purpose-built release management.
 
 ---
@@ -373,10 +373,10 @@ GitHub already provides purpose-built release management.
 
 **Status:** CONFIRMED
 
-**Decision:**  
+**Decision:**
 GitHub will be the authoritative handoff mechanism between major project-phase chats.
 
-**Rationale:**  
+**Rationale:**
 A new chat must be able to reconstruct project state without depending on conversational memory.
 
 ---
@@ -385,10 +385,10 @@ A new chat must be able to reconstruct project state without depending on conver
 
 **Status:** CONFIRMED
 
-**Decision:**  
+**Decision:**
 The `main` branch represents only completed and approved phase states.
 
-**Rationale:**  
+**Rationale:**
 This keeps `main` stable and authoritative.
 
 ---
@@ -397,12 +397,12 @@ This keeps `main` stable and authoritative.
 
 **Status:** CONFIRMED
 
-**Decision:**  
+**Decision:**
 Execution phases will use dedicated branches following a pattern similar to:
 
 `phase/01-data-design`
 
-**Rationale:**  
+**Rationale:**
 Phase branches isolate active work from the last approved project state.
 
 ---
@@ -411,12 +411,12 @@ Phase branches isolate active work from the last approved project state.
 
 **Status:** CONFIRMED
 
-**Decision:**  
+**Decision:**
 Work may remain local while a phase is in progress.
 
 Immediately after a phase is completed, its approved state must be published to GitHub before the next phase begins.
 
-**Rationale:**  
+**Rationale:**
 This supports practical local development while preserving reliable phase handoffs.
 
 ---
@@ -425,10 +425,10 @@ This supports practical local development while preserving reliable phase handof
 
 **Status:** CONFIRMED
 
-**Decision:**  
+**Decision:**
 Each execution phase should conclude through a Pull Request before merging into `main`, even for a solo project.
 
-**Rationale:**  
+**Rationale:**
 Pull Requests create a professional review and historical checkpoint.
 
 ---
@@ -437,14 +437,14 @@ Pull Requests create a professional review and historical checkpoint.
 
 **Status:** CONFIRMED
 
-**Decision:**  
+**Decision:**
 Each completed phase will receive an immutable phase-complete tag.
 
 Example:
 
 `phase-0-complete`
 
-**Rationale:**  
+**Rationale:**
 Tags create permanent historical reference points independent of branch movement.
 
 ---
@@ -453,14 +453,14 @@ Tags create permanent historical reference points independent of branch movement
 
 **Status:** CONFIRMED
 
-**Decision:**  
+**Decision:**
 ProcureFlow will use a `MAJOR.MINOR.PATCH` version strategy.
 
 The final accepted first release will be:
 
 `v1.0.0`
 
-**Rationale:**  
+**Rationale:**
 Explicit versions make project evolution easier to understand and present professionally.
 
 ---
@@ -469,7 +469,7 @@ Explicit versions make project evolution easier to understand and present profes
 
 **Status:** CONFIRMED
 
-**Decision:**  
+**Decision:**
 A new phase chat will begin by reviewing, at minimum:
 
 1. `CURRENT_STATE.md`
@@ -477,7 +477,7 @@ A new phase chat will begin by reviewing, at minimum:
 3. `ROADMAP.md`;
 4. relevant architecture and decisions.
 
-**Rationale:**  
+**Rationale:**
 This establishes a reproducible context-loading procedure.
 
 ---
@@ -486,10 +486,10 @@ This establishes a reproducible context-loading procedure.
 
 **Status:** CONFIRMED
 
-**Decision:**  
+**Decision:**
 The initial ProcureFlow roadmap will execute phases sequentially rather than in parallel.
 
-**Rationale:**  
+**Rationale:**
 Later phases depend strongly on stable outputs from earlier phases.
 
 ---
@@ -498,10 +498,10 @@ Later phases depend strongly on stable outputs from earlier phases.
 
 **Status:** CONFIRMED
 
-**Decision:**  
+**Decision:**
 Every phase has explicit entry criteria, exit criteria and a GitHub gate.
 
-**Rationale:**  
+**Rationale:**
 A phase must be objectively complete rather than informally abandoned.
 
 ---
@@ -510,7 +510,7 @@ A phase must be objectively complete rather than informally abandoned.
 
 **Status:** CONFIRMED
 
-**Decision:**  
+**Decision:**
 The planned version progression is:
 
 - Phase 0 → `v0.1.0`
@@ -527,7 +527,7 @@ The planned version progression is:
 - Phase 11 → `v0.11.0`
 - Phase 12 → `v1.0.0`
 
-**Rationale:**  
+**Rationale:**
 Versions provide visible project maturity checkpoints.
 
 ---
@@ -536,10 +536,10 @@ Versions provide visible project maturity checkpoints.
 
 **Status:** CONFIRMED
 
-**Decision:**  
+**Decision:**
 `v1.0.0` is reserved for the fully accepted ProcureFlow system after all required phases and release criteria are satisfied.
 
-**Rationale:**  
+**Rationale:**
 The version must signify a complete portfolio-ready system rather than an arbitrary milestone.
 
 ---
@@ -548,12 +548,12 @@ The version must signify a complete portfolio-ready system rather than an arbitr
 
 **Status:** CONFIRMED
 
-**Decision:**  
+**Decision:**
 Educational, experimental and debugging conversations do not automatically modify official project state.
 
 A change only becomes authoritative when incorporated into the canonical project workflow.
 
-**Rationale:**  
+**Rationale:**
 This prevents exploratory work from silently changing requirements or architecture.
 
 ---
@@ -562,10 +562,10 @@ This prevents exploratory work from silently changing requirements or architectu
 
 **Status:** CONFIRMED
 
-**Decision:**  
+**Decision:**
 Acceptance criteria classified as MUST are mandatory for the final release unless changed through a formal approved decision.
 
-**Rationale:**  
+**Rationale:**
 Mandatory acceptance requirements must have release authority.
 
 ---
@@ -574,7 +574,7 @@ Mandatory acceptance requirements must have release authority.
 
 **Status:** CONFIRMED
 
-**Decision:**  
+**Decision:**
 ProcureFlow uses a formal Definition of Done covering:
 
 - functionality;
@@ -596,7 +596,7 @@ ProcureFlow uses a formal Definition of Done covering:
 - portfolio readiness;
 - final release.
 
-**Rationale:**  
+**Rationale:**
 No single dashboard, macro or formula can by itself qualify the project as finished.
 
 ---
@@ -605,10 +605,10 @@ No single dashboard, macro or formula can by itself qualify the project as finis
 
 **Status:** CONFIRMED
 
-**Decision:**  
+**Decision:**
 ProcureFlow `v1.0.0` cannot be released with known critical defects.
 
-**Rationale:**  
+**Rationale:**
 A final release must represent a trusted and validated project state.
 
 ---
@@ -617,10 +617,10 @@ A final release must represent a trusted and validated project state.
 
 **Status:** CONFIRMED
 
-**Decision:**  
+**Decision:**
 Features explicitly outside the approved v1.0.0 scope are not required to satisfy the Definition of Done.
 
-**Rationale:**  
+**Rationale:**
 The project requires a controlled completion boundary and must not expand indefinitely.
 
 ---
@@ -629,13 +629,99 @@ The project requires a controlled completion boundary and must not expand indefi
 
 **Status:** CONFIRMED
 
-**Decision:**  
+**Decision:**
 ProcureFlow source code and original project documentation will be published under the MIT License.
 
 Third-party datasets and other external materials retain their own applicable licenses, terms and ownership and are not relicensed by ProcureFlow.
 
-**Rationale:**  
+**Rationale:**
 MIT provides a simple and permissive license suitable for a portfolio software project while maintaining the required copyright and license notice.
+
+---
+## DEC-042 — Supplier Risk Logical Ownership
+
+**Status:** CONFIRMED
+
+**Decision:**
+`SupplierRiskClass` belongs logically to `DimSupplier`, even though the physical source field `supplier_risk_class` is provided in `parts_master.csv`.
+
+`DimProduct` will retain `PrimarySupplierID` as its Supplier relationship but will not duplicate Supplier Risk as a Product-owned attribute.
+
+**Rationale:**
+Phase 1 validation confirmed 40 Suppliers and showed that every Supplier has exactly one observed Supplier Risk Class while each Supplier serves multiple Products.
+
+The validated dependency is therefore Supplier → Supplier Risk Class.
+
+---
+
+## DEC-043 — Inventory Weekly Date Semantics
+
+**Status:** CONFIRMED
+
+**Decision:**
+The `date` field in `supply_chain_history.csv` represents `WeekStartDate`.
+
+The weekly business period starts on Monday.
+
+The logical key of `FactInventoryWeekly` is:
+
+`WeekStartDate + SiteID + ProductID`
+
+**Rationale:**
+Phase 1 validation confirmed 156 distinct historical dates, all occurring on Monday, with exactly 7 days between consecutive periods and exactly 156 periods for every Product × Site combination.
+
+---
+
+## DEC-044 — Date Dimension Coverage and Inventory Reporting Boundary
+
+**Status:** CONFIRMED
+
+**Decision:**
+`DimDate` will have daily grain and continuous coverage across all dates required by the validated official sources.
+
+With the current source data, the validated range is:
+
+`2022-01-03` through `2025-04-14`
+
+for 1,198 calendar rows.
+
+The maximum date in `DimDate` does not define the maximum valid Inventory Reporting Date.
+
+Inventory Reporting Date must remain bounded by available Inventory History evidence.
+
+With the current source data, the maximum Inventory Reporting Date is:
+
+`2024-12-23`
+
+**Rationale:**
+Purchase Order promised/receipt dates and Quality Incident dates extend beyond the final Inventory History observation.
+
+Allowing those later dates to extend Inventory Reporting Date would imply inventory state for periods where no inventory snapshot exists.
+
+---
+
+## DEC-045 — ISO Weekly Calendar Convention
+
+**Status:** CONFIRMED
+
+**Decision:**
+ProcureFlow will use ISO 8601 week semantics for calendar-week attributes.
+
+The Date dimension will include:
+
+- `ISOYear`
+- `ISOWeekNumber`
+- `ISOYearWeek`
+- `WeekStartDate`
+
+`WeekStartDate` will always resolve to Monday.
+
+Calendar `Year` and ISO `ISOYear` will remain separate attributes because ISO week-years can differ from calendar years near year boundaries.
+
+**Rationale:**
+The validated Inventory History uses Monday-based weekly periods.
+
+ISO 8601 provides an established Monday-based week convention and avoids ambiguous week-number interpretation across year boundaries.
 
 ---
 # 3. Confirmed Replenishment Policy
@@ -797,7 +883,11 @@ and the replacement decision should identify what changed and why.
 
 Decisions confirmed through Phase 0:
 
-`DEC-001` through `DEC-040`
+`DEC-001` through `DEC-041`
+
+Decisions confirmed during Phase 1 — Data Design:
+
+`DEC-042` through `DEC-045`
 
 Current superseded decisions:
 
@@ -809,5 +899,4 @@ None.
 
 Next major decision review:
 
-Phase 1 — Data Design, if detailed source validation reveals evidence requiring a change to the Phase 0 design baseline.
-
+Phase 2 — Workbook Foundation, unless additional Phase 1 evidence requires a documented change before Phase 1 closeout.

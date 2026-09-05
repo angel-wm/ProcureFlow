@@ -2,11 +2,11 @@
 
 ## Document Status
 
-Status: CONFIRMED  
-Project State: PRE-PROJECT  
-Current Phase: Phase 0 — Project Design  
-Current Phase Status: COMPLETED  
-Target Phase 0 Version: v0.1.0
+Status: CONFIRMED
+Project State: IN DEVELOPMENT
+Current Phase: Phase 1 — Data Design
+Current Phase Status: IN PROGRESS
+Target Phase 1 Version: v0.2.0
 
 This roadmap defines the approved sequential development plan for ProcureFlow.
 
@@ -195,7 +195,7 @@ v0.1.0
 
 ## Status
 
-NOT STARTED
+IN PROGRESS
 
 ## Target Version
 
@@ -1211,5 +1211,3 @@ Canonical Documents & Phase 0 Publication.
 After Phase 0 passes its GitHub gate, the next authorized phase will be:
 
 Phase 1 — Data Design.
-
-

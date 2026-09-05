@@ -10,9 +10,15 @@ v0.1.0
 
 ## Current Phase
 
-Phase 0 — Project Design
+Phase 1 — Data Design
 
-Status: COMPLETED
+Status: IN PROGRESS
+
+Target Version: `v0.2.0`
+
+Phase Branch:
+
+`phase/01-data-design`
 
 ## Last Completed Phase
 
@@ -24,7 +30,11 @@ GitHub Pull Request: `#1 — Phase 0 — Project Design`
 
 Merge Commit: `4a30476`
 
+Final Phase 0 Commit: `3cbab55`
+
 Phase Tag: `phase-0-complete`
+
+Version Tag: `v0.1.0`
 
 ## Implemented
 
@@ -47,6 +57,39 @@ No Excel workbook functionality has been implemented yet.
 
 No Power Query queries, formulas, PivotTables, VBA procedures, automation, operational reports or dashboards are considered implemented.
 
+## Phase 1 Progress
+
+Source inspection and data-design validation are currently in progress.
+
+Validated locally so far:
+
+- official source-file availability;
+- source row counts;
+- source column schemas;
+- primary-key uniqueness for Products, Purchase Orders and Quality Incidents;
+- composite Inventory History grain;
+- Product, Site and Supplier populations;
+- Product, Site and Supplier referential integrity;
+- mandatory identifier completeness;
+- source null behavior;
+- observed categorical domains;
+- observed numeric ranges;
+- date ranges;
+- weekly historical continuity;
+- Product × Site historical completeness;
+- Purchase Order chronological consistency;
+- partial-receipt behavior;
+- Lead-Time ranges;
+- Supplier-to-Product cardinality;
+- Supplier Risk dependency;
+- forecast type / uplift consistency;
+- source identifier formats;
+- candidate logical data types.
+
+These validations are data-design evidence only.
+
+No workbook, Power Query pipeline or operational functionality is considered implemented.
+
 ## Official Dataset
 
 Aerospace Supply Chain Performance & Forecasting
@@ -64,13 +107,38 @@ The files are stored locally in:
 
 and are excluded from Git.
 
+## Confirmed Source Counts
+
+- Products: 300
+- Inventory History: 280,800
+- Purchase Orders: 29,666
+- Quality Incidents: 368
+- Sites: 6
+- Suppliers: 40
+
+## Confirmed Historical Grain
+
+Inventory History:
+
+1 Product × 1 Site × 1 Week
+
+Validated population:
+
+- 1,800 Product × Site combinations;
+- 156 weeks per Product × Site;
+- 156 distinct weekly dates;
+- all weekly dates are Mondays;
+- historical range: 2022-01-03 through 2024-12-23.
+
 ## Known Issues
 
-None.
+None currently classified as critical.
+
+`shelf_life_days` is nullable in 274 of 300 Product records and is being treated as an optional source attribute.
 
 ## Relevant Decisions
 
-Confirmed decisions:
+Confirmed Phase 0 decisions:
 
 `DEC-001` through `DEC-041`
 
@@ -80,30 +148,23 @@ See:
 
 ## Next Immediate Step
 
-Begin Phase 1 — Data Design in a dedicated project chat.
+Complete the formal Phase 1 data specification.
 
-The first task is to formally inspect and document the official source files, their fields, grain, keys, data types, relationships and integrity rules.
+Immediate work:
+
+- complete `docs/DATA_DICTIONARY.md`;
+- document source-to-target mappings;
+- finalize dimension and fact specifications;
+- finalize Date dimension design;
+- document relationships and cardinalities;
+- record Phase 1 test evidence.
 
 ## Next Phase
 
-Phase 1 — Data Design
+Phase 2 — Workbook Foundation
 
 Status: NOT STARTED
 
-Target Version: `v0.2.0`
+Target Version: `v0.3.0`
 
-## Required Reading for Phase 1
-
-1. `docs/CURRENT_STATE.md`
-2. `docs/phases/PHASE_00_CLOSEOUT.md`
-3. `docs/ROADMAP.md`
-4. `docs/PROJECT_SPEC.md`
-5. `docs/ARCHITECTURE.md`
-6. `docs/DECISIONS.md`
-7. `docs/DATA_DICTIONARY.md`
-
-## Phase Handoff
-
-Phase 0 has completed its design and GitHub publication gate.
-
-Phase 1 must use the GitHub repository as the authoritative project context rather than relying on a manual summary of the Phase 0 conversation.
+Phase 2 must not begin until Phase 1 satisfies its exit criteria and GitHub gate.
