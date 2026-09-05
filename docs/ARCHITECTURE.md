@@ -2,9 +2,9 @@
 
 ## Document Status
 
-Status: CONFIRMED DESIGN BASELINE  
-Project State: PRE-PROJECT  
-Current Phase: Phase 0 — Project Design  
+Status: CONFIRMED DESIGN BASELINE
+Project State: PRE-PROJECT
+Current Phase: Phase 0 — Project Design
 Target Phase 0 Version: v0.1.0
 
 This document defines the approved architecture of ProcureFlow before implementation begins.
@@ -35,15 +35,15 @@ The design must support both business usability and technical auditability.
 
 The approved conceptual flow is:
 
-Source CSV files  
-→ Power Query ingestion  
-→ staging and validation  
-→ dimension and fact datasets  
-→ Excel Tables  
-→ operational calculation layer  
-→ quality-control layer  
-→ PivotTable analytical layer  
-→ VBA orchestration  
+Source CSV files
+→ Power Query ingestion
+→ staging and validation
+→ dimension and fact datasets
+→ Excel Tables
+→ operational calculation layer
+→ quality-control layer
+→ PivotTable analytical layer
+→ VBA orchestration
 → operational reporting and management dashboard
 
 The solution remains centered on Microsoft Excel.
@@ -1435,6 +1435,3 @@ Implemented:
 NONE
 
 Physical workbook construction begins only after Phase 1 — Data Design is completed and Phase 2 — Workbook Foundation begins.
-
-
-
