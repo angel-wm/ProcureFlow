@@ -10,9 +10,15 @@ v0.2.0
 
 ## Current Phase
 
-Phase 1 — Data Design
+Phase 2 — Workbook Foundation
 
-Status: COMPLETED
+Status: IN PROGRESS
+
+Target Version: `v0.3.0`
+
+Phase Branch:
+
+`phase/02-workbook-foundation`
 
 ## Last Completed Phase
 
@@ -96,6 +102,22 @@ Current maximum Inventory Reporting Date:
 
 `2024-12-23`
 
+## Phase 2 Progress
+
+Phase 2 — Workbook Foundation is now in progress.
+
+Current work:
+
+- create the first physical `ProcureFlow.xlsm` workbook;
+- establish the approved worksheet architecture;
+- implement the workbook navigation foundation;
+- establish configuration structure;
+- implement initial Data Validation and defined names;
+- establish workbook visual and protection conventions;
+- prepare the workbook for Phase 3 Power Query integration.
+
+No Phase 2 workbook functionality is considered implemented until it is created and validated with actual Excel evidence.
+
 ## Official Dataset
 
 Aerospace Supply Chain Performance & Forecasting
@@ -139,16 +161,14 @@ See:
 
 ## Next Immediate Step
 
-Begin Phase 2 — Workbook Foundation after creating the Phase 1 completion and version tags.
-
-Phase 2 must begin by reviewing the canonical Phase 1 handoff documentation.
+Create the first physical `workbook/ProcureFlow.xlsm` workbook and establish the approved Phase 2 worksheet foundation.
 
 ## Next Phase
 
-Phase 2 — Workbook Foundation
+Phase 3 — Power Query Pipeline
 
 Status: NOT STARTED
 
-Target Version: `v0.3.0`
+Target Version: `v0.4.0`
 
-Phase 2 must not be considered started until work begins on its dedicated phase branch.
+Phase 3 must not begin until Phase 2 satisfies its exit criteria and GitHub gate.
