@@ -179,13 +179,19 @@ See:
 
 ## Next Immediate Step
 
-Complete the remaining Phase 2 workbook-foundation work:
+Complete the Phase 2 GitHub Gate.
 
-- refine workbook-wide structural conventions;
-- validate worksheet architecture and navigation completeness;
-- complete the initial protection strategy;
-- review Phase 2 documentation and test evidence;
-- prepare Phase 2 closeout and GitHub Gate.
+Immediate work:
+
+- commit the final Phase 2 technical state;
+- publish `phase/02-workbook-foundation`;
+- create and review the Phase 2 Pull Request;
+- merge into `main`;
+- synchronize local `main`;
+- finalize canonical Phase 2 status;
+- publish `phase-2-complete`;
+- publish `v0.3.0`.
+
 ## Next Phase
 
 Phase 3 — Power Query Pipeline

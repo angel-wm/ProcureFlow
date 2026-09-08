@@ -778,6 +778,52 @@ The palette provides a professional aerospace / industrial character while avoid
 
 The following business-rule decisions are also part of the confirmed Phase 0 baseline.
 
+---
+
+## DEC-047 — Physical Date Worksheet
+
+**Status:** CONFIRMED
+
+**Decision:**
+
+ProcureFlow will include `16_DATA_Date` as a permanent physical worksheet in the workbook architecture.
+
+The worksheet is created during Phase 2 as a structural placeholder.
+
+The physical Date dimension and `tblDate` are not considered implemented until Phase 3 — Power Query Pipeline provides actual implementation and validation evidence.
+
+**Rationale:**
+
+Phase 1 formally validated `DimDate` as a required logical dimension.
+
+Reserving `16_DATA_Date` during Workbook Foundation provides a stable physical destination for the Date dimension and prepares the workbook for the approved Phase 3 Power Query architecture without prematurely implementing the data layer.
+
+---
+
+## DEC-048 — Incremental Workbook Protection
+
+**Status:** CONFIRMED
+
+**Decision:**
+
+Workbook protection will be introduced incrementally as worksheet responsibilities become stable.
+
+A worksheet will only be protected when its legitimate editable areas and protected structures are sufficiently understood.
+
+User-editable cells must remain unlocked and visually identifiable before worksheet protection is enabled.
+
+Protection will initially be used without passwords unless a later documented requirement justifies additional complexity.
+
+Workbook protection is treated as protection against accidental modification, not as a security boundary.
+
+**Rationale:**
+
+Prematurely protecting unfinished DATA, CALC, PivotTable, reporting or dashboard structures would create unnecessary development friction.
+
+Incremental protection preserves usability and allows each layer to be secured when its editing model is known.
+
+---
+
 ## Reporting Date
 
 A configurable Reporting Date determines the historical point of view used by relevant calculations.

@@ -904,12 +904,31 @@ Planned mandatory sheets:
 15. `40_RPT_Replenishment`
 16. `41_DASH_Management`
 
-Conditional / to-be-confirmed physical sheets:
+Planned mandatory sheets:
 
-- `16_DATA_Date`
+1. `00_HOME`
+2. `01_CONFIG`
+3. `02_CONTROL`
+4. `10_DATA_Products`
+5. `11_DATA_Sites`
+6. `12_DATA_Suppliers`
+7. `13_DATA_Inventory`
+8. `14_DATA_PurchaseOrders`
+9. `15_DATA_Quality`
+10. `16_DATA_Date`
+11. `20_CALC_Replenishment`
+12. `21_CALC_SupplierPerformance`
+13. `30_PVT_Inventory`
+14. `31_PVT_Procurement`
+15. `32_PVT_Suppliers`
+16. `40_RPT_Replenishment`
+17. `41_DASH_Management`
+
+Optional physical sheet:
+
 - `22_CALC_ForecastAccuracy`
 
-The architecture may be refined during implementation only through an explicit documented decision when the change is material.
+`16_DATA_Date` was confirmed as a permanent physical worksheet during Phase 2 through `DEC-047`.
 
 ---
 
@@ -1197,6 +1216,21 @@ Objectives:
 
 Protection is a usability safeguard, not a security boundary.
 
+Protection is implemented incrementally.
+
+A worksheet should only be protected once:
+
+- its intended editable cells are known;
+- legitimate inputs have been unlocked;
+- protected structures are sufficiently stable;
+- protection does not interfere with the current development phase.
+
+As of Phase 2, `01_CONFIG` is the first protected worksheet because its user-editable input range is explicitly defined as `B6:B12`.
+
+Other worksheet layers remain unprotected until their implementation responsibilities become sufficiently stable.
+
+See `DEC-048`.
+
 ---
 
 # 36. Workbook Visual Design System
@@ -1218,6 +1252,15 @@ Primary worksheet titles may use approximately:
 `16–18 pt Bold`
 
 Section headers use bold typography with approved section colors.
+
+The workbook `Normal` cell style is configured as:
+
+- Font: Aptos
+- Size: 11 pt
+
+This establishes the workbook-wide default without requiring worksheet-by-worksheet font configuration.
+
+Specialized title, header and status styles may override the Normal style where required.
 
 ## Core Palette
 

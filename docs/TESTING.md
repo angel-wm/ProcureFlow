@@ -881,7 +881,10 @@ They do not imply that Power Query, operational calculations, PivotTables, VBA, 
 | P2-WB-012 | Configuration Defined Names | Seven approved `cfg_*` workbook names exist | Names validated | PASS |
 | P2-WB-013 | Workbook visual conventions | Approved typography, palette and layer tab colors are applied | Visual foundation validated | PASS |
 | P2-WB-014 | Technical-sheet implementation boundary | Future-phase sheets contain no premature business implementation | Only Phase 2 placeholders present | PASS |
-
+| P2-WB-015 | Workbook-wide HOME navigation | Every non-HOME worksheet provides a return link to `00_HOME` | Return navigation validated across all 16 worksheets | PASS |
+| P2-WB-016 | Incremental protection boundary | Only worksheets with defined editable areas are protected | `01_CONFIG` protected; unfinished layers remain unprotected | PASS |
+| P2-WB-017 | Physical Date worksheet boundary | `16_DATA_Date` exists structurally without premature Date-dimension implementation | Placeholder exists; no `tblDate` or Power Query implementation present | PASS |
+| P2-WB-018 | Workbook default typography | Workbook Normal style uses Aptos 11 as the default font | Normal style configured as Aptos 11 | PASS |
 ---
 
 ## Phase 2 Workbook Foundation Evidence
@@ -902,6 +905,10 @@ Implemented and manually validated so far:
 - layer-based worksheet tab colors;
 - editable-input visual convention;
 - initial worksheet protection for `01_CONFIG`.
+- workbook-wide return navigation to `00_HOME`;
+- confirmed permanent `16_DATA_Date` physical worksheet;
+- incremental workbook-protection strategy.
+- Aptos 11 configured through the workbook Normal cell style.
 
 Not implemented in this evidence:
 
