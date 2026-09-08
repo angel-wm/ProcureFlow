@@ -2,15 +2,15 @@
 
 ## Document Status
 
-Status: COMPLETED — PHASE 1 TEST EVIDENCE
+Status: IN PROGRESS — PHASE 2 TEST EVIDENCE
 
 Current Phase:
 
-Phase 1 — Data Design
+Phase 2 — Workbook Foundation
 
 Target Version:
 
-`v0.2.0`
+`v0.3.0`
 
 Formal testing will continue throughout later ProcureFlow phases.
 
@@ -834,3 +834,94 @@ Phase 1 testing establishes confidence in:
 - source-supported integrity rules.
 
 It does not prove implementation of any Excel, Power Query or VBA component.
+
+---
+
+# Phase 2 — Workbook Foundation Test Evidence
+
+## Phase 2 Test Environment
+
+Target application:
+
+Microsoft Excel 365 Desktop for Windows.
+
+Workbook:
+
+`workbook/ProcureFlow.xlsm`
+
+Phase branch:
+
+`phase/02-workbook-foundation`
+
+Validation method:
+
+Manual workbook inspection and interaction in Microsoft Excel.
+
+The tests below validate only Workbook Foundation functionality implemented during Phase 2.
+
+They do not imply that Power Query, operational calculations, PivotTables, VBA, reporting logic or dashboard functionality has been implemented.
+
+---
+
+## Workbook Foundation Tests
+
+| Test ID | Test | Expected Result | Observed Result | Status |
+|---|---|---|---|---|
+| P2-WB-001 | Workbook opens normally | Workbook opens without errors or repair prompts | Workbook opened normally | PASS |
+| P2-WB-002 | Worksheet count | 17 worksheets | 17 worksheets | PASS |
+| P2-WB-003 | Worksheet architecture and order | Approved Phase 2 worksheet structure and order exists | Structure and order validated | PASS |
+| P2-WB-004 | HOME to Configuration navigation | Link opens `01_CONFIG` | Navigation successful | PASS |
+| P2-WB-005 | HOME to Quality Control navigation | Link opens `02_CONTROL` | Navigation successful | PASS |
+| P2-WB-006 | Configuration to HOME navigation | Link returns to `00_HOME` | Navigation successful | PASS |
+| P2-WB-007 | Reporting Date exposure | `00_HOME` displays configured Reporting Date | `23-Dec-2024` displayed | PASS |
+| P2-WB-008 | Demand History validation | Values below 1 are rejected | `0` rejected | PASS |
+| P2-WB-009 | Service Level validation | Values above 100% are rejected | `105%` rejected | PASS |
+| P2-WB-010 | Locked configuration labels | Locked cells cannot be edited | `01_CONFIG!A6` protected | PASS |
+| P2-WB-011 | Editable configuration inputs | `B6:B12` remain editable | Inputs editable | PASS |
+| P2-WB-012 | Configuration Defined Names | Seven approved `cfg_*` workbook names exist | Names validated | PASS |
+| P2-WB-013 | Workbook visual conventions | Approved typography, palette and layer tab colors are applied | Visual foundation validated | PASS |
+| P2-WB-014 | Technical-sheet implementation boundary | Future-phase sheets contain no premature business implementation | Only Phase 2 placeholders present | PASS |
+| P2-WB-015 | Workbook-wide HOME navigation | Every non-HOME worksheet provides a return link to `00_HOME` | Return navigation validated across all 16 worksheets | PASS |
+| P2-WB-016 | Incremental protection boundary | Only worksheets with defined editable areas are protected | `01_CONFIG` protected; unfinished layers remain unprotected | PASS |
+| P2-WB-017 | Physical Date worksheet boundary | `16_DATA_Date` exists structurally without premature Date-dimension implementation | Placeholder exists; no `tblDate` or Power Query implementation present | PASS |
+| P2-WB-018 | Workbook default typography | Workbook Normal style uses Aptos 11 as the default font | Normal style configured as Aptos 11 | PASS |
+---
+
+## Phase 2 Workbook Foundation Evidence
+
+Implemented and manually validated so far:
+
+- first physical `ProcureFlow.xlsm` workbook;
+- 17-sheet workbook architecture;
+- base HOME navigation;
+- central configuration worksheet;
+- seven controlled business parameters;
+- Data Validation for configuration inputs;
+- seven workbook-scoped `cfg_*` Defined Names;
+- Reporting Date exposure through `cfg_ReportingDate`;
+- initial Quality Control worksheet structure;
+- technical worksheet placeholders;
+- approved workbook visual design system;
+- layer-based worksheet tab colors;
+- editable-input visual convention;
+- initial worksheet protection for `01_CONFIG`.
+- workbook-wide return navigation to `00_HOME`;
+- confirmed permanent `16_DATA_Date` physical worksheet;
+- incremental workbook-protection strategy.
+- Aptos 11 configured through the workbook Normal cell style.
+
+Not implemented in this evidence:
+
+- Power Query ingestion;
+- final Excel data tables;
+- physical data model outputs;
+- operational calculation engine;
+- Quality Control logic;
+- PivotTables;
+- PivotCharts;
+- VBA;
+- refresh automation;
+- replenishment reporting logic;
+- management dashboard logic.
+
+These remain assigned to their respective roadmap phases.

@@ -896,20 +896,20 @@ Planned mandatory sheets:
 7. `13_DATA_Inventory`
 8. `14_DATA_PurchaseOrders`
 9. `15_DATA_Quality`
-10. `20_CALC_Replenishment`
-11. `21_CALC_SupplierPerformance`
-12. `30_PVT_Inventory`
-13. `31_PVT_Procurement`
-14. `32_PVT_Suppliers`
-15. `40_RPT_Replenishment`
-16. `41_DASH_Management`
+10. `16_DATA_Date`
+11. `20_CALC_Replenishment`
+12. `21_CALC_SupplierPerformance`
+13. `30_PVT_Inventory`
+14. `31_PVT_Procurement`
+15. `32_PVT_Suppliers`
+16. `40_RPT_Replenishment`
+17. `41_DASH_Management`
 
-Conditional / to-be-confirmed physical sheets:
+Optional physical sheet:
 
-- `16_DATA_Date`
 - `22_CALC_ForecastAccuracy`
 
-The architecture may be refined during implementation only through an explicit documented decision when the change is material.
+`16_DATA_Date` was confirmed as a permanent physical worksheet during Phase 2 through `DEC-047`.
 
 ---
 
@@ -1197,9 +1197,117 @@ Objectives:
 
 Protection is a usability safeguard, not a security boundary.
 
+Protection is implemented incrementally.
+
+A worksheet should only be protected once:
+
+- its intended editable cells are known;
+- legitimate inputs have been unlocked;
+- protected structures are sufficiently stable;
+- protection does not interfere with the current development phase.
+
+As of Phase 2, `01_CONFIG` is the first protected worksheet because its user-editable input range is explicitly defined as `B6:B12`.
+
+Other worksheet layers remain unprotected until their implementation responsibilities become sufficiently stable.
+
+See `DEC-048`.
+
 ---
 
-# 36. Performance Architecture
+# 36. Workbook Visual Design System
+
+ProcureFlow uses a controlled visual system rather than worksheet-by-worksheet arbitrary formatting.
+
+## Typography
+
+Default workbook font:
+
+`Aptos`
+
+Normal content:
+
+`11 pt`
+
+Primary worksheet titles may use approximately:
+
+`16–18 pt Bold`
+
+Section headers use bold typography with approved section colors.
+
+The workbook `Normal` cell style is configured as:
+
+- Font: Aptos
+- Size: 11 pt
+
+This establishes the workbook-wide default without requiring worksheet-by-worksheet font configuration.
+
+Specialized title, header and status styles may override the Normal style where required.
+
+## Core Palette
+
+| Purpose | HEX |
+|---|---|
+| Aerospace Navy | `#17324D` |
+| Steel Blue | `#356582` |
+| Operational Teal | `#2F7C7A` |
+| Section Background | `#DCE8F1` |
+| Technical Background | `#E9EEF2` |
+| Editable Input | `#FFF2CC` |
+| Dark Text | `#1F2933` |
+| White | `#FFFFFF` |
+| PASS | `#2E7D32` |
+| WARNING | `#C98200` |
+| FAIL | `#B3261E` |
+| Neutral | `#6B7280` |
+
+## Editable Input Convention
+
+User-editable configuration cells use:
+
+`#FFF2CC`
+
+This color means:
+
+user-controlled input.
+
+It must not be used indiscriminately for formulas or system outputs.
+
+## Worksheet Layer Identification
+
+Worksheet tabs use layer-based colors:
+
+| Layer | HEX |
+|---|---|
+| User / System | `#17324D` |
+| Data | `#356582` |
+| Calculations | `#2F7C7A` |
+| Analysis / PivotTables | `#6B7280` |
+| Reporting | `#C98200` |
+
+Tab color provides secondary orientation only.
+
+Worksheet names and numbering remain the primary architectural identifiers.
+
+## Gridlines
+
+Designed user-facing worksheets normally hide standard Excel gridlines.
+
+Technical sheets may retain or hide them according to usability needs established during implementation.
+
+## Accessibility
+
+Meaning must not depend exclusively on color.
+
+Important states must retain explicit text labels such as:
+
+- PASS
+- WARNING
+- FAIL
+- NOT EVALUATED
+
+Color is a supporting signal rather than the sole carrier of meaning.
+
+# 37. Performance Architecture
 
 The expected largest current table is historical inventory at approximately 280,800 rows.
 
@@ -1217,7 +1325,7 @@ Architecture changes for performance must preserve business-rule correctness and
 
 ---
 
-# 37. Power Pivot Position
+# 38. Power Pivot Position
 
 Power Pivot / Excel Data Model is:
 
@@ -1236,7 +1344,7 @@ If introduced, the decision must be documented in `DECISIONS.md`.
 
 ---
 
-# 38. Repository Architecture
+# 39. Repository Architecture
 
 Approved repository structure:
 
@@ -1284,7 +1392,7 @@ Raw dataset files are excluded from Git unless a future documented decision chan
 
 ---
 
-# 39. Git Architecture
+# 40. Git Architecture
 
 ## Main Branch
 
@@ -1322,7 +1430,7 @@ The GitHub gate requires:
 
 ---
 
-# 40. Phase Handoff Architecture
+# 41. Phase Handoff Architecture
 
 GitHub is the authoritative handoff mechanism between project-phase chats.
 
@@ -1338,7 +1446,7 @@ The new chat should not require a manually reconstructed summary of prior work.
 
 ---
 
-# 41. Documentation Architecture
+# 42. Documentation Architecture
 
 ## `PROJECT_SPEC.md`
 
@@ -1394,7 +1502,7 @@ Provides historical evidence of each completed phase.
 
 ---
 
-# 42. Architectural Change Control
+# 43. Architectural Change Control
 
 Material architectural changes must not occur silently.
 
@@ -1413,7 +1521,7 @@ Such changes require an explicit entry in `DECISIONS.md`.
 
 ---
 
-# 43. Current Architecture Status
+# 44. Current Architecture Status
 
 Confirmed:
 

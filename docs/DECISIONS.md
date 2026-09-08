@@ -724,9 +724,99 @@ The validated Inventory History uses Monday-based weekly periods.
 ISO 8601 provides an established Monday-based week convention and avoids ambiguous week-number interpretation across year boundaries.
 
 ---
-# 3. Confirmed Replenishment Policy
 
-The following business-rule decisions are also part of the confirmed Phase 0 baseline.
+## DEC-046 — Workbook Visual System and Layer Color Convention
+
+**Status:** CONFIRMED
+
+**Decision:**
+
+ProcureFlow will use a consistent workbook visual system based on an aerospace / industrial business aesthetic.
+
+The approved core palette is:
+
+| Purpose | HEX |
+|---|---|
+| Primary / Aerospace Navy | `#17324D` |
+| Secondary / Steel Blue | `#356582` |
+| Operational Teal | `#2F7C7A` |
+| Section Background | `#DCE8F1` |
+| Technical Background | `#E9EEF2` |
+| Editable Input | `#FFF2CC` |
+| Primary Dark Text | `#1F2933` |
+| White | `#FFFFFF` |
+| PASS | `#2E7D32` |
+| WARNING | `#C98200` |
+| FAIL | `#B3261E` |
+| Neutral Status | `#6B7280` |
+
+Worksheet-layer tab colors will follow:
+
+- User / System → `#17324D`
+- Data → `#356582`
+- Calculation → `#2F7C7A`
+- Analysis / PivotTables → `#6B7280`
+- Reporting → `#C98200`
+
+Editable configuration cells will use `#FFF2CC` to distinguish legitimate user inputs from formulas and system outputs.
+
+Aptos is the default workbook typeface.
+
+Important status information must not depend on color alone; textual labels such as PASS, WARNING and FAIL remain required.
+
+User-facing worksheets should normally hide worksheet gridlines once their designed layout is established.
+
+**Rationale:**
+
+A consistent visual system improves usability, layer recognition, input identification and portfolio-quality presentation.
+
+The palette provides a professional aerospace / industrial character while avoiding decorative complexity and preserving the project's accessibility requirement.
+
+---
+
+## DEC-047 — Physical Date Worksheet
+
+**Status:** CONFIRMED
+
+**Decision:**
+
+ProcureFlow will include `16_DATA_Date` as a permanent physical worksheet in the workbook architecture.
+
+The worksheet is created during Phase 2 as a structural placeholder.
+
+The physical Date dimension and `tblDate` are not considered implemented until Phase 3 — Power Query Pipeline provides actual implementation and validation evidence.
+
+**Rationale:**
+
+Phase 1 formally validated `DimDate` as a required logical dimension.
+
+Reserving `16_DATA_Date` during Workbook Foundation provides a stable physical destination for the Date dimension and prepares the workbook for the approved Phase 3 Power Query architecture without prematurely implementing the data layer.
+
+---
+
+## DEC-048 — Incremental Workbook Protection
+
+**Status:** CONFIRMED
+
+**Decision:**
+
+Workbook protection will be introduced incrementally as worksheet responsibilities become stable.
+
+A worksheet will only be protected when its legitimate editable areas and protected structures are sufficiently understood.
+
+User-editable cells must remain unlocked and visually identifiable before worksheet protection is enabled.
+
+Protection will initially be used without passwords unless a later documented requirement justifies additional complexity.
+
+Workbook protection is treated as protection against accidental modification, not as a security boundary.
+
+**Rationale:**
+
+Prematurely protecting unfinished DATA, CALC, PivotTable, reporting or dashboard structures would create unnecessary development friction.
+
+Incremental protection preserves usability and allows each layer to be secured when its editing model is known.
+
+---
 
 ## Reporting Date
 

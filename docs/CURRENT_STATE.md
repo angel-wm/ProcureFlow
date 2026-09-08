@@ -10,9 +10,15 @@ v0.2.0
 
 ## Current Phase
 
-Phase 1 — Data Design
+Phase 2 — Workbook Foundation
 
-Status: COMPLETED
+Status: IN PROGRESS
+
+Target Version: `v0.3.0`
+
+Phase Branch:
+
+`phase/02-workbook-foundation`
 
 ## Last Completed Phase
 
@@ -96,6 +102,40 @@ Current maximum Inventory Reporting Date:
 
 `2024-12-23`
 
+## Phase 2 Progress
+
+Phase 2 — Workbook Foundation is now in progress.
+
+Current work:
+
+- create the first physical `ProcureFlow.xlsm` workbook;
+- establish the approved worksheet architecture;
+- implement the workbook navigation foundation;
+- establish configuration structure;
+- implement initial Data Validation and defined names;
+- establish workbook visual and protection conventions;
+- prepare the workbook for Phase 3 Power Query integration.
+
+Implemented and manually validated in Phase 2 so far:
+
+- first physical `workbook/ProcureFlow.xlsm`;
+- 17-sheet physical workbook architecture;
+- `00_HOME` navigation foundation;
+- `01_CONFIG` business-parameter structure;
+- seven Data Validation-controlled configuration inputs;
+- seven workbook-scoped `cfg_*` Defined Names;
+- Reporting Date exposure on `00_HOME`;
+- `02_CONTROL` structural foundation;
+- technical-sheet placeholders for later roadmap phases;
+- approved workbook visual design system;
+- layer-based worksheet tab colors;
+- editable-input visual convention;
+- initial worksheet protection for `01_CONFIG`.
+
+This evidence represents Workbook Foundation functionality only.
+
+Power Query, operational calculations, Quality Control logic, PivotTables, VBA, reporting logic and dashboard logic remain pending for later roadmap phases.
+
 ## Official Dataset
 
 Aerospace Supply Chain Performance & Forecasting
@@ -139,16 +179,26 @@ See:
 
 ## Next Immediate Step
 
-Begin Phase 2 — Workbook Foundation after creating the Phase 1 completion and version tags.
+Complete the Phase 2 GitHub Gate.
 
-Phase 2 must begin by reviewing the canonical Phase 1 handoff documentation.
+Immediate work:
+
+- commit the final Phase 2 technical state;
+- publish `phase/02-workbook-foundation`;
+- create and review the Phase 2 Pull Request;
+- merge into `main`;
+- synchronize local `main`;
+- finalize canonical Phase 2 status;
+- publish `phase-2-complete`;
+- publish `v0.3.0`.
 
 ## Next Phase
 
-Phase 2 — Workbook Foundation
+Phase 3 — Power Query Pipeline
 
 Status: NOT STARTED
 
-Target Version: `v0.3.0`
+Target Version: `v0.4.0`
 
-Phase 2 must not be considered started until work begins on its dedicated phase branch.
+Phase 3 must not begin until Phase 2 satisfies its exit criteria and GitHub gate.
+
