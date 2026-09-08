@@ -6,15 +6,15 @@ IN DEVELOPMENT
 
 ## Current Version
 
-v0.2.0
+v0.3.0
 
 ## Current Phase
 
 Phase 2 — Workbook Foundation
 
-Status: IN PROGRESS
+Status: COMPLETED
 
-Target Version: `v0.3.0`
+Version: `v0.3.0`
 
 Phase Branch:
 
@@ -22,21 +22,33 @@ Phase Branch:
 
 ## Last Completed Phase
 
-Phase 1 — Data Design
+Phase 2 — Workbook Foundation
 
-Version: `v0.2.0`
+Version: `v0.3.0`
 
-GitHub Pull Request: `#2 — Phase 1 — Data Design`
+GitHub Pull Request:
 
-Merge Commit: `36da5ac`
+`#3 — Phase 2 — Workbook Foundation`
 
-Phase Tag: `phase-1-complete`
+Pull Request Status:
 
-Version Tag: `v0.2.0`
+MERGED
+
+Merge Commit:
+
+`bf9dcb8`
+
+Phase Tag:
+
+`phase-2-complete`
+
+Version Tag:
+
+`v0.3.0`
 
 ## Implemented
 
-Project governance and formal data-design baseline.
+ProcureFlow currently includes the completed project-design, data-design and Workbook Foundation baselines.
 
 Implemented project assets include:
 
@@ -50,15 +62,51 @@ Implemented project assets include:
 - logical dimension/fact model;
 - Date dimension design;
 - source-supported data-quality rules;
-- Phase 1 validation evidence.
+- Phase 1 validation evidence;
+- physical `workbook/ProcureFlow.xlsm`;
+- approved 17-sheet physical workbook architecture;
+- `00_HOME` navigation foundation;
+- workbook-wide return navigation;
+- `01_CONFIG` business-parameter structure;
+- seven Data Validation-controlled configuration inputs;
+- seven workbook-scoped `cfg_*` Defined Names;
+- Reporting Date exposure;
+- `02_CONTROL` structural foundation;
+- technical-sheet placeholders;
+- permanent `16_DATA_Date` physical worksheet placeholder;
+- approved workbook visual design system;
+- layer-based worksheet tab colors;
+- editable-input visual convention;
+- Aptos 11 workbook Normal style;
+- incremental worksheet protection for `01_CONFIG`;
+- Phase 2 Workbook Foundation validation evidence.
 
-No Excel workbook functionality has been implemented yet.
+## Not Yet Implemented
 
-No Power Query queries, formulas, PivotTables, VBA procedures, automation, operational reports or dashboards are considered implemented.
+The following remain assigned to later roadmap phases:
+
+- Power Query ingestion and preparation;
+- final structured DATA tables;
+- physical Date-dimension data;
+- operational replenishment model;
+- supplier-performance calculations;
+- business formulas;
+- Quality Control logic;
+- PivotTables;
+- PivotCharts;
+- Slicers;
+- Timelines;
+- VBA;
+- macros;
+- refresh automation;
+- replenishment-report logic;
+- management-dashboard logic.
+
+No future-phase component is considered implemented without actual implementation and validation evidence.
 
 ## Phase 1 Completion
 
-Phase 1 formally validated the four official source files and established the logical data model required for workbook construction.
+Phase 1 established the validated logical data model.
 
 Confirmed source populations:
 
@@ -77,7 +125,6 @@ Validated structure:
 
 - 1,800 Product × Site combinations;
 - 156 weeks per Product × Site;
-- 156 distinct weekly dates;
 - all weekly dates are Mondays;
 - historical range: 2022-01-03 through 2024-12-23.
 
@@ -102,39 +149,34 @@ Current maximum Inventory Reporting Date:
 
 `2024-12-23`
 
-## Phase 2 Progress
+## Phase 2 Completion
 
-Phase 2 — Workbook Foundation is now in progress.
+Phase 2 established the first physical ProcureFlow workbook and completed the Workbook Foundation required for Power Query integration.
 
-Current work:
+Validated Phase 2 outcomes include:
 
-- create the first physical `ProcureFlow.xlsm` workbook;
-- establish the approved worksheet architecture;
-- implement the workbook navigation foundation;
-- establish configuration structure;
-- implement initial Data Validation and defined names;
-- establish workbook visual and protection conventions;
-- prepare the workbook for Phase 3 Power Query integration.
+- macro-enabled physical workbook;
+- 17-sheet physical architecture;
+- layer and sheet-order conventions;
+- base navigation;
+- configuration architecture;
+- controlled editable inputs;
+- Data Validation;
+- workbook-scoped configuration names;
+- visual system;
+- workbook typography;
+- protection strategy;
+- future-phase implementation boundaries.
 
-Implemented and manually validated in Phase 2 so far:
+Phase 2 Pull Request:
 
-- first physical `workbook/ProcureFlow.xlsm`;
-- 17-sheet physical workbook architecture;
-- `00_HOME` navigation foundation;
-- `01_CONFIG` business-parameter structure;
-- seven Data Validation-controlled configuration inputs;
-- seven workbook-scoped `cfg_*` Defined Names;
-- Reporting Date exposure on `00_HOME`;
-- `02_CONTROL` structural foundation;
-- technical-sheet placeholders for later roadmap phases;
-- approved workbook visual design system;
-- layer-based worksheet tab colors;
-- editable-input visual convention;
-- initial worksheet protection for `01_CONFIG`.
+`#3 — Phase 2 — Workbook Foundation`
 
-This evidence represents Workbook Foundation functionality only.
+Merge Commit:
 
-Power Query, operational calculations, Quality Control logic, PivotTables, VBA, reporting logic and dashboard logic remain pending for later roadmap phases.
+`bf9dcb8`
+
+Phase 2 completed without introducing Phase 3 or later business functionality prematurely.
 
 ## Official Dataset
 
@@ -151,7 +193,7 @@ The files are stored locally in:
 
 `data/raw/`
 
-and are excluded from Git.
+and remain excluded from Git.
 
 ## Known Issues
 
@@ -163,13 +205,17 @@ Known source characteristic:
 
 ## Relevant Decisions
 
-Confirmed decisions through Phase 0:
+Confirmed through Phase 0:
 
 `DEC-001` through `DEC-041`
 
 Confirmed during Phase 1:
 
 `DEC-042` through `DEC-045`
+
+Confirmed during Phase 2:
+
+`DEC-046` through `DEC-048`
 
 No decisions are currently marked SUPERSEDED.
 
@@ -179,18 +225,20 @@ See:
 
 ## Next Immediate Step
 
-Complete the Phase 2 GitHub Gate.
+Begin Phase 3 — Power Query Pipeline through its dedicated phase workflow.
 
-Immediate work:
+Before Phase 3 implementation begins, review the canonical Phase 2 handoff:
 
-- commit the final Phase 2 technical state;
-- publish `phase/02-workbook-foundation`;
-- create and review the Phase 2 Pull Request;
-- merge into `main`;
-- synchronize local `main`;
-- finalize canonical Phase 2 status;
-- publish `phase-2-complete`;
-- publish `v0.3.0`.
+1. `docs/CURRENT_STATE.md`
+2. `docs/phases/PHASE_02_CLOSEOUT.md`
+3. `docs/ROADMAP.md`
+4. `docs/PROJECT_SPEC.md`
+5. `docs/ARCHITECTURE.md`
+6. `docs/DECISIONS.md`
+7. `docs/DATA_DICTIONARY.md`
+8. `docs/TESTING.md`
+
+Phase 3 must use a dedicated phase branch and must not modify the approved Phase 2 baseline silently.
 
 ## Next Phase
 
@@ -199,6 +247,3 @@ Phase 3 — Power Query Pipeline
 Status: NOT STARTED
 
 Target Version: `v0.4.0`
-
-Phase 3 must not begin until Phase 2 satisfies its exit criteria and GitHub gate.
-

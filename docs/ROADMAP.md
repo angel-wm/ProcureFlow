@@ -5,8 +5,8 @@
 Status: CONFIRMED
 Project State: IN DEVELOPMENT
 Current Phase: Phase 2 — Workbook Foundation
-Current Phase Status: IN PROGRESS
-Target Phase 2 Version: v0.3.0
+Current Phase Status: COMPLETED
+Current Released Version: v0.3.0
 
 This roadmap defines the approved sequential development plan for ProcureFlow.
 
@@ -291,7 +291,7 @@ v0.2.0
 
 ## Status
 
-IN PROGRESS
+COMPLETED
 
 ## Target Version
 
@@ -1187,8 +1187,8 @@ v1.0.0
 | Phase | Name | Status | Target Version |
 |---:|---|---|---|
 | 0 | Project Design | COMPLETED | v0.1.0 |
-| 1 | Data Design | NOT STARTED | v0.2.0 |
-| 2 | Workbook Foundation | NOT STARTED | v0.3.0 |
+| 1 | Data Design | COMPLETED | v0.2.0 |
+| 2 | Workbook Foundation | COMPLETED | v0.3.0 |
 | 3 | Power Query Pipeline | NOT STARTED | v0.4.0 |
 | 4 | Operational Model | NOT STARTED | v0.5.0 |
 | 5 | Business Logic & Advanced Formulas | NOT STARTED | v0.6.0 |
@@ -1204,11 +1204,10 @@ v1.0.0
 
 # 17. Current Immediate Next Step
 
-Complete Phase 0.9:
+Phase 2 — Workbook Foundation is COMPLETED at `v0.3.0`.
 
-Canonical Documents & Phase 0 Publication.
+The next authorized phase is:
 
-After Phase 0 passes its GitHub gate, the next authorized phase will be:
+Phase 3 — Power Query Pipeline.
 
-Phase 1 — Data Design.
-
+Phase 3 must begin from the canonical Phase 2 handoff and use its dedicated phase branch.

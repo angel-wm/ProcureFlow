@@ -3,9 +3,10 @@
 ## Document Status
 
 Status: CONFIRMED
-Project State: PRE-PROJECT
-Current Phase: Phase 0 — Project Design
-Target Phase 0 Version: v0.1.0
+Project State: IN DEVELOPMENT
+Current Phase: Phase 2 — Workbook Foundation
+Current Phase Status: COMPLETED
+Current Released Version: v0.3.0
 
 This document records material project decisions that affect ProcureFlow scope, architecture, business rules, implementation strategy, governance or release management.
 

@@ -6,7 +6,7 @@ Phase 2 — Workbook Foundation
 
 ## Status
 
-READY FOR GITHUB GATE
+COMPLETED
 
 ## Target Version
 
@@ -369,7 +369,7 @@ Confirmed:
 
 Technical Phase 2 work is complete.
 
-Formal phase completion remains subject to the GitHub Gate.
+Phase 2 is formally completed after satisfying its technical, validation and GitHub publication gate.
 
 ## Git Evidence
 
@@ -387,35 +387,42 @@ Phase Pull Request:
 
 Pull Request status:
 
-OPEN
+MERGED
 
 Merge commit:
 
-PENDING
+`bf9dcb8`
 
 Phase completion tag:
 
-`phase-2-complete` — PENDING
+`phase-2-complete`
 
 Version tag:
 
-`v0.3.0` — PENDING
+`v0.3.0`
 
 ## GitHub Gate
 
-Pending steps:
+Status:
 
-1. commit the Phase 2 closeout state;
-2. confirm a clean Phase 2 branch;
-3. publish `phase/02-workbook-foundation`;
-4. create the Phase 2 Pull Request;
-5. review the phase diff and validation evidence;
-6. merge the Pull Request into `main`;
-7. synchronize local `main`;
-8. finalize canonical Phase 2 status;
-9. create `phase-2-complete`;
-10. create `v0.3.0`;
-11. publish the final tags.
+COMPLETED
+
+Completed steps:
+
+1. Phase 2 technical work completed;
+2. Phase 2 validation evidence completed;
+3. Phase 2 closeout prepared;
+4. `phase/02-workbook-foundation` published;
+5. Pull Request `#3 — Phase 2 — Workbook Foundation` created;
+6. Pull Request diff and phase evidence reviewed;
+7. review findings corrected;
+8. Pull Request merged into `main`;
+9. local `main` synchronized;
+10. canonical Phase 2 status finalized;
+11. `phase-2-complete` published;
+12. `v0.3.0` published.
+
+Phase 2 is formally completed.
 
 ## Next Phase
 
@@ -429,7 +436,7 @@ Target Version:
 
 `v0.4.0`
 
-Phase 3 must not begin until Phase 2 completes its GitHub Gate.
+Phase 2 has completed its GitHub Gate. Phase 3 — Power Query Pipeline is the next authorized phase.
 
 ## Phase 3 Handoff
 

@@ -2,7 +2,7 @@
 
 ProcureFlow is an Excel-based Procurement & Inventory Management System.
 
-The project is currently in **Phase 2 — Workbook Foundation**. The current released version is `v0.2.0`, and Phase 2 is targeting `v0.3.0`.
+The project has completed **Phase 2 — Workbook Foundation**. The current released version is `v0.3.0`. The next planned phase is **Phase 3 — Power Query Pipeline**.
 
 ## Planned Stack
 
