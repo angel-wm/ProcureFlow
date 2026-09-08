@@ -656,37 +656,51 @@ Target branch:
 
 Phase Pull Request:
 
-PENDING
+`#2 — Phase 1 — Data Design`
+
+Pull Request status:
+
+MERGED
 
 Merge commit:
 
-PENDING
+`36da5ac`
+
+Final Phase 1 commit:
+
+`2f07bb1`
 
 Phase completion tag:
 
-`phase-1-complete` — PENDING
+`phase-1-complete`
 
 Version tag:
 
-`v0.2.0` — PENDING
+`v0.2.0`
 
-The phase must not be marked COMPLETED until the required GitHub workflow is finished.
+The required Phase 1 GitHub workflow was completed successfully.
 
 ## GitHub Gate
 
-Pending steps:
+Status:
 
-1. commit this Phase 1 closeout;
-2. confirm a clean Phase 1 branch;
-3. publish `phase/01-data-design`;
-4. create the Phase 1 Pull Request;
-5. review the branch diff and phase evidence;
-6. merge the Pull Request into `main`;
-7. synchronize local `main`;
-8. finalize canonical phase status;
-9. create the Phase 1 completion tag;
-10. create the `v0.2.0` version tag;
-11. publish the final tags.
+COMPLETED
+
+Completed steps:
+
+1. Phase 1 closeout committed;
+2. Phase 1 branch validated;
+3. `phase/01-data-design` published;
+4. Pull Request `#2 — Phase 1 — Data Design` created;
+5. branch diff and Phase 1 evidence reviewed;
+6. Pull Request merged into `main`;
+7. local `main` synchronized;
+8. canonical Phase 1 status finalized;
+9. `phase-1-complete` tag created;
+10. `v0.2.0` version tag created;
+11. final tags published.
+
+Phase 1 is formally completed.
 
 ## Next Phase
 
