@@ -116,7 +116,25 @@ Current work:
 - establish workbook visual and protection conventions;
 - prepare the workbook for Phase 3 Power Query integration.
 
-No Phase 2 workbook functionality is considered implemented until it is created and validated with actual Excel evidence.
+Implemented and manually validated in Phase 2 so far:
+
+- first physical `workbook/ProcureFlow.xlsm`;
+- 17-sheet physical workbook architecture;
+- `00_HOME` navigation foundation;
+- `01_CONFIG` business-parameter structure;
+- seven Data Validation-controlled configuration inputs;
+- seven workbook-scoped `cfg_*` Defined Names;
+- Reporting Date exposure on `00_HOME`;
+- `02_CONTROL` structural foundation;
+- technical-sheet placeholders for later roadmap phases;
+- approved workbook visual design system;
+- layer-based worksheet tab colors;
+- editable-input visual convention;
+- initial worksheet protection for `01_CONFIG`.
+
+This evidence represents Workbook Foundation functionality only.
+
+Power Query, operational calculations, Quality Control logic, PivotTables, VBA, reporting logic and dashboard logic remain pending for later roadmap phases.
 
 ## Official Dataset
 
@@ -161,8 +179,13 @@ See:
 
 ## Next Immediate Step
 
-Create the first physical `workbook/ProcureFlow.xlsm` workbook and establish the approved Phase 2 worksheet foundation.
+Complete the remaining Phase 2 workbook-foundation work:
 
+- refine workbook-wide structural conventions;
+- validate worksheet architecture and navigation completeness;
+- complete the initial protection strategy;
+- review Phase 2 documentation and test evidence;
+- prepare Phase 2 closeout and GitHub Gate.
 ## Next Phase
 
 Phase 3 — Power Query Pipeline
@@ -172,3 +195,4 @@ Status: NOT STARTED
 Target Version: `v0.4.0`
 
 Phase 3 must not begin until Phase 2 satisfies its exit criteria and GitHub gate.
+

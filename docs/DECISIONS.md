@@ -724,6 +724,56 @@ The validated Inventory History uses Monday-based weekly periods.
 ISO 8601 provides an established Monday-based week convention and avoids ambiguous week-number interpretation across year boundaries.
 
 ---
+
+## DEC-046 — Workbook Visual System and Layer Color Convention
+
+**Status:** CONFIRMED
+
+**Decision:**
+
+ProcureFlow will use a consistent workbook visual system based on an aerospace / industrial business aesthetic.
+
+The approved core palette is:
+
+| Purpose | HEX |
+|---|---|
+| Primary / Aerospace Navy | `#17324D` |
+| Secondary / Steel Blue | `#356582` |
+| Operational Teal | `#2F7C7A` |
+| Section Background | `#DCE8F1` |
+| Technical Background | `#E9EEF2` |
+| Editable Input | `#FFF2CC` |
+| Primary Dark Text | `#1F2933` |
+| White | `#FFFFFF` |
+| PASS | `#2E7D32` |
+| WARNING | `#C98200` |
+| FAIL | `#B3261E` |
+| Neutral Status | `#6B7280` |
+
+Worksheet-layer tab colors will follow:
+
+- User / System → `#17324D`
+- Data → `#356582`
+- Calculation → `#2F7C7A`
+- Analysis / PivotTables → `#6B7280`
+- Reporting → `#C98200`
+
+Editable configuration cells will use `#FFF2CC` to distinguish legitimate user inputs from formulas and system outputs.
+
+Aptos is the default workbook typeface.
+
+Important status information must not depend on color alone; textual labels such as PASS, WARNING and FAIL remain required.
+
+User-facing worksheets should normally hide worksheet gridlines once their designed layout is established.
+
+**Rationale:**
+
+A consistent visual system improves usability, layer recognition, input identification and portfolio-quality presentation.
+
+The palette provides a professional aerospace / industrial character while avoiding decorative complexity and preserving the project's accessibility requirement.
+
+---
+
 # 3. Confirmed Replenishment Policy
 
 The following business-rule decisions are also part of the confirmed Phase 0 baseline.

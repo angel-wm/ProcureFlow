@@ -1199,7 +1199,91 @@ Protection is a usability safeguard, not a security boundary.
 
 ---
 
-# 36. Performance Architecture
+# 36. Workbook Visual Design System
+
+ProcureFlow uses a controlled visual system rather than worksheet-by-worksheet arbitrary formatting.
+
+## Typography
+
+Default workbook font:
+
+`Aptos`
+
+Normal content:
+
+`11 pt`
+
+Primary worksheet titles may use approximately:
+
+`16–18 pt Bold`
+
+Section headers use bold typography with approved section colors.
+
+## Core Palette
+
+| Purpose | HEX |
+|---|---|
+| Aerospace Navy | `#17324D` |
+| Steel Blue | `#356582` |
+| Operational Teal | `#2F7C7A` |
+| Section Background | `#DCE8F1` |
+| Technical Background | `#E9EEF2` |
+| Editable Input | `#FFF2CC` |
+| Dark Text | `#1F2933` |
+| White | `#FFFFFF` |
+| PASS | `#2E7D32` |
+| WARNING | `#C98200` |
+| FAIL | `#B3261E` |
+| Neutral | `#6B7280` |
+
+## Editable Input Convention
+
+User-editable configuration cells use:
+
+`#FFF2CC`
+
+This color means:
+
+user-controlled input.
+
+It must not be used indiscriminately for formulas or system outputs.
+
+## Worksheet Layer Identification
+
+Worksheet tabs use layer-based colors:
+
+| Layer | HEX |
+|---|---|
+| User / System | `#17324D` |
+| Data | `#356582` |
+| Calculations | `#2F7C7A` |
+| Analysis / PivotTables | `#6B7280` |
+| Reporting | `#C98200` |
+
+Tab color provides secondary orientation only.
+
+Worksheet names and numbering remain the primary architectural identifiers.
+
+## Gridlines
+
+Designed user-facing worksheets normally hide standard Excel gridlines.
+
+Technical sheets may retain or hide them according to usability needs established during implementation.
+
+## Accessibility
+
+Meaning must not depend exclusively on color.
+
+Important states must retain explicit text labels such as:
+
+- PASS
+- WARNING
+- FAIL
+- NOT EVALUATED
+
+Color is a supporting signal rather than the sole carrier of meaning.
+
+# 37. Performance Architecture
 
 The expected largest current table is historical inventory at approximately 280,800 rows.
 
@@ -1217,7 +1301,7 @@ Architecture changes for performance must preserve business-rule correctness and
 
 ---
 
-# 37. Power Pivot Position
+# 38. Power Pivot Position
 
 Power Pivot / Excel Data Model is:
 
@@ -1236,7 +1320,7 @@ If introduced, the decision must be documented in `DECISIONS.md`.
 
 ---
 
-# 38. Repository Architecture
+# 39. Repository Architecture
 
 Approved repository structure:
 
@@ -1284,7 +1368,7 @@ Raw dataset files are excluded from Git unless a future documented decision chan
 
 ---
 
-# 39. Git Architecture
+# 40. Git Architecture
 
 ## Main Branch
 
@@ -1322,7 +1406,7 @@ The GitHub gate requires:
 
 ---
 
-# 40. Phase Handoff Architecture
+# 41. Phase Handoff Architecture
 
 GitHub is the authoritative handoff mechanism between project-phase chats.
 
@@ -1338,7 +1422,7 @@ The new chat should not require a manually reconstructed summary of prior work.
 
 ---
 
-# 41. Documentation Architecture
+# 42. Documentation Architecture
 
 ## `PROJECT_SPEC.md`
 
@@ -1394,7 +1478,7 @@ Provides historical evidence of each completed phase.
 
 ---
 
-# 42. Architectural Change Control
+# 43. Architectural Change Control
 
 Material architectural changes must not occur silently.
 
@@ -1413,7 +1497,7 @@ Such changes require an explicit entry in `DECISIONS.md`.
 
 ---
 
-# 43. Current Architecture Status
+# 44. Current Architecture Status
 
 Confirmed:
 
