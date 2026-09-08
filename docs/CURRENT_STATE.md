@@ -10,15 +10,15 @@ v0.3.0
 
 ## Current Phase
 
-Phase 2 — Workbook Foundation
+Phase 3 — Power Query Pipeline
 
-Status: COMPLETED
+Status: IN PROGRESS
 
-Version: `v0.3.0`
+Target Version: `v0.4.0`
 
 Phase Branch:
 
-`phase/02-workbook-foundation`
+`phase/03-power-query-pipeline`
 
 ## Last Completed Phase
 
@@ -178,6 +178,26 @@ Merge Commit:
 
 Phase 2 completed without introducing Phase 3 or later business functionality prematurely.
 
+## Phase 3 Progress
+
+Phase 3 — Power Query Pipeline is now in progress.
+
+Current work:
+
+- define and document the Power Query source-path strategy;
+- implement `src_*` source-access queries;
+- implement `stg_*` staging queries;
+- assign explicit data types;
+- apply objective and reproducible cleansing;
+- implement Product, Site, Supplier and Date dimensions;
+- implement Inventory, Purchase Order and Quality fact outputs;
+- configure query load behavior and Connection Only queries;
+- load required final structured Excel Tables;
+- validate Refresh and row-count reconciliation;
+- document Phase 3 implementation and test evidence.
+
+No Phase 3 Power Query component is considered implemented until it is created and validated with actual Excel and Refresh evidence.
+
 ## Official Dataset
 
 Aerospace Supply Chain Performance & Forecasting
@@ -225,25 +245,16 @@ See:
 
 ## Next Immediate Step
 
-Begin Phase 3 — Power Query Pipeline through its dedicated phase workflow.
+Define the Phase 3 Power Query source-path strategy before implementing the first source query.
 
-Before Phase 3 implementation begins, review the canonical Phase 2 handoff:
-
-1. `docs/CURRENT_STATE.md`
-2. `docs/phases/PHASE_02_CLOSEOUT.md`
-3. `docs/ROADMAP.md`
-4. `docs/PROJECT_SPEC.md`
-5. `docs/ARCHITECTURE.md`
-6. `docs/DECISIONS.md`
-7. `docs/DATA_DICTIONARY.md`
-8. `docs/TESTING.md`
-
-Phase 3 must use a dedicated phase branch and must not modify the approved Phase 2 baseline silently.
+Phase 3 implementation must preserve the approved Phase 2 workbook architecture and the validated Phase 1 source-to-target data design.
 
 ## Next Phase
 
-Phase 3 — Power Query Pipeline
+Phase 4 — Operational Model
 
 Status: NOT STARTED
 
-Target Version: `v0.4.0`
+Target Version: `v0.5.0`
+
+Phase 4 must not begin until Phase 3 satisfies its exit criteria and GitHub gate.
