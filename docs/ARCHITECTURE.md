@@ -896,25 +896,6 @@ Planned mandatory sheets:
 7. `13_DATA_Inventory`
 8. `14_DATA_PurchaseOrders`
 9. `15_DATA_Quality`
-10. `20_CALC_Replenishment`
-11. `21_CALC_SupplierPerformance`
-12. `30_PVT_Inventory`
-13. `31_PVT_Procurement`
-14. `32_PVT_Suppliers`
-15. `40_RPT_Replenishment`
-16. `41_DASH_Management`
-
-Planned mandatory sheets:
-
-1. `00_HOME`
-2. `01_CONFIG`
-3. `02_CONTROL`
-4. `10_DATA_Products`
-5. `11_DATA_Sites`
-6. `12_DATA_Suppliers`
-7. `13_DATA_Inventory`
-8. `14_DATA_PurchaseOrders`
-9. `15_DATA_Quality`
 10. `16_DATA_Date`
 11. `20_CALC_Replenishment`
 12. `21_CALC_SupplierPerformance`

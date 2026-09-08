@@ -774,12 +774,6 @@ The palette provides a professional aerospace / industrial character while avoid
 
 ---
 
-# 3. Confirmed Replenishment Policy
-
-The following business-rule decisions are also part of the confirmed Phase 0 baseline.
-
----
-
 ## DEC-047 — Physical Date Worksheet
 
 **Status:** CONFIRMED

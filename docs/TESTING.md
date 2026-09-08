@@ -2,7 +2,7 @@
 
 ## Document Status
 
-Status: Status: IN PROGRESS — PHASE 2 TEST EVIDENCE
+Status: IN PROGRESS — PHASE 2 TEST EVIDENCE
 
 Current Phase:
 

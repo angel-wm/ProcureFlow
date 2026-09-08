@@ -383,7 +383,11 @@ Target branch:
 
 Phase Pull Request:
 
-PENDING
+`#3 — Phase 2 — Workbook Foundation`
+
+Pull Request status:
+
+OPEN
 
 Merge commit:
 
