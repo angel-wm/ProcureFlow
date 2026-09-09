@@ -10,15 +10,15 @@ v0.4.1
 
 ## Current Phase
 
-Phase 3 — Power Query Pipeline
+Phase 4 — Operational Model
 
-Status: COMPLETED
+Status: IN PROGRESS
 
-Version: `v0.4.0`
+Target Version: `v0.5.0`
 
 Phase Branch:
 
-`phase/03-power-query-pipeline`
+`phase/04-operational-model`
 
 ## Last Completed Phase
 
@@ -228,6 +228,27 @@ Version Tag:
 `v0.4.0`
 
 Phase 3 completed without introducing Phase 4 operational-model logic prematurely.
+## Phase 4 Progress
+
+Phase 4 — Operational Model is now in progress.
+
+Current work:
+
+- define the Product × Site operational grain;
+- design the `tblReplenishment` structural model;
+- design the `tblSupplierPerformance` structural model;
+- expose Reporting Date-dependent operational inputs;
+- expose current inventory, blocked stock and backorders;
+- prepare relevant historical-demand inputs;
+- prepare open Purchase Order inputs;
+- prepare Supplier and Lead-Time inputs;
+- reduce repeated scanning of large historical tables where appropriate;
+- validate operational populations and structural integrity;
+- document Phase 4 implementation and test evidence.
+
+Phase 4 establishes the operational structure required by Phase 5.
+
+Safety Stock, Reorder Point, Inventory Position, Target Stock, Recommended Order Quantity, Inventory Status and final supplier-performance business formulas remain assigned to Phase 5 and are not considered implemented during Phase 4.
 ## Official Dataset
 
 Aerospace Supply Chain Performance & Forecasting
@@ -279,27 +300,17 @@ See:
 
 ## Next Immediate Step
 
-Begin Phase 4 — Operational Model through its dedicated phase workflow.
+Define and validate the Phase 4 operational-model structure before implementing business-rule formulas.
 
-Before Phase 4 implementation begins, review the canonical Phase 3 handoff:
+The first structural target is the 1,800-row Product × Site population required by `tblReplenishment`.
 
-1. `docs/CURRENT_STATE.md`
-2. `docs/phases/PHASE_03_CLOSEOUT.md`
-3. `docs/ROADMAP.md`
-4. `docs/PROJECT_SPEC.md`
-5. `docs/ARCHITECTURE.md`
-6. `docs/DECISIONS.md`
-7. `docs/DATA_DICTIONARY.md`
-8. `docs/TESTING.md`
-9. `power-query/README.md`
-
-Phase 4 must use a dedicated phase branch and must not modify the approved Phase 3 baseline silently.
+Phase 4 implementation must preserve the approved Phase 3 data pipeline and must not introduce Phase 5 business-rule calculations prematurely.
 ## Next Phase
 
-Phase 4 — Operational Model
+Phase 5 — Business Logic & Advanced Formulas
 
 Status: NOT STARTED
 
-Target Version: `v0.5.0`
+Target Version: `v0.6.0`
 
-Phase 4 must not begin until Phase 3 satisfies its exit criteria and GitHub gate.
+Phase 5 must not begin until Phase 4 satisfies its exit criteria and GitHub gate.
