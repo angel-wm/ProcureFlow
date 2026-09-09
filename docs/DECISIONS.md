@@ -979,6 +979,18 @@ Decisions confirmed during Phase 1 — Data Design:
 
 `DEC-042` through `DEC-045`
 
+Decisions confirmed during Phase 2 — Workbook Foundation:
+
+`DEC-046` through `DEC-048`
+
+Decisions confirmed during Phase 3 — Power Query Pipeline:
+
+`DEC-049` through `DEC-050`
+
+Decisions confirmed during Phase 4 — Operational Model:
+
+`DEC-051`
+
 Current superseded decisions:
 
 None.
@@ -989,8 +1001,7 @@ None.
 
 Next major decision review:
 
-Phase 4 — Operational Model, after the Phase 3 GitHub gate is completed, unless additional Phase 3 evidence requires a documented decision before closeout.
-
+As required during Phase 4 — Operational Model when implementation evidence identifies a material architecture, business-rule or scope decision.
 ---
 
 ## DEC-049 — Workbook-Relative Power Query Source Path
@@ -1051,3 +1062,41 @@ The `.pq` files provide the inspectable and versionable representation of the co
 The `.xlsm` workbook is a binary Git artifact and does not provide meaningful line-by-line code review.
 
 External `.pq` files make Power Query implementation directly inspectable on GitHub and enable useful Git diffs, technical review and traceability.
+---
+
+## DEC-051 — Inventory Snapshot Date
+
+**Status:** CONFIRMED
+
+**Decision:**
+
+Phase 4 operational inventory calculations will distinguish between:
+
+- `ReportingDate`: the user-configured business date exposed through `cfg_ReportingDate`;
+- `InventorySnapshotDate`: the most recent `FactInventoryWeekly.WeekStartDate` less than or equal to `ReportingDate`.
+
+Formally:
+
+`InventorySnapshotDate = MAX(WeekStartDate where WeekStartDate <= ReportingDate)`
+
+The inventory values used by the Product × Site operational model, including:
+
+- On-Hand Quantity;
+- Blocked Quantity;
+- Backorder Quantity;
+
+must come from the Product × Site row corresponding to `InventorySnapshotDate`.
+
+`ReportingDate` remains a daily business parameter and is not restricted to Monday solely because Inventory History has weekly Monday-based grain.
+
+Purchase Order status and other Reporting-Date-dependent logic must continue to evaluate against the exact `ReportingDate` where required.
+
+The model must not use an Inventory History observation later than the selected Reporting Date.
+
+**Rationale:**
+
+The validated Inventory History contains one observation per Product × Site × Week and all `WeekStartDate` values occur on Monday.
+
+The configured Reporting Date is a business date rather than a weekly-key field.
+
+Resolving the latest available weekly snapshot at or before the Reporting Date preserves historical causality, avoids future-data leakage and allows daily Reporting Dates without inventing daily inventory observations.

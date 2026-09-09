@@ -537,48 +537,124 @@ The exact column sets will be finalized during the relevant implementation phase
 
 # 13. Operational Model Architecture
 
-The main operational decision engine will use:
+The main operational decision engine uses:
 
 1 row = 1 Product × 1 Site
 
-Expected scale:
+Validated source-supported population:
 
-approximately 300 Products × 6 Sites = approximately 1,800 operational rows.
+- Products: 300
+- Sites: 6
+- Product × Site combinations: 1,800
 
-This layer will consolidate the information required for replenishment decisions without requiring formulas to repeatedly scan the complete weekly-history dataset unnecessarily.
+The Phase 4 structural target is therefore exactly:
+
+1,800 operational rows
+
+Primary physical table:
+
+`tblReplenishment`
+
+Worksheet:
+
+`20_CALC_Replenishment`
+
+The Product × Site combination is the operational grain.
+
+`ProductSiteKey` will be a deterministic technical composite identifier derived from `ProductID` and `SiteID`.
+
+It does not replace the underlying Product and Site business keys and does not imply that the source contains a physical Product-Site master table.
+
+The operational layer consolidates the information required for later replenishment decisions without requiring every Phase 5 formula to repeatedly scan the complete 280,800-row Inventory History table unnecessarily.
+
+## 13.1 Reporting Date and Inventory Snapshot
+
+The operational model distinguishes:
+
+- `ReportingDate`;
+- `InventorySnapshotDate`.
+
+`ReportingDate` is obtained from:
+
+`cfg_ReportingDate`
+
+Inventory History has weekly grain and uses Monday-based `WeekStartDate`.
+
+The inventory snapshot rule is:
+
+`InventorySnapshotDate = latest WeekStartDate <= ReportingDate`
+
+Inventory values exposed in `tblReplenishment` must come from the Product × Site observation at that resolved snapshot date.
+
+This prevents future inventory observations from being used for an earlier Reporting Date.
+
+Purchase Order and other date-dependent logic may still use the exact Reporting Date where required.
+
+This behavior is governed by:
+
+`DEC-051 — Inventory Snapshot Date`
+
+## 13.2 Phase 4 Structural Fields
+
+The approved Phase 4 `tblReplenishment` structure includes operational keys, attributes and prepared inputs.
+
+Fields implemented or populated during Phase 4:
+
+- `ProductSiteKey`;
+- `ProductID`;
+- `SiteID`;
+- `PartFamily`;
+- `CriticalityClass`;
+- `PrimarySupplierID`;
+- `SupplierRiskClass`;
+- `UnitCost`;
+- `MasterLeadTimeDays`;
+- `ReportingDate`;
+- `InventorySnapshotDate`;
+- `OnHandQty`;
+- `BlockedQty`;
+- `BackorderQty`.
+
+These fields prepare the operational grain and source-supported inputs required by later business formulas.
+
+## 13.3 Phase 5 Formula Boundary
+
+The following fields belong to Phase 5 — Business Logic & Advanced Formulas:
+
+- `AverageWeeklyDemand`;
+- `DemandStdDev`;
+- `AvgActualLeadTimeDays`;
+- `LeadTimeStdDevDays`;
+- `EffectiveLeadTimeDays`;
+- `OpenPOQty`;
+- `AvailableStock`;
+- `ServiceLevel`;
+- `SafetyStock`;
+- `ReorderPoint`;
+- `InventoryPosition`;
+- `TargetStock`;
+- `RecommendedOrderQty`;
+- `InventoryStatus`;
+- `NoRecentDemand`.
+
+These columns may be structurally reserved during Phase 4 when useful for table design, but they must not be represented as functioning business calculations until implemented and validated in Phase 5.
 
 ---
 
 # 14. Replenishment Calculation Layer
 
-The replenishment layer will eventually calculate or expose fields such as:
+The replenishment layer ultimately provides the operational inputs and calculations required to answer:
 
-- Product;
-- Site;
-- Criticality;
-- Supplier;
-- Reporting Date;
-- On-Hand Quantity;
-- Blocked Quantity;
-- Available Stock;
-- Backorders;
-- Open Purchase Order Quantity;
-- average historical demand;
-- demand variability;
-- average actual Lead Time;
-- Lead-Time variability;
-- effective Lead Time;
-- Service Level;
-- Safety Stock;
-- Reorder Point;
-- Inventory Position;
-- Target Stock;
-- Recommended Order Quantity;
-- Inventory Status;
-- No Recent Demand flag.
+- which Product requires action;
+- at which Site;
+- why action is required;
+- how much should eventually be ordered.
 
-Exact formulas will be implemented and validated in Phase 5 — Business Logic & Advanced Formulas.
+Phase 4 establishes the structural model and source-supported operational inputs.
 
+Phase 5 implements and validates the configurable business formulas.
+
+No Phase 5 calculation is considered implemented merely because its destination column exists in `tblReplenishment`.
 ---
 
 # 15. Excel Formula Responsibilities

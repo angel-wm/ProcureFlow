@@ -231,6 +231,14 @@ Phase 3 completed without introducing Phase 4 operational-model logic prematurel
 ## Phase 4 Progress
 
 Phase 4 — Operational Model is now in progress.
+Confirmed Phase 4 design:
+
+- `DEC-051 — Inventory Snapshot Date`;
+- operational grain fixed at 1 Product × 1 Site;
+- expected `tblReplenishment` population fixed at 1,800 rows;
+- initial structural column set approved;
+- Reporting Date separated from weekly Inventory Snapshot Date;
+- Phase 4 structural inputs separated explicitly from Phase 5 business formulas.
 
 Current work:
 
@@ -300,11 +308,11 @@ See:
 
 ## Next Immediate Step
 
-Define and validate the Phase 4 operational-model structure before implementing business-rule formulas.
+Implement the physical `tblReplenishment` structural foundation in `20_CALC_Replenishment`.
 
-The first structural target is the 1,800-row Product × Site population required by `tblReplenishment`.
+The first implementation target is the validated 1,800-row Product × Site population with its structural keys and source-supported Phase 4 inputs.
 
-Phase 4 implementation must preserve the approved Phase 3 data pipeline and must not introduce Phase 5 business-rule calculations prematurely.
+No Phase 5 replenishment business formula is considered implemented at this stage.
 ## Next Phase
 
 Phase 5 — Business Logic & Advanced Formulas
