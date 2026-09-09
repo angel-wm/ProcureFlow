@@ -538,11 +538,11 @@ Merge commit:
 
 Phase completion tag:
 
-``phase-4-complete``
+`phase-4-complete`
 
 Version tag:
 
-``v0.5.0``
+`v0.5.0`
 
 ---
 
