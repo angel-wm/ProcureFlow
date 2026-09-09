@@ -4,11 +4,11 @@
 
 Status: CONFIRMED DESIGN BASELINE
 Project State: IN DEVELOPMENT
-Current Phase: Phase 2 — Workbook Foundation
-Current Phase Status: COMPLETED
+Current Phase: Phase 3 — Power Query Pipeline
+Current Phase Status: IN PROGRESS
 Current Released Version: v0.3.0
 
-This document defines the approved architecture of ProcureFlow before implementation begins.
+This document defines the approved architecture of ProcureFlow and records implementation evidence as project phases are completed.
 
 Architecture described here is a design baseline. Components must not be considered implemented until supported by actual workbook, query, formula, VBA or testing evidence.
 
@@ -791,7 +791,7 @@ Weekly convention:
 
 ISO 8601, Monday-based
 
-Physical implementation remains pending and must not be considered implemented until the corresponding workbook / Power Query phase provides evidence.
+Physical implementation was completed and validated during Phase 3 — Power Query Pipeline.
 ---
 
 ---
