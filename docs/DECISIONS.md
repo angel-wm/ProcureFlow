@@ -991,3 +991,64 @@ None.
 Next major decision review:
 
 Phase 2 — Workbook Foundation, unless additional Phase 1 evidence requires a documented change before Phase 1 closeout.
+
+---
+
+## DEC-049 — Workbook-Relative Power Query Source Path
+
+**Status:** CONFIRMED
+
+**Decision:**
+
+ProcureFlow resolves the Power Query raw-data location relative to the saved workbook location rather than using a machine-specific absolute path.
+
+The repository structure establishes the portability contract:
+
+`workbook/ProcureFlow.xlsm`
+
+and:
+
+`data/raw/`
+
+remain sibling paths under the ProcureFlow repository root.
+
+Worksheet `01_CONFIG` derives the raw-data folder and exposes it through the workbook-scoped Defined Name:
+
+`cfg_RawDataFolder`
+
+Power Query source queries read this Defined Name through `Excel.CurrentWorkbook()` and concatenate the approved source filenames.
+
+**Rationale:**
+
+A hard-coded path such as a user-specific `C:\Users\...` location would make the workbook dependent on one machine.
+
+The relative strategy allows the entire ProcureFlow repository to move while preserving source resolution, provided the approved internal folder structure remains unchanged.
+
+---
+
+## DEC-050 — Power Query M Source Versioning
+
+**Status:** CONFIRMED
+
+**Decision:**
+
+Power Query M code implemented inside `workbook/ProcureFlow.xlsm` will also be maintained as text-based `.pq` files under:
+
+`power-query/`
+
+The repository uses responsibility-based subdirectories:
+
+- `power-query/src/`
+- `power-query/stg/`
+- `power-query/dim/`
+- `power-query/fact/`
+
+The `.xlsm` workbook remains the executable implementation.
+
+The `.pq` files provide the inspectable and versionable representation of the corresponding M queries and must be kept synchronized with workbook query changes.
+
+**Rationale:**
+
+The `.xlsm` workbook is a binary Git artifact and does not provide meaningful line-by-line code review.
+
+External `.pq` files make Power Query implementation directly inspectable on GitHub and enable useful Git diffs, technical review and traceability.

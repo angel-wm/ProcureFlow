@@ -1544,3 +1544,139 @@ Implemented:
 NONE
 
 Physical workbook construction begins only after Phase 1 — Data Design is completed and Phase 2 — Workbook Foundation begins.
+
+---
+
+# Phase 3 — Implemented Power Query Architecture
+
+## Source-Path Resolution
+
+The implemented Phase 3 pipeline uses a workbook-relative source-path strategy.
+
+`01_CONFIG` derives the raw-data folder from the saved workbook location and exposes it through:
+
+`cfg_RawDataFolder`
+
+Each `src_*` query reads this workbook Defined Name directly through `Excel.CurrentWorkbook()`.
+
+No machine-specific absolute source path is embedded in the production M queries.
+
+## Implemented Query Layers
+
+### Source
+
+- `src_PartsMaster`
+- `src_SupplyChainHistory`
+- `src_PurchaseOrders`
+- `src_QualityIncidents`
+
+Responsibilities:
+
+- resolve configured raw-data location;
+- open the approved CSV;
+- parse CSV content;
+- promote source headers.
+
+Load behavior:
+
+Connection Only.
+
+### Staging
+
+- `stg_Products`
+- `stg_InventoryHistory`
+- `stg_PurchaseOrders`
+- `stg_QualityIncidents`
+
+Responsibilities:
+
+- rename physical source fields to ProcureFlow logical names;
+- assign explicit data types;
+- convert objective Boolean representations;
+- preserve valid nullable source behavior.
+
+Load behavior:
+
+Connection Only.
+
+### Dimensions
+
+- `dim_Product`
+- `dim_Site`
+- `dim_Supplier`
+- `dim_Date`
+
+### Facts
+
+- `fact_InventoryWeekly`
+- `fact_PurchaseOrders`
+- `fact_QualityIncidents`
+
+`fact_PurchaseOrders` includes the objective derived fields:
+
+- `PromisedLeadTimeDays`
+- `ActualLeadTimeDays`
+- `IsLateReceipt`
+- `IsPartialReceipt`
+
+Configurable `IsOpenPO` logic is intentionally excluded from Power Query because it depends on the user-controlled Reporting Date and belongs to the later operational Excel model.
+
+## Implemented Physical Outputs
+
+| Power Query Output | Worksheet | Excel Table |
+|---|---|---|
+| `dim_Product` | `10_DATA_Products` | `tblProducts` |
+| `dim_Site` | `11_DATA_Sites` | `tblSites` |
+| `dim_Supplier` | `12_DATA_Suppliers` | `tblSuppliers` |
+| `fact_InventoryWeekly` | `13_DATA_Inventory` | `tblInventoryHistory` |
+| `fact_PurchaseOrders` | `14_DATA_PurchaseOrders` | `tblPurchaseOrders` |
+| `fact_QualityIncidents` | `15_DATA_Quality` | `tblQualityIncidents` |
+| `dim_Date` | `16_DATA_Date` | `tblDate` |
+
+No Phase 3 query is loaded to the Excel Data Model.
+
+## Power Query Source Control
+
+The implemented M code is mirrored as text under:
+
+`power-query/`
+
+with:
+
+- `src/`
+- `stg/`
+- `dim/`
+- `fact/`
+
+This source representation exists for Git inspection and review.
+
+The executable implementation remains embedded in `workbook/ProcureFlow.xlsm`.
+
+## Implemented Pipeline
+
+Source CSV files
+→ `src_*`
+→ `stg_*`
+→ `dim_*` / `fact_*`
+→ structured Excel Tables
+→ later operational Excel model
+
+Phase 3 validation evidence is recorded in:
+
+`docs/TESTING.md`
+
+---
+
+## Query Dependency Evidence
+
+The implemented Power Query lineage is captured directly from Excel Power Query Query Dependencies:
+
+![Phase 3 Power Query dependency graph](../screenshots/phase-03-query-dependencies.png)
+
+The screenshot provides implementation evidence of the layered `src_*` → `stg_*` → `dim_*` / `fact_*` architecture.
+
+The file-source nodes shown at the top of the Power Query dependency view display the absolute file paths resolved at runtime on the development machine.
+
+These machine-specific paths are not hard-coded in the production `src_*` M queries.
+
+The queries derive the raw-data location from the workbook-relative `cfg_RawDataFolder` configuration defined in `01_CONFIG`, preserving repository portability as long as the approved `workbook/` and `data/raw/` folder relationship is maintained.

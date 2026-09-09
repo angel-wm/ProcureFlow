@@ -72,7 +72,7 @@ Implemented project assets include:
 - seven workbook-scoped `cfg_*` Defined Names;
 - Reporting Date exposure;
 - `02_CONTROL` structural foundation;
-- technical-sheet placeholders;
+- remaining later-phase technical-sheet placeholders;
 - permanent `16_DATA_Date` physical worksheet placeholder;
 - approved workbook visual design system;
 - layer-based worksheet tab colors;
@@ -80,6 +80,20 @@ Implemented project assets include:
 - Aptos 11 workbook Normal style;
 - incremental worksheet protection for `01_CONFIG`;
 - Phase 2 Workbook Foundation validation evidence.
+- workbook-relative Power Query raw-data path through `cfg_RawDataFolder`;
+- four `src_*` source-access queries;
+- four `stg_*` staging queries;
+- explicit Power Query data typing and objective Boolean conversion;
+- four final dimension queries: Product, Site, Supplier and Date;
+- three final fact queries: Inventory Weekly, Purchase Orders and Quality Incidents;
+- objective Purchase Order fields `PromisedLeadTimeDays`, `ActualLeadTimeDays`, `IsLateReceipt` and `IsPartialReceipt`;
+- seven final structured Excel Tables;
+- continuous 1,198-row Date dimension from `2022-01-03` through `2025-04-14`;
+- Connection Only behavior for source and staging queries;
+- Power Query M source mirrored as 15 versionable `.pq` files under `power-query/`;
+- full Power Query Refresh validation;
+- 17 Phase 3 workbook Quality Control checks with zero exceptions;
+- Phase 3 Power Query test evidence.
 
 ## Not Yet Implemented
 
@@ -182,21 +196,25 @@ Phase 2 completed without introducing Phase 3 or later business functionality pr
 
 Phase 3 — Power Query Pipeline is now in progress.
 
-Current work:
+Implemented and validated so far:
 
-- define and document the Power Query source-path strategy;
-- implement `src_*` source-access queries;
-- implement `stg_*` staging queries;
-- assign explicit data types;
-- apply objective and reproducible cleansing;
-- implement Product, Site, Supplier and Date dimensions;
-- implement Inventory, Purchase Order and Quality fact outputs;
-- configure query load behavior and Connection Only queries;
-- load required final structured Excel Tables;
-- validate Refresh and row-count reconciliation;
-- document Phase 3 implementation and test evidence.
+- portable Power Query source-path resolution;
+- `src_*`, `stg_*`, `dim_*` and `fact_*` query layers;
+- explicit types and objective transformations;
+- seven final structured Excel Tables;
+- physical Date dimension;
+- Connection Only intermediate queries;
+- versioned Power Query M source;
+- full Refresh validation;
+- 17 workbook Phase 3 validation controls;
+- formal Phase 3 testing evidence.
 
-No Phase 3 Power Query component is considered implemented until it is created and validated with actual Excel and Refresh evidence.
+Remaining Phase 3 work:
+
+- finalize canonical Phase 3 documentation;
+- capture Query Dependencies implementation evidence;
+- prepare `PHASE_03_CLOSEOUT.md`;
+- perform the Phase 3 GitHub gate.
 
 ## Official Dataset
 
@@ -237,6 +255,14 @@ Confirmed during Phase 2:
 
 `DEC-046` through `DEC-048`
 
+Confirmed during Phase 3:
+
+`DEC-049` through `DEC-050`
+
+Confirmed during Phase 3:
+
+`DEC-049` through `DEC-050`
+
 No decisions are currently marked SUPERSEDED.
 
 See:
@@ -245,9 +271,9 @@ See:
 
 ## Next Immediate Step
 
-Define the Phase 3 Power Query source-path strategy before implementing the first source query.
+Complete Phase 3 documentation and implementation evidence, including the final Power Query Query Dependencies capture.
 
-Phase 3 implementation must preserve the approved Phase 2 workbook architecture and the validated Phase 1 source-to-target data design.
+Then prepare the Phase 3 closeout and execute the GitHub gate before Phase 4 begins.
 
 ## Next Phase
 
