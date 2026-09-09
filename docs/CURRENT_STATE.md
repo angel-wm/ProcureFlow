@@ -306,13 +306,72 @@ See:
 
 `docs/DECISIONS.md`
 
+## Phase 4 Replenishment Foundation Implemented
+
+[IMPLEMENTED]
+
+The initial physical `tblReplenishment` operational structure has been created and validated in:
+
+`20_CALC_Replenishment`
+
+Implemented grain:
+
+1 Product × 1 Site
+
+Validated population:
+
+- Products: 300
+- Sites: 6
+- expected Product × Site rows: 1,800
+- actual `tblReplenishment` rows: 1,800
+- unique `ProductSiteKey` values: 1,800
+
+Implemented structural and source-supported fields:
+
+- `ProductSiteKey`
+- `ProductID`
+- `SiteID`
+- `PartFamily`
+- `CriticalityClass`
+- `PrimarySupplierID`
+- `SupplierRiskClass`
+- `UnitCost`
+- `MasterLeadTimeDays`
+- `ReportingDate`
+- `InventorySnapshotDate`
+- `OnHandQty`
+- `BlockedQty`
+- `BackorderQty`
+
+Validated master-data results:
+
+- master-attribute errors: 0
+- distinct Suppliers exposed: 40
+- each Product appears once per Site
+
+Validated Reporting Date behavior:
+
+- `ReportingDate` is driven by `cfg_ReportingDate`
+- `InventorySnapshotDate` resolves through `tblDate`
+- DEC-051 was tested with a non-Monday Reporting Date
+- Reporting Date `2024-12-18` correctly resolved Inventory Snapshot Date `2024-12-16`
+- Reporting Date was restored to `2024-12-23`
+
+Validated inventory snapshot results:
+
+- source rows at current snapshot: 1,800
+- matched Product × Site snapshot rows: 1,800
+- On-Hand total reconciliation: PASS
+- Blocked total reconciliation: PASS
+- Backorder total reconciliation: PASS
+- rows where Blocked Quantity exceeds On-Hand Quantity: 0
+
+Phase 5 business formulas remain unimplemented.
 ## Next Immediate Step
 
-Implement the physical `tblReplenishment` structural foundation in `20_CALC_Replenishment`.
+Design and implement the Phase 4 structural foundation of `tblSupplierPerformance` in `21_CALC_SupplierPerformance`.
 
-The first implementation target is the validated 1,800-row Product × Site population with its structural keys and source-supported Phase 4 inputs.
-
-No Phase 5 replenishment business formula is considered implemented at this stage.
+The Supplier Performance operational grain must be validated before any Phase 5 supplier-performance business metrics are implemented.
 ## Next Phase
 
 Phase 5 — Business Logic & Advanced Formulas

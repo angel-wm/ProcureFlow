@@ -1060,3 +1060,95 @@ No critical Power Query pipeline defect is currently known.
 This evidence validates Phase 3 ingestion, staging, dimension/fact preparation, final table loading, Refresh behavior and baseline reconciliation.
 
 It does not validate later-phase operational formulas, replenishment calculations, supplier-performance calculations, PivotTables, VBA, reporting or dashboard functionality.
+---
+
+## Phase 4 — Replenishment Foundation Validation
+
+### Status
+
+PASS
+
+### Scope
+
+Validation of the initial `tblReplenishment` structural and source-input implementation in `20_CALC_Replenishment`.
+
+No Phase 5 replenishment business formulas are included in this validation.
+
+### Operational Grain
+
+| Test | Expected | Result |
+|---|---:|---:|
+| Product population | 300 | 300 |
+| Site population | 6 | 6 |
+| Product × Site population | 1,800 | 1,800 |
+| `tblReplenishment` rows | 1,800 | 1,800 |
+| Unique `ProductSiteKey` values | 1,800 | 1,800 |
+
+Result:
+
+PASS
+
+### Master Attribute Validation
+
+| Test | Expected | Result |
+|---|---:|---:|
+| Master-data formula errors | 0 | 0 |
+| Distinct Primary Suppliers | 40 | 40 |
+| Rows for Product `P00001` | 6 | 6 |
+
+Result:
+
+PASS
+
+### Reporting Date and Inventory Snapshot Validation
+
+Current restored Reporting Date:
+
+`2024-12-23`
+
+Current Inventory Snapshot Date:
+
+`2024-12-23`
+
+DEC-051 non-Monday test:
+
+- temporary Reporting Date: `2024-12-18`
+- expected Inventory Snapshot Date: `2024-12-16`
+- actual Inventory Snapshot Date: `2024-12-16`
+- result: PASS
+
+The Reporting Date was restored to `2024-12-23` after the test.
+
+### Inventory Snapshot Reconciliation
+
+| Test | Expected | Result |
+|---|---:|---:|
+| Inventory source rows at snapshot | 1,800 | 1,800 |
+| Product × Site source matches | 1,800 | 1,800 |
+| On-Hand reconciliation | TRUE | TRUE |
+| Blocked reconciliation | TRUE | TRUE |
+| Backorder reconciliation | TRUE | TRUE |
+| Blocked > On-Hand exceptions | 0 | 0 |
+
+Result:
+
+PASS
+
+### Phase Boundary
+
+The following remain outside this validation and remain assigned to Phase 5:
+
+- Average Weekly Demand
+- Demand variability
+- Actual Lead-Time metrics
+- Effective Lead Time
+- Open PO Quantity
+- Available Stock
+- Service Level
+- Safety Stock
+- Reorder Point
+- Inventory Position
+- Target Stock
+- Recommended Order Quantity
+- Inventory Status
+- No Recent Demand
