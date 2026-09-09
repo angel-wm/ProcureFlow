@@ -6,7 +6,7 @@ Status: CONFIRMED
 Project State: IN DEVELOPMENT
 Current Phase: Phase 3 — Power Query Pipeline
 Current Phase Status: COMPLETED
-Current Released Version: v0.4.0
+Current Released Version: v0.4.1
 This document records material project decisions that affect ProcureFlow scope, architecture, business rules, implementation strategy, governance or release management.
 
 ---

@@ -1189,7 +1189,7 @@ v1.0.0
 | 0 | Project Design | COMPLETED | v0.1.0 |
 | 1 | Data Design | COMPLETED | v0.2.0 |
 | 2 | Workbook Foundation | COMPLETED | v0.3.0 |
-| 3 | Power Query Pipeline | NOT STARTED | v0.4.0 |
+| 3 | Power Query Pipeline | COMPLETED | v0.4.0 |
 | 4 | Operational Model | NOT STARTED | v0.5.0 |
 | 5 | Business Logic & Advanced Formulas | NOT STARTED | v0.6.0 |
 | 6 | Quality Control System | NOT STARTED | v0.7.0 |
@@ -1204,10 +1204,12 @@ v1.0.0
 
 # 17. Current Immediate Next Step
 
-Phase 2 — Workbook Foundation is COMPLETED at `v0.3.0`.
+Phase 3 — Power Query Pipeline is COMPLETED at `v0.4.0`.
+
+A documentation-only corrective patch is published as `v0.4.1`.
 
 The next authorized phase is:
 
-Phase 3 — Power Query Pipeline.
+Phase 4 — Operational Model.
 
-Phase 3 must begin from the canonical Phase 2 handoff and use its dedicated phase branch.
+Phase 4 must begin from the canonical Phase 3 handoff and use its dedicated phase branch.

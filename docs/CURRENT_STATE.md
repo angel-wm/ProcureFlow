@@ -6,7 +6,7 @@ IN DEVELOPMENT
 
 ## Current Version
 
-v0.3.0
+v0.4.1
 
 ## Current Phase
 
@@ -22,13 +22,15 @@ Phase Branch:
 
 ## Last Completed Phase
 
-Phase 2 — Workbook Foundation
+Phase 3 — Power Query Pipeline
 
-Version: `v0.3.0`
+Phase Completion Version: `v0.4.0`
+
+Current Corrective Version: `v0.4.1`
 
 GitHub Pull Request:
 
-`#3 — Phase 2 — Workbook Foundation`
+`#4 — Phase 3 — Power Query Pipeline`
 
 Pull Request Status:
 
@@ -36,16 +38,15 @@ MERGED
 
 Merge Commit:
 
-`bf9dcb8`
+`540aa99`
 
 Phase Tag:
 
-`phase-2-complete`
+`phase-3-complete`
 
 Version Tag:
 
-`v0.3.0`
-
+`v0.4.0`
 ## Implemented
 
 ProcureFlow currently includes the completed Project Design, Data Design, Workbook Foundation and Power Query Pipeline baselines.

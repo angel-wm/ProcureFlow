@@ -466,11 +466,11 @@ Merge commit:
 
 Phase completion tag:
 
-`phase-3-complete` — PENDING
+`phase-3-complete`
 
 Version tag:
 
-`v0.4.0` — PENDING
+`v0.4.0`
 
 ## GitHub Gate
 
@@ -523,3 +523,15 @@ After Phase 3 is formally completed, Phase 4 must begin by reviewing at minimum:
 9. `power-query/README.md`
 
 GitHub remains the authoritative project handoff mechanism.
+
+## Post-Closeout Documentation Correction
+
+After `v0.4.0` and `phase-3-complete` were published, final repository verification identified stale phase-status text in canonical documentation.
+
+No workbook, Power Query, data model or Phase 3 technical implementation changed.
+
+The documentation correction is published as:
+
+`v0.4.1`
+
+The immutable `phase-3-complete` and `v0.4.0` tags remain on the original Phase 3 completion commit.
