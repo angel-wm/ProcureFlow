@@ -1060,3 +1060,274 @@ No critical Power Query pipeline defect is currently known.
 This evidence validates Phase 3 ingestion, staging, dimension/fact preparation, final table loading, Refresh behavior and baseline reconciliation.
 
 It does not validate later-phase operational formulas, replenishment calculations, supplier-performance calculations, PivotTables, VBA, reporting or dashboard functionality.
+---
+
+## Phase 4 — Replenishment Foundation Validation
+
+### Status
+
+PASS
+
+### Scope
+
+Validation of the initial `tblReplenishment` structural and source-input implementation in `20_CALC_Replenishment`.
+
+No Phase 5 replenishment business formulas are included in this validation.
+
+### Operational Grain
+
+| Test | Expected | Result |
+|---|---:|---:|
+| Product population | 300 | 300 |
+| Site population | 6 | 6 |
+| Product × Site population | 1,800 | 1,800 |
+| `tblReplenishment` rows | 1,800 | 1,800 |
+| Unique `ProductSiteKey` values | 1,800 | 1,800 |
+
+Result:
+
+PASS
+
+### Master Attribute Validation
+
+| Test | Expected | Result |
+|---|---:|---:|
+| Master-data formula errors | 0 | 0 |
+| Distinct Primary Suppliers | 40 | 40 |
+| Rows for Product `P00001` | 6 | 6 |
+
+Result:
+
+PASS
+
+### Reporting Date and Inventory Snapshot Validation
+
+Current restored Reporting Date:
+
+`2024-12-23`
+
+Current Inventory Snapshot Date:
+
+`2024-12-23`
+
+DEC-051 non-Monday test:
+
+- temporary Reporting Date: `2024-12-18`
+- expected Inventory Snapshot Date: `2024-12-16`
+- actual Inventory Snapshot Date: `2024-12-16`
+- result: PASS
+
+The Reporting Date was restored to `2024-12-23` after the test.
+
+### Inventory Snapshot Reconciliation
+
+| Test | Expected | Result |
+|---|---:|---:|
+| Inventory source rows at snapshot | 1,800 | 1,800 |
+| Product × Site source matches | 1,800 | 1,800 |
+| On-Hand reconciliation | TRUE | TRUE |
+| Blocked reconciliation | TRUE | TRUE |
+| Backorder reconciliation | TRUE | TRUE |
+| Blocked > On-Hand exceptions | 0 | 0 |
+
+Result:
+
+PASS
+
+### Phase Boundary
+
+The following remain outside this validation and remain assigned to Phase 5:
+
+- Average Weekly Demand
+- Demand variability
+- Actual Lead-Time metrics
+- Effective Lead Time
+- Open PO Quantity
+- Available Stock
+- Service Level
+- Safety Stock
+- Reorder Point
+- Inventory Position
+- Target Stock
+- Recommended Order Quantity
+- Inventory Status
+- No Recent Demand
+---
+
+## Phase 4 — Supplier Performance Foundation Validation
+
+### Status
+
+PASS
+
+### Scope
+
+Validation of the structural `tblSupplierPerformance` model in `21_CALC_SupplierPerformance`.
+
+No Phase 5 supplier-performance metrics are included.
+
+### Supplier Grain
+
+| Test | Expected | Result |
+|---|---:|---:|
+| Supplier rows | 40 | 40 |
+| Unique Supplier IDs | 40 | 40 |
+| Population reconciliation | TRUE | TRUE |
+| Master-data errors | 0 | 0 |
+| Distinct Reporting Dates | 1 | 1 |
+
+Result:
+
+PASS
+
+### Implemented Fields
+
+- `SupplierID`
+- `SupplierRiskClass`
+- `ReportingDate`
+
+### Phase 5 Boundary
+
+The following remain unimplemented:
+
+- Received PO Count
+- On-Time PO Count
+- On-Time Delivery Rate
+- Late PO Count
+- Late Delivery Rate
+- Partial PO Count
+- Partial Receipt Rate
+- Average Actual Lead Time
+- Lead-Time variability
+- Quality Incident Count
+
+No aggregate Supplier Score has been implemented.
+---
+
+## Phase 4 — Historical Demand Context Validation
+
+### Status
+
+PASS
+
+### Scope
+
+Validation of the completed-week historical-demand temporal context prepared in `tblReplenishment`.
+
+No Phase 5 demand aggregation or statistical formulas are included.
+
+### Results
+
+| Test | Expected | Result |
+|---|---:|---:|
+| Distinct Demand History Week configurations | 1 | 1 |
+| Rows using 26-week configuration | 1,800 | 1,800 |
+| Distinct Demand History Start Dates | 1 | 1 |
+| Distinct Demand History End Dates | 1 | 1 |
+| Window length equals configured weeks | TRUE | TRUE |
+| Window ends one week before Inventory Snapshot | TRUE | TRUE |
+| Distinct source weeks in historical window | 26 | 26 |
+| Inventory History source rows in window | 46,800 | 46,800 |
+
+Result:
+
+PASS
+
+### Current Validated Window
+
+- Inventory Snapshot Date: `2024-12-23`
+- Demand History Weeks: 26
+- Demand History Start Date: `2024-06-24`
+- Demand History End Date: `2024-12-16`
+
+The validated interval contains exactly:
+
+26 weeks × 1,800 Product × Site combinations = 46,800 source observations.
+
+### Phase Boundary
+
+The following remain assigned to Phase 5:
+
+- historical Consumption aggregation
+- Average Weekly Demand
+- demand variability
+- `NO_RECENT_DEMAND`
+- replenishment business calculations
+---
+
+## Phase 4 — Final Refresh and Exit Validation
+
+### Status
+
+PASS
+
+### Refresh Validation
+
+A full Excel `Refresh All` was executed after the Phase 4 operational-model implementation.
+
+Observed result:
+
+PASS
+
+No critical Power Query refresh error was observed.
+
+### Post-Refresh Operational Validation
+
+| Test | Expected | Result |
+|---|---:|---:|
+| `tblReplenishment` rows | 1,800 | 1,800 |
+| Unique `ProductSiteKey` values | 1,800 | 1,800 |
+| Replenishment master/input formula errors | 0 | 0 |
+| Reporting Date relationship | TRUE | TRUE |
+| Historical-demand source rows | 46,800 | 46,800 |
+| `tblSupplierPerformance` rows | 40 | 40 |
+| Unique Supplier IDs | 40 | 40 |
+| Supplier structural formula errors | 0 | 0 |
+
+Result:
+
+PASS
+
+### Phase 4 Exit Criteria
+
+#### Operational grains are correct
+
+PASS
+
+Validated grains:
+
+- `tblReplenishment`: 1 Product × 1 Site
+- `tblSupplierPerformance`: 1 Supplier
+
+#### Required inputs are available
+
+PASS
+
+Prepared areas include:
+
+- current inventory;
+- blocked stock;
+- backorders;
+- Reporting Date;
+- Inventory Snapshot Date;
+- completed historical-demand window;
+- Product and Supplier attributes;
+- master Lead Time;
+- Purchase Order transactional inputs;
+- historical Actual Lead Time input.
+
+#### No unresolved critical structural issue remains
+
+PASS
+
+No unresolved critical Phase 4 structural defect is currently known.
+
+#### Model ready for business-rule formulas
+
+PASS
+
+The operational model is ready for Phase 5 — Business Logic & Advanced Formulas.
+
+### Phase Boundary
+
+Phase 5 calculations remain unimplemented.

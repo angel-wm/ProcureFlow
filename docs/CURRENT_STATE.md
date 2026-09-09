@@ -10,15 +10,15 @@ v0.4.1
 
 ## Current Phase
 
-Phase 3 — Power Query Pipeline
+Phase 4 — Operational Model
 
-Status: COMPLETED
+Status: IN PROGRESS
 
-Version: `v0.4.0`
+Target Version: `v0.5.0`
 
 Phase Branch:
 
-`phase/03-power-query-pipeline`
+`phase/04-operational-model`
 
 ## Last Completed Phase
 
@@ -228,6 +228,35 @@ Version Tag:
 `v0.4.0`
 
 Phase 3 completed without introducing Phase 4 operational-model logic prematurely.
+## Phase 4 Progress
+
+Phase 4 — Operational Model is now in progress.
+Confirmed Phase 4 design:
+
+- `DEC-051 — Inventory Snapshot Date`;
+- operational grain fixed at 1 Product × 1 Site;
+- expected `tblReplenishment` population fixed at 1,800 rows;
+- initial structural column set approved;
+- Reporting Date separated from weekly Inventory Snapshot Date;
+- Phase 4 structural inputs separated explicitly from Phase 5 business formulas.
+
+Current work:
+
+- define the Product × Site operational grain;
+- design the `tblReplenishment` structural model;
+- design the `tblSupplierPerformance` structural model;
+- expose Reporting Date-dependent operational inputs;
+- expose current inventory, blocked stock and backorders;
+- prepare relevant historical-demand inputs;
+- prepare open Purchase Order inputs;
+- prepare Supplier and Lead-Time inputs;
+- reduce repeated scanning of large historical tables where appropriate;
+- validate operational populations and structural integrity;
+- document Phase 4 implementation and test evidence.
+
+Phase 4 establishes the operational structure required by Phase 5.
+
+Safety Stock, Reorder Point, Inventory Position, Target Stock, Recommended Order Quantity, Inventory Status and final supplier-performance business formulas remain assigned to Phase 5 and are not considered implemented during Phase 4.
 ## Official Dataset
 
 Aerospace Supply Chain Performance & Forecasting
@@ -277,29 +306,173 @@ See:
 
 `docs/DECISIONS.md`
 
+## Phase 4 Replenishment Foundation Implemented
+
+[IMPLEMENTED]
+
+The initial physical `tblReplenishment` operational structure has been created and validated in:
+
+`20_CALC_Replenishment`
+
+Implemented grain:
+
+1 Product × 1 Site
+
+Validated population:
+
+- Products: 300
+- Sites: 6
+- expected Product × Site rows: 1,800
+- actual `tblReplenishment` rows: 1,800
+- unique `ProductSiteKey` values: 1,800
+
+Implemented structural and source-supported fields:
+
+- `ProductSiteKey`
+- `ProductID`
+- `SiteID`
+- `PartFamily`
+- `CriticalityClass`
+- `PrimarySupplierID`
+- `SupplierRiskClass`
+- `UnitCost`
+- `MasterLeadTimeDays`
+- `ReportingDate`
+- `InventorySnapshotDate`
+- `OnHandQty`
+- `BlockedQty`
+- `BackorderQty`
+
+Validated master-data results:
+
+- master-attribute errors: 0
+- distinct Suppliers exposed: 40
+- each Product appears once per Site
+
+Validated Reporting Date behavior:
+
+- `ReportingDate` is driven by `cfg_ReportingDate`
+- `InventorySnapshotDate` resolves through `tblDate`
+- DEC-051 was tested with a non-Monday Reporting Date
+- Reporting Date `2024-12-18` correctly resolved Inventory Snapshot Date `2024-12-16`
+- Reporting Date was restored to `2024-12-23`
+
+Validated inventory snapshot results:
+
+- source rows at current snapshot: 1,800
+- matched Product × Site snapshot rows: 1,800
+- On-Hand total reconciliation: PASS
+- Blocked total reconciliation: PASS
+- Backorder total reconciliation: PASS
+- rows where Blocked Quantity exceeds On-Hand Quantity: 0
+
+Phase 5 business formulas remain unimplemented.
+## Phase 4 Supplier Performance Foundation Implemented
+
+[IMPLEMENTED]
+
+The structural `tblSupplierPerformance` model has been created and validated in:
+
+`21_CALC_SupplierPerformance`
+
+Implemented grain:
+
+1 row = 1 Supplier
+
+Validated population:
+
+- expected Suppliers: 40
+- actual `tblSupplierPerformance` rows: 40
+- unique `SupplierID` values: 40
+
+Implemented Phase 4 fields:
+
+- `SupplierID`
+- `SupplierRiskClass`
+- `ReportingDate`
+
+Phase 5 metric columns have been structurally reserved but remain without business formulas.
+
+Validated results:
+
+- Supplier population reconciliation: PASS
+- Supplier master-data errors: 0
+- distinct Reporting Dates: 1
+
+No aggregate Supplier Score has been implemented.
+## Phase 4 Historical Demand Context Implemented
+
+[IMPLEMENTED]
+
+The historical-demand temporal context required by Phase 5 has been implemented and validated in `tblReplenishment`.
+
+Implemented fields:
+
+- `DemandHistoryWeeks`
+- `DemandHistoryStartDate`
+- `DemandHistoryEndDate`
+
+Current validated values:
+
+- Demand History Weeks: 26
+- Demand History Start Date: `2024-06-24`
+- Demand History End Date: `2024-12-16`
+
+Validated source coverage:
+
+- distinct historical weeks: 26
+- Product × Site combinations per week: 1,800
+- total Inventory History rows in configured window: 46,800
+
+The demand-history window uses only completed weekly periods preceding the Inventory Snapshot Date in accordance with `DEC-052`.
+
+No Phase 5 demand aggregation or statistical business calculation has been implemented.
+## Phase 4 Technical Exit Criteria Satisfied
+
+[CONFIRMADO]
+
+A full workbook `Refresh All` was executed after the Phase 4 operational-model implementation.
+
+Refresh result:
+
+PASS
+
+Post-refresh operational validation:
+
+- `tblReplenishment` rows: 1,800
+- unique `ProductSiteKey` values: 1,800
+- replenishment master/input formula errors: 0
+- Reporting Date relationship: PASS
+- historical-demand source rows in configured window: 46,800
+- `tblSupplierPerformance` rows: 40
+- unique Supplier IDs: 40
+- supplier structural formula errors: 0
+
+The Phase 4 exit criteria are technically satisfied:
+
+- operational grains are correct;
+- required Phase 5 inputs are available;
+- no unresolved critical structural issue is known;
+- the model is ready for Phase 5 business-rule formulas.
+
+Phase 4 is not yet formally COMPLETED because the documentation and GitHub publication gate remain pending.
 ## Next Immediate Step
 
-Begin Phase 4 — Operational Model through its dedicated phase workflow.
+Complete the review of Pull Request `#5 — Phase 4 — Operational Model`.
 
-Before Phase 4 implementation begins, review the canonical Phase 3 handoff:
+The Phase 4 branch has been published and the Pull Request is OPEN.
 
-1. `docs/CURRENT_STATE.md`
-2. `docs/phases/PHASE_03_CLOSEOUT.md`
-3. `docs/ROADMAP.md`
-4. `docs/PROJECT_SPEC.md`
-5. `docs/ARCHITECTURE.md`
-6. `docs/DECISIONS.md`
-7. `docs/DATA_DICTIONARY.md`
-8. `docs/TESTING.md`
-9. `power-query/README.md`
+Resolve any review findings, push the resulting correction commit, re-review the final Pull Request diff and merge only after the review passes.
 
-Phase 4 must use a dedicated phase branch and must not modify the approved Phase 3 baseline silently.
+After merge, synchronize local `main`, finalize the canonical Phase 4 completion status and publish `phase-4-complete` and `v0.5.0`.
+
+Phase 4 remains IN PROGRESS until the complete GitHub Gate is satisfied.
 ## Next Phase
 
-Phase 4 — Operational Model
+Phase 5 — Business Logic & Advanced Formulas
 
 Status: NOT STARTED
 
-Target Version: `v0.5.0`
+Target Version: `v0.6.0`
 
-Phase 4 must not begin until Phase 3 satisfies its exit criteria and GitHub gate.
+Phase 5 must not begin until Phase 4 satisfies its exit criteria and GitHub gate.
