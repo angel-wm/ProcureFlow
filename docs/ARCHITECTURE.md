@@ -792,7 +792,6 @@ Weekly convention:
 ISO 8601, Monday-based
 
 Physical implementation was completed and validated during Phase 3 — Power Query Pipeline.
----
 
 ---
 
