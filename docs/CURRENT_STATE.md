@@ -10,15 +10,15 @@ v0.3.0
 
 ## Current Phase
 
-Phase 2 — Workbook Foundation
+Phase 3 — Power Query Pipeline
 
-Status: COMPLETED
+Status: IN PROGRESS
 
-Version: `v0.3.0`
+Target Version: `v0.4.0`
 
 Phase Branch:
 
-`phase/02-workbook-foundation`
+`phase/03-power-query-pipeline`
 
 ## Last Completed Phase
 
@@ -69,17 +69,31 @@ Implemented project assets include:
 - workbook-wide return navigation;
 - `01_CONFIG` business-parameter structure;
 - seven Data Validation-controlled configuration inputs;
-- seven workbook-scoped `cfg_*` Defined Names;
+- eight workbook-scoped `cfg_*` Defined Names: seven business configuration names plus technical `cfg_RawDataFolder`;
 - Reporting Date exposure;
 - `02_CONTROL` structural foundation;
-- technical-sheet placeholders;
-- permanent `16_DATA_Date` physical worksheet placeholder;
+- remaining later-phase technical-sheet placeholders;
+- implemented physical `16_DATA_Date` worksheet with `tblDate`;
 - approved workbook visual design system;
 - layer-based worksheet tab colors;
 - editable-input visual convention;
 - Aptos 11 workbook Normal style;
 - incremental worksheet protection for `01_CONFIG`;
 - Phase 2 Workbook Foundation validation evidence.
+- workbook-relative Power Query raw-data path through `cfg_RawDataFolder`;
+- four `src_*` source-access queries;
+- four `stg_*` staging queries;
+- explicit Power Query data typing and objective Boolean conversion;
+- four final dimension queries: Product, Site, Supplier and Date;
+- three final fact queries: Inventory Weekly, Purchase Orders and Quality Incidents;
+- objective Purchase Order fields `PromisedLeadTimeDays`, `ActualLeadTimeDays`, `IsLateReceipt` and `IsPartialReceipt`;
+- seven final structured Excel Tables;
+- continuous 1,198-row Date dimension from `2022-01-03` through `2025-04-14`;
+- Connection Only behavior for source and staging queries;
+- Power Query M source mirrored as 15 versionable `.pq` files under `power-query/`;
+- full Power Query Refresh validation;
+- 17 Phase 3 workbook Quality Control checks with zero exceptions;
+- Phase 3 Power Query test evidence.
 
 ## Not Yet Implemented
 
@@ -178,6 +192,31 @@ Merge Commit:
 
 Phase 2 completed without introducing Phase 3 or later business functionality prematurely.
 
+## Phase 3 Progress
+
+Phase 3 — Power Query Pipeline is now in progress.
+
+Implemented and validated so far:
+
+- portable Power Query source-path resolution;
+- `src_*`, `stg_*`, `dim_*` and `fact_*` query layers;
+- explicit types and objective transformations;
+- seven final structured Excel Tables;
+- physical Date dimension;
+- Connection Only intermediate queries;
+- versioned Power Query M source;
+- full Refresh validation;
+- 17 workbook Phase 3 validation controls;
+- formal Phase 3 testing evidence.
+
+Remaining Phase 3 work:
+
+- review Pull Request `#4 — Phase 3 — Power Query Pipeline`;
+- correct any review findings;
+- merge the approved Phase 3 state into `main`;
+- finalize canonical Phase 3 completion status;
+- publish the Phase 3 and version tags.
+
 ## Official Dataset
 
 Aerospace Supply Chain Performance & Forecasting
@@ -217,6 +256,10 @@ Confirmed during Phase 2:
 
 `DEC-046` through `DEC-048`
 
+Confirmed during Phase 3:
+
+`DEC-049` through `DEC-050`
+
 No decisions are currently marked SUPERSEDED.
 
 See:
@@ -225,25 +268,16 @@ See:
 
 ## Next Immediate Step
 
-Begin Phase 3 — Power Query Pipeline through its dedicated phase workflow.
+Complete the review of Pull Request `#4 — Phase 3 — Power Query Pipeline` and correct any review findings.
 
-Before Phase 3 implementation begins, review the canonical Phase 2 handoff:
-
-1. `docs/CURRENT_STATE.md`
-2. `docs/phases/PHASE_02_CLOSEOUT.md`
-3. `docs/ROADMAP.md`
-4. `docs/PROJECT_SPEC.md`
-5. `docs/ARCHITECTURE.md`
-6. `docs/DECISIONS.md`
-7. `docs/DATA_DICTIONARY.md`
-8. `docs/TESTING.md`
-
-Phase 3 must use a dedicated phase branch and must not modify the approved Phase 2 baseline silently.
+After approval, merge Phase 3 into `main`, finalize the canonical completion state and publish the required Phase 3 and version tags.
 
 ## Next Phase
 
-Phase 3 — Power Query Pipeline
+Phase 4 — Operational Model
 
 Status: NOT STARTED
 
-Target Version: `v0.4.0`
+Target Version: `v0.5.0`
+
+Phase 4 must not begin until Phase 3 satisfies its exit criteria and GitHub gate.
