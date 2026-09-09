@@ -705,3 +705,84 @@ Expected:
 Expected:
 
 `46800`
+---
+
+## Final Phase 4 Refresh Validation
+
+### Replenishment Row Count
+
+    =ROWS(tblReplenishment[ProductSiteKey])
+
+Expected:
+
+`1800`
+
+---
+
+### Unique Product-Site Keys
+
+    =ROWS(UNIQUE(tblReplenishment[ProductSiteKey]))
+
+Expected:
+
+`1800`
+
+---
+
+### Replenishment Master/Input Errors
+
+    =SUMPRODUCT(--ISERROR(tblReplenishment[[PartFamily]:[BackorderQty]]))
+
+Expected:
+
+`0`
+
+---
+
+### Reporting Date Relationship
+
+    =INDEX(tblReplenishment[ReportingDate],1)=cfg_ReportingDate
+
+Expected:
+
+`TRUE`
+
+---
+
+### Historical-Demand Source Coverage
+
+    =COUNTIFS(tblInventoryHistory[WeekStartDate],">="&INDEX(tblReplenishment[DemandHistoryStartDate],1),tblInventoryHistory[WeekStartDate],"<="&INDEX(tblReplenishment[DemandHistoryEndDate],1))
+
+Expected:
+
+`46800`
+
+---
+
+### Supplier Performance Row Count
+
+    =ROWS(tblSupplierPerformance[SupplierID])
+
+Expected:
+
+`40`
+
+---
+
+### Unique Supplier Count
+
+    =ROWS(UNIQUE(tblSupplierPerformance[SupplierID]))
+
+Expected:
+
+`40`
+
+---
+
+### Supplier Structural Errors
+
+    =SUMPRODUCT(--ISERROR(tblSupplierPerformance[[SupplierID]:[SupplierRiskClass]]))
+
+Expected:
+
+`0`

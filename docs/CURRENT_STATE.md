@@ -427,11 +427,40 @@ Validated source coverage:
 The demand-history window uses only completed weekly periods preceding the Inventory Snapshot Date in accordance with `DEC-052`.
 
 No Phase 5 demand aggregation or statistical business calculation has been implemented.
+## Phase 4 Technical Exit Criteria Satisfied
+
+[CONFIRMADO]
+
+A full workbook `Refresh All` was executed after the Phase 4 operational-model implementation.
+
+Refresh result:
+
+PASS
+
+Post-refresh operational validation:
+
+- `tblReplenishment` rows: 1,800
+- unique `ProductSiteKey` values: 1,800
+- replenishment master/input formula errors: 0
+- Reporting Date relationship: PASS
+- historical-demand source rows in configured window: 46,800
+- `tblSupplierPerformance` rows: 40
+- unique Supplier IDs: 40
+- supplier structural formula errors: 0
+
+The Phase 4 exit criteria are technically satisfied:
+
+- operational grains are correct;
+- required Phase 5 inputs are available;
+- no unresolved critical structural issue is known;
+- the model is ready for Phase 5 business-rule formulas.
+
+Phase 4 is not yet formally COMPLETED because the documentation and GitHub publication gate remain pending.
 ## Next Immediate Step
 
-Perform the Phase 4 scope and exit-criteria review.
+Prepare the Phase 4 closeout documentation, reconcile repository-facing documentation including the stale README phase status, and complete the Phase 4 GitHub Gate.
 
-Confirm that Product × Site structure, Supplier structure, inventory inputs, historical-demand context, supplier attributes, Lead-Time inputs, open-Purchase-Order inputs and Reporting Date relationships are all available for Phase 5 without implementing Phase 5 business formulas.
+Phase 4 must remain IN PROGRESS until its Pull Request is reviewed and merged and the phase/version tags are published.
 ## Next Phase
 
 Phase 5 — Business Logic & Advanced Formulas

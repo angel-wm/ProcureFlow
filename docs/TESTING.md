@@ -1253,3 +1253,81 @@ The following remain assigned to Phase 5:
 - demand variability
 - `NO_RECENT_DEMAND`
 - replenishment business calculations
+---
+
+## Phase 4 — Final Refresh and Exit Validation
+
+### Status
+
+PASS
+
+### Refresh Validation
+
+A full Excel `Refresh All` was executed after the Phase 4 operational-model implementation.
+
+Observed result:
+
+PASS
+
+No critical Power Query refresh error was observed.
+
+### Post-Refresh Operational Validation
+
+| Test | Expected | Result |
+|---|---:|---:|
+| `tblReplenishment` rows | 1,800 | 1,800 |
+| Unique `ProductSiteKey` values | 1,800 | 1,800 |
+| Replenishment master/input formula errors | 0 | 0 |
+| Reporting Date relationship | TRUE | TRUE |
+| Historical-demand source rows | 46,800 | 46,800 |
+| `tblSupplierPerformance` rows | 40 | 40 |
+| Unique Supplier IDs | 40 | 40 |
+| Supplier structural formula errors | 0 | 0 |
+
+Result:
+
+PASS
+
+### Phase 4 Exit Criteria
+
+#### Operational grains are correct
+
+PASS
+
+Validated grains:
+
+- `tblReplenishment`: 1 Product × 1 Site
+- `tblSupplierPerformance`: 1 Supplier
+
+#### Required inputs are available
+
+PASS
+
+Prepared areas include:
+
+- current inventory;
+- blocked stock;
+- backorders;
+- Reporting Date;
+- Inventory Snapshot Date;
+- completed historical-demand window;
+- Product and Supplier attributes;
+- master Lead Time;
+- Purchase Order transactional inputs;
+- historical Actual Lead Time input.
+
+#### No unresolved critical structural issue remains
+
+PASS
+
+No unresolved critical Phase 4 structural defect is currently known.
+
+#### Model ready for business-rule formulas
+
+PASS
+
+The operational model is ready for Phase 5 — Business Logic & Advanced Formulas.
+
+### Phase Boundary
+
+Phase 5 calculations remain unimplemented.
