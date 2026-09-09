@@ -1152,3 +1152,53 @@ The following remain outside this validation and remain assigned to Phase 5:
 - Recommended Order Quantity
 - Inventory Status
 - No Recent Demand
+---
+
+## Phase 4 — Supplier Performance Foundation Validation
+
+### Status
+
+PASS
+
+### Scope
+
+Validation of the structural `tblSupplierPerformance` model in `21_CALC_SupplierPerformance`.
+
+No Phase 5 supplier-performance metrics are included.
+
+### Supplier Grain
+
+| Test | Expected | Result |
+|---|---:|---:|
+| Supplier rows | 40 | 40 |
+| Unique Supplier IDs | 40 | 40 |
+| Population reconciliation | TRUE | TRUE |
+| Master-data errors | 0 | 0 |
+| Distinct Reporting Dates | 1 | 1 |
+
+Result:
+
+PASS
+
+### Implemented Fields
+
+- `SupplierID`
+- `SupplierRiskClass`
+- `ReportingDate`
+
+### Phase 5 Boundary
+
+The following remain unimplemented:
+
+- Received PO Count
+- On-Time PO Count
+- On-Time Delivery Rate
+- Late PO Count
+- Late Delivery Rate
+- Partial PO Count
+- Partial Receipt Rate
+- Average Actual Lead Time
+- Lead-Time variability
+- Quality Incident Count
+
+No aggregate Supplier Score has been implemented.

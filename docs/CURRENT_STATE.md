@@ -367,11 +367,44 @@ Validated inventory snapshot results:
 - rows where Blocked Quantity exceeds On-Hand Quantity: 0
 
 Phase 5 business formulas remain unimplemented.
+## Phase 4 Supplier Performance Foundation Implemented
+
+[IMPLEMENTED]
+
+The structural `tblSupplierPerformance` model has been created and validated in:
+
+`21_CALC_SupplierPerformance`
+
+Implemented grain:
+
+1 row = 1 Supplier
+
+Validated population:
+
+- expected Suppliers: 40
+- actual `tblSupplierPerformance` rows: 40
+- unique `SupplierID` values: 40
+
+Implemented Phase 4 fields:
+
+- `SupplierID`
+- `SupplierRiskClass`
+- `ReportingDate`
+
+Phase 5 metric columns have been structurally reserved but remain without business formulas.
+
+Validated results:
+
+- Supplier population reconciliation: PASS
+- Supplier master-data errors: 0
+- distinct Reporting Dates: 1
+
+No aggregate Supplier Score has been implemented.
 ## Next Immediate Step
 
-Design and implement the Phase 4 structural foundation of `tblSupplierPerformance` in `21_CALC_SupplierPerformance`.
+Review the complete Phase 4 operational model against its roadmap scope and identify any remaining structural inputs, documentation or validation required before Phase 4 closeout.
 
-The Supplier Performance operational grain must be validated before any Phase 5 supplier-performance business metrics are implemented.
+Phase 5 business formulas must remain unimplemented until the Phase 4 exit criteria are satisfied.
 ## Next Phase
 
 Phase 5 — Business Logic & Advanced Formulas

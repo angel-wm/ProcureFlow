@@ -470,3 +470,114 @@ Future Phase 5 formula areas include:
 - Inventory Status
 - No Recent Demand
 - Supplier-performance business metrics
+---
+
+# Phase 4 — Supplier Performance Structural Model
+
+## Worksheet — 21_CALC_SupplierPerformance
+
+## Table
+
+`tblSupplierPerformance`
+
+## Grain
+
+1 row = 1 Supplier
+
+Validated population:
+
+40 rows
+
+---
+
+### SupplierID
+
+**Status:** IMPLEMENTED
+
+**Formula:**
+
+    =INDEX(tblSuppliers[SupplierID],ROW()-3)
+
+**Purpose:**
+
+Populate the structural Supplier grain from `tblSuppliers`.
+
+---
+
+### SupplierRiskClass
+
+**Status:** IMPLEMENTED
+
+**Formula:**
+
+    =XLOOKUP([@SupplierID],tblSuppliers[SupplierID],tblSuppliers[SupplierRiskClass])
+
+**Purpose:**
+
+Expose the validated Supplier Risk classification.
+
+---
+
+### ReportingDate
+
+**Status:** IMPLEMENTED
+
+**Formula:**
+
+    =cfg_ReportingDate
+
+**Purpose:**
+
+Expose the configurable Reporting Date to the Supplier Performance operational structure.
+
+---
+
+## Validation Formulas
+
+### Supplier Row Count
+
+    =ROWS(tblSupplierPerformance[SupplierID])
+
+Expected:
+
+`40`
+
+---
+
+### Unique Supplier Count
+
+    =ROWS(UNIQUE(tblSupplierPerformance[SupplierID]))
+
+Expected:
+
+`40`
+
+---
+
+### Supplier Population Reconciliation
+
+    =ROWS(tblSupplierPerformance[SupplierID])=ROWS(tblSuppliers[SupplierID])
+
+Expected:
+
+`TRUE`
+
+---
+
+### Master-Data Errors
+
+    =SUMPRODUCT(--ISERROR(tblSupplierPerformance[[SupplierID]:[SupplierRiskClass]]))
+
+Expected:
+
+`0`
+
+---
+
+### Distinct Reporting Dates
+
+    =ROWS(UNIQUE(tblSupplierPerformance[ReportingDate]))
+
+Expected:
+
+`1`
