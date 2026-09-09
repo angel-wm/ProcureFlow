@@ -6,7 +6,7 @@ Phase 3 — Power Query Pipeline
 
 ## Status
 
-TECHNICAL WORK COMPLETE — GITHUB GATE PENDING
+COMPLETED
 
 ## Target Version
 
@@ -436,7 +436,7 @@ Raw CSV files remain immutable and all required preparation occurs reproducibly 
 
 Technical Phase 3 work is complete.
 
-Phase 3 must not yet be marked formally completed because the GitHub publication gate remains pending.
+Phase 3 is formally completed after satisfying its technical, validation, documentation and GitHub publication gate.
 
 ## Git Evidence
 
@@ -458,11 +458,11 @@ Phase Pull Request:
 
 Pull Request status:
 
-OPEN
+MERGED
 
 Merge commit:
 
-PENDING
+`540aa99`
 
 Phase completion tag:
 
@@ -476,20 +476,24 @@ Version tag:
 
 Status:
 
-IN PROGRESS
+COMPLETED
 
-Required remaining steps:
+Completed steps:
 
-1. complete review of Pull Request `#4`;
-2. correct review findings;
-3. merge the approved Pull Request into `main`;
-4. synchronize local `main`;
-5. finalize canonical Phase 3 completion status;
-6. publish `phase-3-complete`;
-7. publish `v0.4.0`.
+1. Phase 3 technical work completed;
+2. Phase 3 validation evidence completed;
+3. Phase 3 closeout prepared;
+4. `phase/03-power-query-pipeline` published;
+5. Pull Request `#4 — Phase 3 — Power Query Pipeline` created;
+6. Pull Request diff and Phase 3 evidence reviewed;
+7. review findings corrected;
+8. Pull Request merged into `main`;
+9. local `main` synchronized;
+10. canonical Phase 3 status finalized;
+11. `phase-3-complete` published;
+12. `v0.4.0` published.
 
-Phase 3 becomes formally COMPLETED only after this gate is satisfied.
-
+Phase 3 is formally completed.
 ## Next Phase
 
 Phase 4 — Operational Model
@@ -502,7 +506,7 @@ Target Version:
 
 `v0.5.0`
 
-Phase 4 must not begin until Phase 3 is formally completed and its GitHub gate is closed.
+Phase 3 has completed its GitHub Gate. Phase 4 — Operational Model is the next authorized phase.
 
 ## Phase 4 Handoff
 

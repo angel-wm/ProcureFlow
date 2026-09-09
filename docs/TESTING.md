@@ -2,13 +2,13 @@
 
 ## Document Status
 
-Status: ACTIVE — PHASE 3 TEST EVIDENCE
+Status: COMPLETED — PHASE 3 TEST EVIDENCE
 
 Current Phase:
 
 Phase 3 — Power Query Pipeline
 
-Target Version:
+Version:
 
 `v0.4.0`
 

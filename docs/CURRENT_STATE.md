@@ -12,9 +12,9 @@ v0.3.0
 
 Phase 3 — Power Query Pipeline
 
-Status: IN PROGRESS
+Status: COMPLETED
 
-Target Version: `v0.4.0`
+Version: `v0.4.0`
 
 Phase Branch:
 
@@ -48,7 +48,7 @@ Version Tag:
 
 ## Implemented
 
-ProcureFlow currently includes the completed project-design, data-design and Workbook Foundation baselines.
+ProcureFlow currently includes the completed Project Design, Data Design, Workbook Foundation and Power Query Pipeline baselines.
 
 Implemented project assets include:
 
@@ -99,13 +99,10 @@ Implemented project assets include:
 
 The following remain assigned to later roadmap phases:
 
-- Power Query ingestion and preparation;
-- final structured DATA tables;
-- physical Date-dimension data;
 - operational replenishment model;
 - supplier-performance calculations;
 - business formulas;
-- Quality Control logic;
+- formal Quality Control system;
 - PivotTables;
 - PivotCharts;
 - Slicers;
@@ -192,31 +189,44 @@ Merge Commit:
 
 Phase 2 completed without introducing Phase 3 or later business functionality prematurely.
 
-## Phase 3 Progress
+## Phase 3 Completion
 
-Phase 3 — Power Query Pipeline is now in progress.
+Phase 3 — Power Query Pipeline is COMPLETED.
 
-Implemented and validated so far:
+Validated Phase 3 outcomes include:
 
-- portable Power Query source-path resolution;
-- `src_*`, `stg_*`, `dim_*` and `fact_*` query layers;
-- explicit types and objective transformations;
+- workbook-relative Power Query source-path resolution;
+- four `src_*` source queries;
+- four `stg_*` staging queries;
+- four dimension queries;
+- three fact queries;
+- explicit data typing and objective transformations;
 - seven final structured Excel Tables;
-- physical Date dimension;
+- physical continuous Date dimension;
 - Connection Only intermediate queries;
 - versioned Power Query M source;
-- full Refresh validation;
-- 17 workbook Phase 3 validation controls;
+- successful full Refresh;
+- 17 Phase 3 Quality Control checks with zero exceptions;
+- Query Dependencies implementation evidence;
 - formal Phase 3 testing evidence.
 
-Remaining Phase 3 work:
+Phase 3 Pull Request:
 
-- review Pull Request `#4 — Phase 3 — Power Query Pipeline`;
-- correct any review findings;
-- merge the approved Phase 3 state into `main`;
-- finalize canonical Phase 3 completion status;
-- publish the Phase 3 and version tags.
+`#4 — Phase 3 — Power Query Pipeline`
 
+Merge Commit:
+
+`540aa99`
+
+Phase Tag:
+
+`phase-3-complete`
+
+Version Tag:
+
+`v0.4.0`
+
+Phase 3 completed without introducing Phase 4 operational-model logic prematurely.
 ## Official Dataset
 
 Aerospace Supply Chain Performance & Forecasting
@@ -268,10 +278,21 @@ See:
 
 ## Next Immediate Step
 
-Complete the review of Pull Request `#4 — Phase 3 — Power Query Pipeline` and correct any review findings.
+Begin Phase 4 — Operational Model through its dedicated phase workflow.
 
-After approval, merge Phase 3 into `main`, finalize the canonical completion state and publish the required Phase 3 and version tags.
+Before Phase 4 implementation begins, review the canonical Phase 3 handoff:
 
+1. `docs/CURRENT_STATE.md`
+2. `docs/phases/PHASE_03_CLOSEOUT.md`
+3. `docs/ROADMAP.md`
+4. `docs/PROJECT_SPEC.md`
+5. `docs/ARCHITECTURE.md`
+6. `docs/DECISIONS.md`
+7. `docs/DATA_DICTIONARY.md`
+8. `docs/TESTING.md`
+9. `power-query/README.md`
+
+Phase 4 must use a dedicated phase branch and must not modify the approved Phase 3 baseline silently.
 ## Next Phase
 
 Phase 4 — Operational Model

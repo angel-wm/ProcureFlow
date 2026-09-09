@@ -374,7 +374,7 @@ v0.3.0
 
 ## Status
 
-IN PROGRESS
+COMPLETED
 
 ## Target Version
 
