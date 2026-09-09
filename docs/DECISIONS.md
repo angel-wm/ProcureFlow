@@ -1100,3 +1100,56 @@ The validated Inventory History contains one observation per Product × Site × 
 The configured Reporting Date is a business date rather than a weekly-key field.
 
 Resolving the latest available weekly snapshot at or before the Reporting Date preserves historical causality, avoids future-data leakage and allows daily Reporting Dates without inventing daily inventory observations.
+---
+
+## DEC-052 — Completed Demand History Window
+
+**Status:** CONFIRMED
+
+**Decision:**
+
+Historical demand calculations will use completed weekly Inventory History periods preceding the current Inventory Snapshot Date.
+
+The operational model exposes:
+
+- `DemandHistoryWeeks`
+- `DemandHistoryStartDate`
+- `DemandHistoryEndDate`
+
+`DemandHistoryWeeks` is driven by:
+
+`cfg_DemandHistoryWeeks`
+
+The end of the historical-demand window is:
+
+`DemandHistoryEndDate = InventorySnapshotDate - 7 days`
+
+The start of the window is:
+
+`DemandHistoryStartDate = InventorySnapshotDate - (7 × DemandHistoryWeeks) days`
+
+The inclusive weekly interval from `DemandHistoryStartDate` through `DemandHistoryEndDate` must contain exactly `DemandHistoryWeeks` weekly observations.
+
+With the current configuration:
+
+- Reporting Date: `2024-12-23`
+- Inventory Snapshot Date: `2024-12-23`
+- Demand History Weeks: `26`
+- Demand History Start Date: `2024-06-24`
+- Demand History End Date: `2024-12-16`
+
+The current validated historical-demand source population is:
+
+26 weeks × 1,800 Product × Site combinations = 46,800 rows.
+
+**Rationale:**
+
+`FactInventoryWeekly.WeekStartDate` represents the start of a weekly period.
+
+Using the Inventory Snapshot week itself as completed historical demand could introduce consumption from a period that has not yet finished as of the beginning of that week.
+
+Using only completed weeks before the current snapshot preserves temporal causality and provides an exact configurable historical window for Phase 5 demand calculations.
+
+Phase 4 prepares this temporal context only.
+
+Average demand, demand variability, total recent consumption and `NO_RECENT_DEMAND` remain Phase 5 business calculations.

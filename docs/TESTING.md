@@ -1202,3 +1202,54 @@ The following remain unimplemented:
 - Quality Incident Count
 
 No aggregate Supplier Score has been implemented.
+---
+
+## Phase 4 — Historical Demand Context Validation
+
+### Status
+
+PASS
+
+### Scope
+
+Validation of the completed-week historical-demand temporal context prepared in `tblReplenishment`.
+
+No Phase 5 demand aggregation or statistical formulas are included.
+
+### Results
+
+| Test | Expected | Result |
+|---|---:|---:|
+| Distinct Demand History Week configurations | 1 | 1 |
+| Rows using 26-week configuration | 1,800 | 1,800 |
+| Distinct Demand History Start Dates | 1 | 1 |
+| Distinct Demand History End Dates | 1 | 1 |
+| Window length equals configured weeks | TRUE | TRUE |
+| Window ends one week before Inventory Snapshot | TRUE | TRUE |
+| Distinct source weeks in historical window | 26 | 26 |
+| Inventory History source rows in window | 46,800 | 46,800 |
+
+Result:
+
+PASS
+
+### Current Validated Window
+
+- Inventory Snapshot Date: `2024-12-23`
+- Demand History Weeks: 26
+- Demand History Start Date: `2024-06-24`
+- Demand History End Date: `2024-12-16`
+
+The validated interval contains exactly:
+
+26 weeks × 1,800 Product × Site combinations = 46,800 source observations.
+
+### Phase Boundary
+
+The following remain assigned to Phase 5:
+
+- historical Consumption aggregation
+- Average Weekly Demand
+- demand variability
+- `NO_RECENT_DEMAND`
+- replenishment business calculations

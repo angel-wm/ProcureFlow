@@ -269,6 +269,51 @@ Expose Backorder Quantity for the Product × Site snapshot.
 
 ---
 
+### DemandHistoryWeeks
+
+**Status:** IMPLEMENTED
+
+**Formula:**
+
+    =cfg_DemandHistoryWeeks
+
+**Purpose:**
+
+Expose the configurable number of completed historical-demand weeks used by later Phase 5 calculations.
+
+---
+
+### DemandHistoryStartDate
+
+**Status:** IMPLEMENTED
+
+**Formula:**
+
+    =[@InventorySnapshotDate]-7*[@DemandHistoryWeeks]
+
+**Purpose:**
+
+Resolve the first completed weekly period included in the historical-demand window.
+
+---
+
+### DemandHistoryEndDate
+
+**Status:** IMPLEMENTED
+
+**Formula:**
+
+    =[@InventorySnapshotDate]-7
+
+**Purpose:**
+
+Resolve the final completed weekly period immediately preceding the current Inventory Snapshot Date.
+
+**Decision:**
+
+`DEC-052 — Completed Demand History Window`
+
+---
 # Phase 4 Validation Formulas
 
 The following formulas were used as implementation evidence and are not operational output columns.
@@ -581,3 +626,82 @@ Expected:
 Expected:
 
 `1`
+## Historical Demand Window Validation
+
+### Distinct Demand History Week Configurations
+
+    =ROWS(UNIQUE(tblReplenishment[DemandHistoryWeeks]))
+
+Expected:
+
+`1`
+
+---
+
+### Rows Using 26 Weeks
+
+    =COUNTIF(tblReplenishment[DemandHistoryWeeks],26)
+
+Expected:
+
+`1800`
+
+---
+
+### Distinct Demand History Start Dates
+
+    =ROWS(UNIQUE(tblReplenishment[DemandHistoryStartDate]))
+
+Expected:
+
+`1`
+
+---
+
+### Distinct Demand History End Dates
+
+    =ROWS(UNIQUE(tblReplenishment[DemandHistoryEndDate]))
+
+Expected:
+
+`1`
+
+---
+
+### Configured Window Length
+
+    =(INDEX(tblReplenishment[DemandHistoryEndDate],1)-INDEX(tblReplenishment[DemandHistoryStartDate],1))/7+1=cfg_DemandHistoryWeeks
+
+Expected:
+
+`TRUE`
+
+---
+
+### Completed-Week Boundary
+
+    =INDEX(tblReplenishment[DemandHistoryEndDate],1)=INDEX(tblReplenishment[InventorySnapshotDate],1)-7
+
+Expected:
+
+`TRUE`
+
+---
+
+### Distinct Source Weeks
+
+    =ROWS(UNIQUE(FILTER(tblInventoryHistory[WeekStartDate],(tblInventoryHistory[WeekStartDate]>=INDEX(tblReplenishment[DemandHistoryStartDate],1))*(tblInventoryHistory[WeekStartDate]<=INDEX(tblReplenishment[DemandHistoryEndDate],1)))))
+
+Expected:
+
+`26`
+
+---
+
+### Historical Source Row Count
+
+    =COUNTIFS(tblInventoryHistory[WeekStartDate],">="&INDEX(tblReplenishment[DemandHistoryStartDate],1),tblInventoryHistory[WeekStartDate],"<="&INDEX(tblReplenishment[DemandHistoryEndDate],1))
+
+Expected:
+
+`46800`

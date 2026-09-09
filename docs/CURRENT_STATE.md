@@ -400,11 +400,38 @@ Validated results:
 - distinct Reporting Dates: 1
 
 No aggregate Supplier Score has been implemented.
+## Phase 4 Historical Demand Context Implemented
+
+[IMPLEMENTED]
+
+The historical-demand temporal context required by Phase 5 has been implemented and validated in `tblReplenishment`.
+
+Implemented fields:
+
+- `DemandHistoryWeeks`
+- `DemandHistoryStartDate`
+- `DemandHistoryEndDate`
+
+Current validated values:
+
+- Demand History Weeks: 26
+- Demand History Start Date: `2024-06-24`
+- Demand History End Date: `2024-12-16`
+
+Validated source coverage:
+
+- distinct historical weeks: 26
+- Product × Site combinations per week: 1,800
+- total Inventory History rows in configured window: 46,800
+
+The demand-history window uses only completed weekly periods preceding the Inventory Snapshot Date in accordance with `DEC-052`.
+
+No Phase 5 demand aggregation or statistical business calculation has been implemented.
 ## Next Immediate Step
 
-Review the complete Phase 4 operational model against its roadmap scope and identify any remaining structural inputs, documentation or validation required before Phase 4 closeout.
+Perform the Phase 4 scope and exit-criteria review.
 
-Phase 5 business formulas must remain unimplemented until the Phase 4 exit criteria are satisfied.
+Confirm that Product × Site structure, Supplier structure, inventory inputs, historical-demand context, supplier attributes, Lead-Time inputs, open-Purchase-Order inputs and Reporting Date relationships are all available for Phase 5 without implementing Phase 5 business formulas.
 ## Next Phase
 
 Phase 5 — Business Logic & Advanced Formulas

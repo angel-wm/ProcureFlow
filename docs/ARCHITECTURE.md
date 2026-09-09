@@ -617,6 +617,41 @@ Fields implemented or populated during Phase 4:
 
 These fields prepare the operational grain and source-supported inputs required by later business formulas.
 
+## 13.4 Completed Demand History Window
+
+Phase 4 prepares the temporal boundaries required for Phase 5 historical-demand calculations.
+
+The Product × Site operational model exposes:
+
+- `DemandHistoryWeeks`
+- `DemandHistoryStartDate`
+- `DemandHistoryEndDate`
+
+`DemandHistoryWeeks` is sourced from:
+
+`cfg_DemandHistoryWeeks`
+
+Historical-demand calculations use completed weekly periods preceding the current Inventory Snapshot Date.
+
+The approved relationships are:
+
+`DemandHistoryEndDate = InventorySnapshotDate - 7 days`
+
+and:
+
+`DemandHistoryStartDate = InventorySnapshotDate - (7 × DemandHistoryWeeks) days`
+
+The start and end dates are inclusive weekly boundaries.
+
+With the current 26-week configuration, the interval contains exactly 26 weekly Inventory History observations per Product × Site.
+
+This behavior is governed by:
+
+`DEC-052 — Completed Demand History Window`
+
+Phase 4 prepares the window only.
+
+Consumption aggregation, average demand, variability and no-recent-demand logic remain Phase 5 responsibilities.
 ## 13.3 Phase 5 Formula Boundary
 
 The following fields belong to Phase 5 — Business Logic & Advanced Formulas:
