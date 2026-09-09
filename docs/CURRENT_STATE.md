@@ -454,12 +454,17 @@ The Phase 4 exit criteria are technically satisfied:
 Phase 4 is formally COMPLETED. Technical implementation, validation, Pull Request review and merge are complete.
 ## Next Immediate Step
 
-Finalize the Phase 4 release metadata on `main` and publish the completion tags:
+Phase 4 — Operational Model is fully closed and released as `v0.5.0`.
 
-- `phase-4-complete`
-- `v0.5.0`
+Release evidence:
 
-After the tags are verified, Phase 5 — Business Logic & Advanced Formulas may begin through its dedicated phase workflow.
+- Pull Request `#5`: MERGED;
+- merge commit: `7d3f11fdb069436dd767fd1c371be169c31b2804`;
+- release commit: `0e49f9316220d525534258ff42ca5077eb81cc78`;
+- phase tag: `phase-4-complete`;
+- version tag: `v0.5.0`.
+
+The next authorized project action is to begin Phase 5 — Business Logic & Advanced Formulas through its dedicated phase workflow.
 ## Next Phase
 
 Phase 5 — Business Logic & Advanced Formulas
@@ -468,4 +473,4 @@ Status: NOT STARTED
 
 Target Version: `v0.6.0`
 
-Phase 5 may begin after the Phase 4 completion tags are published and verified.
+Phase 5 is authorized to begin through its dedicated phase workflow.

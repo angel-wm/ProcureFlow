@@ -566,7 +566,7 @@ Completed evidence:
 10. canonical Phase 4 completion state prepared;
 11. completion tags defined as `phase-4-complete` and `v0.5.0`.
 
-Phase 4 is formally complete once the final release commit and both completion tags are published and verified on GitHub.
+The final release commit and both completion tags have been published and verified on GitHub. Phase 4 is formally COMPLETED.
 ---
 
 ## Next Phase
@@ -581,4 +581,4 @@ Target Version:
 
 `v0.6.0`
 
-Phase 5 may begin after the Phase 4 completion tags are published and verified.
+Phase 5 is authorized to begin through its dedicated phase workflow.
