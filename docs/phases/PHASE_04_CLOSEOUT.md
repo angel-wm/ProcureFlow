@@ -6,7 +6,7 @@ Phase 4 — Operational Model
 
 ## Status
 
-READY FOR GITHUB GATE
+COMPLETED
 
 ## Target Version
 
@@ -504,11 +504,9 @@ Phase 4 technical validation:
 
 PASS
 
-Formal project status remains:
+Formal project status:
 
-IN PROGRESS
-
-until the GitHub Gate is completed.
+COMPLETED
 
 ---
 
@@ -532,19 +530,19 @@ Phase Pull Request:
 
 Pull Request status:
 
-OPEN — FINAL REVIEW PENDING
+MERGED
 
 Merge commit:
 
-PENDING
+`7d3f11fdb069436dd767fd1c371be169c31b2804`
 
 Phase completion tag:
 
-`phase-4-complete` — PENDING
+``phase-4-complete``
 
 Version tag:
 
-`v0.5.0` — PENDING
+``v0.5.0``
 
 ---
 
@@ -552,35 +550,23 @@ Version tag:
 
 Status:
 
-IN PROGRESS — FINAL PULL REQUEST REVIEW
+COMPLETED
 
-Completed steps:
+Completed evidence:
 
-1. Phase 4 technical work completed;
-2. Phase 4 validation evidence completed;
-3. Phase 4 closeout prepared;
+1. Phase 4 technical implementation completed;
+2. Phase 4 validation completed with PASS result;
+3. Phase 4 closeout documentation prepared and reviewed;
 4. `phase/04-operational-model` published;
 5. Pull Request `#5 — Phase 4 — Operational Model` created;
-6. initial Pull Request diff and evidence review performed;
-7. initial review corrections committed and published;
-8. second Pull Request review performed.
+6. complete Pull Request diff reviewed;
+7. review findings corrected and re-reviewed;
+8. Pull Request `#5` merged into `main`;
+9. merge commit confirmed as `7d3f11fdb069436dd767fd1c371be169c31b2804`;
+10. canonical Phase 4 completion state prepared;
+11. completion tags defined as `phase-4-complete` and `v0.5.0`.
 
-Second-review findings resolved in the final correction commit:
-
-- synchronize the Phase 4 decision baseline through `DEC-052`;
-- normalize Phase 4 architecture subsection spacing;
-- update the closeout GitHub Gate to the current review state.
-
-Remaining steps:
-
-1. re-review the final Pull Request diff;
-2. merge Pull Request `#5` into `main`;
-3. synchronize local `main`;
-4. finalize canonical Phase 4 completion status;
-5. publish `phase-4-complete`;
-6. publish `v0.5.0`.
-
-Phase 4 must not be marked formally COMPLETED until these steps are satisfied.
+Phase 4 is formally complete once the final release commit and both completion tags are published and verified on GitHub.
 ---
 
 ## Next Phase
@@ -595,4 +581,4 @@ Target Version:
 
 `v0.6.0`
 
-Phase 5 must not begin until the Phase 4 GitHub Gate is completed.
+Phase 5 may begin after the Phase 4 completion tags are published and verified.

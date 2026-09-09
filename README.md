@@ -12,21 +12,21 @@ Project status:
 
 Current released version:
 
-`v0.4.1`
+`v0.5.0`
 
-Current development phase:
+Current completed phase:
 
 **Phase 4 — Operational Model**
 
-Phase 4 target version:
+Current release:
 
 `v0.5.0`
 
-Current Phase 4 status:
+Phase 4 status:
 
-**Technical implementation and validation complete — GitHub Gate pending**
+**COMPLETED**
 
-The project must not be considered formally released as `v0.5.0` until the Phase 4 Pull Request is reviewed and merged and the corresponding release tags are published.
+Phase 4 technical implementation, validation and Pull Request review are complete. Pull Request `#5 — Phase 4 — Operational Model` was merged into `main`.
 
 ## Completed Phases
 
@@ -86,13 +86,13 @@ Implemented the reproducible Power Query pipeline from raw CSV files through sou
 
 Status:
 
-`IN PROGRESS`
+`COMPLETED`
 
-Target version:
+Version:
 
 `v0.5.0`
 
-Technical implementation currently includes:
+Completed implementation includes:
 
 - Product × Site operational model;
 - `tblReplenishment`;
@@ -236,7 +236,7 @@ Each completed phase uses a dedicated branch, Pull Request, merge, phase-complet
 
 ## Next Phase
 
-After the Phase 4 GitHub Gate is completed, the next authorized phase is:
+The next planned phase is:
 
 **Phase 5 — Business Logic & Advanced Formulas**
 

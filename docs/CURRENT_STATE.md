@@ -6,15 +6,15 @@ IN DEVELOPMENT
 
 ## Current Version
 
-v0.4.1
+v0.5.0
 
 ## Current Phase
 
 Phase 4 — Operational Model
 
-Status: IN PROGRESS
+Status: COMPLETED
 
-Target Version: `v0.5.0`
+Version: `v0.5.0`
 
 Phase Branch:
 
@@ -22,15 +22,13 @@ Phase Branch:
 
 ## Last Completed Phase
 
-Phase 3 — Power Query Pipeline
+Phase 4 — Operational Model
 
-Phase Completion Version: `v0.4.0`
-
-Current Corrective Version: `v0.4.1`
+Phase Completion Version: `v0.5.0`
 
 GitHub Pull Request:
 
-`#4 — Phase 3 — Power Query Pipeline`
+`#5 — Phase 4 — Operational Model`
 
 Pull Request Status:
 
@@ -38,15 +36,15 @@ MERGED
 
 Merge Commit:
 
-`540aa99`
+`7d3f11fdb069436dd767fd1c371be169c31b2804`
 
 Phase Tag:
 
-`phase-3-complete`
+`phase-4-complete`
 
 Version Tag:
 
-`v0.4.0`
+`v0.5.0`
 ## Implemented
 
 ProcureFlow currently includes the completed Project Design, Data Design, Workbook Foundation and Power Query Pipeline baselines.
@@ -228,35 +226,29 @@ Version Tag:
 `v0.4.0`
 
 Phase 3 completed without introducing Phase 4 operational-model logic prematurely.
-## Phase 4 Progress
+## Phase 4 Completion
 
-Phase 4 — Operational Model is now in progress.
-Confirmed Phase 4 design:
+Phase 4 — Operational Model is COMPLETED.
 
-- `DEC-051 — Inventory Snapshot Date`;
-- operational grain fixed at 1 Product × 1 Site;
-- expected `tblReplenishment` population fixed at 1,800 rows;
-- initial structural column set approved;
-- Reporting Date separated from weekly Inventory Snapshot Date;
-- Phase 4 structural inputs separated explicitly from Phase 5 business formulas.
+Validated Phase 4 outcomes include:
 
-Current work:
+- Product × Site operational grain implemented at exactly 1,800 rows;
+- `tblReplenishment` implemented and structurally validated;
+- Supplier operational grain implemented at exactly 40 rows;
+- `tblSupplierPerformance` implemented and structurally validated;
+- Product and Supplier master attributes exposed;
+- Reporting Date relationships implemented;
+- weekly Inventory Snapshot Date resolution implemented under `DEC-051`;
+- On-Hand, Blocked and Backorder quantities reconciled;
+- completed historical-demand window implemented under `DEC-052`;
+- master and historical Lead-Time inputs prepared;
+- Purchase Order inputs prepared for later Reporting-Date-dependent business logic;
+- production and validation formulas versioned in `docs/FORMULAS.md`;
+- full workbook Refresh validation completed successfully;
+- Phase 4 technical exit criteria satisfied;
+- Pull Request `#5 — Phase 4 — Operational Model` reviewed and merged.
 
-- define the Product × Site operational grain;
-- design the `tblReplenishment` structural model;
-- design the `tblSupplierPerformance` structural model;
-- expose Reporting Date-dependent operational inputs;
-- expose current inventory, blocked stock and backorders;
-- prepare relevant historical-demand inputs;
-- prepare open Purchase Order inputs;
-- prepare Supplier and Lead-Time inputs;
-- reduce repeated scanning of large historical tables where appropriate;
-- validate operational populations and structural integrity;
-- document Phase 4 implementation and test evidence.
-
-Phase 4 establishes the operational structure required by Phase 5.
-
-Safety Stock, Reorder Point, Inventory Position, Target Stock, Recommended Order Quantity, Inventory Status and final supplier-performance business formulas remain assigned to Phase 5 and are not considered implemented during Phase 4.
+Phase 5 business formulas were intentionally not implemented during Phase 4.
 ## Official Dataset
 
 Aerospace Supply Chain Performance & Forecasting
@@ -299,6 +291,10 @@ Confirmed during Phase 2:
 Confirmed during Phase 3:
 
 `DEC-049` through `DEC-050`
+
+Confirmed during Phase 4:
+
+`DEC-051` through `DEC-052`
 
 No decisions are currently marked SUPERSEDED.
 
@@ -455,18 +451,15 @@ The Phase 4 exit criteria are technically satisfied:
 - no unresolved critical structural issue is known;
 - the model is ready for Phase 5 business-rule formulas.
 
-Phase 4 is not yet formally COMPLETED because the documentation and GitHub publication gate remain pending.
+Phase 4 is formally COMPLETED. Technical implementation, validation, Pull Request review and merge are complete.
 ## Next Immediate Step
 
-Complete the review of Pull Request `#5 — Phase 4 — Operational Model`.
+Finalize the Phase 4 release metadata on `main` and publish the completion tags:
 
-The Phase 4 branch has been published and the Pull Request is OPEN.
+- `phase-4-complete`
+- `v0.5.0`
 
-Resolve any review findings, push the resulting correction commit, re-review the final Pull Request diff and merge only after the review passes.
-
-After merge, synchronize local `main`, finalize the canonical Phase 4 completion status and publish `phase-4-complete` and `v0.5.0`.
-
-Phase 4 remains IN PROGRESS until the complete GitHub Gate is satisfied.
+After the tags are verified, Phase 5 — Business Logic & Advanced Formulas may begin through its dedicated phase workflow.
 ## Next Phase
 
 Phase 5 — Business Logic & Advanced Formulas
@@ -475,4 +468,4 @@ Status: NOT STARTED
 
 Target Version: `v0.6.0`
 
-Phase 5 must not begin until Phase 4 satisfies its exit criteria and GitHub gate.
+Phase 5 may begin after the Phase 4 completion tags are published and verified.

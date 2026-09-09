@@ -460,7 +460,7 @@ v0.4.0
 
 ## Status
 
-IN PROGRESS
+COMPLETED
 
 ## Target Version
 
