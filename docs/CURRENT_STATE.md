@@ -458,11 +458,15 @@ The Phase 4 exit criteria are technically satisfied:
 Phase 4 is not yet formally COMPLETED because the documentation and GitHub publication gate remain pending.
 ## Next Immediate Step
 
-Review the prepared `PHASE_04_CLOSEOUT.md` and repository-facing documentation.
+Complete the review of Pull Request `#5 — Phase 4 — Operational Model`.
 
-If the documentation review passes, commit the Phase 4 closeout preparation, publish `phase/04-operational-model`, create the Phase 4 Pull Request and perform the final GitHub diff review.
+The Phase 4 branch has been published and the Pull Request is OPEN.
 
-Phase 4 remains IN PROGRESS until the Pull Request is merged and the phase/version tags are published.
+Resolve any review findings, push the resulting correction commit, re-review the final Pull Request diff and merge only after the review passes.
+
+After merge, synchronize local `main`, finalize the canonical Phase 4 completion status and publish `phase-4-complete` and `v0.5.0`.
+
+Phase 4 remains IN PROGRESS until the complete GitHub Gate is satisfied.
 ## Next Phase
 
 Phase 5 — Business Logic & Advanced Formulas
