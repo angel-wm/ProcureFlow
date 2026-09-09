@@ -454,7 +454,11 @@ Target version:
 
 Phase Pull Request:
 
-PENDING
+`#4 — Phase 3 — Power Query Pipeline`
+
+Pull Request status:
+
+OPEN
 
 Merge commit:
 
@@ -472,20 +476,17 @@ Version tag:
 
 Status:
 
-PENDING
+IN PROGRESS
 
 Required remaining steps:
 
-1. commit the Phase 3 closeout;
-2. publish the final Phase 3 branch state;
-3. create the Phase 3 Pull Request;
-4. review the Pull Request diff and evidence;
-5. correct any review findings;
-6. merge the Pull Request into `main`;
-7. synchronize local `main`;
-8. finalize canonical Phase 3 completion status;
-9. publish `phase-3-complete`;
-10. publish `v0.4.0`.
+1. complete review of Pull Request `#4`;
+2. correct review findings;
+3. merge the approved Pull Request into `main`;
+4. synchronize local `main`;
+5. finalize canonical Phase 3 completion status;
+6. publish `phase-3-complete`;
+7. publish `v0.4.0`.
 
 Phase 3 becomes formally COMPLETED only after this gate is satisfied.
 

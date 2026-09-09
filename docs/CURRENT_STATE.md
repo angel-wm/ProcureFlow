@@ -69,11 +69,11 @@ Implemented project assets include:
 - workbook-wide return navigation;
 - `01_CONFIG` business-parameter structure;
 - seven Data Validation-controlled configuration inputs;
-- seven workbook-scoped `cfg_*` Defined Names;
+- eight workbook-scoped `cfg_*` Defined Names: seven business configuration names plus technical `cfg_RawDataFolder`;
 - Reporting Date exposure;
 - `02_CONTROL` structural foundation;
 - remaining later-phase technical-sheet placeholders;
-- permanent `16_DATA_Date` physical worksheet placeholder;
+- implemented physical `16_DATA_Date` worksheet with `tblDate`;
 - approved workbook visual design system;
 - layer-based worksheet tab colors;
 - editable-input visual convention;
@@ -211,10 +211,11 @@ Implemented and validated so far:
 
 Remaining Phase 3 work:
 
-- finalize canonical Phase 3 documentation;
-- capture Query Dependencies implementation evidence;
-- prepare `PHASE_03_CLOSEOUT.md`;
-- perform the Phase 3 GitHub gate.
+- review Pull Request `#4 — Phase 3 — Power Query Pipeline`;
+- correct any review findings;
+- merge the approved Phase 3 state into `main`;
+- finalize canonical Phase 3 completion status;
+- publish the Phase 3 and version tags.
 
 ## Official Dataset
 
@@ -259,10 +260,6 @@ Confirmed during Phase 3:
 
 `DEC-049` through `DEC-050`
 
-Confirmed during Phase 3:
-
-`DEC-049` through `DEC-050`
-
 No decisions are currently marked SUPERSEDED.
 
 See:
@@ -271,9 +268,9 @@ See:
 
 ## Next Immediate Step
 
-Complete Phase 3 documentation and implementation evidence, including the final Power Query Query Dependencies capture.
+Complete the review of Pull Request `#4 — Phase 3 — Power Query Pipeline` and correct any review findings.
 
-Then prepare the Phase 3 closeout and execute the GitHub gate before Phase 4 begins.
+After approval, merge Phase 3 into `main`, finalize the canonical completion state and publish the required Phase 3 and version tags.
 
 ## Next Phase
 

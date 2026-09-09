@@ -990,7 +990,7 @@ None.
 
 Next major decision review:
 
-Phase 2 — Workbook Foundation, unless additional Phase 1 evidence requires a documented change before Phase 1 closeout.
+Phase 4 — Operational Model, after the Phase 3 GitHub gate is completed, unless additional Phase 3 evidence requires a documented decision before closeout.
 
 ---
 

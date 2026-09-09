@@ -44,7 +44,7 @@ Responsibilities:
 
 Final dimension-query definitions.
 
-Current planned dimensions:
+Implemented dimensions:
 
 - `dim_Product`
 - `dim_Site`
@@ -55,7 +55,7 @@ Current planned dimensions:
 
 Final fact-query definitions.
 
-Current planned facts:
+Implemented facts:
 
 - `fact_InventoryWeekly`
 - `fact_PurchaseOrders`
