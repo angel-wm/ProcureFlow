@@ -2,15 +2,15 @@
 
 ## Document Status
 
-Status: COMPLETED — PHASE 2 TEST EVIDENCE
+Status: ACTIVE — PHASE 3 TEST EVIDENCE
 
 Current Phase:
 
-Phase 2 — Workbook Foundation
+Phase 3 — Power Query Pipeline
 
 Target Version:
 
-`v0.3.0`
+`v0.4.0`
 
 Formal testing will continue throughout later ProcureFlow phases.
 
@@ -759,10 +759,6 @@ These observations must not be silently cleaned away.
 
 The following are NOT RUN because implementation has not reached their corresponding phases:
 
-- Power Query source ingestion;
-- Power Query refresh;
-- loaded row-count reconciliation;
-- workbook Excel Table validation;
 - configuration validation;
 - formula validation;
 - replenishment calculation validation;
@@ -925,3 +921,142 @@ Not implemented in this evidence:
 - management dashboard logic.
 
 These remain assigned to their respective roadmap phases.
+
+---
+
+# Phase 3 — Power Query Pipeline Test Evidence
+
+## Phase 3 Test Environment
+
+Target application:
+
+Microsoft Excel 365 Desktop for Windows.
+
+Workbook:
+
+`workbook/ProcureFlow.xlsm`
+
+Phase branch:
+
+`phase/03-power-query-pipeline`
+
+Validation methods:
+
+- Power Query Refresh All;
+- loaded Excel Table inspection;
+- workbook Quality Control formulas;
+- row-count reconciliation against the validated Phase 1 source baseline;
+- key-count reconciliation;
+- Date-dimension range and continuity checks;
+- derived Purchase Order flag reconciliation;
+- manual Power Query load-behavior inspection.
+
+Raw source files remained unchanged during testing.
+
+---
+
+## Power Query Pipeline Validation
+
+| Test ID | Test | Expected | Observed | Status |
+|---|---|---:|---:|---|
+| P3-PQ-001 | Products row count | 300 | 300 | PASS |
+| P3-PQ-002 | Sites row count | 6 | 6 | PASS |
+| P3-PQ-003 | Suppliers row count | 40 | 40 | PASS |
+| P3-PQ-004 | Inventory History row count | 280,800 | 280,800 | PASS |
+| P3-PQ-005 | Purchase Orders row count | 29,666 | 29,666 | PASS |
+| P3-PQ-006 | Quality Incidents row count | 368 | 368 | PASS |
+| P3-PQ-007 | Date Dimension row count | 1,198 | 1,198 | PASS |
+| P3-PQ-008 | Distinct Product IDs | 300 | 300 | PASS |
+| P3-PQ-009 | Distinct Supplier IDs | 40 | 40 | PASS |
+| P3-PQ-010 | Distinct Purchase Order IDs | 29,666 | 29,666 | PASS |
+| P3-PQ-011 | Distinct Quality Incident IDs | 368 | 368 | PASS |
+| P3-PQ-012 | Date Dimension minimum | 2022-01-03 | 2022-01-03 | PASS |
+| P3-PQ-013 | Date Dimension maximum | 2025-04-14 | 2025-04-14 | PASS |
+| P3-PQ-014 | Date Dimension continuous daily coverage | TRUE | TRUE | PASS |
+| P3-PQ-015 | Late receipt count | 16,568 | 16,568 | PASS |
+| P3-PQ-016 | Partial receipt count | 3,355 | 3,355 | PASS |
+| P3-PQ-017 | Blank Shelf Life count | 274 | 274 | PASS |
+
+All workbook Quality Control exceptions for `PQ-001` through `PQ-017` were zero.
+
+---
+
+## Refresh Validation
+
+A full Excel `Refresh All` was executed after the final Phase 3 Power Query tables and workbook controls were implemented.
+
+Observed result:
+
+- source queries refreshed without reported error;
+- staging queries refreshed without reported error;
+- final dimension and fact queries refreshed without reported error;
+- loaded Excel Tables remained available after Refresh;
+- Quality Control results remained PASS after Refresh.
+
+Status:
+
+PASS
+
+---
+
+## Query Load Behavior
+
+Intermediate queries use Connection Only behavior:
+
+- `src_PartsMaster`
+- `src_SupplyChainHistory`
+- `src_PurchaseOrders`
+- `src_QualityIncidents`
+- `stg_Products`
+- `stg_InventoryHistory`
+- `stg_PurchaseOrders`
+- `stg_QualityIncidents`
+
+Final outputs are loaded to structured Excel Tables:
+
+| Power Query Output | Excel Table |
+|---|---|
+| `dim_Product` | `tblProducts` |
+| `dim_Site` | `tblSites` |
+| `dim_Supplier` | `tblSuppliers` |
+| `fact_InventoryWeekly` | `tblInventoryHistory` |
+| `fact_PurchaseOrders` | `tblPurchaseOrders` |
+| `fact_QualityIncidents` | `tblQualityIncidents` |
+| `dim_Date` | `tblDate` |
+
+The Power Query outputs are not loaded to the Excel Data Model.
+
+Status:
+
+PASS
+
+---
+
+## Phase 3 Transformation Reconciliation
+
+The Phase 3 pipeline preserves validated source behavior:
+
+- 274 Product Shelf Life values remain blank and intentionally nullable;
+- 16,568 Purchase Orders are identified as late receipts;
+- 3,355 Purchase Orders are identified as partial receipts;
+- Inventory History remains at 280,800 rows;
+- Date Dimension contains continuous daily coverage from `2022-01-03` through `2025-04-14`;
+- raw CSV files remain unchanged.
+
+Status:
+
+PASS
+
+---
+
+## Phase 3 Testing Result
+
+Current result:
+
+PASS
+
+No critical Power Query pipeline defect is currently known.
+
+This evidence validates Phase 3 ingestion, staging, dimension/fact preparation, final table loading, Refresh behavior and baseline reconciliation.
+
+It does not validate later-phase operational formulas, replenishment calculations, supplier-performance calculations, PivotTables, VBA, reporting or dashboard functionality.
