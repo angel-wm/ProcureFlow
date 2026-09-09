@@ -652,6 +652,7 @@ This behavior is governed by:
 Phase 4 prepares the window only.
 
 Consumption aggregation, average demand, variability and no-recent-demand logic remain Phase 5 responsibilities.
+
 ## 13.4 Phase 5 Formula Boundary
 
 The following fields belong to Phase 5 — Business Logic & Advanced Formulas:

@@ -989,7 +989,7 @@ Decisions confirmed during Phase 3 — Power Query Pipeline:
 
 Decisions confirmed during Phase 4 — Operational Model:
 
-`DEC-051`
+`DEC-051` through `DEC-052`
 
 Current superseded decisions:
 

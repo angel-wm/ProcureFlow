@@ -532,7 +532,7 @@ Phase Pull Request:
 
 Pull Request status:
 
-OPEN — REVIEW IN PROGRESS
+OPEN — FINAL REVIEW PENDING
 
 Merge commit:
 
@@ -552,7 +552,7 @@ Version tag:
 
 Status:
 
-IN PROGRESS — PULL REQUEST REVIEW
+IN PROGRESS — FINAL PULL REQUEST REVIEW
 
 Completed steps:
 
@@ -561,23 +561,24 @@ Completed steps:
 3. Phase 4 closeout prepared;
 4. `phase/04-operational-model` published;
 5. Pull Request `#5 — Phase 4 — Operational Model` created;
-6. initial Pull Request diff and evidence review performed.
+6. initial Pull Request diff and evidence review performed;
+7. initial review corrections committed and published;
+8. second Pull Request review performed.
 
-Current review findings:
+Second-review findings resolved in the final correction commit:
 
-- correct Phase 4 architecture subsection numbering;
-- include `DEC-052` in the Phase 4 decision baseline;
-- synchronize repository documentation with the actual Pull Request state.
+- synchronize the Phase 4 decision baseline through `DEC-052`;
+- normalize Phase 4 architecture subsection spacing;
+- update the closeout GitHub Gate to the current review state.
 
 Remaining steps:
 
-1. commit and publish review corrections;
-2. re-review the final Pull Request diff;
-3. merge Pull Request `#5` into `main`;
-4. synchronize local `main`;
-5. finalize canonical Phase 4 status;
-6. publish `phase-4-complete`;
-7. publish `v0.5.0`.
+1. re-review the final Pull Request diff;
+2. merge Pull Request `#5` into `main`;
+3. synchronize local `main`;
+4. finalize canonical Phase 4 completion status;
+5. publish `phase-4-complete`;
+6. publish `v0.5.0`.
 
 Phase 4 must not be marked formally COMPLETED until these steps are satisfied.
 ---
