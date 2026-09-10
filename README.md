@@ -12,7 +12,7 @@ Project status:
 
 Current released version:
 
-`v0.6.0`
+`v0.6.2`
 
 Current completed phase:
 
@@ -20,7 +20,7 @@ Current completed phase:
 
 Current release:
 
-`v0.6.0`
+`v0.6.2`
 
 Phase 5 status:
 

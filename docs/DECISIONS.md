@@ -6,7 +6,7 @@ Status: CONFIRMED
 Project State: IN DEVELOPMENT
 Current Phase: Phase 5 — Business Logic & Advanced Formulas
 Current Phase Status: COMPLETED
-Current Released Version: v0.4.1
+Current Released Version: v0.6.2
 This document records material project decisions that affect ProcureFlow scope, architecture, business rules, implementation strategy, governance or release management.
 
 ---
