@@ -12,21 +12,21 @@ Project status:
 
 Current released version:
 
-`v0.5.0`
+`v0.6.0`
 
 Current completed phase:
 
-**Phase 4 — Operational Model**
+**Phase 5 — Business Logic & Advanced Formulas**
 
 Current release:
 
-`v0.5.0`
+`v0.6.0`
 
-Phase 4 status:
+Phase 5 status:
 
 **COMPLETED**
 
-Phase 4 technical implementation, validation and Pull Request review are complete. Pull Request `#5 — Phase 4 — Operational Model` was merged into `main`.
+Phase 5 technical implementation, validation and Pull Request review are complete. Pull Request `#6 — Phase 5 — Business Logic & Advanced Formulas` was merged into `main`.
 
 ## Completed Phases
 
@@ -112,8 +112,44 @@ Completed implementation includes:
 - versioned Excel formula documentation;
 - full post-implementation Refresh validation.
 
-Phase 5 business calculations have not been implemented prematurely.
+Phase 4 intentionally stopped before Phase 5 business calculations.
 
+### Phase 5 — Business Logic & Advanced Formulas
+
+Status:
+
+`COMPLETED`
+
+Version:
+
+`v0.6.0`
+
+Completed implementation includes:
+
+- Historical Demand;
+- Average Weekly Demand;
+- demand variability;
+- historical Actual Lead Time;
+- Lead-Time variability;
+- Effective Lead-Time fallback;
+- Open PO Quantity;
+- Available Stock;
+- configurable Service Levels;
+- Safety Stock;
+- Reorder Point;
+- Inventory Position;
+- Target Stock;
+- Recommended Order Quantity;
+- Inventory Status;
+- NoRecentDemand;
+- On-Time Delivery metrics;
+- Late Delivery metrics;
+- partial-receipt metrics;
+- supplier Lead-Time metrics;
+- supplier Quality Incident counts;
+- documented and validated Excel business formulas.
+
+Phase 5 validation completed with zero formula errors. The Product × Site replenishment engine contains 1,800 validated rows and Supplier Performance contains 40 validated Suppliers.
 ## Current Workbook
 
 Executable workbook:
@@ -173,8 +209,8 @@ The current Power Query pipeline loads the following structured Excel Tables:
 | `tblPurchaseOrders` | Purchase Order fact data | 29,666 |
 | `tblQualityIncidents` | Supplier-quality incidents | 368 |
 | `tblDate` | Daily Date dimension | 1,198 |
-| `tblReplenishment` | Product × Site operational structure | 1,800 |
-| `tblSupplierPerformance` | Supplier operational structure | 40 |
+| `tblReplenishment` | Product × Site replenishment calculation engine | 1,800 |
+| `tblSupplierPerformance` | Supplier-performance calculation model | 40 |
 
 ## Documentation
 
@@ -238,13 +274,13 @@ Each completed phase uses a dedicated branch, Pull Request, merge, phase-complet
 
 The next planned phase is:
 
-**Phase 5 — Business Logic & Advanced Formulas**
+**Phase 6 — Quality Control System**
 
 Target version:
 
-`v0.6.0`
+`v0.7.0`
 
-Phase 5 will implement the core replenishment and supplier-performance calculations on top of the operational structures prepared during Phase 4.
+Phase 6 will implement the formal ProcureFlow data-quality, business-logic validation and reconciliation framework on top of the completed Phase 5 calculation model.
 
 ## Portfolio Status
 

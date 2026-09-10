@@ -2,7 +2,7 @@
 
 ## Status
 
-READY FOR GITHUB GATE
+COMPLETED
 
 Target Version: `v0.6.0`
 
@@ -128,15 +128,18 @@ This is retained as an observed model result rather than treated as a defect. Bu
 
 ## GitHub Gate
 
-Pending:
+COMPLETED.
 
-- closeout documentation commit
-- push phase branch
-- pull request
-- review
-- merge to `main`
-- synchronize canonical release state
-- create phase tag `phase-5-complete`
-- create version tag `v0.6.0`
+Phase 5 GitHub publication evidence:
 
-Phase 6 must not begin until this GitHub Gate is complete.
+- phase branch: `phase/05-business-logic-advanced-formulas`
+- Pull Request: `#6 — Phase 5 — Business Logic & Advanced Formulas`
+- Pull Request status: MERGED
+- merge commit: `43efd6a76bd9f4ce54093121289486bafd32e2bf`
+- release synchronization committed to `main`
+- phase tag: `phase-5-complete`
+- version tag: `v0.6.0`
+
+Phase 5 is formally completed.
+
+The authorized next phase is Phase 6 — Quality Control System, target version `v0.7.0`.

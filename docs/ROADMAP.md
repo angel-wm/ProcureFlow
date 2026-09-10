@@ -4,9 +4,9 @@
 
 Status: CONFIRMED
 Project State: IN DEVELOPMENT
-Current Phase: Phase 3 — Power Query Pipeline
+Current Phase: Phase 5 — Business Logic & Advanced Formulas
 Current Phase Status: COMPLETED
-Current Released Version: v0.4.1
+Current Released Version: v0.6.0
 This roadmap defines the approved sequential development plan for ProcureFlow.
 
 A phase is only considered COMPLETED after its technical work, validation, documentation and GitHub publication gate have all been completed.
@@ -533,7 +533,7 @@ v0.5.0
 
 ## Status
 
-IN PROGRESS
+COMPLETED
 
 ## Target Version
 

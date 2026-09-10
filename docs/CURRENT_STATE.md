@@ -6,15 +6,15 @@ IN DEVELOPMENT
 
 ## Current Version
 
-v0.5.0
+v0.6.0
 
 ## Current Phase
 
 Phase 5 — Business Logic & Advanced Formulas
 
-Status: IN PROGRESS
+Status: COMPLETED
 
-Target Version: `v0.6.0`
+Version: `v0.6.0`
 
 Phase Branch:
 
@@ -22,13 +22,13 @@ Phase Branch:
 
 ## Last Completed Phase
 
-Phase 4 — Operational Model
+Phase 5 — Business Logic & Advanced Formulas
 
-Phase Completion Version: `v0.5.0`
+Phase Completion Version: `v0.6.0`
 
 GitHub Pull Request:
 
-`#5 — Phase 4 — Operational Model`
+`#6 — Phase 5 — Business Logic & Advanced Formulas`
 
 Pull Request Status:
 
@@ -36,18 +36,19 @@ MERGED
 
 Merge Commit:
 
-`7d3f11fdb069436dd767fd1c371be169c31b2804`
+`43efd6a76bd9f4ce54093121289486bafd32e2bf`
 
 Phase Tag:
 
-`phase-4-complete`
+`phase-5-complete`
 
 Version Tag:
 
-`v0.5.0`
+`v0.6.0`
+
 ## Implemented
 
-ProcureFlow currently includes the completed Project Design, Data Design, Workbook Foundation and Power Query Pipeline baselines.
+ProcureFlow currently includes the completed Project Design, Data Design, Workbook Foundation, Power Query Pipeline, Operational Model and Business Logic baselines.
 
 Implemented project assets include:
 
@@ -98,9 +99,6 @@ Implemented project assets include:
 
 The following remain assigned to later roadmap phases:
 
-- operational replenishment model;
-- supplier-performance calculations;
-- business formulas;
 - formal Quality Control system;
 - PivotTables;
 - PivotCharts;
@@ -249,35 +247,45 @@ Validated Phase 4 outcomes include:
 - Pull Request `#5 — Phase 4 — Operational Model` reviewed and merged.
 
 Phase 5 business formulas were intentionally not implemented during Phase 4.
-## Phase 5 Progress
+## Phase 5 Completion
 
-Phase 5 — Business Logic & Advanced Formulas is now in progress.
+Phase 5 — Business Logic & Advanced Formulas is COMPLETED.
 
-Current authorized work:
+Validated Phase 5 outcomes include:
 
-- implement historical-demand calculations;
-- calculate Average Weekly Demand;
-- calculate demand variability;
-- implement `NO_RECENT_DEMAND`;
-- calculate historical Actual Lead-Time metrics;
-- calculate Lead-Time variability;
-- implement Effective Lead-Time fallback logic;
-- calculate Available Stock;
-- calculate Reporting-Date-dependent Open Purchase Order Quantity;
-- retrieve configurable Service Levels;
-- implement Safety Stock;
-- implement Reorder Point;
-- implement Inventory Position;
-- implement Target Stock;
-- implement Recommended Order Quantity;
-- implement Inventory Status;
-- implement Supplier delivery, Lead-Time, partial-receipt and quality metrics;
-- document implemented formulas;
-- validate critical calculations and formula performance.
+- functioning Product × Site replenishment engine;
+- Historical Demand aggregation;
+- Average Weekly Demand;
+- demand variability;
+- Reporting-Date-safe historical Actual Lead Time;
+- Lead-Time variability;
+- Effective Lead-Time fallback;
+- Reporting-Date-dependent Open PO Quantity;
+- Available Stock;
+- configurable Service Levels;
+- Safety Stock;
+- Reorder Point;
+- Inventory Position;
+- Target Stock;
+- Recommended Order Quantity;
+- Inventory Status;
+- NoRecentDemand safeguard;
+- functioning Supplier Performance calculations;
+- On-Time and Late Delivery metrics;
+- partial-receipt metrics;
+- supplier Lead-Time metrics;
+- supplier Quality Incident counts;
+- formula documentation;
+- manual and global reconciliation evidence;
+- successful full workbook Refresh;
+- measured full Excel recalculation of 51.4639623 seconds.
 
-Phase 5 business logic will remain implemented primarily through auditable Excel formulas in accordance with the approved architecture.
+Pull Request `#6 — Phase 5 — Business Logic & Advanced Formulas` was merged into `main`.
 
-Phase 6 Quality Control, PivotTables, VBA automation and later reporting functionality remain outside the current phase boundary.
+Phase 5 release version:
+
+`v0.6.0`
+
 ## Official Dataset
 
 Aerospace Supply Chain Performance & Forecasting
@@ -324,6 +332,10 @@ Confirmed during Phase 3:
 Confirmed during Phase 4:
 
 `DEC-051` through `DEC-052`
+
+Confirmed during Phase 5:
+
+`DEC-053` through `DEC-055`
 
 No decisions are currently marked SUPERSEDED.
 
@@ -483,13 +495,9 @@ The Phase 4 exit criteria are technically satisfied:
 Phase 4 is formally COMPLETED. Technical implementation, validation, Pull Request review and merge are complete.
 ## Next Immediate Step
 
-Begin implementation of Phase 5 business formulas incrementally.
+Begin the dedicated Phase 6 — Quality Control System workflow from the completed `v0.6.0` baseline.
 
-The first calculation area is historical demand in `tblReplenishment`, using the completed historical-demand window established and validated during Phase 4.
-
-Before dependent replenishment formulas are implemented, each business calculation must be defined, explained, implemented in Excel and validated with actual workbook evidence.
-
-No Phase 5 formula is considered implemented merely because its destination column already exists.
+Phase 6 must reconstruct state from GitHub and implement the formal ProcureFlow Quality Control and reconciliation framework.
 
 ## Next Phase
 
@@ -498,8 +506,6 @@ Phase 6 — Quality Control System
 Status: NOT STARTED
 
 Target Version: `v0.7.0`
-
-Phase 6 must not begin until Phase 5 satisfies its technical exit criteria and GitHub gate.
 
 ## Phase 5 Business Logic Validation
 
@@ -538,4 +544,4 @@ Validation evidence:
 - Refresh All: successful
 - measured full Excel recalculation: 51.4639623 seconds
 
-Phase 5 technical documentation and closeout preparation remain in progress.
+Phase 5 technical implementation, validation, documentation and GitHub Pull Request merge are complete.
