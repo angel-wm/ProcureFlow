@@ -10,15 +10,15 @@ v0.5.0
 
 ## Current Phase
 
-Phase 4 — Operational Model
+Phase 5 — Business Logic & Advanced Formulas
 
-Status: COMPLETED
+Status: IN PROGRESS
 
-Version: `v0.5.0`
+Target Version: `v0.6.0`
 
 Phase Branch:
 
-`phase/04-operational-model`
+`phase/05-business-logic-advanced-formulas`
 
 ## Last Completed Phase
 
@@ -249,6 +249,35 @@ Validated Phase 4 outcomes include:
 - Pull Request `#5 — Phase 4 — Operational Model` reviewed and merged.
 
 Phase 5 business formulas were intentionally not implemented during Phase 4.
+## Phase 5 Progress
+
+Phase 5 — Business Logic & Advanced Formulas is now in progress.
+
+Current authorized work:
+
+- implement historical-demand calculations;
+- calculate Average Weekly Demand;
+- calculate demand variability;
+- implement `NO_RECENT_DEMAND`;
+- calculate historical Actual Lead-Time metrics;
+- calculate Lead-Time variability;
+- implement Effective Lead-Time fallback logic;
+- calculate Available Stock;
+- calculate Reporting-Date-dependent Open Purchase Order Quantity;
+- retrieve configurable Service Levels;
+- implement Safety Stock;
+- implement Reorder Point;
+- implement Inventory Position;
+- implement Target Stock;
+- implement Recommended Order Quantity;
+- implement Inventory Status;
+- implement Supplier delivery, Lead-Time, partial-receipt and quality metrics;
+- document implemented formulas;
+- validate critical calculations and formula performance.
+
+Phase 5 business logic will remain implemented primarily through auditable Excel formulas in accordance with the approved architecture.
+
+Phase 6 Quality Control, PivotTables, VBA automation and later reporting functionality remain outside the current phase boundary.
 ## Official Dataset
 
 Aerospace Supply Chain Performance & Forecasting
@@ -454,23 +483,20 @@ The Phase 4 exit criteria are technically satisfied:
 Phase 4 is formally COMPLETED. Technical implementation, validation, Pull Request review and merge are complete.
 ## Next Immediate Step
 
-Phase 4 — Operational Model is fully closed and released as `v0.5.0`.
+Begin implementation of Phase 5 business formulas incrementally.
 
-Release evidence:
+The first calculation area is historical demand in `tblReplenishment`, using the completed historical-demand window established and validated during Phase 4.
 
-- Pull Request `#5`: MERGED;
-- merge commit: `7d3f11fdb069436dd767fd1c371be169c31b2804`;
-- release commit: `0e49f9316220d525534258ff42ca5077eb81cc78`;
-- phase tag: `phase-4-complete`;
-- version tag: `v0.5.0`.
+Before dependent replenishment formulas are implemented, each business calculation must be defined, explained, implemented in Excel and validated with actual workbook evidence.
 
-The next authorized project action is to begin Phase 5 — Business Logic & Advanced Formulas through its dedicated phase workflow.
+No Phase 5 formula is considered implemented merely because its destination column already exists.
+
 ## Next Phase
 
-Phase 5 — Business Logic & Advanced Formulas
+Phase 6 — Quality Control System
 
 Status: NOT STARTED
 
-Target Version: `v0.6.0`
+Target Version: `v0.7.0`
 
-Phase 5 is authorized to begin through its dedicated phase workflow.
+Phase 6 must not begin until Phase 5 satisfies its technical exit criteria and GitHub gate.
