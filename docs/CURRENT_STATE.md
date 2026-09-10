@@ -6,7 +6,7 @@ IN DEVELOPMENT
 
 ## Current Version
 
-v0.6.0
+v0.6.1
 
 ## Current Phase
 
@@ -403,7 +403,7 @@ Validated inventory snapshot results:
 - Backorder total reconciliation: PASS
 - rows where Blocked Quantity exceeds On-Hand Quantity: 0
 
-Phase 5 business formulas remain unimplemented.
+At the Phase 4 close, Phase 5 business formulas had not yet been implemented. They were subsequently implemented and validated during Phase 5.
 ## Phase 4 Supplier Performance Foundation Implemented
 
 [IMPLEMENTED]
@@ -428,7 +428,7 @@ Implemented Phase 4 fields:
 - `SupplierRiskClass`
 - `ReportingDate`
 
-Phase 5 metric columns have been structurally reserved but remain without business formulas.
+At the Phase 4 close, Phase 5 metric columns had been structurally reserved but did not yet contain business formulas. Those formulas were subsequently implemented and validated during Phase 5.
 
 Validated results:
 
@@ -463,7 +463,7 @@ Validated source coverage:
 
 The demand-history window uses only completed weekly periods preceding the Inventory Snapshot Date in accordance with `DEC-052`.
 
-No Phase 5 demand aggregation or statistical business calculation has been implemented.
+At the Phase 4 close, no Phase 5 demand aggregation or statistical business calculation had yet been implemented. Those calculations were subsequently implemented and validated during Phase 5.
 ## Phase 4 Technical Exit Criteria Satisfied
 
 [CONFIRMADO]
