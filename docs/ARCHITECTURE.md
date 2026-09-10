@@ -4,7 +4,7 @@
 
 Status: CONFIRMED DESIGN BASELINE
 Project State: IN DEVELOPMENT
-Current Phase: Phase 3 — Power Query Pipeline
+Current Phase: Phase 5 — Business Logic & Advanced Formulas
 Current Phase Status: COMPLETED
 Current Released Version: v0.4.1
 This document defines the approved architecture of ProcureFlow and records implementation evidence as project phases are completed.
@@ -1790,3 +1790,44 @@ The file-source nodes shown at the top of the Power Query dependency view displa
 These machine-specific paths are not hard-coded in the production `src_*` M queries.
 
 The queries derive the raw-data location from the workbook-relative `cfg_RawDataFolder` configuration defined in `01_CONFIG`, preserving repository portability as long as the approved `workbook/` and `data/raw/` folder relationship is maintained.
+
+## Phase 5 Implemented Business Logic Layer
+
+Phase 5 extends `tblReplenishment` from the Phase 4 structural model into the functioning Product × Site replenishment engine.
+
+The implemented Phase 5 derived fields are:
+
+- HistoricalDemandQty
+- AverageWeeklyDemand
+- DemandStdDev
+- AvgActualLeadTimeDays
+- LeadTimeStdDevDays
+- EffectiveLeadTimeDays
+- OpenPOQty
+- AvailableStock
+- ServiceLevel
+- SafetyStock
+- ReorderPoint
+- InventoryPosition
+- TargetStock
+- RecommendedOrderQty
+- InventoryStatus
+- NoRecentDemand
+
+The calculation dependency is:
+
+historical demand
+→ demand average and variability
+→ historical Lead Time and variability
+→ Effective Lead Time
+→ Available Stock / Open PO Quantity / Service Level
+→ Safety Stock
+→ Reorder Point
+→ Inventory Position
+→ Target Stock
+→ Recommended Order Quantity
+→ Inventory Status
+
+`tblSupplierPerformance` is also functioning for received-order, on-time, late, partial-receipt, Lead-Time and quality-incident metrics.
+
+Business calculations remain implemented through auditable Excel formulas. Power Query remains responsible for ingestion, preparation and objective source-derived fields. VBA is not used to hide Phase 5 business mathematics.

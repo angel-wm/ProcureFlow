@@ -4,7 +4,7 @@
 
 Status: CONFIRMED
 Project State: IN DEVELOPMENT
-Current Phase: Phase 3 — Power Query Pipeline
+Current Phase: Phase 5 — Business Logic & Advanced Formulas
 Current Phase Status: COMPLETED
 Current Released Version: v0.4.1
 This document records material project decisions that affect ProcureFlow scope, architecture, business rules, implementation strategy, governance or release management.
@@ -1153,3 +1153,47 @@ Using only completed weeks before the current snapshot preserves temporal causal
 Phase 4 prepares this temporal context only.
 
 Average demand, demand variability, total recent consumption and `NO_RECENT_DEMAND` remain Phase 5 business calculations.
+
+## DEC-053 — Reporting-Date-safe historical Lead Time
+
+Status: CONFIRMED
+
+Phase: 5 — Business Logic & Advanced Formulas
+
+Historical Actual Lead Time calculations must use only Purchase Orders whose `ReceiptDate <= ReportingDate`.
+
+This prevents future receipt information from affecting an as-of historical operational view.
+
+For Product × Site replenishment calculations:
+
+- zero historical received POs results in a blank `AvgActualLeadTimeDays`;
+- `EffectiveLeadTimeDays` falls back to `MasterLeadTimeDays` when no historical average is available;
+- fewer than two historical observations results in `LeadTimeStdDevDays = 0`.
+
+No arbitrary Lead-Time lookback window is introduced because no approved configuration parameter currently defines one.
+
+## DEC-054 — Safety Stock statistical methodology
+
+Status: CONFIRMED
+
+Phase: 5 — Business Logic & Advanced Formulas
+
+Safety Stock incorporates both weekly demand variability and Actual Lead-Time variability.
+
+The implemented model assumes demand variability and Lead-Time variability are independent and uses the configured Service Level to derive the standard-normal Z value.
+
+Lead Time measured in days is converted to weeks before combining it with weekly demand.
+
+Supplier Risk Class is not used as a Safety Stock multiplier.
+
+## DEC-055 — NoRecentDemand replenishment safeguard
+
+Status: CONFIRMED
+
+Phase: 5 — Business Logic & Advanced Formulas
+
+`NoRecentDemand` is TRUE when total consumption across the configured demand-history window equals zero.
+
+A NoRecentDemand row with no backorder must not receive an automatic statistical purchase recommendation.
+
+A real backorder is not suppressed by the NoRecentDemand safeguard because it represents an actual unmet requirement rather than a statistical demand signal.
