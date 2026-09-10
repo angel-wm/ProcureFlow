@@ -500,3 +500,42 @@ Status: NOT STARTED
 Target Version: `v0.7.0`
 
 Phase 6 must not begin until Phase 5 satisfies its technical exit criteria and GitHub gate.
+
+## Phase 5 Business Logic Validation
+
+Phase 5 core business logic has been implemented and validated in the workbook.
+
+Validated outputs include:
+
+- Historical Demand calculations
+- demand average and variability
+- Reporting-Date-safe historical Lead Time
+- Lead-Time variability and fallback
+- Available Stock
+- Reporting-Date-dependent Open PO Quantity
+- configurable Service Level
+- Safety Stock
+- Reorder Point
+- Inventory Position
+- Target Stock
+- Recommended Order Quantity
+- Inventory Status
+- NoRecentDemand
+- Supplier delivery performance
+- Supplier Lead-Time performance
+- partial-receipt metrics
+- supplier quality-incident counts
+
+Validation evidence:
+
+- Phase 5 formula errors: 0
+- Inventory Status rows: 1,800
+- positive Recommended Order lines: 392
+- total Recommended Order Quantity: 2,109 units
+- Open PO Quantity: 20,146 units
+- NoRecentDemand rows: 0
+- Master Lead Time fallback rows: 0
+- Refresh All: successful
+- measured full Excel recalculation: 51.4639623 seconds
+
+Phase 5 technical documentation and closeout preparation remain in progress.

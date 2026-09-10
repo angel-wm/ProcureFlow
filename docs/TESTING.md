@@ -1331,3 +1331,80 @@ The operational model is ready for Phase 5 — Business Logic & Advanced Formula
 ### Phase Boundary
 
 Phase 5 calculations remain unimplemented.
+
+## Phase 5 — Business Logic Validation
+
+Status: PASS
+
+Phase 5 business formulas were validated against the complete operational model.
+
+### Replenishment Validation
+
+All planned reconciliation tests returned their expected result:
+
+- Historical Demand global reconciliation: PASS
+- NoRecentDemand reconciliation: PASS
+- Available Stock reconciliation: PASS
+- Open PO Quantity global reconciliation: PASS
+- Inventory Position reconciliation: PASS
+- Reorder Point reconciliation: PASS
+- Target Stock reconciliation: PASS
+- negative Recommended Order Quantity count: 0
+- non-integer Recommended Order Quantity count: 0
+- NoRecentDemand with no backorder generating a purchase recommendation: 0
+- invalid Inventory Status count: 0
+- Phase 5 formula error count: 0
+
+### Inventory Status Distribution
+
+- STOCKOUT: 2
+- CRITICAL: 86
+- REORDER: 310
+- ATTENTION: 103
+- EXCESS: 967
+- HEALTHY: 332
+- Total: 1,800
+
+The distribution reconciles exactly to the Product × Site operational grain.
+
+The comparatively high EXCESS population is retained as an observed business-model result and is not treated as a formula defect without further business evidence.
+
+### Additional Replenishment Evidence
+
+- NoRecentDemand rows: 0
+- rows using Master Lead Time fallback: 0
+- rows with positive Recommended Order Quantity: 392
+- total Recommended Order Quantity: 2,109 units
+- Open PO Quantity at Reporting Date: 20,146 units
+- Phase 5 formula errors: 0
+
+### Supplier Performance Validation
+
+All planned supplier-performance reconciliations returned their expected result:
+
+- Received PO reconciliation: PASS
+- On-Time PO + Late PO = Received PO: PASS
+- On-Time Delivery Rate + Late Delivery Rate = 100% where received POs exist: PASS
+- Partial PO reconciliation: PASS
+- Late PO reconciliation: PASS
+- Quality Incident reconciliation: PASS
+
+### Refresh and Calculation Performance
+
+Refresh All completed successfully with the full dataset.
+
+Observed end-to-end Refresh All duration was approximately 10 minutes.
+
+A separate full Excel formula recalculation was measured using `Application.CalculateFull()`.
+
+Measured full recalculation duration:
+
+- 51.4639623 seconds
+
+Interpretation:
+
+- Phase 5 formula recalculation completes in under one minute on the development environment.
+- formula performance is accepted for the Phase 5 exit criterion with a documented performance observation;
+- the approximately 10-minute end-to-end Refresh All duration is not attributable solely to Phase 5 formula recalculation and is retained as a future performance observation rather than treated as a Phase 5 formula defect.
+
+No business rules were changed solely to improve performance.
