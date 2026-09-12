@@ -5,8 +5,8 @@
 Status: CONFIRMED
 Project State: IN DEVELOPMENT
 Current Phase: Phase 7 — Analysis & PivotTables
-Current Phase Status: IN PROGRESS
-Current Released Version: v0.7.0
+Current Phase Status: COMPLETED
+Current Released Version: v0.8.0
 This roadmap defines the approved sequential development plan for ProcureFlow.
 
 A phase is only considered COMPLETED after its technical work, validation, documentation and GitHub publication gate have all been completed.
@@ -714,11 +714,11 @@ v0.7.0
 
 ## Status
 
-IN PROGRESS
+COMPLETED
 
-## Local Work Status
+## GitHub Gate Status
 
-LOCAL IMPLEMENTATION COMPLETE — GITHUB GATE PENDING
+COMPLETE
 
 ## Target Version
 
@@ -1224,3 +1224,4 @@ Phase 7 — Analysis & PivotTables
 Target version:
 
 `v0.8.0`
+

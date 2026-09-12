@@ -5,8 +5,8 @@
 Status: CONFIRMED
 Project State: IN DEVELOPMENT
 Current Phase: Phase 7 — Analysis & PivotTables
-Current Phase Status: IN PROGRESS — LOCAL IMPLEMENTATION COMPLETE, GITHUB GATE PENDING
-Current Released Version: v0.7.0
+Current Phase Status: COMPLETED
+Current Released Version: v0.8.0
 This document records material project decisions that affect ProcureFlow scope, architecture, business rules, implementation strategy, governance or release management.
 
 ---
@@ -1342,5 +1342,6 @@ This decision preserves the distinction between:
 - later automated refresh-state monitoring.
 
 `DEC-058` remains valid and is clarified by this decision rather than superseded.
+
 
 
