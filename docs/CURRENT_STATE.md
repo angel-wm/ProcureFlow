@@ -396,6 +396,14 @@ Confirmed during Phase 5:
 
 `DEC-053` through `DEC-055`
 
+Confirmed during Phase 6:
+
+`DEC-056` through `DEC-058`
+
+Confirmed during Phase 7:
+
+`DEC-059`
+
 No decisions are currently marked SUPERSEDED.
 
 See:
@@ -674,6 +682,7 @@ Phase 6 technical implementation, controlled validation, documentation and Pull 
 Release version:
 
 `v0.7.0`
+
 
 
 
