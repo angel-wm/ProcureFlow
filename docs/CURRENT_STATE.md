@@ -10,15 +10,15 @@ v0.8.0
 
 ## Current Phase
 
-Phase 7 — Analysis & PivotTables
+Phase 8 — VBA Foundations
 
-Status: COMPLETED
+Status: IN PROGRESS
 
-Version: `v0.8.0`
+Target Version: `v0.8.1`
 
 Phase Branch:
 
-`phase/07-analysis-pivottables`
+`phase/08-vba-foundations`
 
 ## Last Completed Phase
 
@@ -401,7 +401,7 @@ Confirmed during Phase 7:
 
 `DEC-059`
 
-No decisions are currently marked SUPERSEDED.
+DEC-059 is SUPERSEDED by DEC-060 for the Phase 8 / Phase 9 automation boundary.
 
 See:
 
@@ -563,14 +563,14 @@ Phase 7 is complete and released as `v0.8.0`.
 
 The next authorized development phase is:
 
-Phase 8 — VBA & Automation
+Phase 8 — VBA Foundations
 
-Phase 8 must begin through its own formal phase branch and design workflow.
+Phase 8 has begun on its formal phase branch and remains limited to VBA foundations before Phase 9 production automation.
 ## Next Phase
 
-Phase 8 — VBA & Automation
+Phase 8 — VBA Foundations
 
-Status: NOT STARTED
+Status: IN PROGRESS
 
 Target Version: `v0.8.1`
 
@@ -674,6 +674,7 @@ Phase 6 technical implementation, controlled validation, documentation and Pull 
 Release version:
 
 `v0.7.0`
+
 
 
 

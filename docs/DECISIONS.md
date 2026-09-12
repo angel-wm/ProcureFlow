@@ -4,8 +4,8 @@
 
 Status: CONFIRMED
 Project State: IN DEVELOPMENT
-Current Phase: Phase 7 — Analysis & PivotTables
-Current Phase Status: COMPLETED
+Current Phase: Phase 8 — VBA Foundations
+Current Phase Status: IN PROGRESS
 Current Released Version: v0.8.0
 This document records material project decisions that affect ProcureFlow scope, architecture, business rules, implementation strategy, governance or release management.
 
@@ -1342,6 +1342,66 @@ This decision preserves the distinction between:
 - later automated refresh-state monitoring.
 
 `DEC-058` remains valid and is clarified by this decision rather than superseded.
+---
 
+## DEC-060 — Phase 8 / Phase 9 VBA Automation Boundary
 
+**Status:** CONFIRMED
+
+**Phase:** 8 — VBA Foundations
+
+**Decision:**
+
+Phase 8 is limited to progressive VBA foundations and educational workbook operations that build the knowledge required for later production automation.
+
+Phase 8 may include:
+
+- Macro Recorder exercises tied to relevant ProcureFlow operations;
+- inspection and explanation of generated VBA;
+- Visual Basic Editor usage;
+- `Sub`;
+- `Dim`;
+- common VBA data types;
+- `Workbook`;
+- `Worksheet`;
+- `Range`;
+- `Cells`;
+- `ListObject`;
+- `If`;
+- `For`;
+- `For Each`;
+- `Do While`;
+- procedures and functions;
+- basic error handling;
+- foundational PivotTable interaction;
+- foundational refresh concepts.
+
+Phase 8 must not introduce production workflow orchestration merely to demonstrate VBA.
+
+Phase 9 — Automation owns production-grade VBA workflows, including where justified:
+
+- Power Query refresh orchestration;
+- dependent PivotTable refresh;
+- Quality Control orchestration;
+- persistent successful-refresh state;
+- persistent automated `QC-032 — PivotTable refresh status`;
+- report preparation;
+- output export;
+- user-facing automation messages;
+- production error handling;
+- stale-output prevention.
+
+`QC-032` therefore remains `N/A` throughout Phase 8.
+
+The manual PivotTable refresh and reconciliation evidence produced during Phase 7 remains valid historical test evidence, but it is not equivalent to persistent automated refresh-state monitoring.
+
+**Rationale:**
+
+The approved roadmap intentionally separates learning VBA from implementing production automation.
+
+Keeping this boundary prevents ProcureFlow from introducing operational VBA before the underlying language, Excel object model and failure-handling concepts are understood.
+
+It also preserves the architectural principle that production automation should be designed only after the corresponding manual workflows are stable and understood.
+
+This decision supersedes `DEC-059` only with respect to the phase assignment of persistent `QC-032` automation. The Phase 7 manual PivotTable validation established by `DEC-059` remains valid.
 
