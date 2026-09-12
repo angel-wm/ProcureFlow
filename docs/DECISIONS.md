@@ -4,8 +4,8 @@
 
 Status: CONFIRMED
 Project State: IN DEVELOPMENT
-Current Phase: Phase 6 — Quality Control System
-Current Phase Status: COMPLETED
+Current Phase: Phase 7 — Analysis & PivotTables
+Current Phase Status: IN PROGRESS — LOCAL IMPLEMENTATION COMPLETE, GITHUB GATE PENDING
 Current Released Version: v0.7.0
 This document records material project decisions that affect ProcureFlow scope, architecture, business rules, implementation strategy, governance or release management.
 
@@ -1308,3 +1308,39 @@ until Phase 7 implements PivotTables and their refresh behavior can be tested ho
 **Rationale:**
 
 ProcureFlow must not claim persistence or PivotTable validation before the required orchestration or PivotTable implementation exists.
+
+---
+
+## DEC-059 — Pivot Refresh Validation and QC-032 Automation Boundary
+
+**Status:** CONFIRMED
+
+**Phase:** 7 — Analysis & PivotTables
+
+**Decision:**
+
+Phase 7 validates PivotTable refresh behavior through executed Refresh All testing, source-to-Pivot reconciliation and interactive-filter validation.
+
+ProcureFlow will not create additional technical PivotTables solely to simulate an automated PivotTable refresh-state control.
+
+`QC-032 — PivotTable refresh status` will remain N/A in `tblQualityControl` until Phase 8 provides an appropriate VBA-based orchestration mechanism capable of evaluating and persisting refresh execution state.
+
+Phase 7 manual PivotTable refresh evidence will instead be recorded in formal testing and phase-closeout documentation.
+
+**Rationale:**
+
+Normal worksheet formulas do not provide a sufficiently reliable persistent refresh-state signal for all PivotTables.
+
+Creating hidden or technical PivotTables purely to manufacture that signal would increase workbook complexity without improving the analytical layer itself.
+
+Phase 8 is already responsible for refresh orchestration and automation, making it the appropriate layer for implementing a trustworthy persistent PivotTable refresh control.
+
+This decision preserves the distinction between:
+
+- executed manual validation;
+- operational Quality Control state;
+- later automated refresh-state monitoring.
+
+`DEC-058` remains valid and is clarified by this decision rather than superseded.
+
+
