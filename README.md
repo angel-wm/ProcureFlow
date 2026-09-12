@@ -30,10 +30,6 @@ Target version:
 
 `v0.8.0`
 
-Current released version:
-
-`v0.7.0`
-
 ## Completed Phases
 
 ### Phase 0 — Project Design
@@ -332,5 +328,6 @@ The final public-facing portfolio presentation, screenshots, polished repository
 ProcureFlow source code and original project documentation are licensed under the MIT License.
 
 External datasets retain their own applicable licenses and terms.
+
 
 
