@@ -4,9 +4,10 @@
 
 Status: CONFIRMED
 Project State: IN DEVELOPMENT
-Current Phase: Phase 5 — Business Logic & Advanced Formulas
-Current Phase Status: COMPLETED
+Current Phase: Phase 6 — Quality Control System
+Current Phase Status: IN PROGRESS
 Current Released Version: v0.6.2
+Phase 6 Target Version: v0.7.0
 This roadmap defines the approved sequential development plan for ProcureFlow.
 
 A phase is only considered COMPLETED after its technical work, validation, documentation and GitHub publication gate have all been completed.
@@ -640,7 +641,7 @@ v0.6.0
 
 ## Status
 
-NOT STARTED
+IN PROGRESS
 
 ## Target Version
 
@@ -1189,9 +1190,9 @@ v1.0.0
 | 1 | Data Design | COMPLETED | v0.2.0 |
 | 2 | Workbook Foundation | COMPLETED | v0.3.0 |
 | 3 | Power Query Pipeline | COMPLETED | v0.4.0 |
-| 4 | Operational Model | NOT STARTED | v0.5.0 |
-| 5 | Business Logic & Advanced Formulas | NOT STARTED | v0.6.0 |
-| 6 | Quality Control System | NOT STARTED | v0.7.0 |
+| 4 | Operational Model | COMPLETED | v0.5.0 |
+| 5 | Business Logic & Advanced Formulas | COMPLETED | v0.6.0 |
+| 6 | Quality Control System | IN PROGRESS | v0.7.0 |
 | 7 | Analysis & PivotTables | NOT STARTED | v0.8.0 |
 | 8 | VBA Foundations | NOT STARTED | v0.8.1 |
 | 9 | Automation | NOT STARTED | v0.9.0 |
@@ -1203,12 +1204,31 @@ v1.0.0
 
 # 17. Current Immediate Next Step
 
-Phase 3 — Power Query Pipeline is COMPLETED at `v0.4.0`.
+Phase 6 — Quality Control System has completed its technical implementation and controlled validation on:
 
-A documentation-only corrective patch is published as `v0.4.1`.
+`phase/06-quality-control-system`
 
-The next authorized phase is:
+Current technical evidence includes:
 
-Phase 4 — Operational Model.
+- formal `tblQualityControl`;
+- 35 defined controls;
+- 34 currently applicable controls returning PASS on the valid baseline;
+- `QC-032` intentionally N/A until Phase 7;
+- Overall Quality Status = PASS;
+- controlled FAIL behavior validated;
+- controlled WARNING behavior validated;
+- incomplete-evaluation safeguard validated;
+- technical Power Query health feed implemented.
 
-Phase 4 must begin from the canonical Phase 3 handoff and use its dedicated phase branch.
+The immediate next step is to complete Phase 6 documentation and the GitHub publication gate:
+
+1. finalize Phase 6 documentation;
+2. commit documentation;
+3. push the phase branch;
+4. open and review the Phase 6 Pull Request;
+5. merge into `main`;
+6. synchronize final canonical release metadata;
+7. publish `phase-6-complete`;
+8. publish `v0.7.0`.
+
+Phase 7 — Analysis & PivotTables must not begin until the Phase 6 GitHub gate is complete.

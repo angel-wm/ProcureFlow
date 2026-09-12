@@ -10,15 +10,15 @@ v0.6.2
 
 ## Current Phase
 
-Phase 5 — Business Logic & Advanced Formulas
+Phase 6 — Quality Control System
 
-Status: COMPLETED
+Status: IN PROGRESS — TECHNICAL WORK COMPLETE, GITHUB GATE PENDING
 
-Version: `v0.6.0`
+Target Version: `v0.7.0`
 
 Phase Branch:
 
-`phase/05-business-logic-advanced-formulas`
+`phase/06-quality-control-system`
 
 ## Last Completed Phase
 
@@ -90,7 +90,7 @@ Implemented project assets include:
 - seven final structured Excel Tables;
 - continuous 1,198-row Date dimension from `2022-01-03` through `2025-04-14`;
 - Connection Only behavior for source and staging queries;
-- Power Query M source mirrored as 15 versionable `.pq` files under `power-query/`;
+- Power Query M source mirrored as 16 versionable `.pq` files under `power-query/`, including the Phase 6 `qc_PipelineHealth` technical Quality Control feed;
 - full Power Query Refresh validation;
 - 17 Phase 3 workbook Quality Control checks with zero exceptions;
 - Phase 3 Power Query test evidence.
@@ -495,17 +495,25 @@ The Phase 4 exit criteria are technically satisfied:
 Phase 4 is formally COMPLETED. Technical implementation, validation, Pull Request review and merge are complete.
 ## Next Immediate Step
 
-Begin the dedicated Phase 6 — Quality Control System workflow from the completed `v0.6.0` baseline.
+Complete the Phase 6 documentation and GitHub publication gate.
 
-Phase 6 must reconstruct state from GitHub and implement the formal ProcureFlow Quality Control and reconciliation framework.
+Required remaining actions:
+
+- commit the Phase 6 documentation baseline;
+- push `phase/06-quality-control-system`;
+- create and review the Phase 6 Pull Request;
+- merge the approved branch into `main`;
+- synchronize final release metadata;
+- publish `phase-6-complete`;
+- publish `v0.7.0`.
 
 ## Next Phase
 
-Phase 6 — Quality Control System
+Phase 7 — Analysis & PivotTables
 
-Status: NOT STARTED
+Status: NOT AUTHORIZED UNTIL PHASE 6 GITHUB GATE COMPLETES
 
-Target Version: `v0.7.0`
+Target Version: `v0.8.0`
 
 ## Phase 5 Business Logic Validation
 
@@ -545,3 +553,59 @@ Validation evidence:
 - measured full Excel recalculation: 51.4639623 seconds
 
 Phase 5 technical implementation, validation, documentation and GitHub Pull Request merge are complete.
+
+## Phase 6 Technical Implementation
+
+[IMPLEMENTED]
+
+Phase 6 technical implementation is complete on:
+
+`phase/06-quality-control-system`
+
+Implemented workbook components include:
+
+- operational `02_CONTROL`;
+- `tblQualityControl`;
+- 35 formally defined Quality Control rows;
+- structural controls;
+- referential-integrity controls;
+- business-rule controls;
+- configuration controls;
+- calculation controls;
+- source-to-loaded reconciliations;
+- Severity architecture using Critical / Warning / N/A;
+- dynamic PASS / WARNING / FAIL / N/A statuses;
+- Overall Quality Status;
+- incomplete-evaluation safeguard;
+- Conditional Formatting for control states and exception counts;
+- preserved Phase 3 technical baseline evidence;
+- `qc_PipelineHealth`;
+- `tblQCPipelineHealth`;
+- Power Query technical health evidence;
+- text-versioned Phase 6 Power Query M source.
+
+Validated final baseline:
+
+- defined controls: 35;
+- applicable controls: 34;
+- PASS: 34;
+- WARNING: 0;
+- FAIL: 0;
+- N/A: 1;
+- total exceptions: 0;
+- Overall Quality Status: PASS.
+
+Controlled validation also confirmed:
+
+- Critical exception → FAIL;
+- Warning-severity exception → WARNING;
+- unevaluated applicable control → Overall WARNING;
+- restored valid state → Overall PASS.
+
+`QC-032 — PivotTable refresh status` remains N/A until Phase 7.
+
+`QC-030` represents the current valid technical evaluation timestamp.
+
+Persistent last-successful-refresh state is not yet implemented and remains assigned to later automation.
+
+Phase 6 is not formally COMPLETED until its GitHub publication gate is finished.

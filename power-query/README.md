@@ -61,6 +61,29 @@ Implemented facts:
 - `fact_PurchaseOrders`
 - `fact_QualityIncidents`
 
+### `qc/`
+
+Technical Quality Control queries.
+
+Implemented query:
+
+- `qc_PipelineHealth`
+
+Responsibilities:
+
+- verify availability of the four official source files;
+- verify required source columns;
+- surface staging / type-conversion errors;
+- reconcile source and loaded row populations;
+- expose current valid technical refresh evaluation;
+- surface Power Query execution errors.
+
+The query is loaded to `02_CONTROL` as:
+
+`tblQCPipelineHealth`
+
+and provides technical evidence consumed by the formal Phase 6 Quality Control system.
+
 ## Source of Truth
 
 The production implementation runs inside `workbook/ProcureFlow.xlsm`.

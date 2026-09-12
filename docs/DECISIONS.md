@@ -4,9 +4,10 @@
 
 Status: CONFIRMED
 Project State: IN DEVELOPMENT
-Current Phase: Phase 5 — Business Logic & Advanced Formulas
-Current Phase Status: COMPLETED
+Current Phase: Phase 6 — Quality Control System
+Current Phase Status: IN PROGRESS
 Current Released Version: v0.6.2
+Phase 6 Target Version: v0.7.0
 This document records material project decisions that affect ProcureFlow scope, architecture, business rules, implementation strategy, governance or release management.
 
 ---
@@ -991,6 +992,14 @@ Decisions confirmed during Phase 4 — Operational Model:
 
 `DEC-051` through `DEC-052`
 
+Decisions confirmed during Phase 5 — Business Logic & Advanced Formulas:
+
+`DEC-053` through `DEC-055`
+
+Decisions confirmed during Phase 6 — Quality Control System:
+
+`DEC-056` through `DEC-058`
+
 Current superseded decisions:
 
 None.
@@ -1001,7 +1010,7 @@ None.
 
 Next major decision review:
 
-As required during Phase 4 — Operational Model when implementation evidence identifies a material architecture, business-rule or scope decision.
+As required during later phases when implementation evidence identifies a material architecture, business-rule, automation or scope decision.
 ---
 
 ## DEC-049 — Workbook-Relative Power Query Source Path
@@ -1197,3 +1206,106 @@ Phase: 5 — Business Logic & Advanced Formulas
 A NoRecentDemand row with no backorder must not receive an automatic statistical purchase recommendation.
 
 A real backorder is not suppressed by the NoRecentDemand safeguard because it represents an actual unmet requirement rather than a statistical demand signal.
+
+---
+
+## DEC-056 — Formal Quality Control Severity and Status Model
+
+**Status:** CONFIRMED
+
+**Phase:** 6 — Quality Control System
+
+**Decision:**
+
+ProcureFlow Quality Control uses explicit control severity separately from observed status.
+
+Supported severity values are:
+
+- `Critical`
+- `Warning`
+- `N/A`
+
+Observed status is derived from control evaluation:
+
+- zero exceptions → `PASS`;
+- positive exceptions with Critical severity → `FAIL`;
+- positive exceptions with Warning severity → `WARNING`;
+- not-applicable control → `N/A`.
+
+The overall Quality Control state uses the precedence:
+
+`FAIL` > `WARNING` > `PASS`
+
+An applicable but unevaluated control prevents an overall `PASS` and produces `WARNING`.
+
+**Rationale:**
+
+Severity describes the consequence of a control violation, while Status describes the current observed result.
+
+Keeping them separate avoids embedding duplicated FAIL values in the control definition and supports future warning-level controls without redesigning the framework.
+
+---
+
+## DEC-057 — Dedicated Power Query Quality-Control Feed
+
+**Status:** CONFIRMED
+
+**Phase:** 6 — Quality Control System
+
+**Decision:**
+
+Technical ingestion and refresh-state evidence required by the Quality Control system is exposed through the Power Query query:
+
+`qc_PipelineHealth`
+
+The query is loaded to:
+
+`tblQCPipelineHealth`
+
+and its M source is versioned under:
+
+`power-query/qc/qc_PipelineHealth.pq`
+
+The technical feed supplies source availability, source schema, staging/type-error, row-reconciliation, current valid refresh and Power Query execution-error evidence.
+
+Business, integrity, configuration and calculation controls remain primarily implemented with auditable Excel formulas.
+
+No VBA is required for the Phase 6 manual Quality Control workflow.
+
+**Rationale:**
+
+Excel formulas cannot reliably prove whether external files were accessible or whether the Power Query pipeline itself executed successfully.
+
+Power Query is therefore the appropriate technical evidence layer while Excel remains the transparent control and reconciliation layer.
+
+---
+
+## DEC-058 — Refresh-State and Pivot-Control Phase Boundary
+
+**Status:** CONFIRMED
+
+**Phase:** 6 — Quality Control System
+
+**Decision:**
+
+During Phase 6:
+
+`QC-030`
+
+represents the timestamp of the current successfully validated Power Query technical evaluation.
+
+It does not persist the timestamp of a previous successful refresh after a later failed attempt.
+
+Persistent last-successful-refresh state is deferred to the later automation layer where workflow state can be managed safely.
+
+`QC-032 — PivotTable refresh status`
+
+remains:
+
+`N/A`
+
+until Phase 7 implements PivotTables and their refresh behavior can be tested honestly.
+
+**Rationale:**
+
+ProcureFlow must not claim persistence or PivotTable validation before the required orchestration or PivotTable implementation exists.
