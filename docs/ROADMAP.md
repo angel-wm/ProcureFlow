@@ -1190,8 +1190,8 @@ v1.0.0
 | 1 | Data Design | COMPLETED | v0.2.0 |
 | 2 | Workbook Foundation | COMPLETED | v0.3.0 |
 | 3 | Power Query Pipeline | COMPLETED | v0.4.0 |
-| 4 | Operational Model | NOT STARTED | v0.5.0 |
-| 5 | Business Logic & Advanced Formulas | NOT STARTED | v0.6.0 |
+| 4 | Operational Model | COMPLETED | v0.5.0 |
+| 5 | Business Logic & Advanced Formulas | COMPLETED | v0.6.0 |
 | 6 | Quality Control System | IN PROGRESS | v0.7.0 |
 | 7 | Analysis & PivotTables | NOT STARTED | v0.8.0 |
 | 8 | VBA Foundations | NOT STARTED | v0.8.1 |
