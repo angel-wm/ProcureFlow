@@ -12,25 +12,21 @@ Project status:
 
 Current released version:
 
-`v0.6.2`
+`v0.7.0`
 
-Current development phase:
+Current completed phase:
 
 **Phase 6 — Quality Control System**
 
-Current released version remains:
-
-`v0.6.2`
-
-Phase 6 target version:
-
-`v0.7.0`
-
 Phase 6 status:
 
-**IN PROGRESS — technical work complete, GitHub gate pending**
+**COMPLETED**
 
-The last formally completed phase on `main` remains Phase 5 — Business Logic & Advanced Formulas.
+Phase 6 technical implementation, controlled validation, documentation and Pull Request review are complete.
+
+Pull Request:
+
+`#7 — Phase 6 — Quality Control System`
 
 ## Completed Phases
 
@@ -274,15 +270,15 @@ Major functionality is not marked implemented until it has been:
 
 Each completed phase uses a dedicated branch, Pull Request, merge, phase-completion tag and semantic version tag.
 
-## Current Development Phase
+## Phase 6 — Quality Control System
 
-**Phase 6 — Quality Control System**
+Status:
 
-Target version:
+`COMPLETED`
+
+Version:
 
 `v0.7.0`
-
-Technical implementation and controlled validation are complete on the Phase 6 branch.
 
 Implemented Phase 6 capabilities include:
 
@@ -294,13 +290,13 @@ Implemented Phase 6 capabilities include:
 - technical Power Query health feed;
 - controlled failure-path validation.
 
-The Phase 6 GitHub publication gate remains pending.
-
 ## Next Planned Phase
 
 **Phase 7 — Analysis & PivotTables**
 
-Phase 7 must not begin until Phase 6 is formally completed and published.
+Target version:
+
+`v0.8.0`
 
 ## Portfolio Status
 

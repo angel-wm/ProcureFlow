@@ -6,15 +6,15 @@ IN DEVELOPMENT
 
 ## Current Version
 
-v0.6.2
+v0.7.0
 
 ## Current Phase
 
 Phase 6 — Quality Control System
 
-Status: IN PROGRESS — TECHNICAL WORK COMPLETE, GITHUB GATE PENDING
+Status: COMPLETED
 
-Target Version: `v0.7.0`
+Version: `v0.7.0`
 
 Phase Branch:
 
@@ -22,13 +22,13 @@ Phase Branch:
 
 ## Last Completed Phase
 
-Phase 5 — Business Logic & Advanced Formulas
+Phase 6 — Quality Control System
 
-Phase Completion Version: `v0.6.0`
+Phase Completion Version: `v0.7.0`
 
 GitHub Pull Request:
 
-`#6 — Phase 5 — Business Logic & Advanced Formulas`
+`#7 — Phase 6 — Quality Control System`
 
 Pull Request Status:
 
@@ -36,19 +36,19 @@ MERGED
 
 Merge Commit:
 
-`43efd6a76bd9f4ce54093121289486bafd32e2bf`
+`8a5dc7279eb3701e86c8014250cce0f8671b4515`
 
 Phase Tag:
 
-`phase-5-complete`
+`phase-6-complete`
 
 Version Tag:
 
-`v0.6.0`
+`v0.7.0`
 
 ## Implemented
 
-ProcureFlow currently includes the completed Project Design, Data Design, Workbook Foundation, Power Query Pipeline, Operational Model and Business Logic baselines.
+ProcureFlow currently includes the completed Project Design, Data Design, Workbook Foundation, Power Query Pipeline, Operational Model, Business Logic and Quality Control baselines.
 
 Implemented project assets include:
 
@@ -495,23 +495,17 @@ The Phase 4 exit criteria are technically satisfied:
 Phase 4 is formally COMPLETED. Technical implementation, validation, Pull Request review and merge are complete.
 ## Next Immediate Step
 
-Complete the Phase 6 documentation and GitHub publication gate.
+Publish the Phase 6 release tags and verify the final `v0.7.0` release state.
 
-Required remaining actions:
+After the tags are confirmed, the next authorized development phase is:
 
-- commit the Phase 6 documentation baseline;
-- push `phase/06-quality-control-system`;
-- create and review the Phase 6 Pull Request;
-- merge the approved branch into `main`;
-- synchronize final release metadata;
-- publish `phase-6-complete`;
-- publish `v0.7.0`.
+Phase 7 — Analysis & PivotTables
 
 ## Next Phase
 
 Phase 7 — Analysis & PivotTables
 
-Status: NOT AUTHORIZED UNTIL PHASE 6 GITHUB GATE COMPLETES
+Status: NOT STARTED
 
 Target Version: `v0.8.0`
 
@@ -608,4 +602,8 @@ Controlled validation also confirmed:
 
 Persistent last-successful-refresh state is not yet implemented and remains assigned to later automation.
 
-Phase 6 is not formally COMPLETED until its GitHub publication gate is finished.
+Phase 6 technical implementation, controlled validation, documentation and Pull Request merge are complete.
+
+Release version:
+
+`v0.7.0`

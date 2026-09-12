@@ -5,9 +5,8 @@
 Status: CONFIRMED
 Project State: IN DEVELOPMENT
 Current Phase: Phase 6 — Quality Control System
-Current Phase Status: IN PROGRESS
-Current Released Version: v0.6.2
-Phase 6 Target Version: v0.7.0
+Current Phase Status: COMPLETED
+Current Released Version: v0.7.0
 This roadmap defines the approved sequential development plan for ProcureFlow.
 
 A phase is only considered COMPLETED after its technical work, validation, documentation and GitHub publication gate have all been completed.
@@ -641,7 +640,7 @@ v0.6.0
 
 ## Status
 
-IN PROGRESS
+COMPLETED
 
 ## Target Version
 
@@ -1192,7 +1191,7 @@ v1.0.0
 | 3 | Power Query Pipeline | COMPLETED | v0.4.0 |
 | 4 | Operational Model | COMPLETED | v0.5.0 |
 | 5 | Business Logic & Advanced Formulas | COMPLETED | v0.6.0 |
-| 6 | Quality Control System | IN PROGRESS | v0.7.0 |
+| 6 | Quality Control System | COMPLETED | v0.7.0 |
 | 7 | Analysis & PivotTables | NOT STARTED | v0.8.0 |
 | 8 | VBA Foundations | NOT STARTED | v0.8.1 |
 | 9 | Automation | NOT STARTED | v0.9.0 |
@@ -1204,31 +1203,20 @@ v1.0.0
 
 # 17. Current Immediate Next Step
 
-Phase 6 — Quality Control System has completed its technical implementation and controlled validation on:
+Phase 6 — Quality Control System is technically complete and has been merged into `main`.
 
-`phase/06-quality-control-system`
+Publication evidence:
 
-Current technical evidence includes:
+- Phase branch: `phase/06-quality-control-system`
+- Pull Request: `#7 — Phase 6 — Quality Control System`
+- Pull Request status: MERGED
+- Merge commit: `8a5dc7279eb3701e86c8014250cce0f8671b4515`
+- Release version: `v0.7.0`
 
-- formal `tblQualityControl`;
-- 35 defined controls;
-- 34 currently applicable controls returning PASS on the valid baseline;
-- `QC-032` intentionally N/A until Phase 7;
-- Overall Quality Status = PASS;
-- controlled FAIL behavior validated;
-- controlled WARNING behavior validated;
-- incomplete-evaluation safeguard validated;
-- technical Power Query health feed implemented.
+The next authorized phase after final release tagging is:
 
-The immediate next step is to complete Phase 6 documentation and the GitHub publication gate:
+Phase 7 — Analysis & PivotTables
 
-1. finalize Phase 6 documentation;
-2. commit documentation;
-3. push the phase branch;
-4. open and review the Phase 6 Pull Request;
-5. merge into `main`;
-6. synchronize final canonical release metadata;
-7. publish `phase-6-complete`;
-8. publish `v0.7.0`.
+Target version:
 
-Phase 7 — Analysis & PivotTables must not begin until the Phase 6 GitHub gate is complete.
+`v0.8.0`

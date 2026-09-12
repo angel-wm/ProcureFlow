@@ -5,9 +5,8 @@
 Status: CONFIRMED DESIGN BASELINE
 Project State: IN DEVELOPMENT
 Current Phase: Phase 6 — Quality Control System
-Current Phase Status: IN PROGRESS
-Current Released Version: v0.6.2
-Phase 6 Target Version: v0.7.0
+Current Phase Status: COMPLETED
+Current Released Version: v0.7.0
 This document defines the approved architecture of ProcureFlow and records implementation evidence as project phases are completed.
 
 Architecture described here is a design baseline. Components must not be considered implemented until supported by actual workbook, query, formula, VBA or testing evidence.
@@ -1839,9 +1838,11 @@ Business calculations remain implemented through auditable Excel formulas. Power
 
 ## Status
 
-[IMPLEMENTED] — technical implementation and validation complete on the Phase 6 branch.
+[IMPLEMENTED] — technical implementation, validation and GitHub publication are complete.
 
-GitHub publication gate remains pending.
+Phase 6 release version:
+
+`v0.7.0`
 
 ## Physical Quality Control Architecture
 

@@ -2,7 +2,7 @@
 
 ## Status
 
-TECHNICAL WORK COMPLETE — GITHUB GATE PENDING
+COMPLETED
 
 Target Version:
 
@@ -189,29 +189,19 @@ SATISFIED
 
 ## GitHub Gate
 
-Status:
+COMPLETED.
 
-PENDING
+Phase 6 GitHub publication evidence:
 
-Completed so far:
+- phase branch: `phase/06-quality-control-system`
+- Pull Request: `#7 — Phase 6 — Quality Control System`
+- Pull Request status: MERGED
+- merge commit: `8a5dc7279eb3701e86c8014250cce0f8671b4515`
+- release synchronization committed to `main`
+- phase tag: `phase-6-complete`
+- version tag: `v0.7.0`
 
-- technical implementation completed;
-- controlled validation completed;
-- workbook implementation committed;
-- Power Query QC source versioned.
-
-Still required:
-
-- documentation commit;
-- branch publication;
-- Pull Request;
-- review;
-- merge into `main`;
-- final canonical release synchronization;
-- phase tag `phase-6-complete`;
-- version tag `v0.7.0`.
-
-Phase 6 must not be marked formally COMPLETED until those steps are finished.
+Phase 6 is formally completed.
 
 ## Next Phase
 
