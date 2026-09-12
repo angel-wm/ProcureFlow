@@ -2,15 +2,19 @@
 
 ## Document Status
 
-Status: COMPLETED — PHASE 3 TEST EVIDENCE
+Status: PHASE 6 TECHNICAL TEST EVIDENCE COMPLETE — GITHUB GATE PENDING
 
-Current Phase:
+Current Development Phase:
 
-Phase 3 — Power Query Pipeline
+Phase 6 — Quality Control System
 
-Version:
+Current Released Version:
 
-`v0.4.0`
+`v0.6.2`
+
+Phase 6 Target Version:
+
+`v0.7.0`
 
 Formal testing will continue throughout later ProcureFlow phases.
 
@@ -1408,3 +1412,219 @@ Interpretation:
 - the approximately 10-minute end-to-end Refresh All duration is not attributable solely to Phase 5 formula recalculation and is retained as a future performance observation rather than treated as a Phase 5 formula defect.
 
 No business rules were changed solely to improve performance.
+
+---
+
+# Phase 6 — Quality Control System Test Evidence
+
+## Status
+
+PASS — TECHNICAL IMPLEMENTATION AND CONTROLLED VALIDATION COMPLETE
+
+GitHub publication gate remains pending.
+
+## Environment
+
+Application:
+
+Microsoft Excel 365 Desktop for Windows
+
+Workbook:
+
+`workbook/ProcureFlow.xlsm`
+
+Phase branch:
+
+`phase/06-quality-control-system`
+
+## Operational Quality Control Baseline
+
+Implemented table:
+
+`tblQualityControl`
+
+Defined controls:
+
+35
+
+Final valid-baseline results:
+
+| Metric | Observed |
+|---|---:|
+| Defined controls | 35 |
+| Applicable controls | 34 |
+| PASS | 34 |
+| WARNING | 0 |
+| FAIL | 0 |
+| N/A | 1 |
+| Total exceptions | 0 |
+| Overall Quality Status | PASS |
+
+`QC-032 — PivotTable refresh status` is intentionally N/A because PivotTables are assigned to Phase 7.
+
+## Power Query Technical Health Feed
+
+Implemented query:
+
+`qc_PipelineHealth`
+
+Loaded table:
+
+`tblQCPipelineHealth`
+
+Validated technical conditions:
+
+- all 4 official source files available;
+- all required source columns present;
+- no staging / type-error rows reported;
+- Products source and loaded population reconcile at 300 rows;
+- Inventory History source and loaded population reconcile at 280,800 rows;
+- Purchase Orders source and loaded population reconcile at 29,666 rows;
+- Quality Incidents source and loaded population reconcile at 368 rows;
+- current technical evaluation is valid;
+- no Power Query execution errors reported.
+
+Result:
+
+PASS
+
+## Integrity and Business-Rule Validation
+
+Validated controls include:
+
+- duplicate Product IDs;
+- duplicate Purchase Order IDs;
+- duplicate Quality Incident IDs;
+- invalid Product references;
+- Supplier consistency;
+- Site consistency;
+- negative inventory checks;
+- Purchase Order quantity checks;
+- Blocked Quantity consistency;
+- Purchase Order chronological checks;
+- Reporting Date range;
+- Safety Stock;
+- Reorder Point;
+- Recommended Order Quantity;
+- Inventory Status domain;
+- replenishment-rule reconciliation;
+- configuration validity;
+- duplicate Inventory composite keys;
+- Date dimension continuity;
+- Excel calculation formula errors.
+
+Final valid-baseline exception count:
+
+0
+
+## Critical FAIL Path Test
+
+Controlled test:
+
+- `QC-005` ExceptionCount temporarily set to `1`;
+- Severity remained `Critical`.
+
+Observed:
+
+- `QC-005` Status → FAIL;
+- Overall Quality Status → FAIL;
+- FAIL control count → 1;
+- Total Exceptions → 1.
+
+The original formula was restored after the test.
+
+Result:
+
+PASS
+
+## WARNING Path Test
+
+Controlled test:
+
+- `QC-005` Severity temporarily changed to `Warning`;
+- ExceptionCount temporarily set to `1`.
+
+Observed:
+
+- `QC-005` Status → WARNING;
+- Overall Quality Status → WARNING;
+- WARNING control count → 1;
+- FAIL control count → 0.
+
+The original Critical severity and formula were restored after the test.
+
+Result:
+
+PASS
+
+## Incomplete-Evaluation Safeguard Test
+
+Controlled test:
+
+- `QC-005` ExceptionCount temporarily cleared.
+
+Observed:
+
+- `QC-005` Status became blank;
+- Overall Quality Status became WARNING rather than PASS.
+
+The original formula was restored after the test.
+
+Result:
+
+PASS
+
+## Restored Final State
+
+After all controlled tests:
+
+- Overall Quality Status: PASS;
+- PASS controls: 34;
+- WARNING controls: 0;
+- FAIL controls: 0;
+- Applicable controls: 34;
+- N/A controls: 1;
+- Total Exceptions: 0;
+- `QC-032`: N/A.
+
+Result:
+
+PASS
+
+## Refresh-State Limitation
+
+Phase 6 validates the current Power Query technical evaluation timestamp through `QC-030`.
+
+The phase does not persist the timestamp of a previous successful refresh after a later failed refresh attempt.
+
+Persistent successful-refresh state remains assigned to later workflow automation.
+
+This limitation is documented and is not treated as implemented functionality.
+
+## Phase 6 Exit-Criteria Evidence
+
+Mandatory controls implemented:
+
+PASS
+
+Critical FAIL behavior:
+
+PASS
+
+Warning behavior:
+
+PASS
+
+Incomplete-evaluation safeguard:
+
+PASS
+
+Reconciliations on the valid source baseline:
+
+PASS
+
+Critical data-quality failure visibility:
+
+PASS
+
+No critical Quality Control issue is currently known.

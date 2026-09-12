@@ -14,19 +14,23 @@ Current released version:
 
 `v0.6.2`
 
-Current completed phase:
+Current development phase:
 
-**Phase 5 — Business Logic & Advanced Formulas**
+**Phase 6 — Quality Control System**
 
-Current release:
+Current released version remains:
 
 `v0.6.2`
 
-Phase 5 status:
+Phase 6 target version:
 
-**COMPLETED**
+`v0.7.0`
 
-Phase 5 technical implementation, validation and Pull Request review are complete. Pull Request `#6 — Phase 5 — Business Logic & Advanced Formulas` was merged into `main`.
+Phase 6 status:
+
+**IN PROGRESS — technical work complete, GitHub gate pending**
+
+The last formally completed phase on `main` remains Phase 5 — Business Logic & Advanced Formulas.
 
 ## Completed Phases
 
@@ -270,9 +274,7 @@ Major functionality is not marked implemented until it has been:
 
 Each completed phase uses a dedicated branch, Pull Request, merge, phase-completion tag and semantic version tag.
 
-## Next Phase
-
-The next planned phase is:
+## Current Development Phase
 
 **Phase 6 — Quality Control System**
 
@@ -280,7 +282,25 @@ Target version:
 
 `v0.7.0`
 
-Phase 6 will implement the formal ProcureFlow data-quality, business-logic validation and reconciliation framework on top of the completed Phase 5 calculation model.
+Technical implementation and controlled validation are complete on the Phase 6 branch.
+
+Implemented Phase 6 capabilities include:
+
+- formal `tblQualityControl`;
+- structural, integrity, business-rule, configuration and calculation controls;
+- source-to-loaded reconciliations;
+- PASS / WARNING / FAIL / N/A behavior;
+- Overall Quality Status;
+- technical Power Query health feed;
+- controlled failure-path validation.
+
+The Phase 6 GitHub publication gate remains pending.
+
+## Next Planned Phase
+
+**Phase 7 — Analysis & PivotTables**
+
+Phase 7 must not begin until Phase 6 is formally completed and published.
 
 ## Portfolio Status
 

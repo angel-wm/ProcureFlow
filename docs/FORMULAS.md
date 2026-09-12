@@ -936,3 +936,197 @@ The following formulas are implemented in `tblSupplierPerformance` on `21_CALC_S
     =COUNTIFS(tblQualityIncidents[SupplierID],[@SupplierID],tblQualityIncidents[IncidentDate],"<="&[@ReportingDate])
 
 No aggregate Supplier Score is introduced in Phase 5.
+
+---
+
+# Phase 6 — Quality Control System Formulas
+
+Status:
+
+IMPLEMENTED AND VALIDATED
+
+Worksheet:
+
+`02_CONTROL`
+
+Primary table:
+
+`tblQualityControl`
+
+## Status Formula
+
+Implemented in `tblQualityControl[Status]`:
+
+    =IF([@Severity]="N/A","N/A",IF([@ExceptionCount]="","",IF([@ExceptionCount]=0,"PASS",IF([@Severity]="Warning","WARNING","FAIL"))))
+
+Purpose:
+
+- preserve N/A controls;
+- leave unevaluated applicable controls blank;
+- return PASS for zero exceptions;
+- return WARNING or FAIL according to configured severity.
+
+## Overall Quality Status
+
+Implemented summary formula:
+
+    =LET(StatusRange,tblQualityControl[Status],Applicable,ROWS(tblQualityControl[ControlID])-COUNTIF(tblQualityControl[Severity],"N/A"),Evaluated,COUNTIF(StatusRange,"PASS")+COUNTIF(StatusRange,"WARNING")+COUNTIF(StatusRange,"FAIL"),IF(COUNTIF(StatusRange,"FAIL")>0,"FAIL",IF(Evaluated<Applicable,"WARNING",IF(COUNTIF(StatusRange,"WARNING")>0,"WARNING","PASS"))))
+
+Purpose:
+
+Apply the precedence:
+
+`FAIL` > `WARNING` > `PASS`
+
+while preventing an incomplete set of applicable controls from reporting PASS.
+
+## Summary Metrics
+
+PASS controls:
+
+    =COUNTIF(tblQualityControl[Status],"PASS")
+
+WARNING controls:
+
+    =COUNTIF(tblQualityControl[Status],"WARNING")
+
+FAIL controls:
+
+    =COUNTIF(tblQualityControl[Status],"FAIL")
+
+Applicable controls:
+
+    =ROWS(tblQualityControl[ControlID])-COUNTIF(tblQualityControl[Severity],"N/A")
+
+N/A controls:
+
+    =COUNTIF(tblQualityControl[Status],"N/A")
+
+Total exceptions:
+
+    =SUM(tblQualityControl[ExceptionCount])
+
+Current valid technical refresh:
+
+    =XLOOKUP("QC-030",tblQualityControl[ControlID],tblQualityControl[Result],"")
+
+## Technical Power Query Feed Lookups
+
+For `QC-001`, `QC-002`, `QC-003`, `QC-004`, `QC-030` and `QC-031`:
+
+Result:
+
+    =XLOOKUP([@ControlID],tblQCPipelineHealth[ControlID],tblQCPipelineHealth[Result],"")
+
+Expected:
+
+    =XLOOKUP([@ControlID],tblQCPipelineHealth[ControlID],tblQCPipelineHealth[Expected],"")
+
+ExceptionCount:
+
+    =XLOOKUP([@ControlID],tblQCPipelineHealth[ControlID],tblQCPipelineHealth[ExceptionCount],"")
+
+## Representative Integrity Controls
+
+Duplicate Product IDs:
+
+    =ROWS(tblProducts[ProductID])-ROWS(UNIQUE(tblProducts[ProductID]))
+
+Duplicate Purchase Order IDs:
+
+    =ROWS(tblPurchaseOrders[PurchaseOrderID])-ROWS(UNIQUE(tblPurchaseOrders[PurchaseOrderID]))
+
+Duplicate Quality Incident IDs:
+
+    =ROWS(tblQualityIncidents[QualityIncidentID])-ROWS(UNIQUE(tblQualityIncidents[QualityIncidentID]))
+
+Invalid Inventory Product references:
+
+    =SUMPRODUCT(--ISNA(MATCH(tblInventoryHistory[ProductID],tblProducts[ProductID],0)))
+
+Invalid Purchase Order Product references:
+
+    =SUMPRODUCT(--ISNA(MATCH(tblPurchaseOrders[ProductID],tblProducts[ProductID],0)))
+
+Invalid Quality Product references:
+
+    =SUMPRODUCT(--ISNA(MATCH(tblQualityIncidents[ProductID],tblProducts[ProductID],0)))
+
+## Representative Business-Rule Controls
+
+Non-positive Ordered Quantity:
+
+    =COUNTIF(tblPurchaseOrders[OrderedQty],"<=0")
+
+Received Quantity greater than Ordered Quantity:
+
+    =SUMPRODUCT(--(tblPurchaseOrders[ReceivedQty]>tblPurchaseOrders[OrderedQty]))
+
+Negative Blocked Quantity:
+
+    =COUNTIF(tblInventoryHistory[BlockedQty],"<0")
+
+Blocked Quantity greater than On-Hand Quantity:
+
+    =SUMPRODUCT(--(tblInventoryHistory[BlockedQty]>tblInventoryHistory[OnHandQty]))
+
+Receipt Date before Order Date:
+
+    =SUMPRODUCT(--(tblPurchaseOrders[ReceiptDate]<tblPurchaseOrders[OrderDate]))
+
+Promised Date before Order Date:
+
+    =SUMPRODUCT(--(tblPurchaseOrders[PromisedDate]<tblPurchaseOrders[OrderDate]))
+
+## Configuration Controls
+
+Demand History Weeks:
+
+    =--NOT(AND(ISNUMBER(cfg_DemandHistoryWeeks),cfg_DemandHistoryWeeks>0,cfg_DemandHistoryWeeks=INT(cfg_DemandHistoryWeeks)))
+
+Service Levels:
+
+    =--OR(cfg_ServiceLevelA<=0,cfg_ServiceLevelA>=1)+--OR(cfg_ServiceLevelB<=0,cfg_ServiceLevelB>=1)+--OR(cfg_ServiceLevelC<=0,cfg_ServiceLevelC>=1)
+
+Review Period:
+
+    =--NOT(AND(ISNUMBER(cfg_ReviewPeriodWeeks),cfg_ReviewPeriodWeeks>0,cfg_ReviewPeriodWeeks=INT(cfg_ReviewPeriodWeeks)))
+
+Excess Buffer:
+
+    =--NOT(AND(ISNUMBER(cfg_ExcessBufferWeeks),cfg_ExcessBufferWeeks>=0,cfg_ExcessBufferWeeks=INT(cfg_ExcessBufferWeeks)))
+
+The Service Level Quality Control uses the stricter operational requirement:
+
+`0 < Service Level < 1`
+
+because `NORM.S.INV()` cannot safely operate at exactly 0% or 100%.
+
+## Extended Phase 6 Controls
+
+Duplicate Inventory composite keys:
+
+    =ROWS(tblInventoryHistory[ProductID])-ROWS(UNIQUE(tblInventoryHistory[WeekStartDate]&"|"&tblInventoryHistory[SiteID]&"|"&tblInventoryHistory[ProductID]))
+
+Date continuity exceptions:
+
+    =ABS((MAX(tblDate[Date])-MIN(tblDate[Date])+1)-ROWS(UNIQUE(tblDate[Date])))+(ROWS(tblDate[Date])-ROWS(UNIQUE(tblDate[Date])))
+
+Calculation formula errors:
+
+    =SUMPRODUCT(--ISERROR(tblReplenishment[#Data]))+SUMPRODUCT(--ISERROR(tblSupplierPerformance[#Data]))
+
+## Phase 6 Validation Baseline
+
+Validated final baseline:
+
+- 35 defined controls;
+- 34 applicable controls;
+- 34 PASS;
+- 0 WARNING;
+- 0 FAIL;
+- 1 N/A;
+- total exceptions: 0;
+- Overall Quality Status: PASS.
+
+`QC-032 — PivotTable refresh status` remains N/A until Phase 7.

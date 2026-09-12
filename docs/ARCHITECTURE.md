@@ -4,9 +4,10 @@
 
 Status: CONFIRMED DESIGN BASELINE
 Project State: IN DEVELOPMENT
-Current Phase: Phase 5 — Business Logic & Advanced Formulas
-Current Phase Status: COMPLETED
+Current Phase: Phase 6 — Quality Control System
+Current Phase Status: IN PROGRESS
 Current Released Version: v0.6.2
+Phase 6 Target Version: v0.7.0
 This document defines the approved architecture of ProcureFlow and records implementation evidence as project phases are completed.
 
 Architecture described here is a design baseline. Components must not be considered implemented until supported by actual workbook, query, formula, VBA or testing evidence.
@@ -1831,3 +1832,134 @@ historical demand
 `tblSupplierPerformance` is also functioning for received-order, on-time, late, partial-receipt, Lead-Time and quality-incident metrics.
 
 Business calculations remain implemented through auditable Excel formulas. Power Query remains responsible for ingestion, preparation and objective source-derived fields. VBA is not used to hide Phase 5 business mathematics.
+
+---
+
+# Phase 6 Quality Control Implementation Baseline
+
+## Status
+
+[IMPLEMENTED] — technical implementation and validation complete on the Phase 6 branch.
+
+GitHub publication gate remains pending.
+
+## Physical Quality Control Architecture
+
+Worksheet:
+
+`02_CONTROL`
+
+Primary operational table:
+
+`tblQualityControl`
+
+Implemented control population:
+
+35 controls:
+
+`QC-001` through `QC-035`
+
+with `QC-032` intentionally retained as not applicable until the PivotTable analytical layer exists.
+
+The Phase 3 `PQ-001` through `PQ-017` validation block is preserved lower on the worksheet as historical technical baseline evidence rather than treated as the current operational QC system.
+
+## tblQualityControl Structure
+
+Implemented fields:
+
+- `ControlID`
+- `Category`
+- `Control`
+- `Result`
+- `Expected`
+- `ExceptionCount`
+- `Severity`
+- `Status`
+- `Notes`
+
+`Result` communicates the observed control outcome.
+
+`ExceptionCount` provides the numeric exception quantity used by the status engine.
+
+These fields are intentionally separate because many controls expose descriptive or reconciliation results whose observed value is not itself an exception count.
+
+## Severity Model
+
+Supported severity values:
+
+- `Critical`
+- `Warning`
+- `N/A`
+
+A zero exception count produces `PASS`.
+
+A positive exception count produces:
+
+- `FAIL` for Critical controls;
+- `WARNING` for Warning controls.
+
+`N/A` controls produce `N/A`.
+
+## Overall Quality State
+
+Overall system-quality precedence is:
+
+`FAIL` > `WARNING` > `PASS`
+
+Any applicable control left unevaluated prevents the overall system state from reporting `PASS` and instead produces `WARNING`.
+
+This prevents incomplete validation from appearing fully trusted.
+
+## Power Query Quality Feed
+
+Phase 6 adds:
+
+`qc_PipelineHealth`
+
+Text-versioned source:
+
+`power-query/qc/qc_PipelineHealth.pq`
+
+Loaded Excel Table:
+
+`tblQCPipelineHealth`
+
+The query provides technical evidence for:
+
+- `QC-001` Source files available
+- `QC-002` Required columns available
+- `QC-003` Valid data types / staging errors
+- `QC-004` Source-to-loaded row reconciliation
+- `QC-030` current valid refresh evaluation
+- `QC-031` Power Query execution errors
+
+Power Query remains responsible for technical ingestion and pipeline-state evidence.
+
+Excel formulas remain responsible for business, integrity, configuration, calculation and reconciliation controls.
+
+No VBA was introduced during Phase 6.
+
+## Implemented Control Boundary
+
+Implemented and evaluated in Phase 6:
+
+- `QC-001` through `QC-031`
+- `QC-033`
+- `QC-034`
+- `QC-035`
+
+`QC-032 — PivotTable refresh status` is:
+
+`N/A — Deferred to Phase 7`
+
+because PivotTables are not yet implemented.
+
+## Refresh Timestamp Boundary
+
+`QC-030` confirms that the current technical evaluation completed successfully and exposes its evaluation timestamp.
+
+Phase 6 does not persist the timestamp of the last previously successful refresh across a later failed refresh attempt.
+
+Persistent successful-refresh state belongs to later workflow orchestration and automation.
+
+This limitation is explicit and must not be represented as functionality already implemented.
