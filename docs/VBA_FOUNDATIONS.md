@@ -190,3 +190,87 @@ Phase 8 VBA foundations exercises completed so far include:
 - read-only inspection of ProcureFlow business outputs.
 
 Further Phase 8 learning and validation remain before the phase can be closed.
+
+## Procedure Design and Visibility
+
+Phase 8 also introduced procedure visibility and responsibility boundaries.
+
+`Public` procedures were used as executable educational entry points.
+
+`Private` procedures and functions were used for internal helper logic that should not be exposed as standalone workbook actions.
+
+Examples include:
+
+- `Public Sub GoToControl`
+- `Private Sub PrintNavigationResult`
+- `Private Function WorksheetExists`
+- `Private Function TableExists`
+
+This reinforces the distinction between a procedure that coordinates an action and helper code that exists only to support that action.
+
+## ByVal and ByRef
+
+The learning exercises explicitly compared `ByVal` and `ByRef`.
+
+`ByVal` passes a value without allowing the called procedure to modify the caller's original variable.
+
+`ByRef` allows the called procedure to modify the original variable.
+
+ProcureFlow will prefer `ByVal` unless modifying the caller's variable is an intentional and clearly documented part of the procedure contract.
+
+## Reusable Validation Functions
+
+The exercises introduced reusable validation functions such as:
+
+`WorksheetExists`
+
+and:
+
+`TableExists`
+
+These functions demonstrate explicit workbook-object validation without using hidden runtime errors as the normal control-flow mechanism.
+
+The validation hierarchy demonstrated was:
+
+`ValidateReplenishmentObjects`
+→ `TableExists`
+→ `WorksheetExists`
+
+This keeps coordination logic separate from reusable validation logic.
+
+## Structured Error Handling
+
+`GoToControl` was refactored to demonstrate a structured error-handling pattern based on:
+
+`On Error GoTo ErrorHandler`
+
+`CleanExit`
+
+`ErrorHandler`
+
+`Err.Number`
+
+`Err.Description`
+
+and:
+
+`Resume CleanExit`
+
+The example distinguishes normal procedure exit from error handling while avoiding silent failure.
+
+The learning standard established during Phase 8 is that critical failures must not be hidden with unrestricted use of `On Error Resume Next`.
+
+## Code Documentation Standard
+
+The Phase 8 educational VBA module was reviewed and documented with clear English comments.
+
+Comments focus on:
+
+- procedure purpose;
+- architectural boundaries;
+- non-obvious decisions;
+- validation intent;
+- error-handling intent;
+- educational versus production responsibilities.
+
+Comments are not added mechanically to lines whose behavior is already self-explanatory.
