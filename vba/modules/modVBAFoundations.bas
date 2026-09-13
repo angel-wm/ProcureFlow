@@ -102,3 +102,50 @@ Sub ExampleDoWhileLoop()
     Loop
 
 End Sub
+
+Sub InspectReplenishmentTable()
+
+    Dim ws As Worksheet
+    Dim replenishmentTable As ListObject
+    Dim tableColumn As ListColumn
+    Dim firstRow As ListRow
+
+    Set ws = ThisWorkbook.Worksheets("20_CALC_Replenishment")
+    Set replenishmentTable = ws.ListObjects("tblReplenishment")
+    Set firstRow = replenishmentTable.ListRows(1)
+
+    Debug.Print "Worksheet: " & ws.Name
+    Debug.Print "Table: " & replenishmentTable.Name
+    Debug.Print "Rows: " & replenishmentTable.ListRows.Count
+    Debug.Print "Columns: " & replenishmentTable.ListColumns.Count
+
+    Debug.Print "Header range: " & replenishmentTable.HeaderRowRange.Address
+    Debug.Print "Data range: " & replenishmentTable.DataBodyRange.Address
+    Debug.Print "First table row range: " & firstRow.Range.Address
+
+    Debug.Print "----- FIRST RECORD -----"
+
+    Debug.Print _
+        "ProductID: " & _
+        firstRow.Range.Cells(1, replenishmentTable.ListColumns("ProductID").Index).Value
+
+    Debug.Print _
+        "SiteID: " & _
+        firstRow.Range.Cells(1, replenishmentTable.ListColumns("SiteID").Index).Value
+
+    Debug.Print _
+        "InventoryStatus: " & _
+        firstRow.Range.Cells(1, replenishmentTable.ListColumns("InventoryStatus").Index).Value
+
+    Debug.Print _
+        "RecommendedOrderQty: " & _
+        firstRow.Range.Cells(1, replenishmentTable.ListColumns("RecommendedOrderQty").Index).Value
+
+    Debug.Print "----- COLUMNS -----"
+
+    For Each tableColumn In replenishmentTable.ListColumns
+        Debug.Print tableColumn.Index & " - " & tableColumn.Name
+    Next tableColumn
+
+End Sub
+
