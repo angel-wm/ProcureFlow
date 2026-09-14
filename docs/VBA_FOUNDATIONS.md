@@ -189,7 +189,7 @@ Phase 8 VBA foundations exercises completed so far include:
 - foundational error handling;
 - read-only inspection of ProcureFlow business outputs.
 
-Further Phase 8 learning and validation remain before the phase can be closed.
+Phase 8 foundational learning and technical validation are complete. The remaining work is the formal GitHub publication gate.
 
 ## Procedure Design and Visibility
 
@@ -346,3 +346,4 @@ Power Query
 Production automation must also prevent stale outputs and must not report a refresh as successful before its required dependencies have completed.
 
 The Phase 8 examples therefore demonstrate refresh concepts without preempting the automation architecture that must be designed in Phase 9.
+
