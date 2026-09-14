@@ -2,15 +2,15 @@
 
 ## Document Status
 
-Status: PHASE 8 TECHNICAL TEST EVIDENCE COMPLETE — GITHUB GATE PENDING
+Status: PHASE 8 TEST EVIDENCE COMPLETE
 
 Current Completed Phase:
 
-Phase 7 — Analysis & PivotTables
+Phase 8 — VBA Foundations
 
 Current Released Version:
 
-`v0.8.0`
+`v0.8.1`
 
 Formal testing will continue throughout later ProcureFlow phases.
 
@@ -2270,5 +2270,6 @@ PASS
 
 GitHub Gate:
 
-PENDING
+COMPLETE
+
 

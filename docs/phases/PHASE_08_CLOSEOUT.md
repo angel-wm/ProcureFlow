@@ -2,7 +2,7 @@
 
 ## Status
 
-TECHNICAL WORK COMPLETE — GITHUB GATE PENDING
+COMPLETED
 
 Target Release Version:
 
@@ -390,7 +390,7 @@ SATISFIED
 
 GitHub Gate:
 
-PENDING
+COMPLETE
 
 ## Deliverables Review
 
@@ -412,7 +412,7 @@ PASS
 
 Phase closeout document:
 
-PREPARED
+COMPLETE
 
 ## Known Issues
 
@@ -452,18 +452,30 @@ Git / GitHub:
 
 ## GitHub Gate
 
-PENDING
+COMPLETE
 
-Phase 8 must not be marked formally COMPLETED until:
+Phase branch:
 
-- final documentation is committed;
-- the phase branch is pushed;
-- Pull Request review is complete;
-- the Pull Request is merged into `main`;
-- `main` is synchronized;
-- `phase-8-complete` is created and pushed;
-- `v0.8.1` is created and pushed.
+`phase/08-vba-foundations`
 
+Pull Request:
+
+`#9 — Phase 8 — VBA Foundations`
+
+Pull Request Status:
+
+MERGED
+
+Merge Commit:
+
+`c9ce4746434a1647828ad9eea7a1d4d6c49f2beb`
+
+Release tags:
+
+- `phase-8-complete`
+- `v0.8.1`
+
+All Phase 8 technical, validation, documentation and GitHub publication criteria are satisfied.
 ## Next Phase
 
 Phase 9 — Automation
@@ -474,4 +486,5 @@ Target Version:
 
 Phase 9 will design and implement production VBA automation for stable ProcureFlow workflows.
 
-Phase 9 must not begin until the Phase 8 GitHub Gate is complete.
+Phase 9 is now authorized to begin from the released `v0.8.1` baseline, but has not started.
+

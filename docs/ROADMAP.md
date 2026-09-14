@@ -4,9 +4,9 @@
 
 Status: CONFIRMED
 Project State: IN DEVELOPMENT
-Current Phase: Phase 8 — VBA Foundations
-Current Phase Status: IN PROGRESS
-Current Released Version: v0.8.0
+Current Phase: Phase 9 — Automation
+Current Phase Status: NOT STARTED
+Current Released Version: v0.8.1
 This roadmap defines the approved sequential development plan for ProcureFlow.
 
 A phase is only considered COMPLETED after its technical work, validation, documentation and GitHub publication gate have all been completed.
@@ -793,7 +793,7 @@ v0.8.0
 
 ## Status
 
-IN PROGRESS
+COMPLETED
 
 ## Target Version
 
@@ -801,7 +801,7 @@ v0.8.1
 
 ## Local Work Status
 
-TECHNICAL WORK COMPLETE — GITHUB GATE PENDING
+COMPLETE — GITHUB GATE PASSED
 
 ## Depends On
 
@@ -861,7 +861,24 @@ Visual Basic for Applications fundamentals.
 
 ## GitHub Gate
 
-Complete phase branch workflow, Pull Request, merge, push and phase tag.
+COMPLETE
+
+Pull Request:
+
+`#9 — Phase 8 — VBA Foundations`
+
+Pull Request Status:
+
+MERGED
+
+Merge Commit:
+
+`c9ce4746434a1647828ad9eea7a1d4d6c49f2beb`
+
+Release tags:
+
+- `phase-8-complete`
+- `v0.8.1`
 
 ## Version
 
@@ -1228,6 +1245,8 @@ Phase 7 — Analysis & PivotTables
 Target version:
 
 `v0.8.0`
+
+
 
 
 

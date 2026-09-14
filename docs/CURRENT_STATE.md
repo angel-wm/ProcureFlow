@@ -6,29 +6,29 @@ IN DEVELOPMENT
 
 ## Current Version
 
-v0.8.0
+v0.8.1
 
 ## Current Phase
 
-Phase 8 — VBA Foundations
+Phase 9 — Automation
 
-Status: IN PROGRESS
+Status: NOT STARTED
 
-Target Version: `v0.8.1`
+Target Version: `v0.9.0`
 
 Phase Branch:
 
-`phase/08-vba-foundations`
+Not created.
 
 ## Last Completed Phase
 
-Phase 7 — Analysis & PivotTables
+Phase 8 — VBA Foundations
 
-Phase Completion Version: `v0.8.0`
+Phase Completion Version: `v0.8.1`
 
 GitHub Pull Request:
 
-`#8 — Phase 7 — Analysis & PivotTables`
+`#9 — Phase 8 — VBA Foundations`
 
 Pull Request Status:
 
@@ -36,18 +36,18 @@ MERGED
 
 Merge Commit:
 
-`008340ac0c2a8c8cf872a42d31a44b116df37cf8`
+`c9ce4746434a1647828ad9eea7a1d4d6c49f2beb`
 
 Phase Tag:
 
-`phase-7-complete`
+`phase-8-complete`
 
 Version Tag:
 
-`v0.8.0`
+`v0.8.1`
 ## Implemented
 
-ProcureFlow currently includes the completed Project Design, Data Design, Workbook Foundation, Power Query Pipeline, Operational Model, Business Logic, Quality Control and Analysis & PivotTables baselines.
+ProcureFlow currently includes the completed Project Design, Data Design, Workbook Foundation, Power Query Pipeline, Operational Model, Business Logic, Quality Control, Analysis & PivotTables and VBA Foundations baselines.
 
 Implemented project assets include:
 
@@ -343,9 +343,9 @@ Under `DEC-059`, `QC-032 — PivotTable refresh status` remains N/A until Phase 
 Phase 7 is formally COMPLETED. Technical implementation, validation, documentation, Pull Request review and merge are complete.
 
 
-## Phase 8 Technical Completion
+## Phase 8 Completion
 
-[IMPLEMENTED] [VALIDATED] [TECHNICAL COMPLETE]
+[IMPLEMENTED] [VALIDATED] [COMPLETED]
 
 Phase 8 — VBA Foundations has completed its technical learning, validation and workbook-cleanup work on:
 
@@ -399,9 +399,7 @@ Production automation remains intentionally unimplemented and belongs to Phase 9
 
 `QC-032 — PivotTable refresh status` remains N/A until Phase 9 implements an appropriate persistent automated refresh-state mechanism.
 
-Phase 8 technical work is complete.
-
-Formal phase status remains IN PROGRESS until the GitHub Gate is completed.
+Phase 8 is formally COMPLETED. Technical implementation, validation, readiness assessment, Pull Request review, merge and release publication are complete.
 
 ## Official Dataset
 
@@ -463,6 +461,10 @@ Confirmed during Phase 7:
 `DEC-059`
 
 DEC-059 is SUPERSEDED by DEC-060 for the Phase 8 / Phase 9 automation boundary.
+
+Confirmed during Phase 8:
+
+`DEC-060` through `DEC-061`
 
 See:
 
@@ -620,18 +622,17 @@ The Phase 4 exit criteria are technically satisfied:
 Phase 4 is formally COMPLETED. Technical implementation, validation, Pull Request review and merge are complete.
 ## Next Immediate Step
 
-Phase 8 technical implementation, validation, readiness assessment and workbook cleanup are complete.
+Phase 8 — VBA Foundations is complete and released as:
 
-The next immediate step is the Phase 8 GitHub Gate:
+`v0.8.1`
 
-- final canonical-document synchronization;
-- Pull Request creation and review;
-- merge into `main`;
-- synchronization of local `main`;
-- publication of `phase-8-complete`;
-- publication of `v0.8.1`.
+The next authorized development phase is:
 
-No Phase 9 implementation is authorized before that gate is complete.
+Phase 9 — Automation
+
+Phase 9 has not started.
+
+Its phase branch must be created from the released `main` state when Phase 9 formally begins.
 
 ## Next Phase
 
@@ -643,7 +644,7 @@ Target Version:
 
 `v0.9.0`
 
-Phase 9 is blocked until the Phase 8 GitHub Gate is complete.
+Phase 9 will implement production VBA automation for stable ProcureFlow workflows.
 ## Phase 5 Business Logic Validation
 
 Phase 5 core business logic has been implemented and validated in the workbook.
@@ -742,6 +743,7 @@ Phase 6 technical implementation, controlled validation, documentation and Pull 
 Release version:
 
 `v0.7.0`
+
 
 
 

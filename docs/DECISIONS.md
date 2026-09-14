@@ -4,9 +4,9 @@
 
 Status: CONFIRMED
 Project State: IN DEVELOPMENT
-Current Phase: Phase 8 — VBA Foundations
-Current Phase Status: IN PROGRESS
-Current Released Version: v0.8.0
+Current Phase: Phase 9 — Automation
+Current Phase Status: NOT STARTED
+Current Released Version: v0.8.1
 This document records material project decisions that affect ProcureFlow scope, architecture, business rules, implementation strategy, governance or release management.
 
 ---
@@ -1438,4 +1438,5 @@ is preserved as exported `.bas` source but removed from `ProcureFlow.xlsm` befor
 Learning examples provide useful portfolio and educational evidence but should not appear to end users as production workbook functionality.
 
 Separating educational and production VBA keeps the workbook interface professional, preserves reviewable source history and prevents demonstration code from being mistaken for supported operational automation.
+
 
