@@ -2,7 +2,7 @@
 
 ## Document Status
 
-Status: PHASE 7 TEST EVIDENCE COMPLETE
+Status: PHASE 8 TECHNICAL TEST EVIDENCE COMPLETE — GITHUB GATE PENDING
 
 Current Completed Phase:
 
@@ -10,7 +10,7 @@ Phase 7 — Analysis & PivotTables
 
 Current Released Version:
 
-`v0.7.0`
+`v0.8.0`
 
 Formal testing will continue throughout later ProcureFlow phases.
 
@@ -2058,4 +2058,217 @@ GitHub Gate:
 
 COMPLETE
 
+---
+
+# Phase 8 Test Evidence — VBA Foundations
+
+## Validation Scope
+
+Phase 8 validation focused on practical VBA understanding rather than production automation.
+
+All exercises were performed against the real ProcureFlow workbook.
+
+## Macro Recorder and Navigation
+
+Recorded navigation macro:
+
+PASS
+
+Generated VBA inspected and explained:
+
+PASS
+
+Recorded code refactored using explicit workbook and worksheet objects:
+
+PASS
+
+## VBA Compilation
+
+`Option Explicit` enabled:
+
+PASS
+
+Variable-declaration error behavior demonstrated:
+
+PASS
+
+Final educational module compiled successfully before removal:
+
+PASS
+
+## Variables and Object Model
+
+Worksheet object assignment with `Set`:
+
+PASS
+
+Value variables using `String`, `Long` and `Boolean`:
+
+PASS
+
+`Range` and `Cells` access:
+
+PASS
+
+Worksheet collection iteration:
+
+PASS
+
+## Loop Validation
+
+`For`:
+
+PASS
+
+`For Each`:
+
+PASS
+
+`Do While`:
+
+PASS
+
+## Structured Table Validation
+
+`tblReplenishment` located through `ListObject`:
+
+PASS
+
+Validated row population:
+
+1,800
+
+`HeaderRowRange` inspection:
+
+PASS
+
+`DataBodyRange` inspection:
+
+PASS
+
+Structured column access by name:
+
+PASS
+
+`ListRow` and `ListColumn` access:
+
+PASS
+
+Read-only inspection of `ProductID`, `SiteID`, `InventoryStatus` and `RecommendedOrderQty`:
+
+PASS
+
+No operational business formula was rewritten in VBA.
+
+## Procedure and Function Validation
+
+Public and Private procedure behavior:
+
+PASS
+
+`ByVal` behavior:
+
+PASS
+
+`ByRef` behavior:
+
+PASS
+
+`WorksheetExists`:
+
+PASS
+
+`TableExists`:
+
+PASS
+
+Reusable validation hierarchy:
+
+PASS
+
+## Error Handling
+
+`On Error GoTo ErrorHandler` behavior:
+
+PASS
+
+`Err.Number` and `Err.Description` inspection:
+
+PASS
+
+`CleanExit` / `Resume CleanExit` pattern:
+
+PASS
+
+Unrestricted `On Error Resume Next` rejected as the default error-handling strategy:
+
+PASS
+
+## PivotTable and PivotCache Validation
+
+Existing ProcureFlow PivotTables discovered through the Excel Object Model:
+
+PASS
+
+PivotCache relationships inspected:
+
+PASS
+
+Cache indexes inspected:
+
+PASS
+
+Refresh targets inspected:
+
+PASS
+
+Controlled single-PivotTable `RefreshTable` exercise:
+
+PASS
+
+No production `RefreshAll` orchestration was introduced.
+
+## Workbook Cleanup
+
+Educational VBA source exported to:
+
+`vba/examples/phase08/modVBAFoundations.bas`
+
+Exported source preservation:
+
+PASS
+
+Educational module removed from `ProcureFlow.xlsm`:
+
+PASS
+
+Educational macros no longer exposed as operational workbook macros:
+
+PASS
+
+## Readiness Assessment
+
+Foundational VBA readiness assessment:
+
+PASS
+
+The user demonstrated understanding of:
+
+- macro versus VBA responsibilities;
+- object references and `Set`;
+- object versus value variables;
+- loop-selection concepts;
+- structured table references;
+- `ByVal` versus `ByRef`;
+- structured runtime error handling;
+- PivotTable versus PivotCache versus workbook refresh scope;
+- Excel business-logic responsibility versus VBA orchestration responsibility.
+
+## Phase 8 Technical Validation Result
+
+PASS
+
+GitHub Gate:
+
+PENDING
 

@@ -1405,3 +1405,37 @@ It also preserves the architectural principle that production automation should 
 
 This decision supersedes `DEC-059` only with respect to the phase assignment of persistent `QC-032` automation. The Phase 7 manual PivotTable validation established by `DEC-059` remains valid.
 
+---
+
+## DEC-061 — Educational VBA Artifact Separation
+
+**Status:** CONFIRMED
+
+**Phase:** 8 — VBA Foundations
+
+**Decision:**
+
+VBA created solely for Phase 8 learning will not remain in the operational ProcureFlow workbook after the phase learning exercises are complete.
+
+Educational VBA source will be preserved under:
+
+`vba/examples/phase08/`
+
+Production VBA source will remain separate under:
+
+`vba/modules/`
+
+when production automation is implemented in later phases.
+
+The Phase 8 educational module:
+
+`modVBAFoundations`
+
+is preserved as exported `.bas` source but removed from `ProcureFlow.xlsm` before the Phase 8 release.
+
+**Rationale:**
+
+Learning examples provide useful portfolio and educational evidence but should not appear to end users as production workbook functionality.
+
+Separating educational and production VBA keeps the workbook interface professional, preserves reviewable source history and prevents demonstration code from being mistaken for supported operational automation.
+
