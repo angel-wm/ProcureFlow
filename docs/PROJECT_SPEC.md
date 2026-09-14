@@ -4,9 +4,9 @@
 
 Status: CONFIRMED DESIGN BASELINE  
 Project State: IN DEVELOPMENT  
-Current Phase: Phase 6 — Quality Control System
-Current Phase Status: COMPLETED
-Current Released Version: v0.7.0
+Current Phase: Phase 8 — VBA Foundations
+Current Phase Status: IN PROGRESS
+Current Released Version: v0.8.0
 
 This document defines the approved functional and business specification of ProcureFlow before implementation begins.
 
@@ -1223,3 +1223,4 @@ Implementation status:
 PENDING
 
 No workbook functionality is considered implemented at this stage.
+

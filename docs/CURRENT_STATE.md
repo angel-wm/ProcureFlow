@@ -10,15 +10,15 @@ v0.8.0
 
 ## Current Phase
 
-Phase 7 — Analysis & PivotTables
+Phase 8 — VBA Foundations
 
-Status: COMPLETED
+Status: IN PROGRESS
 
-Version: `v0.8.0`
+Target Version: `v0.8.1`
 
 Phase Branch:
 
-`phase/07-analysis-pivottables`
+`phase/08-vba-foundations`
 
 ## Last Completed Phase
 
@@ -98,8 +98,8 @@ Implemented project assets include:
 
 The following remain assigned to later roadmap phases:
 
-- VBA;
-- macros;
+- production VBA automation;
+- production macros;
 - automated refresh orchestration;
 - persistent automated PivotTable refresh-state control for `QC-032`;
 - replenishment-report logic;
@@ -342,6 +342,67 @@ Under `DEC-059`, `QC-032 — PivotTable refresh status` remains N/A until Phase 
 
 Phase 7 is formally COMPLETED. Technical implementation, validation, documentation, Pull Request review and merge are complete.
 
+
+## Phase 8 Technical Completion
+
+[IMPLEMENTED] [VALIDATED] [TECHNICAL COMPLETE]
+
+Phase 8 — VBA Foundations has completed its technical learning, validation and workbook-cleanup work on:
+
+`phase/08-vba-foundations`
+
+Validated Phase 8 outcomes include:
+
+- Macro Recorder usage and generated-code inspection;
+- Visual Basic Editor fundamentals;
+- `Option Explicit`;
+- `Sub` and `Function`;
+- `Dim`, object variables and value variables;
+- `Set`;
+- `String`, `Long` and `Boolean`;
+- `If`, `ElseIf`, `Else`, `And`, `Or` and `Not`;
+- `For`, `For Each` and `Do While`;
+- `Workbook`, `Worksheet`, `Range` and `Cells`;
+- `ListObject`, `ListRow` and `ListColumn`;
+- procedure parameters;
+- `ByVal` and `ByRef`;
+- `Public` and `Private`;
+- reusable validation functions;
+- structured runtime error handling;
+- PivotTable and PivotCache inspection;
+- refresh-scope concepts;
+- one controlled `PivotTable.RefreshTable` learning exercise.
+
+Educational VBA source is preserved at:
+
+`vba/examples/phase08/modVBAFoundations.bas`
+
+Phase 8 learning documentation is preserved at:
+
+`docs/VBA_FOUNDATIONS.md`
+
+The educational `modVBAFoundations` module was removed from:
+
+`workbook/ProcureFlow.xlsm`
+
+after validation.
+
+The workbook therefore does not expose Phase 8 learning macros as production functionality.
+
+The Phase 8 readiness assessment result is:
+
+PASS
+
+The user demonstrated sufficient understanding of foundational VBA to proceed to production automation without treating VBA as a black box.
+
+Production automation remains intentionally unimplemented and belongs to Phase 9.
+
+`QC-032 — PivotTable refresh status` remains N/A until Phase 9 implements an appropriate persistent automated refresh-state mechanism.
+
+Phase 8 technical work is complete.
+
+Formal phase status remains IN PROGRESS until the GitHub Gate is completed.
+
 ## Official Dataset
 
 Aerospace Supply Chain Performance & Forecasting
@@ -401,7 +462,7 @@ Confirmed during Phase 7:
 
 `DEC-059`
 
-No decisions are currently marked SUPERSEDED.
+DEC-059 is SUPERSEDED by DEC-060 for the Phase 8 / Phase 9 automation boundary.
 
 See:
 
@@ -559,23 +620,30 @@ The Phase 4 exit criteria are technically satisfied:
 Phase 4 is formally COMPLETED. Technical implementation, validation, Pull Request review and merge are complete.
 ## Next Immediate Step
 
-Phase 7 is complete and released as `v0.8.0`.
+Phase 8 technical implementation, validation, readiness assessment and workbook cleanup are complete.
 
-The next authorized development phase is:
+The next immediate step is the Phase 8 GitHub Gate:
 
-Phase 8 — VBA & Automation
+- final canonical-document synchronization;
+- Pull Request creation and review;
+- merge into `main`;
+- synchronization of local `main`;
+- publication of `phase-8-complete`;
+- publication of `v0.8.1`.
 
-Phase 8 must begin through its own formal phase branch and design workflow.
+No Phase 9 implementation is authorized before that gate is complete.
+
 ## Next Phase
 
-Phase 8 — VBA & Automation
+Phase 9 — Automation
 
 Status: NOT STARTED
 
-Target Version: `v0.8.1`
+Target Version:
 
-Phase 8 must not begin until the Phase 7 GitHub Gate is complete.
+`v0.9.0`
 
+Phase 9 is blocked until the Phase 8 GitHub Gate is complete.
 ## Phase 5 Business Logic Validation
 
 Phase 5 core business logic has been implemented and validated in the workbook.
@@ -674,6 +742,8 @@ Phase 6 technical implementation, controlled validation, documentation and Pull 
 Release version:
 
 `v0.7.0`
+
+
 
 
 

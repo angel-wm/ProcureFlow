@@ -478,7 +478,7 @@ was not converted into a static or artificial PASS control.
 
 Phase 7 produced real manual evidence that PivotTables refresh and reconcile successfully.
 
-A persistent automated PivotTable-refresh status requires orchestration beyond normal worksheet formulas and is deferred to Phase 8 automation rather than implementing additional technical PivotTables solely to simulate refresh-state evidence.
+A persistent automated PivotTable-refresh status requires orchestration beyond normal worksheet formulas and is deferred to Phase 9 production automation rather than implementing additional technical PivotTables solely to simulate refresh-state evidence.
 
 Until that automation exists, `QC-032` remains N/A in the operational Quality Control table.
 
@@ -501,7 +501,7 @@ Power Query:
 VBA:
 
 - not introduced
-- remains assigned to Phase 8 automation
+- remains assigned to the later production automation phase
 
 PowerShell:
 
@@ -589,11 +589,12 @@ Release tags:
 All Phase 7 technical, validation, documentation and GitHub publication criteria are satisfied.
 ## Next Phase
 
-Phase 8 — VBA & Automation
+Phase 8 — VBA Foundations
 
 Release Version:
 
 `v0.8.1`
 
-Phase 8 — VBA & Automation is the next authorized development phase.
+Phase 8 — VBA Foundations is the next authorized development phase.
+
 

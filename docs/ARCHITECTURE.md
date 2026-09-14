@@ -4,8 +4,8 @@
 
 Status: CONFIRMED DESIGN BASELINE
 Project State: IN DEVELOPMENT
-Current Phase: Phase 7 — Analysis & PivotTables
-Current Phase Status: COMPLETED
+Current Phase: Phase 8 — VBA Foundations
+Current Phase Status: IN PROGRESS
 Current Released Version: v0.8.0
 This document defines the approved architecture of ProcureFlow and records implementation evidence as project phases are completed.
 
@@ -2100,5 +2100,33 @@ Under `DEC-059`, ProcureFlow will not add technical PivotTables solely to manufa
 
 Persistent PivotTable refresh-state evaluation is assigned to Phase 8 VBA orchestration.
 
+---
 
+# Phase 8 VBA Foundations Implementation Evidence
+
+Phase 8 validated the foundational VBA layer without introducing production automation.
+
+Educational VBA source is preserved under:
+
+`vba/examples/phase08/`
+
+The validated educational module:
+
+`modVBAFoundations.bas`
+
+demonstrates the Excel Object Model, structured tables, procedures, functions, loops, conditional logic, error handling, PivotTables, PivotCaches and refresh concepts.
+
+The educational module was removed from the operational workbook before the Phase 8 release candidate.
+
+Production VBA source remains reserved for:
+
+`vba/modules/`
+
+and will be introduced only when Phase 9 automation responsibilities are formally implemented.
+
+This preserves the architectural principle:
+
+VBA orchestrates.
+
+Excel remains responsible for the established auditable business calculations.
 
