@@ -274,3 +274,75 @@ Comments focus on:
 - educational versus production responsibilities.
 
 Comments are not added mechanically to lines whose behavior is already self-explanatory.
+
+## PivotTables and PivotCaches
+
+Phase 8 introduced the Excel VBA object model for PivotTables.
+
+The exercises inspected:
+
+`Worksheet.PivotTables`
+
+`PivotTable`
+
+`PivotTable.TableRange2`
+
+`PivotTable.CacheIndex`
+
+`PivotTable.PivotCache`
+
+`Workbook.PivotCaches`
+
+`PivotCache`
+
+The exercises demonstrated that a PivotTable and its PivotCache are separate Excel objects and that multiple PivotTables may share the same cache.
+
+The learning exercises inspected the real PivotTables created during ProcureFlow Phase 7 without changing their fields, filters, or layouts.
+
+## Refresh Scope
+
+Phase 8 introduced three different refresh levels:
+
+`PivotTable.RefreshTable`
+
+`PivotCache.Refresh`
+
+`Workbook.RefreshAll`
+
+These methods have different scopes and must not be treated as interchangeable.
+
+`PivotTable.RefreshTable` targets a specific PivotTable report.
+
+`PivotCache.Refresh` targets a specific PivotCache.
+
+`Workbook.RefreshAll` requests refresh operations across refreshable workbook objects and may include connections, queries, and dependent Excel objects.
+
+## Controlled Refresh Exercise
+
+Phase 8 executed a controlled learning example using:
+
+`PivotTable.RefreshTable`
+
+on one existing PivotTable.
+
+The exercise was intentionally limited to a single PivotTable and was not implemented as the ProcureFlow production refresh workflow.
+
+No general `Workbook.RefreshAll` automation was introduced during Phase 8.
+
+## Phase 8 / Phase 9 Boundary
+
+Phase 8 establishes understanding of PivotTable and refresh objects.
+
+Phase 9 owns the design and implementation of the production refresh workflow.
+
+That later workflow must consider the actual ProcureFlow dependency chain, including:
+
+Power Query
+→ structured tables
+→ calculated model outputs
+→ PivotTables
+→ reporting outputs
+
+Production automation must also prevent stale outputs and must not report a refresh as successful before its required dependencies have completed.
+
+The Phase 8 examples therefore demonstrate refresh concepts without preempting the automation architecture that must be designed in Phase 9.

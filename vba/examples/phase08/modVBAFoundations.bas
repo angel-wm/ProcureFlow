@@ -591,4 +591,146 @@ Public Sub ValidateReplenishmentObjects()
     End If
 
 End Sub
+' -----------------------------------------------------------------------------
+' Inspects every PivotTable currently stored in the ProcureFlow workbook.
+'
+' This procedure is read-only. It discovers PivotTables through the Excel
+' Object Model and reports their worksheet, name, and physical report range.
+' -----------------------------------------------------------------------------
+Public Sub InspectPivotTables()
 
+    Dim ws As Worksheet
+    Dim pt As PivotTable
+    Dim totalPivotTables As Long
+
+    totalPivotTables = 0
+
+    Debug.Print "----- PROCUREFLOW PIVOTTABLES -----"
+
+    For Each ws In ThisWorkbook.Worksheets
+
+        If ws.PivotTables.Count > 0 Then
+
+            Debug.Print _
+                "Worksheet: " & ws.Name & _
+                " | PivotTables: " & ws.PivotTables.Count
+
+            For Each pt In ws.PivotTables
+
+                totalPivotTables = totalPivotTables + 1
+
+                Debug.Print _
+                    "    Name: " & pt.Name & _
+                    " | Range: " & pt.TableRange2.Address
+
+            Next pt
+
+        End If
+
+    Next ws
+
+    Debug.Print "Total PivotTables: " & totalPivotTables
+
+End Sub
+' -----------------------------------------------------------------------------
+' Inspects the PivotCache used by every PivotTable in the ProcureFlow workbook.
+'
+' This procedure is read-only. It shows the relationship between each
+' PivotTable and its underlying PivotCache without refreshing any object.
+' -----------------------------------------------------------------------------
+Public Sub InspectPivotCaches()
+
+    Dim ws As Worksheet
+    Dim pt As PivotTable
+    Dim pivotCache As pivotCache
+
+    Debug.Print "----- PROCUREFLOW PIVOT CACHES -----"
+    Debug.Print "Workbook PivotCaches: " & ThisWorkbook.PivotCaches.Count
+
+    For Each ws In ThisWorkbook.Worksheets
+
+        For Each pt In ws.PivotTables
+
+            Set pivotCache = pt.pivotCache
+
+            Debug.Print _
+                "Worksheet: " & ws.Name & _
+                " | PivotTable: " & pt.Name & _
+                " | Cache Index: " & pt.CacheIndex & _
+                " | Source Type: " & pivotCache.SourceType
+
+        Next pt
+
+    Next ws
+
+End Sub
+' -----------------------------------------------------------------------------
+' Documents the main refresh levels available in Excel VBA.
+'
+' This procedure does not execute any refresh operation. It only prints the
+' object and method relationships used for educational purposes.
+' -----------------------------------------------------------------------------
+Public Sub ExplainRefreshLevels()
+
+    Debug.Print "----- REFRESH LEVELS -----"
+    Debug.Print "PivotTable.RefreshTable -> refreshes a specific PivotTable report."
+    Debug.Print "PivotCache.Refresh -> refreshes a specific PivotCache."
+    Debug.Print "Workbook.RefreshAll -> requests refresh across workbook refreshable objects."
+
+End Sub
+' -----------------------------------------------------------------------------
+' Inspects refreshable PivotTable objects without executing a refresh.
+'
+' The procedure identifies each PivotTable and the PivotCache associated with
+' it so that refresh scope can be understood before automation is designed.
+' -----------------------------------------------------------------------------
+Public Sub InspectRefreshTargets()
+
+    Dim ws As Worksheet
+    Dim pt As PivotTable
+
+    Debug.Print "----- REFRESH TARGETS -----"
+
+    For Each ws In ThisWorkbook.Worksheets
+
+        For Each pt In ws.PivotTables
+
+            Debug.Print _
+                "Worksheet: " & ws.Name & _
+                " | PivotTable: " & pt.Name & _
+                " | Cache Index: " & pt.CacheIndex
+
+        Next pt
+
+    Next ws
+
+End Sub
+' -----------------------------------------------------------------------------
+' Refreshes only the first PivotTable found in 30_PVT_Inventory.
+'
+' This is a controlled Phase 8 learning exercise. It is not the production
+' refresh workflow for ProcureFlow.
+' -----------------------------------------------------------------------------
+Public Sub RefreshOnePivotTable()
+
+    Dim ws As Worksheet
+    Dim pt As PivotTable
+
+    Set ws = ThisWorkbook.Worksheets("30_PVT_Inventory")
+
+    If ws.PivotTables.Count = 0 Then
+
+        Debug.Print "No PivotTables found in: " & ws.Name
+        Exit Sub
+
+    End If
+
+    Set pt = ws.PivotTables(1)
+
+    Debug.Print "Refreshing PivotTable: " & pt.Name
+
+    pt.RefreshTable
+
+    Debug.Print "PivotTable refresh completed: " & pt.Name
+
+End Sub
