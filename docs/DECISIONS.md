@@ -999,9 +999,21 @@ Decisions confirmed during Phase 6 — Quality Control System:
 
 `DEC-056` through `DEC-058`
 
+Decisions confirmed during Phase 7 — Analysis & PivotTables:
+
+`DEC-059`
+
+Decisions confirmed during Phase 8 — VBA Foundations:
+
+`DEC-060` through `DEC-061`
+
+Decisions confirmed during Phase 9 — Automation:
+
+`DEC-062`
+
 Current superseded decisions:
 
-None.
+- `DEC-059` — superseded by `DEC-060` with respect to the phase assignment of persistent `QC-032` automation. Its Phase 7 manual PivotTable validation evidence remains valid.
 
 Current proposed material decisions:
 
@@ -1313,7 +1325,7 @@ ProcureFlow must not claim persistence or PivotTable validation before the requi
 
 ## DEC-059 — Pivot Refresh Validation and QC-032 Automation Boundary
 
-**Status:** CONFIRMED
+**Status:** SUPERSEDED
 
 **Phase:** 7 — Analysis & PivotTables
 
@@ -1439,4 +1451,67 @@ Learning examples provide useful portfolio and educational evidence but should n
 
 Separating educational and production VBA keeps the workbook interface professional, preserves reviewable source history and prevents demonstration code from being mistaken for supported operational automation.
 
+---
 
+## DEC-062 — Production Automation State and Refresh Contract
+
+**Status:** CONFIRMED
+
+**Phase:** 9 — Automation
+
+**Decision:**
+
+ProcureFlow production automation will use VBA as the orchestration layer for stable workbook workflows.
+
+VBA will not duplicate established business calculations that belong to Excel formulas, and Power Query will not be converted into a persistent workflow-state store.
+
+The production refresh workflow must distinguish between:
+
+- the current refresh attempt;
+- the last completed attempt;
+- the last successful accepted refresh.
+
+The persistent `LastSuccessfulRefresh` value must never be overwritten by a failed subsequent attempt.
+
+A production refresh attempt will follow the controlled dependency sequence:
+
+1. mark the automation attempt as `RUNNING`;
+2. initiate the required Power Query refresh;
+3. verify that required asynchronous refresh work has actually completed;
+4. validate the resulting Power Query technical state;
+5. execute the required Excel calculation;
+6. refresh and validate dependent PivotTables;
+7. recalculate and evaluate Quality Control;
+8. persist the final automation state;
+9. update `LastSuccessfulRefresh` only when the required workflow completed without a critical failure;
+10. communicate the final result to the user.
+
+A technically completed workflow whose overall Quality Control result is `PASS` or a non-critical `WARNING` may be recorded as an accepted successful refresh.
+
+A workflow ending in a critical `FAIL`, runtime failure, incomplete required refresh or unvalidated dependency must not update `LastSuccessfulRefresh`.
+
+`QC-030` will distinguish persistent last-successful-refresh state from the current Power Query evaluation timestamp exposed by `qc_PipelineHealth`.
+
+`QC-032 — PivotTable refresh status` will use persistent automation evidence rather than a manually asserted status.
+
+At the start of an automation attempt, PivotTable refresh state will be treated as `NOT_EVALUATED` until the required PivotTable stage has executed and been validated.
+
+A validated PivotTable stage may produce `PASS`; a failed required PivotTable stage produces `FAIL`.
+
+Previous workbook outputs may remain physically visible after a failed attempt, but ProcureFlow must not present those outputs as current. Automation state and user messaging must make stale-output conditions explicit.
+
+Production VBA source will be maintained under:
+
+`vba/modules/`
+
+Standard `.bas` modules will be preferred. Class modules will only be introduced if later implementation evidence demonstrates a real architectural need.
+
+**Rationale:**
+
+ProcureFlow has multiple dependent refresh and calculation layers whose completion cannot be represented truthfully by merely calling `Workbook.RefreshAll` and immediately reporting success.
+
+Separating attempt state from persistent successful state prevents a failed refresh from overwriting known-good refresh evidence.
+
+A controlled completion barrier, downstream validation, persistent `QC-032` evidence and explicit stale-output handling allow VBA to coordinate the workbook without becoming the hidden business-logic engine.
+
+This decision implements the production-automation responsibility assigned to Phase 9 by `DEC-060`.

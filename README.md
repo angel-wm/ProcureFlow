@@ -12,23 +12,27 @@ Project status:
 
 Current released version:
 
-`v0.8.0`
+`v0.8.1`
 
-Current completed phase:
+Current development phase:
 
-**Phase 7 — Analysis & PivotTables**
+**Phase 9 — Automation**
 
-Phase 7 status:
+Phase 9 status:
 
-**COMPLETED**
+**IN PROGRESS**
+
+Last completed phase:
+
+**Phase 8 — VBA Foundations**
 
 Pull Request:
 
-`#8 — Phase 7 — Analysis & PivotTables`
+`#9 — Phase 8 — VBA Foundations`
 
 Version:
 
-`v0.8.0`
+`v0.8.1`
 
 ## Completed Phases
 
@@ -152,6 +156,43 @@ Completed implementation includes:
 - documented and validated Excel business formulas.
 
 Phase 5 validation completed with zero formula errors. The Product × Site replenishment engine contains 1,800 validated rows and Supplier Performance contains 40 validated Suppliers.
+
+### Phase 6 — Quality Control System
+
+Status:
+
+`COMPLETED`
+
+Version:
+
+`v0.7.0`
+
+Implemented the centralized Quality Control framework, reconciliation controls, Power Query technical-health feed and validated PASS / WARNING / FAIL behavior.
+
+### Phase 7 — Analysis & PivotTables
+
+Status:
+
+`COMPLETED`
+
+Version:
+
+`v0.8.0`
+
+Implemented the Inventory, Procurement and Supplier analytical layers using PivotTables, PivotCharts, Slicers and Timelines, with source-to-Pivot reconciliation and full refresh validation.
+
+### Phase 8 — VBA Foundations
+
+Status:
+
+`COMPLETED`
+
+Version:
+
+`v0.8.1`
+
+Established practical VBA foundations using the real ProcureFlow workbook, validated readiness for production automation and preserved educational VBA separately from the operational workbook.
+
 ## Current Workbook
 
 Executable workbook:

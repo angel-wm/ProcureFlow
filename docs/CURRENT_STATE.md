@@ -12,13 +12,13 @@ v0.8.1
 
 Phase 9 — Automation
 
-Status: NOT STARTED
+Status: IN PROGRESS
 
 Target Version: `v0.9.0`
 
 Phase Branch:
 
-Not created.
+`phase/09-automation`
 
 ## Last Completed Phase
 
