@@ -4,9 +4,9 @@
 
 Status: CONFIRMED
 Project State: IN DEVELOPMENT
-Current Phase: Phase 9 — Automation
-Current Phase Status: IN PROGRESS
-Current Released Version: v0.8.1
+Current Phase: Phase 10 — Reporting & Dashboard
+Current Phase Status: NOT STARTED
+Current Released Version: v0.9.0
 This roadmap defines the approved sequential development plan for ProcureFlow.
 
 A phase is only considered COMPLETED after its technical work, validation, documentation and GitHub publication gate have all been completed.
@@ -890,11 +890,11 @@ v0.8.1
 
 ## Status
 
-IN PROGRESS
+COMPLETED
 
 ## Local Work Status
 
-COMPLETE — GITHUB GATE PENDING
+COMPLETE — GITHUB GATE PASSED
 
 ## Target Version
 
@@ -956,8 +956,14 @@ Potential automations include:
 
 ## GitHub Gate
 
-Complete phase branch workflow, Pull Request, merge, push and phase tag.
+- phase branch `phase/09-automation` completed;
+- Pull Request `#10 — Phase 9 — Automation` merged;
+- merge commit `a0302e96aab5c7e7833af6e68e4d13c97a83806b`;
+- final release-state synchronization completed on `main`;
+- phase tag `phase-9-complete`;
+- version tag `v0.9.0`.
 
+GitHub Gate: COMPLETE.
 ## Version
 
 v0.9.0
@@ -1221,9 +1227,9 @@ v1.0.0
 | 4 | Operational Model | COMPLETED | v0.5.0 |
 | 5 | Business Logic & Advanced Formulas | COMPLETED | v0.6.0 |
 | 6 | Quality Control System | COMPLETED | v0.7.0 |
-| 7 | Analysis & PivotTables | NOT STARTED | v0.8.0 |
-| 8 | VBA Foundations | NOT STARTED | v0.8.1 |
-| 9 | Automation | NOT STARTED | v0.9.0 |
+| 7 | Analysis & PivotTables | COMPLETED | v0.8.0 |
+| 8 | VBA Foundations | COMPLETED | v0.8.1 |
+| 9 | Automation | COMPLETED | v0.9.0 |
 | 10 | Reporting & Dashboard | NOT STARTED | v0.10.0 |
 | 11 | Testing & Hardening | NOT STARTED | v0.11.0 |
 | 12 | Documentation & Portfolio Release | NOT STARTED | v1.0.0 |
@@ -1232,26 +1238,27 @@ v1.0.0
 
 # 17. Current Immediate Next Step
 
-Phase 6 — Quality Control System is technically complete and has been merged into `main`.
+Phase 9 — Automation is complete.
 
 Publication evidence:
 
-- Phase branch: `phase/06-quality-control-system`
-- Pull Request: `#7 — Phase 6 — Quality Control System`
+- Phase branch: `phase/09-automation`
+- Pull Request: `#10 — Phase 9 — Automation`
 - Pull Request status: MERGED
-- Merge commit: `8a5dc7279eb3701e86c8014250cce0f8671b4515`
-- Release version: `v0.7.0`
+- Merge commit: `a0302e96aab5c7e7833af6e68e4d13c97a83806b`
+- Release version: `v0.9.0`
+- Phase tag: `phase-9-complete`
 
-The next authorized phase after final release tagging is:
+The next authorized phase is:
 
-Phase 7 — Analysis & PivotTables
+Phase 10 — Reporting & Dashboard
+
+Status:
+
+NOT STARTED
 
 Target version:
 
-`v0.8.0`
+`v0.10.0`
 
-
-
-
-
-
+Phase 10 must begin from the released `v0.9.0` `main` baseline.

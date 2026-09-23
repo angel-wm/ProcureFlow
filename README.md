@@ -12,31 +12,27 @@ Project status:
 
 Current released version:
 
-`v0.8.1`
+`v0.9.0`
 
 Current development phase:
 
-**Phase 9 — Automation**
+**Phase 10 — Reporting & Dashboard**
 
-Phase 9 status:
+Phase 10 status:
 
-**IN PROGRESS**
-
-Local Phase 9 work:
-
-**TECHNICAL WORK COMPLETE — GITHUB GATE PENDING**
+**NOT STARTED**
 
 Last completed phase:
 
-**Phase 8 — VBA Foundations**
+**Phase 9 — Automation**
 
 Pull Request:
 
-`#9 — Phase 8 — VBA Foundations`
+`#10 — Phase 9 — Automation`
 
 Version:
 
-`v0.8.1`
+`v0.9.0`
 
 ## Completed Phases
 
@@ -196,6 +192,18 @@ Version:
 `v0.8.1`
 
 Established practical VBA foundations using the real ProcureFlow workbook, validated readiness for production automation and preserved educational VBA separately from the operational workbook.
+
+### Phase 9 — Automation
+
+Status:
+
+`COMPLETED`
+
+Version:
+
+`v0.9.0`
+
+Implemented the production VBA automation layer, including controlled synchronous Power Query refresh, persistent automation state, staged Quality Control orchestration, PivotTable refresh coordination, user-facing refresh execution, controlled failure handling and late-stage successful-refresh rollback protection.
 
 ## Current Workbook
 

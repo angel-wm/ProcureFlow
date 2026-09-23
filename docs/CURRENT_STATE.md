@@ -6,31 +6,29 @@ IN DEVELOPMENT
 
 ## Current Version
 
-v0.8.1
+v0.9.0
 
 ## Current Phase
 
-Phase 9 — Automation
+Phase 10 — Reporting & Dashboard
 
-Status: IN PROGRESS
+Status: NOT STARTED
 
-Local Work Status: COMPLETE — GITHUB GATE PENDING
-
-Target Version: `v0.9.0`
+Target Version: `v0.10.0`
 
 Phase Branch:
 
-`phase/09-automation`
+Not created.
 
 ## Last Completed Phase
 
-Phase 8 — VBA Foundations
+Phase 9 — Automation
 
-Phase Completion Version: `v0.8.1`
+Phase Completion Version: `v0.9.0`
 
 GitHub Pull Request:
 
-`#9 — Phase 8 — VBA Foundations`
+`#10 — Phase 9 — Automation`
 
 Pull Request Status:
 
@@ -38,18 +36,18 @@ MERGED
 
 Merge Commit:
 
-`c9ce4746434a1647828ad9eea7a1d4d6c49f2beb`
+`a0302e96aab5c7e7833af6e68e4d13c97a83806b`
 
 Phase Tag:
 
-`phase-8-complete`
+`phase-9-complete`
 
 Version Tag:
 
-`v0.8.1`
+`v0.9.0`
 ## Implemented
 
-ProcureFlow currently includes the completed Project Design, Data Design, Workbook Foundation, Power Query Pipeline, Operational Model, Business Logic, Quality Control, Analysis & PivotTables and VBA Foundations baselines, plus the implemented and functionally validated Phase 9 production-automation work pending phase closeout and GitHub completion.
+ProcureFlow currently includes the completed Project Design, Data Design, Workbook Foundation, Power Query Pipeline, Operational Model, Business Logic, Quality Control, Analysis & PivotTables, VBA Foundations and Automation baselines.
 
 Implemented project assets include:
 
@@ -638,29 +636,29 @@ The Phase 4 exit criteria are technically satisfied:
 Phase 4 is formally COMPLETED. Technical implementation, validation, Pull Request review and merge are complete.
 ## Next Immediate Step
 
-Phase 8 — VBA Foundations is complete and released as:
+Phase 9 — Automation is complete and released as:
 
-`v0.8.1`
+`v0.9.0`
 
 The next authorized development phase is:
 
-Phase 9 — Automation
+Phase 10 — Reporting & Dashboard
 
-Phase 9 has not started.
+Phase 10 has not started.
 
-Its phase branch must be created from the released `main` state when Phase 9 formally begins.
+Its phase branch must be created from the released `main` state when Phase 10 formally begins.
 
 ## Next Phase
 
-Phase 9 — Automation
+Phase 10 — Reporting & Dashboard
 
 Status: NOT STARTED
 
 Target Version:
 
-`v0.9.0`
+`v0.10.0`
 
-Phase 9 will implement production VBA automation for stable ProcureFlow workflows.
+Phase 10 will build the operational replenishment report and management dashboard on top of the validated and automated ProcureFlow backend.
 ## Phase 5 Business Logic Validation
 
 Phase 5 core business logic has been implemented and validated in the workbook.

@@ -6,11 +6,11 @@ Status: PHASE 9 TEST EVIDENCE COMPLETE
 
 Current Completed Phase:
 
-Phase 8 — VBA Foundations
+Phase 9 — Automation
 
 Current Released Version:
 
-`v0.8.1`
+`v0.9.0`
 
 Formal testing will continue throughout later ProcureFlow phases.
 

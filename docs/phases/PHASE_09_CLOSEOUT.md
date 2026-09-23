@@ -2,7 +2,7 @@
 
 ## Status
 
-TECHNICAL WORK COMPLETE — GITHUB GATE PENDING
+COMPLETED
 
 Target Release Version:
 
@@ -503,28 +503,30 @@ Git / GitHub:
 
 ## GitHub Gate
 
-PENDING
+COMPLETE
 
 Phase branch:
 
 `phase/09-automation`
 
-Required remaining actions:
+Pull Request:
 
-- publish final pre-merge closeout state;
-- create Pull Request to `main`;
-- review Pull Request;
-- merge;
-- synchronize local `main`;
-- publish `phase-9-complete`;
-- publish `v0.9.0`;
-- perform final release-state synchronization.
+`#10 — Phase 9 — Automation`
 
-Phase 9 must remain:
+Pull Request Status:
 
-`IN PROGRESS`
+MERGED
 
-until this GitHub gate is complete.
+Merge Commit:
+
+`a0302e96aab5c7e7833af6e68e4d13c97a83806b`
+
+Release tags:
+
+- `phase-9-complete`
+- `v0.9.0`
+
+All Phase 9 technical, validation, documentation and GitHub publication criteria are satisfied.
 
 ## Next Phase
 
@@ -534,4 +536,4 @@ Target Version:
 
 `v0.10.0`
 
-Phase 10 is not authorized to begin until Phase 9 is merged, tagged and formally marked COMPLETED.
+Phase 10 is authorized to begin from the released `v0.9.0` baseline, but has not started.

@@ -4,9 +4,9 @@
 
 Status: CONFIRMED DESIGN BASELINE
 Project State: IN DEVELOPMENT
-Current Phase: Phase 9 — Automation
-Current Phase Status: IN PROGRESS
-Current Released Version: v0.8.1
+Current Phase: Phase 10 — Reporting & Dashboard
+Current Phase Status: NOT STARTED
+Current Released Version: v0.9.0
 This document defines the approved architecture of ProcureFlow and records implementation evidence as project phases are completed.
 
 Architecture described here is a design baseline. Components must not be considered implemented until supported by actual workbook, query, formula, VBA or testing evidence.
