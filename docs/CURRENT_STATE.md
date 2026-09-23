@@ -14,6 +14,8 @@ Phase 9 — Automation
 
 Status: IN PROGRESS
 
+Local Work Status: COMPLETE — GITHUB GATE PENDING
+
 Target Version: `v0.9.0`
 
 Phase Branch:
@@ -116,10 +118,6 @@ Implemented project assets include:
 
 The following remain assigned to later roadmap phases:
 
-- production VBA automation;
-- production macros;
-- automated refresh orchestration;
-- persistent automated PivotTable refresh-state control for `QC-032`;
 - replenishment-report logic;
 - management-dashboard logic;
 - later protection, performance and release-hardening work.

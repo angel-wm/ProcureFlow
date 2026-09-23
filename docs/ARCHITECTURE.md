@@ -1186,6 +1186,48 @@ Expected professional automation candidates include:
 - generate or prepare the replenishment report;
 - export approved outputs.
 
+## 29.1 Phase 9 Production Automation Implementation
+
+Phase 9 implements production automation through standard VBA modules under:
+
+`vba/modules/`
+
+Implemented modules:
+
+- `modAutomationState` — persistent workflow-state management;
+- `modRefresh` — controlled Power Query refresh orchestration;
+- `modQualityControl` — staged Quality Control evaluation;
+- `modPivotRefresh` — PivotCache and PivotTable refresh orchestration;
+- `modAutomation` — end-to-end production orchestration.
+
+Production entry point:
+
+`RefreshProcureFlow`
+
+Persistent automation state is stored in `tblAutomationState` on `02_CONTROL`.
+
+The production Power Query strategy refreshes the eight physically loaded output QueryTables sequentially through:
+
+`QueryTable.Refresh(BackgroundQuery:=False)`
+
+The analytical layer refreshes 5 unique PivotCaches and 10 PivotTables.
+
+Quality Control is evaluated in three stages:
+
+- Preliminary QC excludes `QC-030` and `QC-032`;
+- Post-Pivot QC excludes `QC-030`;
+- Full QC evaluates all controls.
+
+The orchestrator snapshots the previously accepted `LastSuccessfulRefresh` before an attempt begins.
+
+If a failure occurs after accepted-state finalization but before required final calculation and Full Quality Control complete, the previous successful-refresh value is restored before the workflow is marked `FAILED`.
+
+This prevents a failed late-stage attempt from advancing persistent successful-refresh evidence.
+
+`00_HOME` exposes Last Successful Refresh, Overall Quality Status and the `Refresh ProcureFlow` Form Control button.
+
+Operational-report preparation, management-dashboard implementation and their related export workflows remain assigned to Phase 10.
+
 ---
 
 # 30. VBA Source Control
