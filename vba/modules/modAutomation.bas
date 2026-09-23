@@ -23,6 +23,9 @@ Public Sub RefreshProcureFlow()
 
     Dim automationStarted As Boolean
     Dim pivotRefreshCompleted As Boolean
+    Dim finalizationStarted As Boolean
+
+    Dim previousLastSuccessfulRefresh As Variant
 
     Dim originalScreenUpdating As Boolean
     Dim originalEnableEvents As Boolean
@@ -47,6 +50,9 @@ Public Sub RefreshProcureFlow()
     ValidatePowerQueryPipeline
     ValidateQualityControlConfiguration
     ValidatePivotRefreshConfiguration
+
+    previousLastSuccessfulRefresh = _
+        GetAutomationState("LastSuccessfulRefresh")
 
     currentStep = STEP_BEGIN_ATTEMPT
     automationStarted = True
@@ -146,6 +152,8 @@ Public Sub RefreshProcureFlow()
     Application.StatusBar = _
         "ProcureFlow: finalizing accepted refresh..."
 
+    finalizationStarted = True
+
     Select Case postPivotStatus
 
         Case QUALITY_STATUS_PASS
@@ -165,6 +173,7 @@ Public Sub RefreshProcureFlow()
     End Select
 
     currentStep = STEP_FINAL_CALCULATION
+
 
     Application.StatusBar = _
         "ProcureFlow: calculating final Quality Control state..."
@@ -214,6 +223,13 @@ ErrorHandler:
     originalErrorDescription = Err.Description
 
     On Error Resume Next
+
+    If finalizationStarted Then
+
+        RestoreLastSuccessfulRefresh _
+            previousLastSuccessfulRefresh
+
+    End If
 
     If currentStep = STEP_PIVOT_REFRESH _
        And Not pivotRefreshCompleted Then

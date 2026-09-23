@@ -232,6 +232,48 @@ Public Sub MarkAutomationFailure( _
 
 End Sub
 
+Public Sub RestoreLastSuccessfulRefresh(ByVal previousValue As Variant)
+
+    Dim eventTime As Date
+    Dim previousText As String
+
+    ValidateAutomationStateConfiguration
+
+    eventTime = Now
+
+    If IsEmpty(previousValue) Then
+
+        WriteAutomationState _
+            STATE_LAST_SUCCESSFUL_REFRESH, _
+            vbNullString, _
+            eventTime, _
+            True
+
+        Exit Sub
+
+    End If
+
+    previousText = Trim$(CStr(previousValue))
+
+    If previousText = vbNullString Or previousText = "0" Then
+
+        WriteAutomationState _
+            STATE_LAST_SUCCESSFUL_REFRESH, _
+            vbNullString, _
+            eventTime, _
+            True
+
+    Else
+
+        WriteAutomationState _
+            STATE_LAST_SUCCESSFUL_REFRESH, _
+            previousValue, _
+            eventTime
+
+    End If
+
+End Sub
+
 Private Function GetAutomationStateTable() As ListObject
 
     On Error GoTo ErrorHandler

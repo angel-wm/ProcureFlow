@@ -246,6 +246,45 @@ Result:
 
 PASS
 
+## Late-Stage Rollback Safety
+
+Final Pull Request review identified a late-stage safety gap.
+
+The original orchestrator persisted the new `LastSuccessfulRefresh` during accepted-state finalization before the remaining final calculation and Full Quality Control stages had completed.
+
+A runtime failure during either remaining stage could therefore have produced:
+
+- `WorkflowStatus = FAILED`;
+- a newly advanced `LastSuccessfulRefresh`.
+
+The production automation was corrected to snapshot the previously accepted successful-refresh value before the attempt begins.
+
+If a failure occurs after finalization has started, the ErrorHandler restores that previous value before recording the failed workflow state.
+
+A controlled error was injected at:
+
+`FINAL_CALCULATION`
+
+after accepted-state finalization.
+
+Validated result:
+
+- workflow marked `FAILED`;
+- `PivotRefreshStatus = PASS`;
+- `FailureStep = FINAL_CALCULATION`;
+- previous `LastSuccessfulRefresh` restored exactly;
+- Full Quality Control = FAIL.
+
+The temporary test error was then removed and a normal production refresh was executed successfully.
+
+The subsequent successful workflow advanced `LastSuccessfulRefresh` and returned Full Quality Control PASS.
+
+Result:
+
+PASS
+
+This closes the late-stage state-consistency gap and confirms that no failed required workflow stage can advance persistent successful-refresh evidence.
+
 ## Stale-Output Prevention
 
 Previous workbook outputs may remain physically visible after a failed refresh attempt.

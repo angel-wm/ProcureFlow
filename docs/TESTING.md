@@ -3181,3 +3181,49 @@ User-facing refresh entry point:
 PASS
 
 No unresolved critical Phase 9 functional defect is currently known.
+## Post-Finalization Rollback Validation
+
+A dedicated late-stage failure test was executed to validate the `DEC-062` requirement that a failed workflow must not advance `LastSuccessfulRefresh`.
+
+Before the test, the current accepted `LastSuccessfulRefresh` value was recorded.
+
+A temporary controlled runtime error was inserted after:
+
+`CompleteAutomationAttempt`
+
+and immediately before the required:
+
+`FINAL_CALCULATION`
+
+stage.
+
+The workflow therefore reached accepted-state finalization and temporarily wrote a new successful-refresh timestamp before the controlled error occurred.
+
+Observed failure state:
+
+- `WorkflowStatus = FAILED`
+- `PivotRefreshStatus = PASS`
+- `FailureStep = FINAL_CALCULATION`
+- Full Quality Control = FAIL
+- `LastSuccessfulRefresh` restored exactly to the previously accepted timestamp
+
+The rollback logic therefore prevented a failed post-finalization workflow from leaving newly advanced successful-refresh evidence.
+
+The temporary test error was then removed.
+
+The production modules were recompiled and the real workflow was executed again.
+
+Observed recovery state:
+
+- `WorkflowStatus = SUCCESS`
+- `PivotRefreshStatus = PASS`
+- `FailureStep` blank
+- `LastErrorNumber` blank
+- Full Quality Control = PASS
+- `LastSuccessfulRefresh` advanced to a new timestamp only after the valid workflow completed
+
+Result:
+
+PASS
+
+This closes the late-stage failure gap discovered during final Pull Request review and confirms compliance with `DEC-062` and the ProcureFlow stale-output safety requirement.
