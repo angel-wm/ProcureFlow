@@ -1206,7 +1206,7 @@ GitHub must contain enough information for a new phase chat to reconstruct proje
 
 As of the Phase 0 design baseline:
 
-This section preserves the original Phase 0 implementation baseline. For the current implementation state, see docs/CURRENT_STATE.md.
+This section preserves the original Phase 0 implementation baseline. For the current implementation state, see `docs/CURRENT_STATE.md`.
 
 - Dataset selection: CONFIRMED
 - Functional requirements: CONFIRMED

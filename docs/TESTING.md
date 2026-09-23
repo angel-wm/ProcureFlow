@@ -10,7 +10,7 @@ Phase 9 — Automation
 
 Current Released Version:
 
-`v0.9.0`
+`v0.9.1`
 
 Formal testing will continue throughout later ProcureFlow phases.
 
