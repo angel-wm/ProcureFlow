@@ -61,6 +61,7 @@ A documentation-only corrective release was subsequently published as:
 - `v0.4.1` — corrected the canonical Phase 3 release state; commit `36a9e800af4d95542c0f1f6f5181b903cc6fe02a`.
 
 No workbook, Power Query, data-model or Phase 3 technical implementation changed in `v0.4.1`.
+
 ### Phase 5 Corrective Documentation Releases
 
 The formal Phase 5 completion version remains:
