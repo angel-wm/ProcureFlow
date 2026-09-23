@@ -12,7 +12,7 @@ Project status:
 
 Current released version:
 
-`v0.9.1`
+`v0.9.2`
 
 Current development phase:
 
@@ -130,6 +130,13 @@ Version:
 
 `v0.6.0`
 
+Corrective documentation releases after Phase 5:
+
+- `v0.6.1` — synchronized Phase 5 release metadata; commit `0f447a3599556a0444103d43cdfc49ff1eef48cb`.
+- `v0.6.2` — finalized Phase 5 release synchronization; commit `1ae9dfecdba3badd7bf071a35341994b66594602`.
+
+These corrective versions did not change the formal Phase 5 completion version, which remains `v0.6.0`.
+
 Completed implementation includes:
 
 - Historical Demand;
@@ -204,6 +211,16 @@ Version:
 `v0.9.0`
 
 Implemented the production VBA automation layer, including controlled synchronous Power Query refresh, persistent automation state, staged Quality Control orchestration, PivotTable refresh coordination, user-facing refresh execution, controlled failure handling and late-stage successful-refresh rollback protection.
+
+## Post-Phase-9 Corrective Releases
+
+### v0.9.1
+
+Documentation-only synchronization after the Phase 9 release. Published through Pull Request `#11` with no changes to the executable workbook, VBA, Power Query or business logic.
+
+### v0.9.2
+
+Documentation-only cleanup before Phase 10, covering duplicated Phase 9 test evidence, obsolete architecture-status wording, corrective-release traceability, CURRENT_STATE normalization and establishment of v0.9.2 as the Phase 10 baseline.
 
 ## Current Workbook
 

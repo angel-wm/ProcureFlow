@@ -6,7 +6,7 @@ Status: CONFIRMED
 Project State: IN DEVELOPMENT
 Current Phase: Phase 10 — Reporting & Dashboard
 Current Phase Status: NOT STARTED
-Current Released Version: v0.9.1
+Current Released Version: v0.9.2
 This roadmap defines the approved sequential development plan for ProcureFlow.
 
 A phase is only considered COMPLETED after its technical work, validation, documentation and GitHub publication gate have all been completed.
@@ -1261,4 +1261,4 @@ Target version:
 
 `v0.10.0`
 
-Phase 10 must begin from the released `v0.9.0` `main` baseline.
+Phase 10 must begin from the `v0.9.2` `main` baseline.

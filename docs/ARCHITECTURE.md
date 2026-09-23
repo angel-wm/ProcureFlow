@@ -6,7 +6,7 @@ Status: CONFIRMED DESIGN BASELINE
 Project State: IN DEVELOPMENT
 Current Phase: Phase 10 — Reporting & Dashboard
 Current Phase Status: NOT STARTED
-Current Released Version: v0.9.1
+Current Released Version: v0.9.2
 This document defines the approved architecture of ProcureFlow and records implementation evidence as project phases are completed.
 
 Architecture described here is a design baseline. Components must not be considered implemented until supported by actual workbook, query, formula, VBA or testing evidence.
@@ -1695,10 +1695,24 @@ Confirmed:
 
 Implemented:
 
-NONE
+- physical macro-enabled workbook foundation;
+- configuration and control layers;
+- Power Query ingestion, staging, dimension, fact and Quality Control layers;
+- structured Excel data tables;
+- Product × Site replenishment operational model;
+- Supplier Performance operational model;
+- Excel business-rule and replenishment formulas;
+- centralized Quality Control framework;
+- PivotTables, PivotCharts, Slicers and Timelines;
+- production VBA refresh and automation orchestration.
 
-Physical workbook construction begins only after Phase 1 — Data Design is completed and Phase 2 — Workbook Foundation begins.
+Not yet implemented:
 
+- Phase 10 operational replenishment report and management dashboard;
+- Phase 11 final testing and hardening;
+- Phase 12 portfolio and final release work.
+
+Implementation evidence is recorded in `docs/CURRENT_STATE.md`, `docs/TESTING.md`, the phase closeouts and the versioned workbook/source artifacts.
 ---
 
 # Phase 3 — Implemented Power Query Architecture
