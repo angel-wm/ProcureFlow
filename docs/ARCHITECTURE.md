@@ -1227,7 +1227,9 @@ Conceptual refresh sequence:
 7. Record successful refresh only if required steps succeeded.
 8. Communicate result to the user.
 
-Exact implementation will be designed after the manual workflow works reliably.
+Phase 9 implements this safety principle through explicit workflow state, controlled synchronous Power Query refresh, staged Quality Control evaluation, controlled PivotTable refresh and persistent success/failure evidence.
+
+A failed required step does not advance `LastSuccessfulRefresh`.
 
 ---
 

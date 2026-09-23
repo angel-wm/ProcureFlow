@@ -1009,7 +1009,7 @@ Decisions confirmed during Phase 8 — VBA Foundations:
 
 Decisions confirmed during Phase 9 — Automation:
 
-`DEC-062`
+`DEC-062` through `DEC-063`
 
 Current superseded decisions:
 
@@ -1515,3 +1515,56 @@ Separating attempt state from persistent successful state prevents a failed refr
 A controlled completion barrier, downstream validation, persistent `QC-032` evidence and explicit stale-output handling allow VBA to coordinate the workbook without becoming the hidden business-logic engine.
 
 This decision implements the production-automation responsibility assigned to Phase 9 by `DEC-060`.
+
+---
+
+## DEC-063 — Controlled Synchronous Power Query Refresh Strategy
+
+**Status:** CONFIRMED
+
+**Phase:** 9 — Automation
+
+**Decision:**
+
+ProcureFlow production automation will refresh the eight physically loaded Power Query output tables sequentially and synchronously through:
+
+`QueryTable.Refresh(BackgroundQuery:=False)`
+
+The controlled production refresh targets are:
+
+- `dim_Product`;
+- `dim_Site`;
+- `dim_Supplier`;
+- `dim_Date`;
+- `fact_InventoryWeekly`;
+- `fact_PurchaseOrders`;
+- `fact_QualityIncidents`;
+- `qc_PipelineHealth`.
+
+Source and staging queries remain Connection Only and continue to execute through their established Power Query dependency relationships.
+
+The production workflow will validate the required worksheet, Excel Table and connection objects before beginning the refresh sequence.
+
+The following strategies were tested and rejected for ProcureFlow production orchestration:
+
+- `Workbook.RefreshAll`, because it does not provide the required explicit control over the dependency sequence between Power Query, Excel calculation and PivotTables;
+- `Application.CalculateUntilAsyncQueriesDone`, because controlled testing caused Excel to remain blocked for several minutes and required workbook recovery;
+- starting all eight loaded Power Query outputs asynchronously in parallel, because controlled testing reached the 900-second diagnostic timeout with the target QueryTables still refreshing.
+
+Controlled synchronous tests validated:
+
+- `dim_Product`: approximately 2.01 seconds and 300 loaded rows;
+- `fact_PurchaseOrders`: approximately 6.93 seconds and 29,666 loaded rows;
+- `fact_InventoryWeekly`: approximately 97.37 seconds and 280,800 loaded rows.
+
+Each synchronous test returned a successful refresh result and `Refreshing = False` after completion.
+
+Production VBA therefore waits naturally for each approved output query to finish before advancing to the next output and before downstream Excel calculation or PivotTable processing begins.
+
+**Rationale:**
+
+ProcureFlow requires deterministic refresh sequencing and truthful workflow state.
+
+The selected synchronous QueryTable strategy provides simpler and more observable execution than global asynchronous waiting or concurrent refresh fan-out while preserving the existing Power Query dependency architecture.
+
+The decision is based on executed Phase 9 workbook tests rather than on an assumed refresh model.
