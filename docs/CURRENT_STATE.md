@@ -6,7 +6,7 @@ IN DEVELOPMENT
 
 ## Current Version
 
-v0.9.1
+v0.9.2
 
 ## Current Phase
 
@@ -45,6 +45,74 @@ Phase Tag:
 Version Tag:
 
 `v0.9.0`
+
+## Corrective Release History
+
+Corrective releases do not change the formal completion version of the phase that preceded them unless explicitly stated.
+
+### Phase 3 Corrective Documentation Release
+
+The formal Phase 3 completion version remains:
+
+`v0.4.0`
+
+A documentation-only corrective release was subsequently published as:
+
+- `v0.4.1` — corrected the canonical Phase 3 release state; commit `36a9e800af4d95542c0f1f6f5181b903cc6fe02a`.
+
+No workbook, Power Query, data-model or Phase 3 technical implementation changed in `v0.4.1`.
+
+### Phase 5 Corrective Documentation Releases
+
+The formal Phase 5 completion version remains:
+
+`v0.6.0`
+
+Subsequent documentation corrections were published as:
+
+- `v0.6.1` — synchronized Phase 5 release metadata; commit `0f447a3599556a0444103d43cdfc49ff1eef48cb`.
+- `v0.6.2` — finalized Phase 5 release synchronization; commit `1ae9dfecdba3badd7bf071a35341994b66594602`.
+
+These releases corrected project documentation and release-state metadata after Phase 5.
+
+### v0.9.1 — Post-Phase-9 Documentation Synchronization
+
+The formal Phase 9 completion version remains:
+
+`v0.9.0`
+
+`v0.9.1` is a documentation-only corrective release published after Phase 9.
+
+Publication evidence:
+
+- Pull Request: `#11 — docs: synchronize pre-Phase 10 documentation`
+- Merge commit: `1153efbacec95b976c50980711932b5cbfe02687`
+- Version tag: `v0.9.1`
+
+Scope included:
+
+- synchronization of canonical project metadata;
+- removal of stale README content;
+- documentation of the implemented Phase 9 `QC-030` and `QC-032` formulas;
+- clarification of historical Phase 6–8 state descriptions;
+- Power Query / VBA responsibility documentation cleanup.
+
+No workbook, VBA, Power Query, business-logic, PivotTable or automation behavior changed in `v0.9.1`.
+
+### v0.9.2 — Pre-Phase-10 Documentation Cleanup
+
+`v0.9.2` is the documentation-only corrective release immediately preceding Phase 10.
+
+Its scope includes:
+
+- removal of duplicated Phase 9 test evidence from `docs/TESTING.md`;
+- correction of obsolete current-architecture implementation wording;
+- restoration of the missing `v0.6.1` and `v0.6.2` corrective-release history;
+- normalization of `docs/CURRENT_STATE.md`;
+- establishment of `v0.9.2` as the baseline from which Phase 10 begins.
+
+No workbook, VBA, Power Query, Excel formula, PivotTable or production automation behavior is changed by `v0.9.2`.
+
 ## Implemented
 
 ProcureFlow currently includes the completed Project Design, Data Design, Workbook Foundation, Power Query Pipeline, Operational Model, Business Logic, Quality Control, Analysis & PivotTables, VBA Foundations and Automation baselines.
@@ -112,6 +180,7 @@ Implemented project assets include:
 - `00_HOME` integration for Last Successful Refresh and Overall Quality Status;
 - user-facing `Refresh ProcureFlow` Form Control button;
 - Phase 9 automation test evidence recorded in `docs/TESTING.md`.
+
 ## Not Yet Implemented
 
 The following remain assigned to later roadmap phases:
@@ -121,6 +190,110 @@ The following remain assigned to later roadmap phases:
 - later protection, performance and release-hardening work.
 
 No future-phase component is considered implemented without actual implementation and validation evidence.
+
+## Official Dataset
+
+Aerospace Supply Chain Performance & Forecasting
+
+Official local source files:
+
+- `parts_master.csv`
+- `supply_chain_history.csv`
+- `purchase_orders.csv`
+- `quality_incidents.csv`
+
+The files are stored locally in:
+
+`data/raw/`
+
+and remain excluded from Git.
+
+## Known Issues
+
+None currently classified as critical.
+
+Known source characteristic:
+
+`shelf_life_days` is nullable in 274 of 300 Product records and is intentionally treated as an optional attribute.
+
+## Relevant Decisions
+
+Confirmed through Phase 0:
+
+`DEC-001` through `DEC-041`
+
+Confirmed during Phase 1:
+
+`DEC-042` through `DEC-045`
+
+Confirmed during Phase 2:
+
+`DEC-046` through `DEC-048`
+
+Confirmed during Phase 3:
+
+`DEC-049` through `DEC-050`
+
+Confirmed during Phase 4:
+
+`DEC-051` through `DEC-052`
+
+Confirmed during Phase 5:
+
+`DEC-053` through `DEC-055`
+
+Confirmed during Phase 6:
+
+`DEC-056` through `DEC-058`
+
+Confirmed during Phase 7:
+
+`DEC-059`
+
+DEC-059 is SUPERSEDED by DEC-060 for the Phase 8 / Phase 9 automation boundary.
+
+Confirmed during Phase 8:
+
+`DEC-060` through `DEC-061`
+
+Confirmed during Phase 9:
+
+`DEC-062` through `DEC-063`
+
+See:
+
+`docs/DECISIONS.md`
+
+## Next Immediate Step
+
+Phase 9 — Automation formally completed at:
+
+`v0.9.0`
+
+Post-Phase-9 documentation corrections establish the current pre-Phase-10 baseline as:
+
+`v0.9.2`
+
+The next authorized development phase is:
+
+Phase 10 — Reporting & Dashboard
+
+Phase 10 has not started.
+
+Its phase branch must be created from the `v0.9.2` `main` baseline when Phase 10 formally begins.
+
+## Next Phase
+
+Phase 10 — Reporting & Dashboard
+
+Status: NOT STARTED
+
+Target Version:
+
+`v0.10.0`
+
+Phase 10 will build the operational replenishment report and management dashboard on top of the validated and automated ProcureFlow backend.
+
 ## Phase 1 Completion
 
 Phase 1 established the validated logical data model.
@@ -233,6 +406,7 @@ Version Tag:
 `v0.4.0`
 
 Phase 3 completed without introducing Phase 4 operational-model logic prematurely.
+
 ## Phase 4 Completion
 
 Phase 4 — Operational Model is COMPLETED.
@@ -256,237 +430,6 @@ Validated Phase 4 outcomes include:
 - Pull Request `#5 — Phase 4 — Operational Model` reviewed and merged.
 
 Phase 5 business formulas were intentionally not implemented during Phase 4.
-## Phase 5 Completion
-
-Phase 5 — Business Logic & Advanced Formulas is COMPLETED.
-
-Validated Phase 5 outcomes include:
-
-- functioning Product × Site replenishment engine;
-- Historical Demand aggregation;
-- Average Weekly Demand;
-- demand variability;
-- Reporting-Date-safe historical Actual Lead Time;
-- Lead-Time variability;
-- Effective Lead-Time fallback;
-- Reporting-Date-dependent Open PO Quantity;
-- Available Stock;
-- configurable Service Levels;
-- Safety Stock;
-- Reorder Point;
-- Inventory Position;
-- Target Stock;
-- Recommended Order Quantity;
-- Inventory Status;
-- NoRecentDemand safeguard;
-- functioning Supplier Performance calculations;
-- On-Time and Late Delivery metrics;
-- partial-receipt metrics;
-- supplier Lead-Time metrics;
-- supplier Quality Incident counts;
-- formula documentation;
-- manual and global reconciliation evidence;
-- successful full workbook Refresh;
-- measured full Excel recalculation of 51.4639623 seconds.
-
-Pull Request `#6 — Phase 5 — Business Logic & Advanced Formulas` was merged into `main`.
-
-Phase 5 release version:
-
-`v0.6.0`
-
-## Phase 7 Local Implementation
-
-[IMPLEMENTED] [VALIDATED] [COMPLETED]
-
-Phase 7 — Analysis & PivotTables has completed local technical implementation and validation on:
-
-`phase/07-analysis-pivottables`
-
-Implemented analytical worksheets:
-
-- `30_PVT_Inventory`
-- `31_PVT_Procurement`
-- `32_PVT_Suppliers`
-
-Implemented analytical functionality includes:
-
-- Inventory PivotTables;
-- Procurement PivotTables;
-- Supplier PivotTables;
-- PivotCharts;
-- Slicers;
-- Timelines;
-- date grouping;
-- compatible Report Connections;
-- source-to-Pivot reconciliation;
-- analytical worksheet layout refinement.
-
-Validated baseline includes:
-
-- Inventory Product-Site Count: 1,800;
-- Available Stock: 49,506;
-- Backorders: 27;
-- Open PO Qty: 20,146;
-- Recommended Order Qty: 2,109;
-- Purchase Order Count: 29,666;
-- Late receipts: 16,568;
-- Partial receipts: 3,355;
-- Supplier Count: 40;
-- Quality Incident Count: 368.
-
-A complete workbook `Refresh All` was executed successfully after analytical implementation.
-
-Observed full Refresh All duration:
-
-approximately 7 minutes 10 seconds.
-
-Additional diagnostic evidence:
-
-- Full Excel calculation: approximately 30 seconds;
-- `fact_PurchaseOrders` individual refresh: approximately 40 seconds;
-- `fact_InventoryWeekly` row load: approximately 1 minute 20 seconds;
-- `fact_InventoryWeekly` through dependent calculation completion: approximately 2 minutes 20 seconds.
-
-Refresh functionality is validated.
-
-Refresh performance remains a documented optimization opportunity and is not classified as a critical functional defect.
-
-At the Phase 7 close, under the then-current `DEC-059`, `QC-032 — PivotTable refresh status` remained N/A pending a later persistent automated refresh-state mechanism. The phase assignment was subsequently superseded by `DEC-060`.
-
-Phase 7 is formally COMPLETED. Technical implementation, validation, documentation, Pull Request review and merge are complete.
-
-
-## Phase 8 Completion
-
-[IMPLEMENTED] [VALIDATED] [COMPLETED]
-
-Phase 8 — VBA Foundations has completed its technical learning, validation and workbook-cleanup work on:
-
-`phase/08-vba-foundations`
-
-Validated Phase 8 outcomes include:
-
-- Macro Recorder usage and generated-code inspection;
-- Visual Basic Editor fundamentals;
-- `Option Explicit`;
-- `Sub` and `Function`;
-- `Dim`, object variables and value variables;
-- `Set`;
-- `String`, `Long` and `Boolean`;
-- `If`, `ElseIf`, `Else`, `And`, `Or` and `Not`;
-- `For`, `For Each` and `Do While`;
-- `Workbook`, `Worksheet`, `Range` and `Cells`;
-- `ListObject`, `ListRow` and `ListColumn`;
-- procedure parameters;
-- `ByVal` and `ByRef`;
-- `Public` and `Private`;
-- reusable validation functions;
-- structured runtime error handling;
-- PivotTable and PivotCache inspection;
-- refresh-scope concepts;
-- one controlled `PivotTable.RefreshTable` learning exercise.
-
-Educational VBA source is preserved at:
-
-`vba/examples/phase08/modVBAFoundations.bas`
-
-Phase 8 learning documentation is preserved at:
-
-`docs/VBA_FOUNDATIONS.md`
-
-The educational `modVBAFoundations` module was removed from:
-
-`workbook/ProcureFlow.xlsm`
-
-after validation.
-
-The workbook therefore does not expose Phase 8 learning macros as production functionality.
-
-The Phase 8 readiness assessment result is:
-
-PASS
-
-The user demonstrated sufficient understanding of foundational VBA to proceed to production automation without treating VBA as a black box.
-
-At the Phase 8 close, production automation remained intentionally unimplemented and was assigned to Phase 9.
-
-At the Phase 8 close, `QC-032 — PivotTable refresh status` remained N/A pending the persistent automated refresh-state mechanism assigned to Phase 9.
-
-Phase 8 is formally COMPLETED. Technical implementation, validation, readiness assessment, Pull Request review, merge and release publication are complete.
-
-## Official Dataset
-
-Aerospace Supply Chain Performance & Forecasting
-
-Official local source files:
-
-- `parts_master.csv`
-- `supply_chain_history.csv`
-- `purchase_orders.csv`
-- `quality_incidents.csv`
-
-The files are stored locally in:
-
-`data/raw/`
-
-and remain excluded from Git.
-
-## Known Issues
-
-None currently classified as critical.
-
-Known source characteristic:
-
-`shelf_life_days` is nullable in 274 of 300 Product records and is intentionally treated as an optional attribute.
-
-## Relevant Decisions
-
-Confirmed through Phase 0:
-
-`DEC-001` through `DEC-041`
-
-Confirmed during Phase 1:
-
-`DEC-042` through `DEC-045`
-
-Confirmed during Phase 2:
-
-`DEC-046` through `DEC-048`
-
-Confirmed during Phase 3:
-
-`DEC-049` through `DEC-050`
-
-Confirmed during Phase 4:
-
-`DEC-051` through `DEC-052`
-
-Confirmed during Phase 5:
-
-`DEC-053` through `DEC-055`
-
-Confirmed during Phase 6:
-
-`DEC-056` through `DEC-058`
-
-Confirmed during Phase 7:
-
-`DEC-059`
-
-DEC-059 is SUPERSEDED by DEC-060 for the Phase 8 / Phase 9 automation boundary.
-
-Confirmed during Phase 8:
-
-`DEC-060` through `DEC-061`
-
-Confirmed during Phase 9:
-
-`DEC-062` through `DEC-063`
-
-See:
-
-`docs/DECISIONS.md`
 
 ## Phase 4 Replenishment Foundation Implemented
 
@@ -549,6 +492,7 @@ Validated inventory snapshot results:
 - rows where Blocked Quantity exceeds On-Hand Quantity: 0
 
 At the Phase 4 close, Phase 5 business formulas had not yet been implemented. They were subsequently implemented and validated during Phase 5.
+
 ## Phase 4 Supplier Performance Foundation Implemented
 
 [IMPLEMENTED]
@@ -582,6 +526,7 @@ Validated results:
 - distinct Reporting Dates: 1
 
 No aggregate Supplier Score has been implemented.
+
 ## Phase 4 Historical Demand Context Implemented
 
 [IMPLEMENTED]
@@ -609,6 +554,7 @@ Validated source coverage:
 The demand-history window uses only completed weekly periods preceding the Inventory Snapshot Date in accordance with `DEC-052`.
 
 At the Phase 4 close, no Phase 5 demand aggregation or statistical business calculation had yet been implemented. Those calculations were subsequently implemented and validated during Phase 5.
+
 ## Phase 4 Technical Exit Criteria Satisfied
 
 [CONFIRMADO]
@@ -638,31 +584,46 @@ The Phase 4 exit criteria are technically satisfied:
 - the model is ready for Phase 5 business-rule formulas.
 
 Phase 4 is formally COMPLETED. Technical implementation, validation, Pull Request review and merge are complete.
-## Next Immediate Step
 
-Phase 9 — Automation is complete and released as:
+## Phase 5 Completion
 
-`v0.9.0`
+Phase 5 — Business Logic & Advanced Formulas is COMPLETED.
 
-The next authorized development phase is:
+Validated Phase 5 outcomes include:
 
-Phase 10 — Reporting & Dashboard
+- functioning Product × Site replenishment engine;
+- Historical Demand aggregation;
+- Average Weekly Demand;
+- demand variability;
+- Reporting-Date-safe historical Actual Lead Time;
+- Lead-Time variability;
+- Effective Lead-Time fallback;
+- Reporting-Date-dependent Open PO Quantity;
+- Available Stock;
+- configurable Service Levels;
+- Safety Stock;
+- Reorder Point;
+- Inventory Position;
+- Target Stock;
+- Recommended Order Quantity;
+- Inventory Status;
+- NoRecentDemand safeguard;
+- functioning Supplier Performance calculations;
+- On-Time and Late Delivery metrics;
+- partial-receipt metrics;
+- supplier Lead-Time metrics;
+- supplier Quality Incident counts;
+- formula documentation;
+- manual and global reconciliation evidence;
+- successful full workbook Refresh;
+- measured full Excel recalculation of 51.4639623 seconds.
 
-Phase 10 has not started.
+Pull Request `#6 — Phase 5 — Business Logic & Advanced Formulas` was merged into `main`.
 
-Its phase branch must be created from the released `main` state when Phase 10 formally begins.
+Phase 5 release version:
 
-## Next Phase
+`v0.6.0`
 
-Phase 10 — Reporting & Dashboard
-
-Status: NOT STARTED
-
-Target Version:
-
-`v0.10.0`
-
-Phase 10 will build the operational replenishment report and management dashboard on top of the validated and automated ProcureFlow backend.
 ## Phase 5 Business Logic Validation
 
 Phase 5 core business logic has been implemented and validated in the workbook.
@@ -762,10 +723,121 @@ Release version:
 
 `v0.7.0`
 
+## Phase 7 Completion
 
+[IMPLEMENTED] [VALIDATED] [COMPLETED]
 
+Phase 7 — Analysis & PivotTables completed technical implementation and validation on:
 
+`phase/07-analysis-pivottables`
 
+Implemented analytical worksheets:
 
+- `30_PVT_Inventory`
+- `31_PVT_Procurement`
+- `32_PVT_Suppliers`
 
+Implemented analytical functionality includes:
 
+- Inventory PivotTables;
+- Procurement PivotTables;
+- Supplier PivotTables;
+- PivotCharts;
+- Slicers;
+- Timelines;
+- date grouping;
+- compatible Report Connections;
+- source-to-Pivot reconciliation;
+- analytical worksheet layout refinement.
+
+Validated baseline includes:
+
+- Inventory Product-Site Count: 1,800;
+- Available Stock: 49,506;
+- Backorders: 27;
+- Open PO Qty: 20,146;
+- Recommended Order Qty: 2,109;
+- Purchase Order Count: 29,666;
+- Late receipts: 16,568;
+- Partial receipts: 3,355;
+- Supplier Count: 40;
+- Quality Incident Count: 368.
+
+A complete workbook `Refresh All` was executed successfully after analytical implementation.
+
+Observed full Refresh All duration:
+
+approximately 7 minutes 10 seconds.
+
+Additional diagnostic evidence:
+
+- Full Excel calculation: approximately 30 seconds;
+- `fact_PurchaseOrders` individual refresh: approximately 40 seconds;
+- `fact_InventoryWeekly` row load: approximately 1 minute 20 seconds;
+- `fact_InventoryWeekly` through dependent calculation completion: approximately 2 minutes 20 seconds.
+
+Refresh functionality is validated.
+
+Refresh performance remains a documented optimization opportunity and is not classified as a critical functional defect.
+
+At the Phase 7 close, under the then-current `DEC-059`, `QC-032 — PivotTable refresh status` remained N/A pending a later persistent automated refresh-state mechanism. The phase assignment was subsequently superseded by `DEC-060`.
+
+Phase 7 is formally COMPLETED. Technical implementation, validation, documentation, Pull Request review and merge are complete.
+
+## Phase 8 Completion
+
+[IMPLEMENTED] [VALIDATED] [COMPLETED]
+
+Phase 8 — VBA Foundations has completed its technical learning, validation and workbook-cleanup work on:
+
+`phase/08-vba-foundations`
+
+Validated Phase 8 outcomes include:
+
+- Macro Recorder usage and generated-code inspection;
+- Visual Basic Editor fundamentals;
+- `Option Explicit`;
+- `Sub` and `Function`;
+- `Dim`, object variables and value variables;
+- `Set`;
+- `String`, `Long` and `Boolean`;
+- `If`, `ElseIf`, `Else`, `And`, `Or` and `Not`;
+- `For`, `For Each` and `Do While`;
+- `Workbook`, `Worksheet`, `Range` and `Cells`;
+- `ListObject`, `ListRow` and `ListColumn`;
+- procedure parameters;
+- `ByVal` and `ByRef`;
+- `Public` and `Private`;
+- reusable validation functions;
+- structured runtime error handling;
+- PivotTable and PivotCache inspection;
+- refresh-scope concepts;
+- one controlled `PivotTable.RefreshTable` learning exercise.
+
+Educational VBA source is preserved at:
+
+`vba/examples/phase08/modVBAFoundations.bas`
+
+Phase 8 learning documentation is preserved at:
+
+`docs/VBA_FOUNDATIONS.md`
+
+The educational `modVBAFoundations` module was removed from:
+
+`workbook/ProcureFlow.xlsm`
+
+after validation.
+
+The workbook therefore does not expose Phase 8 learning macros as production functionality.
+
+The Phase 8 readiness assessment result is:
+
+PASS
+
+The user demonstrated sufficient understanding of foundational VBA to proceed to production automation without treating VBA as a black box.
+
+At the Phase 8 close, production automation remained intentionally unimplemented and was assigned to Phase 9.
+
+At the Phase 8 close, `QC-032 — PivotTable refresh status` remained N/A pending the persistent automated refresh-state mechanism assigned to Phase 9.
+
+Phase 8 is formally COMPLETED. Technical implementation, validation, readiness assessment, Pull Request review, merge and release publication are complete.
