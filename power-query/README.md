@@ -98,4 +98,4 @@ M is separate from Visual Basic for Applications (VBA).
 
 Power Query M is primarily responsible for ingestion and reproducible data preparation.
 
-VBA will be introduced in a later ProcureFlow phase for workflow orchestration and automation.
+VBA is implemented under `vba/modules/` as the workflow orchestration and automation layer.

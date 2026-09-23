@@ -1006,11 +1006,11 @@ Total exceptions:
 
     =SUM(tblQualityControl[ExceptionCount])
 
-Current valid technical refresh:
+Phase 6 current valid technical refresh (historical baseline):
 
     =XLOOKUP("QC-030",tblQualityControl[ControlID],tblQualityControl[Result],"")
 
-## Technical Power Query Feed Lookups
+## Technical Power Query Feed Lookups — Phase 6 Baseline
 
 For `QC-001`, `QC-002`, `QC-003`, `QC-004`, `QC-030` and `QC-031`:
 
@@ -1129,4 +1129,48 @@ Validated final baseline:
 - total exceptions: 0;
 - Overall Quality Status: PASS.
 
-`QC-032 — PivotTable refresh status` remains N/A until Phase 7.
+`QC-032 — PivotTable refresh status` remained N/A at the Phase 6 baseline pending the analytical and automation layers. This statement is retained as historical Phase 6 evidence.
+
+## Phase 9 — Automation-Controlled Quality Control Formulas
+
+Phase 9 migrated the automation-dependent Quality Control logic to persistent state in `tblAutomationState`.
+
+`QC-030` now reads `LastSuccessfulRefresh` from persistent automation state rather than using the current Power Query evaluation timestamp.
+
+`QC-032` now reads the persistent `PivotRefreshStatus` maintained by the production automation workflow.
+
+### QC-030 — Last Successful Refresh
+
+Result:
+
+    =LET(last,XLOOKUP("LastSuccessfulRefresh",tblAutomationState[StateKey],tblAutomationState[StateValue],""),IF(OR(last="",last=0),"Not available",last))
+
+Expected:
+
+`Accepted production refresh`
+
+ExceptionCount:
+
+    =LET(s,XLOOKUP("WorkflowStatus",tblAutomationState[StateKey],tblAutomationState[StateValue],""),last,XLOOKUP("LastSuccessfulRefresh",tblAutomationState[StateKey],tblAutomationState[StateValue],""),IF(OR(s="",s="NOT_RUN",s="RUNNING"),"",--NOT(AND(OR(s="SUCCESS",s="WARNING"),last<>"",last<>0))))
+
+Status:
+
+    =IF([@Severity]="N/A","N/A",IF([@ExceptionCount]="","",IF([@ExceptionCount]=0,"PASS",IF([@Severity]="Warning","WARNING","FAIL"))))
+
+### QC-032 — PivotTable Refresh Status
+
+Result:
+
+    =XLOOKUP("PivotRefreshStatus",tblAutomationState[StateKey],tblAutomationState[StateValue],"NOT_EVALUATED")
+
+Expected:
+
+`PASS`
+
+ExceptionCount:
+
+    =LET(s,XLOOKUP("PivotRefreshStatus",tblAutomationState[StateKey],tblAutomationState[StateValue],"NOT_EVALUATED"),IF(OR(s="",s="NOT_EVALUATED"),"",--(s<>"PASS")))
+
+Status:
+
+    =IF([@Severity]="N/A","N/A",IF([@ExceptionCount]="","",IF([@ExceptionCount]=0,"PASS",IF([@Severity]="Warning","WARNING","FAIL"))))
