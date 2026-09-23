@@ -47,7 +47,7 @@ Version Tag:
 `v0.8.1`
 ## Implemented
 
-ProcureFlow currently includes the completed Project Design, Data Design, Workbook Foundation, Power Query Pipeline, Operational Model, Business Logic, Quality Control, Analysis & PivotTables and VBA Foundations baselines.
+ProcureFlow currently includes the completed Project Design, Data Design, Workbook Foundation, Power Query Pipeline, Operational Model, Business Logic, Quality Control, Analysis & PivotTables and VBA Foundations baselines, plus the implemented and functionally validated Phase 9 production-automation work pending phase closeout and GitHub completion.
 
 Implemented project assets include:
 
