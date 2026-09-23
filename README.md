@@ -82,7 +82,7 @@ Technical release:
 
 `v0.4.0`
 
-Current corrective documentation release:
+Phase 3 corrective documentation release:
 
 `v0.4.1`
 

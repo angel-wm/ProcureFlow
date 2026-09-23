@@ -2726,6 +2726,7 @@ User-facing refresh entry point:
 PASS
 
 No unresolved critical Phase 9 functional defect is currently known.
+
 ## Post-Finalization Rollback Validation
 
 A dedicated late-stage failure test was executed to validate the `DEC-062` requirement that a failed workflow must not advance `LastSuccessfulRefresh`.

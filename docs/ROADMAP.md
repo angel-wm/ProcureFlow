@@ -1249,6 +1249,10 @@ Publication evidence:
 - Release version: `v0.9.0`
 - Phase tag: `phase-9-complete`
 
+Post-Phase-9 documentation corrections establish the current pre-Phase-10 baseline as:
+
+`v0.9.2`
+
 The next authorized phase is:
 
 Phase 10 — Reporting & Dashboard

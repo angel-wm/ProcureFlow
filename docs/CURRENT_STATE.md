@@ -50,6 +50,17 @@ Version Tag:
 
 Corrective releases do not change the formal completion version of the phase that preceded them unless explicitly stated.
 
+### Phase 3 Corrective Documentation Release
+
+The formal Phase 3 completion version remains:
+
+`v0.4.0`
+
+A documentation-only corrective release was subsequently published as:
+
+- `v0.4.1` — corrected the canonical Phase 3 release state; commit `36a9e800af4d95542c0f1f6f5181b903cc6fe02a`.
+
+No workbook, Power Query, data-model or Phase 3 technical implementation changed in `v0.4.1`.
 ### Phase 5 Corrective Documentation Releases
 
 The formal Phase 5 completion version remains:
@@ -254,9 +265,13 @@ See:
 
 ## Next Immediate Step
 
-Phase 9 — Automation is complete and released as:
+Phase 9 — Automation formally completed at:
 
 `v0.9.0`
+
+Post-Phase-9 documentation corrections establish the current pre-Phase-10 baseline as:
+
+`v0.9.2`
 
 The next authorized development phase is:
 
@@ -264,7 +279,7 @@ Phase 10 — Reporting & Dashboard
 
 Phase 10 has not started.
 
-Its phase branch must be created from the released `main` state when Phase 10 formally begins.
+Its phase branch must be created from the `v0.9.2` `main` baseline when Phase 10 formally begins.
 
 ## Next Phase
 
@@ -707,11 +722,11 @@ Release version:
 
 `v0.7.0`
 
-## Phase 7 Local Implementation
+## Phase 7 Completion
 
 [IMPLEMENTED] [VALIDATED] [COMPLETED]
 
-Phase 7 — Analysis & PivotTables has completed local technical implementation and validation on:
+Phase 7 — Analysis & PivotTables completed technical implementation and validation on:
 
 `phase/07-analysis-pivottables`
 

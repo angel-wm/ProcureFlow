@@ -1166,7 +1166,7 @@ Examples:
 
 # 29. VBA Architecture
 
-Visual Basic for Applications will be introduced progressively.
+Visual Basic for Applications was introduced progressively through Phase 8 VBA foundations and Phase 9 production automation.
 
 The intended architecture separates:
 
@@ -1713,6 +1713,7 @@ Not yet implemented:
 - Phase 12 portfolio and final release work.
 
 Implementation evidence is recorded in `docs/CURRENT_STATE.md`, `docs/TESTING.md`, the phase closeouts and the versioned workbook/source artifacts.
+
 ---
 
 # Phase 3 — Implemented Power Query Architecture
