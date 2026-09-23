@@ -4,9 +4,9 @@
 
 Status: CONFIRMED
 Project State: IN DEVELOPMENT
-Current Phase: Phase 9 — Automation
+Current Phase: Phase 10 — Reporting & Dashboard
 Current Phase Status: NOT STARTED
-Current Released Version: v0.8.1
+Current Released Version: v0.9.1
 This document records material project decisions that affect ProcureFlow scope, architecture, business rules, implementation strategy, governance or release management.
 
 ---

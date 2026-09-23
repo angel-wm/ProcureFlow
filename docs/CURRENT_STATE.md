@@ -6,7 +6,7 @@ IN DEVELOPMENT
 
 ## Current Version
 
-v0.9.0
+v0.9.1
 
 ## Current Phase
 
@@ -352,7 +352,7 @@ Refresh functionality is validated.
 
 Refresh performance remains a documented optimization opportunity and is not classified as a critical functional defect.
 
-Under `DEC-059`, `QC-032 — PivotTable refresh status` remains N/A until Phase 8 implements an appropriate persistent automated refresh-state mechanism.
+At the Phase 7 close, under the then-current `DEC-059`, `QC-032 — PivotTable refresh status` remained N/A pending a later persistent automated refresh-state mechanism. The phase assignment was subsequently superseded by `DEC-060`.
 
 Phase 7 is formally COMPLETED. Technical implementation, validation, documentation, Pull Request review and merge are complete.
 
@@ -409,9 +409,9 @@ PASS
 
 The user demonstrated sufficient understanding of foundational VBA to proceed to production automation without treating VBA as a black box.
 
-Production automation remains intentionally unimplemented and belongs to Phase 9.
+At the Phase 8 close, production automation remained intentionally unimplemented and was assigned to Phase 9.
 
-`QC-032 — PivotTable refresh status` remains N/A until Phase 9 implements an appropriate persistent automated refresh-state mechanism.
+At the Phase 8 close, `QC-032 — PivotTable refresh status` remained N/A pending the persistent automated refresh-state mechanism assigned to Phase 9.
 
 Phase 8 is formally COMPLETED. Technical implementation, validation, readiness assessment, Pull Request review, merge and release publication are complete.
 
@@ -479,6 +479,10 @@ DEC-059 is SUPERSEDED by DEC-060 for the Phase 8 / Phase 9 automation boundary.
 Confirmed during Phase 8:
 
 `DEC-060` through `DEC-061`
+
+Confirmed during Phase 9:
+
+`DEC-062` through `DEC-063`
 
 See:
 
@@ -746,11 +750,11 @@ Controlled validation also confirmed:
 - unevaluated applicable control → Overall WARNING;
 - restored valid state → Overall PASS.
 
-`QC-032 — PivotTable refresh status` remains N/A until Phase 7.
+At the Phase 6 close, `QC-032 — PivotTable refresh status` remained N/A pending the Phase 7 analytical layer and later persistent automation.
 
-`QC-030` represents the current valid technical evaluation timestamp.
+At the Phase 6 close, `QC-030` represented the current valid technical evaluation timestamp.
 
-Persistent last-successful-refresh state is not yet implemented and remains assigned to later automation.
+At the Phase 6 close, persistent last-successful-refresh state had not yet been implemented and remained assigned to later automation.
 
 Phase 6 technical implementation, controlled validation, documentation and Pull Request merge are complete.
 

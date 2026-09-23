@@ -12,7 +12,7 @@ Project status:
 
 Current released version:
 
-`v0.9.0`
+`v0.9.1`
 
 Current development phase:
 
@@ -325,62 +325,14 @@ Major functionality is not marked implemented until it has been:
 
 Each completed phase uses a dedicated branch, Pull Request, merge, phase-completion tag and semantic version tag.
 
-## Phase 6 — Quality Control System
-
-Status:
-
-`COMPLETED`
-
-Version:
-
-`v0.7.0`
-
-Implemented Phase 6 capabilities include:
-
-- formal `tblQualityControl`;
-- structural, integrity, business-rule, configuration and calculation controls;
-- source-to-loaded reconciliations;
-- PASS / WARNING / FAIL / N/A behavior;
-- Overall Quality Status;
-- technical Power Query health feed;
-- controlled failure-path validation.
-
-## Phase 7 — Analysis & PivotTables
-
-Status:
-
-`COMPLETED`
-
-Version:
-
-`v0.8.0`
-
-Implemented and validated capabilities include:
-
-- Inventory PivotTables and interactive analysis;
-- Procurement PivotTables and interactive analysis;
-- Supplier Performance and Quality PivotTables;
-- PivotCharts;
-- Slicers;
-- Timelines;
-- PivotTable reconciliation;
-- full workbook Refresh All validation.
-
-Pull Request:
-
-`#8 — Phase 7 — Analysis & PivotTables`
-
-Merge Commit:
-
-`008340ac0c2a8c8cf872a42d31a44b116df37cf8`
-
 ## Next Planned Phase
 
-**Phase 8 — VBA & Automation**
+**Phase 10 — Reporting & Dashboard**
 
 Target version:
 
-`v0.8.1`
+`v0.10.0`
+
 ## Portfolio Status
 
 ProcureFlow is still under active development.
