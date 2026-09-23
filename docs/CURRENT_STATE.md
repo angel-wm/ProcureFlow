@@ -12,13 +12,15 @@ v0.8.1
 
 Phase 9 — Automation
 
-Status: NOT STARTED
+Status: IN PROGRESS
+
+Local Work Status: COMPLETE — GITHUB GATE PENDING
 
 Target Version: `v0.9.0`
 
 Phase Branch:
 
-Not created.
+`phase/09-automation`
 
 ## Last Completed Phase
 
@@ -47,7 +49,7 @@ Version Tag:
 `v0.8.1`
 ## Implemented
 
-ProcureFlow currently includes the completed Project Design, Data Design, Workbook Foundation, Power Query Pipeline, Operational Model, Business Logic, Quality Control, Analysis & PivotTables and VBA Foundations baselines.
+ProcureFlow currently includes the completed Project Design, Data Design, Workbook Foundation, Power Query Pipeline, Operational Model, Business Logic, Quality Control, Analysis & PivotTables and VBA Foundations baselines, plus the implemented and functionally validated Phase 9 production-automation work pending phase closeout and GitHub completion.
 
 Implemented project assets include:
 
@@ -94,14 +96,28 @@ Implemented project assets include:
 - 17 Phase 3 workbook Quality Control checks with zero exceptions;
 - Phase 3 Power Query test evidence.
 
+- Phase 9 production VBA automation implemented and functionally validated;
+- persistent `tblAutomationState` on `02_CONTROL`;
+- persistent `LastSuccessfulRefresh` state;
+- persistent automated `QC-032 — PivotTable refresh status`;
+- `QC-030` integrated with accepted production-refresh state;
+- production `modAutomationState` state-management module;
+- production `modRefresh` controlled Power Query orchestration module;
+- production `modQualityControl` Quality Control evaluation module;
+- production `modPivotRefresh` analytical refresh module;
+- production `modAutomation` end-to-end orchestration module;
+- sequential synchronous refresh of the eight loaded Power Query outputs;
+- controlled refresh of 5 unique PivotCaches and 10 analytical PivotTables;
+- validated `RUNNING`, `SUCCESS`, `WARNING` and `FAILED` workflow-state behavior;
+- validated preservation of the previous successful refresh after a later failed attempt;
+- validated recovery from a controlled Power Query source failure;
+- `00_HOME` integration for Last Successful Refresh and Overall Quality Status;
+- user-facing `Refresh ProcureFlow` Form Control button;
+- Phase 9 automation test evidence recorded in `docs/TESTING.md`.
 ## Not Yet Implemented
 
 The following remain assigned to later roadmap phases:
 
-- production VBA automation;
-- production macros;
-- automated refresh orchestration;
-- persistent automated PivotTable refresh-state control for `QC-032`;
 - replenishment-report logic;
 - management-dashboard logic;
 - later protection, performance and release-hardening work.
