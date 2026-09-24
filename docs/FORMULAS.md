@@ -1279,3 +1279,113 @@ Validated counts:
 - ACTIONABLE: 1,468;
 - STOCKOUT: 2;
 - HEALTHY: 332.
+
+# Phase 10 — Management Dashboard Formulas
+
+Status:
+
+[IMPLEMENTED] [VALIDATED]
+
+Worksheet:
+
+`41_DASH_Management`
+
+## STOCKOUT Positions
+
+    =COUNTIF(tblReplenishment[InventoryStatus],"STOCKOUT")
+
+Validated baseline:
+
+2
+
+## CRITICAL Positions
+
+    =COUNTIF(tblReplenishment[InventoryStatus],"CRITICAL")
+
+Validated baseline:
+
+86
+
+## REORDER Positions
+
+    =COUNTIF(tblReplenishment[InventoryStatus],"REORDER")
+
+Validated baseline:
+
+310
+
+## Recommended Order Qty
+
+    =SUM(tblReplenishment[RecommendedOrderQty])
+
+Validated baseline:
+
+2,109
+
+## Backorder Qty
+
+    =SUM(tblReplenishment[BackorderQty])
+
+Validated baseline:
+
+27
+
+## Open PO Qty
+
+    =SUM(tblReplenishment[OpenPOQty])
+
+Validated baseline:
+
+20,146
+
+## Weighted On-Time Delivery Rate
+
+    =LET(OnTime,SUM(tblSupplierPerformance[OnTimePOCount]),Received,SUM(tblSupplierPerformance[ReceivedPOCount]),IF(Received=0,"",OnTime/Received))
+
+Purpose:
+
+Calculate the global On-Time Delivery Rate using Purchase Order counts.
+
+The KPI intentionally uses:
+
+SUM(OnTimePOCount) / SUM(ReceivedPOCount)
+
+rather than:
+
+AVERAGE(tblSupplierPerformance[OnTimeDeliveryRate])
+
+because Suppliers with different Purchase Order volumes must not receive equal weighting in the global management KPI.
+
+Validated baseline:
+
+44.4%
+
+## Quality Incident Count
+
+    =SUM(tblSupplierPerformance[QualityIncidentCount])
+
+Purpose:
+
+Expose Reporting-Date-safe quality incidents already calculated in the Supplier Performance operational model.
+
+Validated baseline:
+
+350
+
+## Reporting Context
+
+Reporting Date:
+
+    =cfg_ReportingDate
+
+Inventory Snapshot Date:
+
+    =INDEX(tblReplenishment[InventorySnapshotDate],1)
+
+Last Successful Refresh:
+
+    =LET(last,XLOOKUP("LastSuccessfulRefresh",tblAutomationState[StateKey],tblAutomationState[StateValue],""),IF(OR(last="",last=0),"Not available",last))
+
+Overall Quality Status:
+
+    =LET(StatusRange,tblQualityControl[Status],Applicable,ROWS(tblQualityControl[ControlID])-COUNTIF(tblQualityControl[Severity],"N/A"),Evaluated,COUNTIF(StatusRange,"PASS")+COUNTIF(StatusRange,"WARNING")+COUNTIF(StatusRange,"FAIL"),IF(COUNTIF(StatusRange,"FAIL")>0,"FAIL",IF(Evaluated<Applicable,"WARNING",IF(COUNTIF(StatusRange,"WARNING")>0,"WARNING","PASS"))))

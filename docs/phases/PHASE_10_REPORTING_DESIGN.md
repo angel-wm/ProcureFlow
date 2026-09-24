@@ -880,9 +880,9 @@ Operational replenishment report:
 
 Management dashboard:
 
-[PENDING]
+[IMPLEMENTED] [VALIDATED]
 
-The approved `40_RPT_Replenishment` design has now been physically implemented and manually validated.
+The approved `40_RPT_Replenishment` and `41_DASH_Management` designs have now been physically implemented and manually validated.
 
 Validated implementation evidence is recorded in:
 
@@ -891,4 +891,6 @@ Validated implementation evidence is recorded in:
 - `docs/CURRENT_STATE.md`
 - `docs/ARCHITECTURE.md`
 
-The `41_DASH_Management` design remains pending and must not be represented as implemented until physical workbook and validation evidence exist.
+Phase 10 technical implementation and validation are complete.
+
+Formal Phase 10 completion remains pending only on the GitHub publication gate.
