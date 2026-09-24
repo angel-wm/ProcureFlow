@@ -128,6 +128,7 @@ The Supplier Risk visualization explicitly represents risk-class averages and is
 `Average Delivery Performance by Risk Class` is implemented as a standard Excel 100% Stacked Column chart referencing validated `pvtSupplierRiskPerformance` output.
 
 Neither visual introduced a new PivotTable or PivotCache.
+
 ## Navigation and User Experience
 
 Validated navigation includes:

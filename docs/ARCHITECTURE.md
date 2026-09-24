@@ -2299,6 +2299,7 @@ The implemented Inventory Status by Site visual is a PivotChart reusing the exis
 The implemented Supplier Delivery Performance by Risk Class visual is a standard Excel 100% Stacked Column chart referencing validated `pvtSupplierRiskPerformance` output.
 
 Neither object changes the established analytical PivotTable/PivotCache contract.
+
 ## Analytical Contract
 
 Phase 10 introduces no new PivotTable or PivotCache.
