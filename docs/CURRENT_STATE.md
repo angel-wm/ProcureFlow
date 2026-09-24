@@ -290,7 +290,7 @@ Target Version:
 
 `v0.10.0`
 
-Phase 10 will build the operational replenishment report and management dashboard on top of the validated and automated ProcureFlow backend.
+Phase 10 technical implementation and validation are complete. Formal completion remains pending on the GitHub publication gate.
 
 ## Phase 1 Completion
 
@@ -959,6 +959,7 @@ and clearly represents risk-class average rates rather than the weighted global 
 Implemented navigation includes:
 
 - Home;
+- Configuration;
 - Replenishment Report;
 - Inventory Analysis;
 - Procurement Analysis;

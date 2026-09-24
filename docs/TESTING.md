@@ -2956,6 +2956,7 @@ The chart title explicitly identifies these as averages and therefore does not i
 Validated dashboard destinations:
 
 - Home;
+- Configuration;
 - Replenishment Report;
 - Inventory Analysis;
 - Procurement Analysis;

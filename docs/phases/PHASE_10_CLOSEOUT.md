@@ -126,6 +126,7 @@ The Supplier Risk visualization explicitly represents risk-class averages and is
 Validated navigation includes:
 
 - Home;
+- Configuration;
 - Replenishment Report;
 - Inventory Analysis;
 - Procurement Analysis;

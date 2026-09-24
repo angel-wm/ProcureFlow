@@ -1389,3 +1389,78 @@ Last Successful Refresh:
 Overall Quality Status:
 
     =LET(StatusRange,tblQualityControl[Status],Applicable,ROWS(tblQualityControl[ControlID])-COUNTIF(tblQualityControl[Severity],"N/A"),Evaluated,COUNTIF(StatusRange,"PASS")+COUNTIF(StatusRange,"WARNING")+COUNTIF(StatusRange,"FAIL"),IF(COUNTIF(StatusRange,"FAIL")>0,"FAIL",IF(Evaluated<Applicable,"WARNING",IF(COUNTIF(StatusRange,"WARNING")>0,"WARNING","PASS"))))
+## Phase 10 Navigation Formulas
+
+Status:
+
+[IMPLEMENTED] [VALIDATED]
+
+### Operational Replenishment Report to Management Dashboard
+
+Worksheet:
+
+`40_RPT_Replenishment`
+
+    =HYPERLINK("#'41_DASH_Management'!A1","Management Dashboard >")
+
+Purpose:
+
+Provide direct user navigation from the operational replenishment report to the management dashboard.
+
+### Management Dashboard to Configuration
+
+Worksheet:
+
+`41_DASH_Management`
+
+    =HYPERLINK("#'01_CONFIG'!A1","Configuration")
+
+Purpose:
+
+Provide access to the approved ProcureFlow business-configuration layer without duplicating configuration inputs on the dashboard.
+
+### Management Dashboard to Replenishment Report
+
+Top navigation:
+
+    =HYPERLINK("#'40_RPT_Replenishment'!A1","Replenishment Report >")
+
+Navigation area:
+
+    =HYPERLINK("#'40_RPT_Replenishment'!A1","Replenishment Report")
+
+### Management Dashboard to Analytical Worksheets
+
+Inventory Analysis:
+
+    =HYPERLINK("#'30_PVT_Inventory'!A1","Inventory Analysis")
+
+Procurement Analysis:
+
+    =HYPERLINK("#'31_PVT_Procurement'!A1","Procurement Analysis")
+
+Supplier Analysis:
+
+    =HYPERLINK("#'32_PVT_Suppliers'!A1","Supplier Analysis")
+
+These formulas provide navigation only.
+
+They do not create data dependencies or modify the analytical model.
+
+## Phase 10 Overall Quality Status Conditional Formatting Formulas
+
+The user-facing Phase 10 reporting outputs reinforce the textual Overall Quality Status with Conditional Formatting.
+
+PASS:
+
+    =$K$6="PASS"
+
+WARNING:
+
+    =$K$6="WARNING"
+
+FAIL:
+
+    =$K$6="FAIL"
+
+The text value remains visible so status meaning does not depend only on color.
