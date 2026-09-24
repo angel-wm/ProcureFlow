@@ -4,9 +4,9 @@
 
 Status: CONFIRMED
 Project State: IN DEVELOPMENT
-Current Phase: Phase 10 — Reporting & Dashboard
-Current Phase Status: IN PROGRESS
-Current Released Version: v0.9.2
+Current Phase: Phase 11 — Testing & Hardening
+Current Phase Status: NOT STARTED
+Current Released Version: v0.10.0
 This roadmap defines the approved sequential development plan for ProcureFlow.
 
 A phase is only considered COMPLETED after its technical work, validation, documentation and GitHub publication gate have all been completed.
@@ -974,7 +974,7 @@ v0.9.0
 
 ## Status
 
-IN PROGRESS
+COMPLETED
 
 ## Target Version
 
@@ -1036,14 +1036,20 @@ Build the final operational reporting and management presentation layer on top o
 
 ## GitHub Gate
 
-Complete phase branch workflow, Pull Request, merge, push and phase tag.
+- phase branch `phase/10-reporting-dashboard` completed;
+- Pull Request `#13 — Phase 10 — Reporting & Dashboard` merged;
+- merge commit `6a8f07506f189dc8966f83975ccb883eb3f2f920`;
+- final release-state synchronization completed on `main`;
+- phase tag `phase-10-complete`;
+- version tag `v0.10.0`.
+
+GitHub Gate: COMPLETE.
 
 ## Version
 
 v0.10.0
 
 ---
-
 # 14. Phase 11 — Testing & Hardening
 
 ## Status
@@ -1230,7 +1236,7 @@ v1.0.0
 | 7 | Analysis & PivotTables | COMPLETED | v0.8.0 |
 | 8 | VBA Foundations | COMPLETED | v0.8.1 |
 | 9 | Automation | COMPLETED | v0.9.0 |
-| 10 | Reporting & Dashboard | IN PROGRESS | v0.10.0 |
+| 10 | Reporting & Dashboard | COMPLETED | v0.10.0 |
 | 11 | Testing & Hardening | NOT STARTED | v0.11.0 |
 | 12 | Documentation & Portfolio Release | NOT STARTED | v1.0.0 |
 
@@ -1238,37 +1244,27 @@ v1.0.0
 
 # 17. Current Immediate Next Step
 
-Phase 10 — Reporting & Dashboard has completed its technical implementation and validation work on:
+Phase 10 — Reporting & Dashboard is complete.
 
-`phase/10-reporting-dashboard`
+Publication evidence:
 
-Validated Phase 10 outputs include:
+- Phase branch: `phase/10-reporting-dashboard`
+- Pull Request: `#13 — Phase 10 — Reporting & Dashboard`
+- Pull Request status: MERGED
+- Merge commit: `6a8f07506f189dc8966f83975ccb883eb3f2f920`
+- release version: `v0.10.0`
+- phase tag: `phase-10-complete`
 
-- operational replenishment report;
-- dynamic report filtering and priority sorting;
-- management dashboard;
-- eight reconciled KPI cards;
-- Inventory Status by Site visualization;
-- Supplier Delivery Performance by Risk Class visualization;
-- final report/dashboard navigation;
-- accessibility-conscious status presentation;
-- successful integration with `RefreshProcureFlow`;
-- preservation of the Phase 9 contract of 10 PivotTables and 5 PivotCaches.
+The next authorized phase is:
 
-Phase 10 remains:
+Phase 11 — Testing & Hardening
 
-IN PROGRESS
+Status:
 
-because the required GitHub publication gate is still pending.
+NOT STARTED
 
-Next required action:
+Target version:
 
-- finalize Phase 10 documentation;
-- commit and push the release candidate;
-- open and review the Phase 10 Pull Request;
-- merge the approved branch;
-- publish `phase-10-complete`;
-- publish `v0.10.0`;
-- synchronize final release metadata.
+`v0.11.0`
 
-Phase 11 must not begin until the Phase 10 GitHub Gate is complete.
+Phase 11 must begin from the released `v0.10.0` `main` baseline.

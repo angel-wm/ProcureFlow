@@ -893,7 +893,7 @@ Validated implementation evidence is recorded in:
 
 Phase 10 technical implementation and validation are complete.
 
-Formal Phase 10 completion remains pending only on the GitHub publication gate.
+Phase 10 is formally COMPLETED. Pull Request #13 was merged and the Phase 10 release state is published as v0.10.0.
 
 ## 19.1 Implemented Chart Object Types
 

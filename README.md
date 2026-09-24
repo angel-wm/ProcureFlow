@@ -12,28 +12,27 @@ Project status:
 
 Current released version:
 
-`v0.9.2`
+`v0.10.0`
 
 Current development phase:
 
-**Phase 10 — Reporting & Dashboard**
+**Phase 11 — Testing & Hardening**
 
-Phase 10 status:
+Phase 11 status:
 
-**IN PROGRESS**
+**NOT STARTED**
 
 Last completed phase:
 
-**Phase 9 — Automation**
+**Phase 10 — Reporting & Dashboard**
 
 Pull Request:
 
-`#10 — Phase 9 — Automation`
+`#13 — Phase 10 — Reporting & Dashboard`
 
 Version:
 
-`v0.9.0`
-
+`v0.10.0`
 ## Completed Phases
 
 ### Phase 0 — Project Design
@@ -222,6 +221,17 @@ Documentation-only synchronization after the Phase 9 release. Published through 
 
 Documentation-only cleanup before Phase 10, covering duplicated Phase 9 test evidence, obsolete architecture-status wording, corrective-release traceability, CURRENT_STATE normalization and establishment of v0.9.2 as the Phase 10 baseline.
 
+### Phase 10 — Reporting & Dashboard
+
+Status:
+
+`COMPLETED`
+
+Version:
+
+`v0.10.0`
+
+Implemented the operational replenishment report and management dashboard, including dynamic report filtering, reconciled management KPIs, validated dashboard visuals, final navigation, accessibility-conscious status presentation and integration with the existing production refresh workflow.
 ## Current Workbook
 
 Executable workbook:
@@ -344,12 +354,11 @@ Each completed phase uses a dedicated branch, Pull Request, merge, phase-complet
 
 ## Next Planned Phase
 
-**Phase 10 — Reporting & Dashboard**
+**Phase 11 — Testing & Hardening**
 
 Target version:
 
-`v0.10.0`
-
+`v0.11.0`
 ## Portfolio Status
 
 ProcureFlow is still under active development.

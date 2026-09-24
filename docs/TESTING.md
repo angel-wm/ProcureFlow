@@ -2,16 +2,15 @@
 
 ## Document Status
 
-Status: PHASE 9 TEST EVIDENCE COMPLETE
+Status: PHASE 10 TEST EVIDENCE COMPLETE
 
 Current Completed Phase:
 
-Phase 9 — Automation
+Phase 10 — Reporting & Dashboard
 
 Current Released Version:
 
-`v0.9.2`
-
+`v0.10.0`
 Formal testing will continue throughout later ProcureFlow phases.
 
 This document records validation evidence only for work that has actually been executed.

@@ -6,29 +6,29 @@ IN DEVELOPMENT
 
 ## Current Version
 
-v0.9.2
+v0.10.0
 
 ## Current Phase
 
-Phase 10 — Reporting & Dashboard
+Phase 11 — Testing & Hardening
 
-Status: IN PROGRESS
+Status: NOT STARTED
 
-Target Version: `v0.10.0`
+Target Version: `v0.11.0`
 
 Phase Branch:
 
-`phase/10-reporting-dashboard`
+Not created.
 
 ## Last Completed Phase
 
-Phase 9 — Automation
+Phase 10 — Reporting & Dashboard
 
-Phase Completion Version: `v0.9.0`
+Phase Completion Version: `v0.10.0`
 
 GitHub Pull Request:
 
-`#10 — Phase 9 — Automation`
+`#13 — Phase 10 — Reporting & Dashboard`
 
 Pull Request Status:
 
@@ -36,16 +36,15 @@ MERGED
 
 Merge Commit:
 
-`a0302e96aab5c7e7833af6e68e4d13c97a83806b`
+`6a8f07506f189dc8966f83975ccb883eb3f2f920`
 
 Phase Tag:
 
-`phase-9-complete`
+`phase-10-complete`
 
 Version Tag:
 
-`v0.9.0`
-
+`v0.10.0`
 ## Corrective Release History
 
 Corrective releases do not change the formal completion version of the phase that preceded them unless explicitly stated.
@@ -264,34 +263,38 @@ See:
 
 ## Next Immediate Step
 
-Phase 9 — Automation formally completed at:
-
-`v0.9.0`
-
-Post-Phase-9 documentation corrections establish the current pre-Phase-10 baseline as:
-
-`v0.9.2`
-
-The current development phase is:
-
-Phase 10 — Reporting & Dashboard
-
-Phase 10 is now in progress.
-
-Its phase branch `phase/10-reporting-dashboard` was created from the `v0.9.2` `main` baseline.
-
-## Next Phase
-
-Phase 10 — Reporting & Dashboard
-
-Status: IN PROGRESS
-
-Target Version:
+Phase 10 — Reporting & Dashboard is complete and released as:
 
 `v0.10.0`
 
-Phase 10 technical implementation and validation are complete. Formal completion remains pending on the GitHub publication gate.
+Publication evidence:
 
+- Phase branch: `phase/10-reporting-dashboard`
+- Pull Request: `#13 — Phase 10 — Reporting & Dashboard`
+- Pull Request status: MERGED
+- Merge commit: `6a8f07506f189dc8966f83975ccb883eb3f2f920`
+- Phase tag: `phase-10-complete`
+- Version tag: `v0.10.0`
+
+The next authorized development phase is:
+
+Phase 11 — Testing & Hardening
+
+Phase 11 has not started.
+
+Its phase branch must be created from the released `v0.10.0` `main` baseline when Phase 11 formally begins.
+
+## Next Phase
+
+Phase 11 — Testing & Hardening
+
+Status: NOT STARTED
+
+Target Version:
+
+`v0.11.0`
+
+Phase 11 will perform complete system validation, defect correction, regression testing, performance evaluation, protection review and User Acceptance Testing.
 ## Phase 1 Completion
 
 Phase 1 established the validated logical data model.
@@ -994,7 +997,7 @@ No new PivotTable, PivotCache, Power Query query or production VBA procedure was
 
 ## Phase 10 Technical State
 
-[IMPLEMENTED] [VALIDATED]
+[IMPLEMENTED] [VALIDATED] [COMPLETED]
 
 Operational report:
 
@@ -1022,4 +1025,4 @@ PASS
 
 No unresolved critical Phase 10 functional defect is currently known.
 
-Phase 10 remains formally IN PROGRESS only because the required GitHub publication gate has not yet been completed.
+Phase 10 is formally COMPLETED. Technical implementation, validation, Pull Request review, merge and release publication are complete.
