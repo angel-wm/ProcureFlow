@@ -20,7 +20,7 @@ Current development phase:
 
 Phase 10 status:
 
-**NOT STARTED**
+**IN PROGRESS**
 
 Last completed phase:
 

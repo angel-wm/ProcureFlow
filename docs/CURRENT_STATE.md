@@ -12,13 +12,13 @@ v0.9.2
 
 Phase 10 — Reporting & Dashboard
 
-Status: NOT STARTED
+Status: IN PROGRESS
 
 Target Version: `v0.10.0`
 
 Phase Branch:
 
-Not created.
+`phase/10-reporting-dashboard`
 
 ## Last Completed Phase
 
@@ -185,8 +185,6 @@ Implemented project assets include:
 
 The following remain assigned to later roadmap phases:
 
-- replenishment-report logic;
-- management-dashboard logic;
 - later protection, performance and release-hardening work.
 
 No future-phase component is considered implemented without actual implementation and validation evidence.
@@ -274,25 +272,25 @@ Post-Phase-9 documentation corrections establish the current pre-Phase-10 baseli
 
 `v0.9.2`
 
-The next authorized development phase is:
+The current development phase is:
 
 Phase 10 — Reporting & Dashboard
 
-Phase 10 has not started.
+Phase 10 is now in progress.
 
-Its phase branch must be created from the `v0.9.2` `main` baseline when Phase 10 formally begins.
+Its phase branch `phase/10-reporting-dashboard` was created from the `v0.9.2` `main` baseline.
 
 ## Next Phase
 
 Phase 10 — Reporting & Dashboard
 
-Status: NOT STARTED
+Status: IN PROGRESS
 
 Target Version:
 
 `v0.10.0`
 
-Phase 10 will build the operational replenishment report and management dashboard on top of the validated and automated ProcureFlow backend.
+Phase 10 technical implementation and validation are complete. Formal completion remains pending on the GitHub publication gate.
 
 ## Phase 1 Completion
 
@@ -841,3 +839,187 @@ At the Phase 8 close, production automation remained intentionally unimplemented
 At the Phase 8 close, `QC-032 — PivotTable refresh status` remained N/A pending the persistent automated refresh-state mechanism assigned to Phase 9.
 
 Phase 8 is formally COMPLETED. Technical implementation, validation, readiness assessment, Pull Request review, merge and release publication are complete.
+
+# Phase 10 Operational Replenishment Report Implementation
+
+[IMPLEMENTED] [VALIDATED]
+
+Worksheet:
+
+`40_RPT_Replenishment`
+
+The operational replenishment report has been physically implemented and manually validated.
+
+Implemented functionality includes:
+
+- preserved `< Home` navigation;
+- Reporting Date context;
+- Inventory Snapshot Date context;
+- persistent Last Successful Refresh context;
+- Overall Quality Status context;
+- dynamic Site filter;
+- dynamic Part Family filter;
+- dynamic Criticality filter;
+- dynamic Supplier Risk filter;
+- Inventory Status filter;
+- ACTIONABLE default view;
+- 16-column operational output;
+- Dynamic Array filtering;
+- status-priority sorting;
+- Criticality-priority sorting;
+- Recommended Order Quantity descending sorting;
+- Backorder Quantity descending sorting;
+- Site and Product tie-breaking;
+- Inventory Status Conditional Formatting;
+- Overall Quality Status Conditional Formatting;
+- frozen report headers;
+- navigation to `41_DASH_Management`.
+
+Validated row counts:
+
+- ALL: 1,800;
+- ACTIONABLE: 1,468;
+- STOCKOUT: 2;
+- HEALTHY: 332.
+
+Manual validation also confirmed:
+
+- Site filtering works;
+- Part Family filtering works;
+- Criticality filtering works;
+- Supplier Risk filtering works;
+- combined filters work;
+- Dynamic Array spill operates without formula errors;
+- operational priority ordering is correct;
+- navigation works;
+- the default restored report state is ACTIONABLE.
+
+No management-dashboard implementation is implied by this evidence.
+
+# Phase 10 Management Dashboard Implementation
+
+[IMPLEMENTED] [VALIDATED]
+
+Worksheet:
+
+`41_DASH_Management`
+
+The management dashboard has been physically implemented and manually validated.
+
+Implemented context includes:
+
+- Reporting Date;
+- Inventory Snapshot Date;
+- persistent Last Successful Refresh;
+- Overall Quality Status.
+
+Implemented KPI cards:
+
+- STOCKOUT Positions;
+- CRITICAL Positions;
+- REORDER Positions;
+- Recommended Order Qty;
+- Backorder Qty;
+- Open PO Qty;
+- On-Time Delivery Rate;
+- Quality Incident Count.
+
+Validated Phase 10 dashboard baseline:
+
+- STOCKOUT Positions: 2;
+- CRITICAL Positions: 86;
+- REORDER Positions: 310;
+- Recommended Order Qty: 2,109;
+- Backorder Qty: 27;
+- Open PO Qty: 20,146;
+- weighted On-Time Delivery Rate: 44.4%;
+- Quality Incident Count through Reporting Date: 350.
+
+The On-Time Delivery Rate KPI is calculated as:
+
+total On-Time received POs / total received POs
+
+and is therefore a weighted global rate rather than an average of Supplier-level percentages.
+
+Implemented dashboard charts:
+
+- Inventory Status by Site;
+- Average Delivery Performance by Supplier Risk Class.
+
+The Inventory Status chart consumes the validated output of:
+
+`pvtInvStatusBySite`
+
+The Supplier Risk chart consumes the validated output of:
+
+`pvtSupplierRiskPerformance`
+
+and clearly represents risk-class average rates rather than the weighted global On-Time Delivery KPI.
+
+Implemented navigation includes:
+
+- Home;
+- Configuration;
+- Replenishment Report;
+- Inventory Analysis;
+- Procurement Analysis;
+- Supplier Analysis.
+
+Dashboard status meaning remains textual and does not depend only on color.
+
+## Phase 10 Automation Integration Validation
+
+The existing production entry point:
+
+`RefreshProcureFlow`
+
+was executed after Phase 10 report and dashboard implementation.
+
+Validated post-refresh state:
+
+- WorkflowStatus = SUCCESS;
+- PivotRefreshStatus = PASS;
+- Overall Quality Status = PASS;
+- Last Successful Refresh advanced correctly;
+- operational report remained functional;
+- dashboard KPI formulas remained correct;
+- both dashboard charts remained functional.
+
+A physical workbook-package inspection confirmed that the Phase 9 analytical refresh contract remains unchanged:
+
+- PivotTables: 10;
+- PivotCaches: 5.
+
+No new PivotTable, PivotCache, Power Query query or production VBA procedure was introduced by Phase 10.
+
+## Phase 10 Technical State
+
+[IMPLEMENTED] [VALIDATED]
+
+Operational report:
+
+PASS
+
+Management dashboard:
+
+PASS
+
+Navigation:
+
+PASS
+
+Accessibility / text-state visibility:
+
+PASS
+
+Automation integration:
+
+PASS
+
+PivotTable / PivotCache contract preservation:
+
+PASS
+
+No unresolved critical Phase 10 functional defect is currently known.
+
+Phase 10 remains formally IN PROGRESS only because the required GitHub publication gate has not yet been completed.

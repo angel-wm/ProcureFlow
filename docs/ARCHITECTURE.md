@@ -5,7 +5,7 @@
 Status: CONFIRMED DESIGN BASELINE
 Project State: IN DEVELOPMENT
 Current Phase: Phase 10 — Reporting & Dashboard
-Current Phase Status: NOT STARTED
+Current Phase Status: IN PROGRESS
 Current Released Version: v0.9.2
 This document defines the approved architecture of ProcureFlow and records implementation evidence as project phases are completed.
 
@@ -1226,7 +1226,7 @@ This prevents a failed late-stage attempt from advancing persistent successful-r
 
 `00_HOME` exposes Last Successful Refresh, Overall Quality Status and the `Refresh ProcureFlow` Form Control button.
 
-Operational-report preparation, management-dashboard implementation and their related export workflows remain assigned to Phase 10.
+Phase 10 operational reporting and management-dashboard presentation are now implemented and validated. No additional VBA export workflow was required for the Phase 10 baseline.
 
 ---
 
@@ -1704,11 +1704,12 @@ Implemented:
 - Excel business-rule and replenishment formulas;
 - centralized Quality Control framework;
 - PivotTables, PivotCharts, Slicers and Timelines;
-- production VBA refresh and automation orchestration.
+- production VBA refresh and automation orchestration;
+- Phase 10 operational replenishment report;
+- Phase 10 management dashboard.
 
 Not yet implemented:
 
-- Phase 10 operational replenishment report and management dashboard;
 - Phase 11 final testing and hardening;
 - Phase 12 portfolio and final release work.
 
@@ -2190,3 +2191,145 @@ VBA orchestrates.
 Excel remains responsible for the established auditable business calculations.
 
 
+
+# Phase 10 Operational Reporting Implementation Evidence
+
+## Status
+
+[IMPLEMENTED] [VALIDATED]
+
+The operational reporting layer is now physically implemented on:
+
+`40_RPT_Replenishment`
+
+The report consumes:
+
+`tblReplenishment`
+
+and does not recreate upstream replenishment business rules.
+
+Its output grain remains:
+
+1 Product × 1 Site.
+
+The report uses Dynamic Array formulas to select, filter and sort validated operational fields.
+
+The reporting layer supports:
+
+- Site filtering;
+- Part Family filtering;
+- Criticality filtering;
+- Supplier Risk filtering;
+- Inventory Status filtering.
+
+The default ACTIONABLE view excludes only:
+
+`HEALTHY`
+
+while preserving the authoritative Inventory Status values themselves.
+
+The operational report does not introduce a new status classification.
+
+No new PivotTable, PivotCache, Power Query query or VBA procedure was required.
+
+The existing Phase 9 automation and PivotTable refresh contracts therefore remain unchanged by the operational-report implementation.
+
+The management dashboard has subsequently been implemented and validated as part of Phase 10.
+
+# Phase 10 Management Dashboard Implementation Evidence
+
+## Status
+
+[IMPLEMENTED] [VALIDATED]
+
+Worksheet:
+
+`41_DASH_Management`
+
+The dashboard remains a presentation layer over validated upstream calculations and analytical outputs.
+
+It does not introduce a second business-rule engine.
+
+## KPI Sources
+
+Inventory and replenishment KPIs consume:
+
+`tblReplenishment`
+
+Supplier-management KPIs consume:
+
+`tblSupplierPerformance`
+
+The weighted global On-Time Delivery Rate uses Supplier-level count fields:
+
+- `OnTimePOCount`;
+- `ReceivedPOCount`.
+
+The calculation is:
+
+SUM(OnTimePOCount) / SUM(ReceivedPOCount)
+
+This is intentionally different from averaging Supplier-level delivery-rate percentages.
+
+Quality Incident Count consumes the Reporting-Date-safe:
+
+`tblSupplierPerformance[QualityIncidentCount]`
+
+## Dashboard Charts
+
+Inventory Status by Site references:
+
+`pvtInvStatusBySite`
+
+Supplier delivery performance by risk references:
+
+`pvtSupplierRiskPerformance`
+
+The Supplier Risk chart presents:
+
+- Average On-Time Delivery Rate;
+- Average Late Delivery Rate.
+
+Its labeling distinguishes analytical risk-class averages from the weighted overall management KPI.
+
+## Dashboard Chart Object Types
+
+The implemented Inventory Status by Site visual is a PivotChart reusing the existing `pvtInvStatusBySite` analytical structure and established PivotCache.
+
+The implemented Supplier Delivery Performance by Risk Class visual is a standard Excel 100% Stacked Column chart referencing validated `pvtSupplierRiskPerformance` output.
+
+Neither object changes the established analytical PivotTable/PivotCache contract.
+
+## Analytical Contract
+
+Phase 10 introduces no new PivotTable or PivotCache.
+
+Validated physical workbook contract remains:
+
+- 10 PivotTables;
+- 5 PivotCaches.
+
+Therefore:
+
+`modPivotRefresh`
+
+requires no Phase 10 modification.
+
+## Automation Boundary
+
+The existing:
+
+`RefreshProcureFlow`
+
+workflow remains the sole production refresh entry point.
+
+Post-implementation execution validated that:
+
+- report formulas update correctly;
+- dashboard formulas update correctly;
+- analytical PivotTables refresh correctly;
+- dashboard charts remain linked to their validated sources;
+- workflow state remains truthful;
+- Quality Control remains PASS after a valid refresh.
+
+No additional Phase 10 production VBA procedure was required.

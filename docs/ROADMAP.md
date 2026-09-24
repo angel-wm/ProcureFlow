@@ -5,7 +5,7 @@
 Status: CONFIRMED
 Project State: IN DEVELOPMENT
 Current Phase: Phase 10 — Reporting & Dashboard
-Current Phase Status: NOT STARTED
+Current Phase Status: IN PROGRESS
 Current Released Version: v0.9.2
 This roadmap defines the approved sequential development plan for ProcureFlow.
 
@@ -974,7 +974,7 @@ v0.9.0
 
 ## Status
 
-NOT STARTED
+IN PROGRESS
 
 ## Target Version
 
@@ -1230,7 +1230,7 @@ v1.0.0
 | 7 | Analysis & PivotTables | COMPLETED | v0.8.0 |
 | 8 | VBA Foundations | COMPLETED | v0.8.1 |
 | 9 | Automation | COMPLETED | v0.9.0 |
-| 10 | Reporting & Dashboard | NOT STARTED | v0.10.0 |
+| 10 | Reporting & Dashboard | IN PROGRESS | v0.10.0 |
 | 11 | Testing & Hardening | NOT STARTED | v0.11.0 |
 | 12 | Documentation & Portfolio Release | NOT STARTED | v1.0.0 |
 
@@ -1238,31 +1238,37 @@ v1.0.0
 
 # 17. Current Immediate Next Step
 
-Phase 9 — Automation is complete.
+Phase 10 — Reporting & Dashboard has completed its technical implementation and validation work on:
 
-Publication evidence:
+`phase/10-reporting-dashboard`
 
-- Phase branch: `phase/09-automation`
-- Pull Request: `#10 — Phase 9 — Automation`
-- Pull Request status: MERGED
-- Merge commit: `a0302e96aab5c7e7833af6e68e4d13c97a83806b`
-- Release version: `v0.9.0`
-- Phase tag: `phase-9-complete`
+Validated Phase 10 outputs include:
 
-Post-Phase-9 documentation corrections establish the current pre-Phase-10 baseline as:
+- operational replenishment report;
+- dynamic report filtering and priority sorting;
+- management dashboard;
+- eight reconciled KPI cards;
+- Inventory Status by Site visualization;
+- Supplier Delivery Performance by Risk Class visualization;
+- final report/dashboard navigation;
+- accessibility-conscious status presentation;
+- successful integration with `RefreshProcureFlow`;
+- preservation of the Phase 9 contract of 10 PivotTables and 5 PivotCaches.
 
-`v0.9.2`
+Phase 10 remains:
 
-The next authorized phase is:
+IN PROGRESS
 
-Phase 10 — Reporting & Dashboard
+because the required GitHub publication gate is still pending.
 
-Status:
+Next required action:
 
-NOT STARTED
+- finalize Phase 10 documentation;
+- commit and push the release candidate;
+- open and review the Phase 10 Pull Request;
+- merge the approved branch;
+- publish `phase-10-complete`;
+- publish `v0.10.0`;
+- synchronize final release metadata.
 
-Target version:
-
-`v0.10.0`
-
-Phase 10 must begin from the `v0.9.2` `main` baseline.
+Phase 11 must not begin until the Phase 10 GitHub Gate is complete.
