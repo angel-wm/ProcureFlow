@@ -5,7 +5,7 @@
 Status: CONFIRMED
 Project State: IN DEVELOPMENT
 Current Phase: Phase 10 — Reporting & Dashboard
-Current Phase Status: NOT STARTED
+Current Phase Status: IN PROGRESS
 Current Released Version: v0.9.2
 This roadmap defines the approved sequential development plan for ProcureFlow.
 
@@ -974,7 +974,7 @@ v0.9.0
 
 ## Status
 
-NOT STARTED
+IN PROGRESS
 
 ## Target Version
 

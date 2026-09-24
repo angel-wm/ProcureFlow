@@ -12,13 +12,13 @@ v0.9.2
 
 Phase 10 — Reporting & Dashboard
 
-Status: NOT STARTED
+Status: IN PROGRESS
 
 Target Version: `v0.10.0`
 
 Phase Branch:
 
-Not created.
+`phase/10-reporting-dashboard`
 
 ## Last Completed Phase
 
@@ -274,19 +274,19 @@ Post-Phase-9 documentation corrections establish the current pre-Phase-10 baseli
 
 `v0.9.2`
 
-The next authorized development phase is:
+The current development phase is:
 
 Phase 10 — Reporting & Dashboard
 
-Phase 10 has not started.
+Phase 10 is now in progress.
 
-Its phase branch must be created from the `v0.9.2` `main` baseline when Phase 10 formally begins.
+Its phase branch `phase/10-reporting-dashboard` was created from the `v0.9.2` `main` baseline.
 
 ## Next Phase
 
 Phase 10 — Reporting & Dashboard
 
-Status: NOT STARTED
+Status: IN PROGRESS
 
 Target Version:
 
