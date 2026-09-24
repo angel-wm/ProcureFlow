@@ -2292,6 +2292,13 @@ The Supplier Risk chart presents:
 
 Its labeling distinguishes analytical risk-class averages from the weighted overall management KPI.
 
+## Dashboard Chart Object Types
+
+The implemented Inventory Status by Site visual is a PivotChart reusing the existing `pvtInvStatusBySite` analytical structure and established PivotCache.
+
+The implemented Supplier Delivery Performance by Risk Class visual is a standard Excel 100% Stacked Column chart referencing validated `pvtSupplierRiskPerformance` output.
+
+Neither object changes the established analytical PivotTable/PivotCache contract.
 ## Analytical Contract
 
 Phase 10 introduces no new PivotTable or PivotCache.

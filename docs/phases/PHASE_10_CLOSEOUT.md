@@ -121,6 +121,13 @@ Source:
 
 The Supplier Risk visualization explicitly represents risk-class averages and is not presented as equivalent to the weighted global management KPI.
 
+### Implemented Chart Object Types
+
+`Inventory Status by Site` is implemented as a PivotChart that reuses the existing validated `pvtInvStatusBySite` analytical structure.
+
+`Average Delivery Performance by Risk Class` is implemented as a standard Excel 100% Stacked Column chart referencing validated `pvtSupplierRiskPerformance` output.
+
+Neither visual introduced a new PivotTable or PivotCache.
 ## Navigation and User Experience
 
 Validated navigation includes:

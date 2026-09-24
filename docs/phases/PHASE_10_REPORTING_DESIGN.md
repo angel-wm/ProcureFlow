@@ -2,7 +2,7 @@
 
 ## Status
 
-[PROPUESTO]
+[CONFIRMADO] [IMPLEMENTADO]
 
 Phase:
 
@@ -40,7 +40,7 @@ Nothing in this document is considered implemented until supported by workbook a
 
 # 1. Reporting Principles
 
-[PROPUESTO]
+[CONFIRMADO]
 
 Phase 10 will preserve the established ProcureFlow architecture:
 
@@ -216,7 +216,7 @@ Quality metrics must clearly identify their date context.
 
 # 4. Interactive Filtering
 
-[PROPUESTO]
+[CONFIRMADO]
 
 ProcureFlow will not force a universal dashboard slicer across incompatible PivotCaches or source tables.
 
@@ -300,11 +300,11 @@ A visually correct dashboard is not considered valid if its displayed metrics ca
 
 Current state:
 
-[PROPUESTO]
+[IMPLEMENTADO]
 
-No Phase 10 reporting or dashboard implementation has yet been validated by this document.
+Phase 10 reporting and dashboard implementation has now been validated; physical implementation evidence is recorded in Section 19 and the canonical project documentation.
 
-The design must be finalized before physical workbook implementation begins.
+The design was finalized before physical workbook implementation began.
 
 ---
 
@@ -312,11 +312,11 @@ The design must be finalized before physical workbook implementation begins.
 
 Status:
 
-[PROPUESTO]
+[IMPLEMENTADO]
 
 This section defines the physical Phase 10 implementation baseline before workbook construction.
 
-Nothing in this section is considered implemented until supported by workbook and validation evidence.
+The specifications in this section are now supported by workbook and validation evidence.
 
 ---
 
@@ -894,3 +894,22 @@ Validated implementation evidence is recorded in:
 Phase 10 technical implementation and validation are complete.
 
 Formal Phase 10 completion remains pending only on the GitHub publication gate.
+
+## 19.1 Implemented Chart Object Types
+
+Inventory Status by Site:
+
+- implemented as a PivotChart;
+- reuses the existing validated `pvtInvStatusBySite`;
+- reuses the established analytical PivotCache architecture;
+- PivotChart field buttons are hidden in the management presentation;
+- no new PivotTable or PivotCache was introduced.
+
+Average Delivery Performance by Risk Class:
+
+- implemented as a standard Excel 100% Stacked Column chart;
+- references validated output from `pvtSupplierRiskPerformance`;
+- displays Average On-Time Delivery Rate and Average Late Delivery Rate;
+- does not introduce a new PivotTable or PivotCache.
+
+The implemented chart-object choices preserve the approved Phase 10 analytical contract of 10 PivotTables and 5 PivotCaches.
