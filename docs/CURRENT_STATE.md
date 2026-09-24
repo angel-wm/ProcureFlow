@@ -185,7 +185,6 @@ Implemented project assets include:
 
 The following remain assigned to later roadmap phases:
 
-- replenishment-report logic;
 - management-dashboard logic;
 - later protection, performance and release-hardening work.
 
@@ -841,3 +840,59 @@ At the Phase 8 close, production automation remained intentionally unimplemented
 At the Phase 8 close, `QC-032 — PivotTable refresh status` remained N/A pending the persistent automated refresh-state mechanism assigned to Phase 9.
 
 Phase 8 is formally COMPLETED. Technical implementation, validation, readiness assessment, Pull Request review, merge and release publication are complete.
+
+# Phase 10 Operational Replenishment Report Implementation
+
+[IMPLEMENTED] [VALIDATED]
+
+Worksheet:
+
+`40_RPT_Replenishment`
+
+The operational replenishment report has been physically implemented and manually validated.
+
+Implemented functionality includes:
+
+- preserved `< Home` navigation;
+- Reporting Date context;
+- Inventory Snapshot Date context;
+- persistent Last Successful Refresh context;
+- Overall Quality Status context;
+- dynamic Site filter;
+- dynamic Part Family filter;
+- dynamic Criticality filter;
+- dynamic Supplier Risk filter;
+- Inventory Status filter;
+- ACTIONABLE default view;
+- 16-column operational output;
+- Dynamic Array filtering;
+- status-priority sorting;
+- Criticality-priority sorting;
+- Recommended Order Quantity descending sorting;
+- Backorder Quantity descending sorting;
+- Site and Product tie-breaking;
+- Inventory Status Conditional Formatting;
+- Overall Quality Status Conditional Formatting;
+- frozen report headers;
+- navigation to `41_DASH_Management`.
+
+Validated row counts:
+
+- ALL: 1,800;
+- ACTIONABLE: 1,468;
+- STOCKOUT: 2;
+- HEALTHY: 332.
+
+Manual validation also confirmed:
+
+- Site filtering works;
+- Part Family filtering works;
+- Criticality filtering works;
+- Supplier Risk filtering works;
+- combined filters work;
+- Dynamic Array spill operates without formula errors;
+- operational priority ordering is correct;
+- navigation works;
+- the default restored report state is ACTIONABLE.
+
+No management-dashboard implementation is implied by this evidence.

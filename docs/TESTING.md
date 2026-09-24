@@ -2773,3 +2773,98 @@ Result:
 PASS
 
 This closes the late-stage failure gap discovered during final Pull Request review and confirms compliance with `DEC-062` and the ProcureFlow stale-output safety requirement.
+
+# Phase 10 — Operational Replenishment Report Validation
+
+## Status
+
+PASS
+
+## Scope
+
+Manual functional validation of:
+
+`40_RPT_Replenishment`
+
+## Baseline State
+
+Default filters:
+
+- Site: ALL
+- Part Family: ALL
+- Criticality: ALL
+- Supplier Risk: ALL
+- Inventory Status: ACTIONABLE
+
+## Dynamic Array Row Validation
+
+| Test | Expected | Observed | Status |
+|---|---:|---:|---|
+| Inventory Status = ALL | 1,800 | 1,800 | PASS |
+| Inventory Status = ACTIONABLE | 1,468 | 1,468 | PASS |
+| Inventory Status = STOCKOUT | 2 | 2 | PASS |
+| Inventory Status = HEALTHY | 332 | 332 | PASS |
+
+## Filter Validation
+
+Validated manually:
+
+- Site filter: PASS
+- Part Family filter: PASS
+- Criticality filter: PASS
+- Supplier Risk filter: PASS
+- Inventory Status filter: PASS
+- combined filtering: PASS
+
+## Sorting Validation
+
+Validated:
+
+- STOCKOUT precedes CRITICAL;
+- authoritative Inventory Status priority is respected;
+- Criticality priority is respected;
+- Recommended Order Quantity sorts descending within higher-priority groups;
+- Backorder Quantity provides the next descending sort;
+- Site and Product provide deterministic tie-breaking.
+
+Result:
+
+PASS
+
+## Presentation and Navigation Validation
+
+Validated:
+
+- Inventory Status Conditional Formatting;
+- Overall Quality Status Conditional Formatting;
+- Safety Stock displayed with two decimals;
+- Reorder Point displayed with two decimals;
+- Target Stock displayed with two decimals;
+- quantity fields displayed as whole units where appropriate;
+- freeze panes preserve row 10 headers while scrolling;
+- `< Home` navigation works;
+- `Management Dashboard >` navigation works;
+- Last Successful Refresh is visible;
+- Overall Quality Status is visible.
+
+Result:
+
+PASS
+
+## Phase 10 Operational Report Result
+
+Operational report implemented:
+
+PASS
+
+Operational report actionable:
+
+PASS
+
+No formula spill error observed:
+
+PASS
+
+No unresolved critical operational-report defect is currently known.
+
+The management dashboard remains outside this test evidence and is still pending.

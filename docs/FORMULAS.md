@@ -1174,3 +1174,108 @@ ExceptionCount:
 Status:
 
     =IF([@Severity]="N/A","N/A",IF([@ExceptionCount]="","",IF([@ExceptionCount]=0,"PASS",IF([@Severity]="Warning","WARNING","FAIL"))))
+
+# Phase 10 — Operational Replenishment Report Formulas
+
+Status:
+
+[IMPLEMENTED] [VALIDATED]
+
+Worksheet:
+
+`40_RPT_Replenishment`
+
+## Reporting Date
+
+    =cfg_ReportingDate
+
+Purpose:
+
+Expose the configured business Reporting Date without duplicating business logic.
+
+## Inventory Snapshot Date
+
+    =INDEX(tblReplenishment[InventorySnapshotDate],1)
+
+Purpose:
+
+Expose the validated common Inventory Snapshot Date used by the operational Product × Site model.
+
+## Last Successful Refresh
+
+    =LET(last,XLOOKUP("LastSuccessfulRefresh",tblAutomationState[StateKey],tblAutomationState[StateValue],""),IF(OR(last="",last=0),"Not available",last))
+
+Purpose:
+
+Expose persistent accepted production-refresh state maintained by Phase 9 automation.
+
+## Overall Quality Status
+
+    =LET(StatusRange,tblQualityControl[Status],Applicable,ROWS(tblQualityControl[ControlID])-COUNTIF(tblQualityControl[Severity],"N/A"),Evaluated,COUNTIF(StatusRange,"PASS")+COUNTIF(StatusRange,"WARNING")+COUNTIF(StatusRange,"FAIL"),IF(COUNTIF(StatusRange,"FAIL")>0,"FAIL",IF(Evaluated<Applicable,"WARNING",IF(COUNTIF(StatusRange,"WARNING")>0,"WARNING","PASS"))))
+
+Purpose:
+
+Expose the established Quality Control precedence:
+
+`FAIL > WARNING > PASS`
+
+without creating a second Quality Control engine.
+
+## Data Validation Helper Lists
+
+Site:
+
+    =VSTACK("ALL",SORT(UNIQUE(tblReplenishment[SiteID])))
+
+Part Family:
+
+    =VSTACK("ALL",SORT(UNIQUE(tblReplenishment[PartFamily])))
+
+Criticality:
+
+    =VSTACK("ALL",SORT(UNIQUE(tblReplenishment[CriticalityClass])))
+
+Supplier Risk:
+
+    =VSTACK("ALL",SORT(UNIQUE(tblReplenishment[SupplierRiskClass])))
+
+Inventory Status:
+
+    =VSTACK("ACTIONABLE","ALL","STOCKOUT","CRITICAL","REORDER","ATTENTION","EXCESS","HEALTHY")
+
+The helper Dynamic Arrays feed Data Validation through spilled-range references.
+
+## Operational Dynamic Array
+
+Implemented from:
+
+`A11`
+
+Formula:
+
+    =LET(Headers,{"ProductID","SiteID","PartFamily","CriticalityClass","PrimarySupplierID","SupplierRiskClass","InventoryStatus","AvailableStock","BackorderQty","OpenPOQty","InventoryPosition","SafetyStock","ReorderPoint","TargetStock","RecommendedOrderQty","NoRecentDemand"},Data,CHOOSECOLS(tblReplenishment,XMATCH(Headers,tblReplenishment[#Headers])),AllRows,SEQUENCE(ROWS(tblReplenishment[ProductID]))>0,SiteMask,IF($B$8="ALL",AllRows,tblReplenishment[SiteID]=$B$8),PartMask,IF($E$8="ALL",AllRows,tblReplenishment[PartFamily]=$E$8),CriticalityMask,IF($H$8="ALL",AllRows,tblReplenishment[CriticalityClass]=$H$8),SupplierRiskMask,IF($K$8="ALL",AllRows,tblReplenishment[SupplierRiskClass]=$K$8),StatusMask,IF($N$8="ALL",AllRows,IF($N$8="ACTIONABLE",tblReplenishment[InventoryStatus]<>"HEALTHY",tblReplenishment[InventoryStatus]=$N$8)),Keep,SiteMask*PartMask*CriticalityMask*SupplierRiskMask*StatusMask,MatchCount,SUM(--Keep),IF(MatchCount=0,"No matching records",LET(Filtered,FILTER(Data,Keep),StatusRank,XMATCH(CHOOSECOLS(Filtered,7),{"STOCKOUT","CRITICAL","REORDER","ATTENTION","EXCESS","HEALTHY"}),CriticalityRank,XMATCH(CHOOSECOLS(Filtered,4),{"A","B","C"}),SORTBY(Filtered,StatusRank,1,CriticalityRank,1,CHOOSECOLS(Filtered,15),-1,CHOOSECOLS(Filtered,9),-1,CHOOSECOLS(Filtered,2),1,CHOOSECOLS(Filtered,1),1))))
+
+Purpose:
+
+Produce a dynamic operational report from `tblReplenishment` while preserving the validated upstream business logic.
+
+The formula:
+
+1. selects the approved reporting columns by header name;
+2. builds full-row masks for ALL selections;
+3. applies Site, Part Family, Criticality, Supplier Risk and Inventory Status filters;
+4. treats ACTIONABLE as all statuses except HEALTHY;
+5. handles zero-match conditions explicitly;
+6. filters the source rows;
+7. converts Inventory Status to the approved operational priority;
+8. converts Criticality to A/B/C priority;
+9. sorts by status, Criticality, Recommended Order Quantity, Backorder Quantity, Site and Product.
+
+The `AllRows` array is required so an ALL selection preserves the same row dimensionality as the source table.
+
+Validated counts:
+
+- ALL: 1,800;
+- ACTIONABLE: 1,468;
+- STOCKOUT: 2;
+- HEALTHY: 332.

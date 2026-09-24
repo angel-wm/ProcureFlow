@@ -1704,11 +1704,12 @@ Implemented:
 - Excel business-rule and replenishment formulas;
 - centralized Quality Control framework;
 - PivotTables, PivotCharts, Slicers and Timelines;
-- production VBA refresh and automation orchestration.
+- production VBA refresh and automation orchestration;
+- Phase 10 operational replenishment report.
 
 Not yet implemented:
 
-- Phase 10 operational replenishment report and management dashboard;
+- Phase 10 management dashboard;
 - Phase 11 final testing and hardening;
 - Phase 12 portfolio and final release work.
 
@@ -2190,3 +2191,47 @@ VBA orchestrates.
 Excel remains responsible for the established auditable business calculations.
 
 
+
+# Phase 10 Operational Reporting Implementation Evidence
+
+## Status
+
+[IMPLEMENTED] [VALIDATED]
+
+The operational reporting layer is now physically implemented on:
+
+`40_RPT_Replenishment`
+
+The report consumes:
+
+`tblReplenishment`
+
+and does not recreate upstream replenishment business rules.
+
+Its output grain remains:
+
+1 Product × 1 Site.
+
+The report uses Dynamic Array formulas to select, filter and sort validated operational fields.
+
+The reporting layer supports:
+
+- Site filtering;
+- Part Family filtering;
+- Criticality filtering;
+- Supplier Risk filtering;
+- Inventory Status filtering.
+
+The default ACTIONABLE view excludes only:
+
+`HEALTHY`
+
+while preserving the authoritative Inventory Status values themselves.
+
+The operational report does not introduce a new status classification.
+
+No new PivotTable, PivotCache, Power Query query or VBA procedure was required.
+
+The existing Phase 9 automation and PivotTable refresh contracts therefore remain unchanged by the operational-report implementation.
+
+The management dashboard remains pending within Phase 10.

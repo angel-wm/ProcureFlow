@@ -872,10 +872,23 @@ They must not be treated as permanent constants.
 
 # 19. Physical Design Baseline State
 
-Current state:
+Current Phase 10 implementation state:
 
-[PROPUESTO]
+Operational replenishment report:
 
-No report formula, KPI card, chart, navigation object or Phase 10 workbook behavior is considered implemented by this specification.
+[IMPLEMENTED] [VALIDATED]
 
-Implementation evidence begins only after physical workbook changes are made and validated.
+Management dashboard:
+
+[PENDING]
+
+The approved `40_RPT_Replenishment` design has now been physically implemented and manually validated.
+
+Validated implementation evidence is recorded in:
+
+- `docs/FORMULAS.md`
+- `docs/TESTING.md`
+- `docs/CURRENT_STATE.md`
+- `docs/ARCHITECTURE.md`
+
+The `41_DASH_Management` design remains pending and must not be represented as implemented until physical workbook and validation evidence exist.
