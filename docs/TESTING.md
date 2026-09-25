@@ -3127,7 +3127,7 @@ Defects discovered during any wave must be classified, corrected where required 
 
 | ID | Test Suite | Priority | Initial Status | Required Outcome |
 |---|---|---|---|---|
-| P11-001 | Release baseline and workbook structural integrity | MUST | NOT RUN | Released Phase 10 structure is intact and suitable for Phase 11 testing |
+| P11-001 | Release baseline and workbook structural integrity | MUST | PASS | Released Phase 10 structure is intact and suitable for Phase 11 testing |
 | P11-002 | Full-dataset ingestion and Power Query refresh | MUST | NOT RUN | All approved source data refreshes reproducibly with the complete dataset |
 | P11-003 | Data-model integrity and source-to-loaded reconciliation | MUST | NOT RUN | Keys, grains, row populations and loaded outputs reconcile |
 | P11-004 | Configuration and Data Validation | MUST | NOT RUN | Valid inputs are accepted and invalid inputs are controlled appropriately |
@@ -3148,6 +3148,53 @@ Defects discovered during any wave must be classified, corrected where required 
 | P11-019 | UAT — Data Quality Failure | MUST | NOT RUN | Critical data-quality failure is visible before outputs are treated as reliable |
 | P11-020 | Final end-to-end regression and reconciliation | MUST | NOT RUN | Accepted integrated state passes final complete-system regression |
 | P11-021 | Documentation, Git/GitHub and phase-handoff validation | MUST | NOT RUN | Canonical documentation and repository state reproduce the validated implementation |
+
+## P11-001 — Release Baseline and Workbook Structural Integrity
+
+Status:
+
+PASS
+
+Validation approach:
+
+Mixed automated/static inspection plus controlled manual Excel inspection.
+
+Validated evidence:
+
+- Phase branch is `phase/11-testing-hardening`.
+- Git working tree was clean at test start.
+- `workbook/ProcureFlow.xlsm` exists as the expected macro-enabled workbook.
+- Workbook SHA-256 baseline was captured as `F9F4EDD6EEB99BACBF7A6EB6EF3432923F79264C2E074CF3ADA64CBD150BF2AD`.
+- all five production VBA source modules are present under `vba/modules/`;
+- embedded `xl/vbaProject.bin` is present in the `.xlsm` package;
+- package inspection confirmed 10 PivotTables;
+- package inspection confirmed 5 PivotCaches;
+- Excel inspection confirmed 8 `cfg_*` Defined Names;
+- Excel inspection confirmed 16 Power Query queries;
+- Excel inspection confirmed 10 PivotTables;
+- Excel inspection confirmed 5 PivotCaches;
+- `01_CONFIG` remains protected;
+- manual Excel inspection confirmed 17 worksheets are present;
+- manual Excel inspection confirmed the workbook tables are present;
+- workbook opened in Microsoft Excel without a reported repair prompt or workbook-content error.
+
+### Test Harness Observation
+
+Three PowerShell / Excel COM inspection attempts produced automation-layer errors:
+
+1. inability to set `Application.Calculation`;
+2. unreliable direct enumeration of some COM collections;
+3. `RPC_E_CALL_REJECTED` while attempting to close the automated workbook instance.
+
+These are classified as test-harness limitations rather than ProcureFlow defects because independent static checks, other Excel object-model checks and manual inspection consistently confirmed the expected workbook structure.
+
+Phase 11 will therefore use mixed testing methods rather than forcing COM automation where manual Excel validation is more reliable.
+
+Result:
+
+PASS
+
+No structural ProcureFlow defect was identified by P11-001.
 
 ## Defect Classification
 
@@ -3186,10 +3233,12 @@ Phase 11 cannot be marked COMPLETED until evidence supports all of the following
 
 ## Current Phase 11 Result
 
-Phase 11 testing has been formally initialized.
+Phase 11 testing is in progress.
 
-All Phase 11 master test suites are currently:
+Current executed result:
 
-`NOT RUN`
+- `P11-001` — PASS.
+
+`P11-002` through `P11-021` remain NOT RUN until their respective Phase 11 validation is executed.
 
 No Phase 11 test suite is considered PASS solely because an earlier phase contains historical validation evidence.
