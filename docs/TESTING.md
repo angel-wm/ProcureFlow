@@ -3284,10 +3284,12 @@ Phase 11 cannot be marked COMPLETED until evidence supports all of the following
 
 Phase 11 testing is in progress.
 
-Current executed result:
+Current executed results:
 
-- `P11-001` — PASS.
+- `P11-001` — PASS;
+- `P11-002` — PASS;
+- `P11-003` — PASS.
 
-`P11-002` through `P11-021` remain NOT RUN until their respective Phase 11 validation is executed.
+`P11-004` through `P11-021` remain NOT RUN until their respective Phase 11 validation is executed.
 
 No Phase 11 test suite is considered PASS solely because an earlier phase contains historical validation evidence.
