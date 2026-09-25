@@ -3128,8 +3128,8 @@ Defects discovered during any wave must be classified, corrected where required 
 | ID | Test Suite | Priority | Initial Status | Required Outcome |
 |---|---|---|---|---|
 | P11-001 | Release baseline and workbook structural integrity | MUST | PASS | Released Phase 10 structure is intact and suitable for Phase 11 testing |
-| P11-002 | Full-dataset ingestion and Power Query refresh | MUST | NOT RUN | All approved source data refreshes reproducibly with the complete dataset |
-| P11-003 | Data-model integrity and source-to-loaded reconciliation | MUST | NOT RUN | Keys, grains, row populations and loaded outputs reconcile |
+| P11-002 | Full-dataset ingestion and Power Query refresh | MUST | PASS | All approved source data refreshes reproducibly with the complete dataset |
+| P11-003 | Data-model integrity and source-to-loaded reconciliation | MUST | PASS | Keys, grains, row populations and loaded outputs reconcile |
 | P11-004 | Configuration and Data Validation | MUST | NOT RUN | Valid inputs are accepted and invalid inputs are controlled appropriately |
 | P11-005 | Replenishment formula and business-rule regression | MUST | NOT RUN | Product × Site calculations remain correct and reconciled |
 | P11-006 | Procurement and Supplier Performance regression | MUST | NOT RUN | Procurement and Supplier metrics remain correct and reconciled |
@@ -3195,6 +3195,55 @@ Result:
 PASS
 
 No structural ProcureFlow defect was identified by P11-001.
+
+## P11-002 — Full-Dataset Ingestion and Power Query Refresh
+
+Status:
+
+PASS
+
+Evidence:
+
+- production `Refresh ProcureFlow` workflow executed successfully from Excel;
+- `WorkflowStatus = SUCCESS`;
+- `PivotRefreshStatus = PASS`;
+- failure and error fields remained blank;
+- `LastSuccessfulRefresh` advanced to a later timestamp;
+- Overall Quality Status = PASS;
+- `QC-030 = PASS`;
+- `QC-032 = PASS`.
+
+Result:
+
+PASS
+
+## P11-003 — Data-Model Integrity and Reconciliation
+
+Status:
+
+PASS
+
+Static reconciliation confirmed:
+
+- `parts_master.csv`: 300 = `tblProducts`: 300;
+- `supply_chain_history.csv`: 280,800 = `tblInventoryHistory`: 280,800;
+- `purchase_orders.csv`: 29,666 = `tblPurchaseOrders`: 29,666;
+- `quality_incidents.csv`: 368 = `tblQualityIncidents`: 368;
+- `tblSites`: 6;
+- `tblSuppliers`: 40;
+- `tblDate`: 1,198;
+- `tblReplenishment`: 1,800;
+- `tblSupplierPerformance`: 40;
+- Product × Site reconciliation: 300 × 6 = 1,800;
+- Supplier dimension → Supplier Performance: 40 = 40.
+
+Failed reconciliation checks:
+
+`0`
+
+Result:
+
+PASS
 
 ## Defect Classification
 
