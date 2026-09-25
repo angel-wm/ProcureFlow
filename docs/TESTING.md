@@ -2,16 +2,21 @@
 
 ## Document Status
 
-Status: PHASE 10 TEST EVIDENCE COMPLETE
+Status: PHASE 11 TESTING IN PROGRESS
 
-Current Completed Phase:
+Current Phase:
 
-Phase 10 — Reporting & Dashboard
+Phase 11 — Testing & Hardening
 
 Current Released Version:
 
 `v0.10.0`
-Formal testing will continue throughout later ProcureFlow phases.
+
+Target Phase Version:
+
+`v0.11.0`
+
+Formal testing is now proceeding under Phase 11 — Testing & Hardening.
 
 This document records validation evidence only for work that has actually been executed.
 
@@ -754,9 +759,9 @@ These observations must not be silently cleaned away.
 
 ---
 
-# 26. Tests Not Yet Run
+# 26. Phase 1 Tests Not Yet Run at Phase 1 Close
 
-The following are NOT RUN because implementation has not reached their corresponding phases:
+At the close of Phase 1, the following were NOT RUN because implementation had not reached their corresponding phases:
 
 - configuration validation;
 - formula validation;
@@ -773,11 +778,17 @@ The following are NOT RUN because implementation has not reached their correspon
 - end-to-end testing;
 - User Acceptance Testing.
 
-These tests must not be marked PASS until their actual implementation exists.
+This list is historical Phase 1 evidence. Later sections supersede the current status of tests that were subsequently implemented and executed.
+
+It must not be interpreted as the current Phase 11 test status.
 
 ---
 
 # 27. Mandatory User Acceptance Scenarios
+
+These scenarios were defined during Phase 1 and are carried forward as mandatory Phase 11 acceptance scenarios.
+
+At the start of Phase 11, all four scenarios remain NOT RUN.
 
 ## Replenishment
 
@@ -3069,3 +3080,116 @@ Phase 9 analytical refresh contract preservation:
 PASS
 
 No unresolved critical Phase 10 functional defect is currently known.
+
+---
+
+# Phase 11 — Testing & Hardening Master Test Plan
+
+## Status
+
+IN PROGRESS
+
+Target Version:
+
+`v0.11.0`
+
+Baseline Release:
+
+`v0.10.0`
+
+Phase Branch:
+
+`phase/11-testing-hardening`
+
+## Testing Principle
+
+Phase 11 is the complete-system validation and hardening phase.
+
+A test may only be marked PASS after the corresponding behavior has actually been executed and validated against the real ProcureFlow workbook or other authoritative project artifact.
+
+Historical PASS evidence remains valid where its tested contract has not changed, but Phase 11 regression testing must independently confirm the current integrated system where required.
+
+No proposed fix, optimization, protection change or documentation statement is considered validated until evidence exists.
+
+## Phase 11 Execution Waves
+
+Phase 11 testing will proceed in five controlled waves:
+
+1. baseline and structural validation;
+2. integrated functional regression;
+3. failure-path and edge-case validation;
+4. performance, protection and usability hardening;
+5. User Acceptance Testing and final regression.
+
+Defects discovered during any wave must be classified, corrected where required and retested before final acceptance.
+
+## Master Test Matrix
+
+| ID | Test Suite | Priority | Initial Status | Required Outcome |
+|---|---|---|---|---|
+| P11-001 | Release baseline and workbook structural integrity | MUST | NOT RUN | Released Phase 10 structure is intact and suitable for Phase 11 testing |
+| P11-002 | Full-dataset ingestion and Power Query refresh | MUST | NOT RUN | All approved source data refreshes reproducibly with the complete dataset |
+| P11-003 | Data-model integrity and source-to-loaded reconciliation | MUST | NOT RUN | Keys, grains, row populations and loaded outputs reconcile |
+| P11-004 | Configuration and Data Validation | MUST | NOT RUN | Valid inputs are accepted and invalid inputs are controlled appropriately |
+| P11-005 | Replenishment formula and business-rule regression | MUST | NOT RUN | Product × Site calculations remain correct and reconciled |
+| P11-006 | Procurement and Supplier Performance regression | MUST | NOT RUN | Procurement and Supplier metrics remain correct and reconciled |
+| P11-007 | Quality Control system regression | MUST | NOT RUN | PASS / WARNING / FAIL behavior and required controls operate correctly |
+| P11-008 | PivotTable, PivotChart, Slicer and Timeline regression | MUST | NOT RUN | Analytical objects refresh, reconcile and remain interactive |
+| P11-009 | Operational report and management dashboard reconciliation | MUST | NOT RUN | Report and dashboard outputs reconcile to authoritative upstream calculations |
+| P11-010 | Production VBA successful-path regression | MUST | NOT RUN | `RefreshProcureFlow` completes the approved successful workflow correctly |
+| P11-011 | VBA and refresh failure-path / recovery regression | MUST | NOT RUN | Failures preserve truthful state, protect `LastSuccessfulRefresh` and recover correctly |
+| P11-012 | Edge-case validation | MUST | NOT RUN | Approved formulas and workflows behave correctly at relevant boundary conditions |
+| P11-013 | Complete-system performance evaluation | MUST | NOT RUN | Full-dataset performance is measured and accepted or hardened with evidence |
+| P11-014 | Workbook protection hardening | MUST | NOT RUN | Critical structures are protected without blocking legitimate inputs or workflows |
+| P11-015 | Navigation, accessibility and usability regression | MUST | NOT RUN | Core workflows remain understandable, navigable and usable |
+| P11-016 | UAT — Replenishment | MUST | NOT RUN | Inventory Analyst can identify required action and understand recommended quantity |
+| P11-017 | UAT — Supplier Performance | MUST | NOT RUN | Procurement Manager can identify delivery, Lead-Time and quality issues |
+| P11-018 | UAT — Refresh | MUST | NOT RUN | Valid source update flows through the documented process without manual copy/paste |
+| P11-019 | UAT — Data Quality Failure | MUST | NOT RUN | Critical data-quality failure is visible before outputs are treated as reliable |
+| P11-020 | Final end-to-end regression and reconciliation | MUST | NOT RUN | Accepted integrated state passes final complete-system regression |
+| P11-021 | Documentation, Git/GitHub and phase-handoff validation | MUST | NOT RUN | Canonical documentation and repository state reproduce the validated implementation |
+
+## Defect Classification
+
+Phase 11 defects will use the following release-impact interpretation:
+
+### Critical
+
+A defect that can cause materially incorrect business results, unreliable refresh state, corrupted or misleading accepted output, loss of required functionality, or failure of a mandatory acceptance criterion.
+
+Critical defects block Phase 11 completion.
+
+### Major
+
+A significant functional, performance, protection or usability problem that does not currently produce a known materially incorrect accepted business result but requires correction or explicit disposition before release readiness.
+
+### Minor
+
+A limited issue that does not materially affect calculation correctness, data integrity, refresh truthfulness or completion of mandatory workflows.
+
+Minor issues may be corrected in Phase 11 or explicitly documented if they do not block the approved exit criteria.
+
+## Phase 11 Exit Evidence Required
+
+Phase 11 cannot be marked COMPLETED until evidence supports all of the following:
+
+- no critical known defect remains open;
+- mandatory acceptance tests pass;
+- all four mandatory User Acceptance Testing scenarios pass;
+- complete-dataset performance has been measured and accepted;
+- required protection hardening has been validated;
+- final reconciliations pass;
+- production VBA failure-state guarantees remain valid;
+- report and dashboard outputs reconcile;
+- canonical documentation reflects the actual validated state;
+- the system is ready for Phase 12 — Documentation & Portfolio Release.
+
+## Current Phase 11 Result
+
+Phase 11 testing has been formally initialized.
+
+All Phase 11 master test suites are currently:
+
+`NOT RUN`
+
+No Phase 11 test suite is considered PASS solely because an earlier phase contains historical validation evidence.
