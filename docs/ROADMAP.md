@@ -5,7 +5,7 @@
 Status: CONFIRMED
 Project State: IN DEVELOPMENT
 Current Phase: Phase 11 — Testing & Hardening
-Current Phase Status: NOT STARTED
+Current Phase Status: IN PROGRESS
 Current Released Version: v0.10.0
 This roadmap defines the approved sequential development plan for ProcureFlow.
 
@@ -1054,7 +1054,7 @@ v0.10.0
 
 ## Status
 
-NOT STARTED
+IN PROGRESS
 
 ## Target Version
 
@@ -1237,7 +1237,7 @@ v1.0.0
 | 8 | VBA Foundations | COMPLETED | v0.8.1 |
 | 9 | Automation | COMPLETED | v0.9.0 |
 | 10 | Reporting & Dashboard | COMPLETED | v0.10.0 |
-| 11 | Testing & Hardening | NOT STARTED | v0.11.0 |
+| 11 | Testing & Hardening | IN PROGRESS | v0.11.0 |
 | 12 | Documentation & Portfolio Release | NOT STARTED | v1.0.0 |
 
 ---
@@ -1255,16 +1255,16 @@ Publication evidence:
 - release version: `v0.10.0`
 - phase tag: `phase-10-complete`
 
-The next authorized phase is:
+The current development phase is:
 
 Phase 11 — Testing & Hardening
 
 Status:
 
-NOT STARTED
+IN PROGRESS
 
 Target version:
 
 `v0.11.0`
 
-Phase 11 must begin from the released `v0.10.0` `main` baseline.
+Phase 11 is in progress on `phase/11-testing-hardening`, created from the released `v0.10.0` `main` baseline.

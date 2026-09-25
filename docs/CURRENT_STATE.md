@@ -12,13 +12,13 @@ v0.10.0
 
 Phase 11 — Testing & Hardening
 
-Status: NOT STARTED
+Status: IN PROGRESS
 
 Target Version: `v0.11.0`
 
 Phase Branch:
 
-Not created.
+`phase/11-testing-hardening`
 
 ## Last Completed Phase
 
@@ -276,19 +276,19 @@ Publication evidence:
 - Phase tag: `phase-10-complete`
 - Version tag: `v0.10.0`
 
-The next authorized development phase is:
+The current development phase is:
 
 Phase 11 — Testing & Hardening
 
-Phase 11 has not started.
+Phase 11 is now in progress.
 
-Its phase branch must be created from the released `v0.10.0` `main` baseline when Phase 11 formally begins.
+Its phase branch `phase/11-testing-hardening` was created from the released `v0.10.0` `main` baseline.
 
 ## Next Phase
 
 Phase 11 — Testing & Hardening
 
-Status: NOT STARTED
+Status: IN PROGRESS
 
 Target Version:
 
