@@ -12,13 +12,13 @@ v0.10.0
 
 Phase 11 — Testing & Hardening
 
-Status: NOT STARTED
+Status: IN PROGRESS
 
 Target Version: `v0.11.0`
 
 Phase Branch:
 
-Not created.
+`phase/11-testing-hardening`
 
 ## Last Completed Phase
 
@@ -144,7 +144,7 @@ Implemented project assets include:
 - layer-based worksheet tab colors;
 - editable-input visual convention;
 - Aptos 11 workbook Normal style;
-- incremental worksheet protection for `01_CONFIG`;
+- validated Phase 11 protection for `01_CONFIG`, `20_CALC_Replenishment` and `21_CALC_SupplierPerformance`;
 - Phase 2 Workbook Foundation validation evidence.
 - workbook-relative Power Query raw-data path through `cfg_RawDataFolder`;
 - four `src_*` source-access queries;
@@ -257,6 +257,10 @@ Confirmed during Phase 9:
 
 `DEC-062` through `DEC-063`
 
+Confirmed during Phase 11:
+
+`DEC-064`
+
 See:
 
 `docs/DECISIONS.md`
@@ -276,25 +280,25 @@ Publication evidence:
 - Phase tag: `phase-10-complete`
 - Version tag: `v0.10.0`
 
-The next authorized development phase is:
+The current development phase is:
 
 Phase 11 — Testing & Hardening
 
-Phase 11 has not started.
+Phase 11 technical validation, regression, hardening and User Acceptance Testing are complete. P11-001 through P11-020 are PASS. P11-021 remains pending for final documentation, Git/GitHub and phase-handoff validation.
 
-Its phase branch must be created from the released `v0.10.0` `main` baseline when Phase 11 formally begins.
+Its phase branch `phase/11-testing-hardening` was created from the released `v0.10.0` `main` baseline.
 
 ## Next Phase
 
 Phase 11 — Testing & Hardening
 
-Status: NOT STARTED
+Status: IN PROGRESS
 
 Target Version:
 
 `v0.11.0`
 
-Phase 11 will perform complete system validation, defect correction, regression testing, performance evaluation, protection review and User Acceptance Testing.
+Phase 11 has completed its technical testing and User Acceptance Testing scope. The remaining activity is P11-021: final documentation, repository validation and phase handoff. After the GitHub Gate is completed, Phase 12 — Documentation & Portfolio Release becomes the next development phase.
 ## Phase 1 Completion
 
 Phase 1 established the validated logical data model.

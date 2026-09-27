@@ -5,7 +5,7 @@
 Status: CONFIRMED DESIGN BASELINE  
 Project State: IN DEVELOPMENT  
 Current Phase: Phase 11 — Testing & Hardening
-Current Phase Status: NOT STARTED
+Current Phase Status: IN PROGRESS
 Current Released Version: v0.10.0
 
 This document defines the approved functional and business specification of ProcureFlow before implementation begins.
@@ -635,6 +635,14 @@ Initial configurable policy:
 - Criticality C: 95%
 
 These values are configuration parameters and must not be hidden constants inside formulas.
+
+Valid Service Level configuration must satisfy:
+
+`0 < Service Level < 1`
+
+Exactly `0%` and exactly `100%` are invalid because the approved Safety Stock methodology uses `NORM.S.INV()`.
+
+Worksheet Data Validation and Quality Control must enforce this same operational domain.
 
 ## 9.6 Available Stock
 

@@ -2,16 +2,21 @@
 
 ## Document Status
 
-Status: PHASE 10 TEST EVIDENCE COMPLETE
+Status: PHASE 11 TESTING IN PROGRESS
 
-Current Completed Phase:
+Current Phase:
 
-Phase 10 — Reporting & Dashboard
+Phase 11 — Testing & Hardening
 
 Current Released Version:
 
 `v0.10.0`
-Formal testing will continue throughout later ProcureFlow phases.
+
+Target Phase Version:
+
+`v0.11.0`
+
+Formal testing is now proceeding under Phase 11 — Testing & Hardening.
 
 This document records validation evidence only for work that has actually been executed.
 
@@ -754,9 +759,9 @@ These observations must not be silently cleaned away.
 
 ---
 
-# 26. Tests Not Yet Run
+# 26. Phase 1 Tests Not Yet Run at Phase 1 Close
 
-The following are NOT RUN because implementation has not reached their corresponding phases:
+At the close of Phase 1, the following were NOT RUN because implementation had not reached their corresponding phases:
 
 - configuration validation;
 - formula validation;
@@ -773,17 +778,23 @@ The following are NOT RUN because implementation has not reached their correspon
 - end-to-end testing;
 - User Acceptance Testing.
 
-These tests must not be marked PASS until their actual implementation exists.
+This list is historical Phase 1 evidence. Later sections supersede the current status of tests that were subsequently implemented and executed.
+
+It must not be interpreted as the current Phase 11 test status.
 
 ---
 
 # 27. Mandatory User Acceptance Scenarios
 
+These scenarios were defined during Phase 1 and are carried forward as mandatory Phase 11 acceptance scenarios.
+
+At the start of Phase 11, all four scenarios remain NOT RUN.
+
 ## Replenishment
 
 Status:
 
-NOT RUN
+PASS
 
 An Inventory Analyst must eventually be able to identify which Products require action at a selected Site and understand the recommended quantity.
 
@@ -791,7 +802,7 @@ An Inventory Analyst must eventually be able to identify which Products require 
 
 Status:
 
-NOT RUN
+PASS
 
 A Procurement Manager must eventually be able to identify Suppliers with delivery, Lead-Time or quality issues.
 
@@ -799,7 +810,7 @@ A Procurement Manager must eventually be able to identify Suppliers with deliver
 
 Status:
 
-NOT RUN
+PASS
 
 A valid source update must eventually be processed through the documented refresh workflow without manual copy/paste.
 
@@ -807,7 +818,7 @@ A valid source update must eventually be processed through the documented refres
 
 Status:
 
-NOT RUN
+PASS
 
 A critical data-quality problem must eventually be visible before results are treated as reliable.
 
@@ -3069,3 +3080,348 @@ Phase 9 analytical refresh contract preservation:
 PASS
 
 No unresolved critical Phase 10 functional defect is currently known.
+
+---
+
+# Phase 11 — Testing & Hardening Master Test Plan
+
+## Status
+
+IN PROGRESS
+
+Target Version:
+
+`v0.11.0`
+
+Baseline Release:
+
+`v0.10.0`
+
+Phase Branch:
+
+`phase/11-testing-hardening`
+
+## Testing Principle
+
+Phase 11 is the complete-system validation and hardening phase.
+
+A test may only be marked PASS after the corresponding behavior has actually been executed and validated against the real ProcureFlow workbook or other authoritative project artifact.
+
+Historical PASS evidence remains valid where its tested contract has not changed, but Phase 11 regression testing must independently confirm the current integrated system where required.
+
+No proposed fix, optimization, protection change or documentation statement is considered validated until evidence exists.
+
+## Phase 11 Execution Waves
+
+Phase 11 testing will proceed in five controlled waves:
+
+1. baseline and structural validation;
+2. integrated functional regression;
+3. failure-path and edge-case validation;
+4. performance, protection and usability hardening;
+5. User Acceptance Testing and final regression.
+
+Defects discovered during any wave must be classified, corrected where required and retested before final acceptance.
+
+## Master Test Matrix
+
+| ID | Test Suite | Priority | Initial Status | Required Outcome |
+|---|---|---|---|---|
+| P11-001 | Release baseline and workbook structural integrity | MUST | PASS | Released Phase 10 structure is intact and suitable for Phase 11 testing |
+| P11-002 | Full-dataset ingestion and Power Query refresh | MUST | PASS | All approved source data refreshes reproducibly with the complete dataset |
+| P11-003 | Data-model integrity and source-to-loaded reconciliation | MUST | PASS | Keys, grains, row populations and loaded outputs reconcile |
+| P11-004 | Configuration and Data Validation | MUST | PASS | Valid inputs are accepted and invalid inputs are controlled appropriately |
+| P11-005 | Replenishment formula and business-rule regression | MUST | PASS | Product × Site calculations remain correct and reconciled |
+| P11-006 | Procurement and Supplier Performance regression | MUST | PASS | Procurement and Supplier metrics remain correct and reconciled |
+| P11-007 | Quality Control system regression | MUST | PASS | PASS / WARNING / FAIL behavior and required controls operate correctly |
+| P11-008 | PivotTable, PivotChart, Slicer and Timeline regression | MUST | PASS | Analytical objects refresh, reconcile and remain interactive |
+| P11-009 | Operational report and management dashboard reconciliation | MUST | PASS | Report and dashboard outputs reconcile to authoritative upstream calculations |
+| P11-010 | Production VBA successful-path regression | MUST | PASS | `RefreshProcureFlow` completes the approved successful workflow correctly |
+| P11-011 | VBA and refresh failure-path / recovery regression | MUST | PASS | Failures preserve truthful state, protect `LastSuccessfulRefresh` and recover correctly |
+| P11-012 | Edge-case validation | MUST | PASS | Approved formulas and workflows behave correctly at relevant boundary conditions |
+| P11-013 | Complete-system performance evaluation | MUST | PASS | Full-dataset performance is measured and accepted or hardened with evidence |
+| P11-014 | Workbook protection hardening | MUST | PASS | Critical structures are protected without blocking legitimate inputs or workflows |
+| P11-015 | Navigation, accessibility and usability regression | MUST | PASS | Core workflows remain understandable, navigable and usable |
+| P11-016 | UAT — Replenishment | MUST | PASS | Inventory Analyst can identify required action and understand recommended quantity |
+| P11-017 | UAT — Supplier Performance | MUST | PASS | Procurement Manager can identify delivery, Lead-Time and quality issues |
+| P11-018 | UAT — Refresh | MUST | PASS | Valid source update flows through the documented process without manual copy/paste |
+| P11-019 | UAT — Data Quality Failure | MUST | PASS | Critical data-quality failure is visible before outputs are treated as reliable |
+| P11-020 | Final end-to-end regression and reconciliation | MUST | PASS | Accepted integrated state passes final complete-system regression |
+| P11-021 | Documentation, Git/GitHub and phase-handoff validation | MUST | NOT RUN | Canonical documentation and repository state reproduce the validated implementation |
+
+## P11-001 — Release Baseline and Workbook Structural Integrity
+
+Status:
+
+PASS
+
+Validation approach:
+
+Mixed automated/static inspection plus controlled manual Excel inspection.
+
+Validated evidence:
+
+- Phase branch is `phase/11-testing-hardening`.
+- Git working tree was clean at test start.
+- `workbook/ProcureFlow.xlsm` exists as the expected macro-enabled workbook.
+- Workbook SHA-256 baseline was captured as `F9F4EDD6EEB99BACBF7A6EB6EF3432923F79264C2E074CF3ADA64CBD150BF2AD`.
+- all five production VBA source modules are present under `vba/modules/`;
+- embedded `xl/vbaProject.bin` is present in the `.xlsm` package;
+- package inspection confirmed 10 PivotTables;
+- package inspection confirmed 5 PivotCaches;
+- Excel inspection confirmed 8 `cfg_*` Defined Names;
+- Excel inspection confirmed 16 Power Query queries;
+- Excel inspection confirmed 10 PivotTables;
+- Excel inspection confirmed 5 PivotCaches;
+- `01_CONFIG` remains protected;
+- manual Excel inspection confirmed 17 worksheets are present;
+- manual Excel inspection confirmed the workbook tables are present;
+- workbook opened in Microsoft Excel without a reported repair prompt or workbook-content error.
+
+### Test Harness Observation
+
+Three PowerShell / Excel COM inspection attempts produced automation-layer errors:
+
+1. inability to set `Application.Calculation`;
+2. unreliable direct enumeration of some COM collections;
+3. `RPC_E_CALL_REJECTED` while attempting to close the automated workbook instance.
+
+These are classified as test-harness limitations rather than ProcureFlow defects because independent static checks, other Excel object-model checks and manual inspection consistently confirmed the expected workbook structure.
+
+Phase 11 will therefore use mixed testing methods rather than forcing COM automation where manual Excel validation is more reliable.
+
+Result:
+
+PASS
+
+No structural ProcureFlow defect was identified by P11-001.
+
+## P11-002 — Full-Dataset Ingestion and Power Query Refresh
+
+Status:
+
+PASS
+
+Evidence:
+
+- production `Refresh ProcureFlow` workflow executed successfully from Excel;
+- `WorkflowStatus = SUCCESS`;
+- `PivotRefreshStatus = PASS`;
+- failure and error fields remained blank;
+- `LastSuccessfulRefresh` advanced to a later timestamp;
+- Overall Quality Status = PASS;
+- `QC-030 = PASS`;
+- `QC-032 = PASS`.
+
+Result:
+
+PASS
+
+## P11-003 — Data-Model Integrity and Reconciliation
+
+Status:
+
+PASS
+
+Static reconciliation confirmed:
+
+- `parts_master.csv`: 300 = `tblProducts`: 300;
+- `supply_chain_history.csv`: 280,800 = `tblInventoryHistory`: 280,800;
+- `purchase_orders.csv`: 29,666 = `tblPurchaseOrders`: 29,666;
+- `quality_incidents.csv`: 368 = `tblQualityIncidents`: 368;
+- `tblSites`: 6;
+- `tblSuppliers`: 40;
+- `tblDate`: 1,198;
+- `tblReplenishment`: 1,800;
+- `tblSupplierPerformance`: 40;
+- Product × Site reconciliation: 300 × 6 = 1,800;
+- Supplier dimension → Supplier Performance: 40 = 40.
+
+Failed reconciliation checks:
+
+`0`
+
+Result:
+
+PASS
+
+## Phase 11 Executed Functional, Hardening and UAT Evidence
+
+### P11-004 / P11-012 — Configuration and Edge Cases
+
+PASS after defect correction and retest.
+
+- valid configuration inputs were accepted and invalid inputs rejected;
+- Phase 11 identified that a Service Level of exactly 100% was accepted by worksheet Data Validation;
+- 100% caused NORM.S.INV to return #NUM! and the error propagated through replenishment calculations;
+- Quality Control correctly changed the system state to FAIL;
+- Service Level validation was hardened to require 0 < Service Level < 1;
+- 0% and 100% are now rejected;
+- 99% is accepted;
+- after restoring valid configuration, calculation errors cleared and Quality Control returned to PASS;
+- defect classification: Major;
+- defect status: RESOLVED.
+
+### P11-005 — Replenishment Regression
+
+PASS.
+
+- Product x Site rows: 1,800;
+- STOCKOUT: 2;
+- CRITICAL: 86;
+- REORDER: 310;
+- ATTENTION: 103;
+- EXCESS: 967;
+- HEALTHY: 332;
+- Available Stock: 49,506;
+- Backorders: 27;
+- Open PO Qty: 20,146;
+- Recommended Order Qty: 2,109.
+
+### P11-006 — Procurement and Supplier Performance Regression
+
+PASS.
+
+- Purchase Orders: 29,666;
+- late receipts: 16,568;
+- partial receipts: 3,355;
+- Average Actual Lead Time: approximately 42.97 days;
+- Suppliers: 40;
+- Quality Incidents: 368.
+
+### P11-007 — Quality Control Regression
+
+PASS.
+
+Valid baseline behavior remained PASS. Controlled invalid configuration and source-failure conditions produced FAIL, and restoration returned the system to PASS.
+
+### P11-008 — Analytical Regression
+
+PASS.
+
+Slicers and Timelines remained interactive, PivotTables and PivotCharts responded correctly, and clearing filters restored baseline totals.
+
+### P11-009 — Report and Dashboard Reconciliation
+
+PASS.
+
+- STOCKOUT: 2;
+- CRITICAL: 86;
+- REORDER: 310;
+- Recommended Order Qty: 2,109;
+- Backorder Qty: 27;
+- Open PO Qty: 20,146;
+- On-Time Delivery Rate: approximately 44.4%;
+- Quality Incident Count through Reporting Date: 350.
+
+### P11-010 — Production VBA Successful Path
+
+PASS.
+
+The production Refresh ProcureFlow workflow completed successfully with WorkflowStatus = SUCCESS, PivotRefreshStatus = PASS, blank failure fields, QC-030 = PASS, QC-032 = PASS and an advanced LastSuccessfulRefresh.
+
+### P11-011 — Failure and Recovery
+
+PASS.
+
+A controlled missing-source failure preserved the previous LastSuccessfulRefresh. After source restoration, the production workflow recovered successfully and advanced the timestamp only after successful completion.
+
+### P11-013 — Complete-System Performance
+
+PASS.
+
+The final complete production refresh with the full dataset completed successfully in approximately 12 minutes. The duration is recorded as a performance observation rather than a defect because the complete workflow finished successfully and no approved performance threshold was violated.
+
+### P11-014 — Workbook Protection Hardening
+
+PASS.
+
+- 01_CONFIG remains protected;
+- B6:B12 remain editable;
+- configuration labels remain protected;
+- 20_CALC_Replenishment formulas are protected;
+- 21_CALC_SupplierPerformance formulas are protected;
+- formulas remain inspectable;
+- required filters remain usable;
+- no password was introduced.
+
+### P11-015 — Navigation, Accessibility and Usability
+
+PASS.
+
+- primary navigation hyperlinks operate correctly;
+- dashboard navigation operates correctly;
+- the HOME link on protected 01_CONFIG remains usable;
+- editable inputs remain visually distinguishable;
+- PASS / WARNING / FAIL states retain explicit text.
+
+### P11-016 through P11-019 — User Acceptance Testing
+
+PASS.
+
+- Replenishment UAT: an Inventory Analyst can identify actionable Products by Site and understand the recommended quantity;
+- Supplier Performance UAT: a Procurement Manager can identify delivery, Lead-Time and quality issues;
+- Refresh UAT: the documented Refresh ProcureFlow workflow processes the approved source pipeline without manual copy/paste;
+- Data Quality Failure UAT: controlled failures are visibly surfaced before results can be treated as reliable.
+
+### P11-020 — Final End-to-End Regression
+
+PASS.
+
+The final full-dataset production refresh completed successfully. Workflow state, Quality Control, analytical outputs and management reporting remained reconciled to the accepted baseline.
+
+Final validated management values included:
+
+- Recommended Order Qty: 2,109;
+- Open PO Qty: 20,146;
+- Backorders: 27;
+- STOCKOUT: 2;
+- CRITICAL: 86;
+- REORDER: 310.
+
+## Defect Classification
+
+Phase 11 defects will use the following release-impact interpretation:
+
+### Critical
+
+A defect that can cause materially incorrect business results, unreliable refresh state, corrupted or misleading accepted output, loss of required functionality, or failure of a mandatory acceptance criterion.
+
+Critical defects block Phase 11 completion.
+
+### Major
+
+A significant functional, performance, protection or usability problem that does not currently produce a known materially incorrect accepted business result but requires correction or explicit disposition before release readiness.
+
+### Minor
+
+A limited issue that does not materially affect calculation correctness, data integrity, refresh truthfulness or completion of mandatory workflows.
+
+Minor issues may be corrected in Phase 11 or explicitly documented if they do not block the approved exit criteria.
+
+## Phase 11 Exit Evidence Required
+
+Phase 11 cannot be marked COMPLETED until evidence supports all of the following:
+
+- no critical known defect remains open;
+- mandatory acceptance tests pass;
+- all four mandatory User Acceptance Testing scenarios pass;
+- complete-dataset performance has been measured and accepted;
+- required protection hardening has been validated;
+- final reconciliations pass;
+- production VBA failure-state guarantees remain valid;
+- report and dashboard outputs reconcile;
+- canonical documentation reflects the actual validated state;
+- the system is ready for Phase 12 — Documentation & Portfolio Release.
+
+## Current Phase 11 Result
+
+Phase 11 testing is in progress.
+
+Current executed results:
+
+- P11-001 through P11-020 — PASS.
+
+P11-021 remains NOT RUN pending final documentation, Git/GitHub and phase-handoff validation.
+
+No Phase 11 test suite is considered PASS solely because an earlier phase contains historical validation evidence.
