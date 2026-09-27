@@ -51,9 +51,9 @@ Version Tag:
 
 The formal Phase 11 completion version remains:
 
-0.11.0
+`v0.11.0`
 
-0.11.1 is a documentation-only corrective release published after Phase 11.
+`v0.11.1` is a documentation-only corrective release published after Phase 11.
 
 Scope:
 
