@@ -636,6 +636,14 @@ Initial configurable policy:
 
 These values are configuration parameters and must not be hidden constants inside formulas.
 
+Valid Service Level configuration must satisfy:
+
+`0 < Service Level < 1`
+
+Exactly `0%` and exactly `100%` are invalid because the approved Safety Stock methodology uses `NORM.S.INV()`.
+
+Worksheet Data Validation and Quality Control must enforce this same operational domain.
+
 ## 9.6 Available Stock
 
 Conceptual rule:

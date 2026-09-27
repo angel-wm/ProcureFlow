@@ -1361,9 +1361,13 @@ A worksheet should only be protected once:
 - protected structures are sufficiently stable;
 - protection does not interfere with the current development phase.
 
-As of Phase 2, `01_CONFIG` is the first protected worksheet because its user-editable input range is explicitly defined as `B6:B12`.
+As of Phase 11, the validated protection boundary includes:
 
-Other worksheet layers remain unprotected until their implementation responsibilities become sufficiently stable.
+- `01_CONFIG`, with `B6:B12` remaining editable and required navigation remaining usable;
+- `20_CALC_Replenishment`, with critical formulas protected while remaining inspectable;
+- `21_CALC_SupplierPerformance`, with critical formulas protected while remaining inspectable.
+
+Required filters remain usable and no worksheet-protection password is introduced. Protection remains a safeguard against accidental edits rather than a security boundary.
 
 See `DEC-048`.
 

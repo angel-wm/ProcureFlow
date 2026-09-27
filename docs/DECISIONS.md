@@ -1011,6 +1011,10 @@ Decisions confirmed during Phase 9 — Automation:
 
 `DEC-062` through `DEC-063`
 
+Decisions confirmed during Phase 11 — Testing & Hardening:
+
+`DEC-064`
+
 Current superseded decisions:
 
 - `DEC-059` — superseded by `DEC-060` with respect to the phase assignment of persistent `QC-032` automation. Its Phase 7 manual PivotTable validation evidence remains valid.
@@ -1568,3 +1572,31 @@ ProcureFlow requires deterministic refresh sequencing and truthful workflow stat
 The selected synchronous QueryTable strategy provides simpler and more observable execution than global asynchronous waiting or concurrent refresh fan-out while preserving the existing Power Query dependency architecture.
 
 The decision is based on executed Phase 9 workbook tests rather than on an assumed refresh model.
+
+---
+
+## DEC-064 — Service Level Operational Bounds and Validation Alignment
+
+**Status:** CONFIRMED
+
+**Phase:** 11 — Testing & Hardening
+
+**Decision:**
+
+ProcureFlow Service Level configuration values must satisfy:
+
+`0 < Service Level < 1`
+
+Worksheet Data Validation for `cfg_ServiceLevelA`, `cfg_ServiceLevelB` and `cfg_ServiceLevelC` must reject exactly `0%` and exactly `100%`.
+
+Quality Control remains an independent safeguard for invalid Service Level configuration.
+
+The approved Safety Stock methodology continues to use `NORM.S.INV()` without clipping invalid values or masking them through blanket error handling.
+
+**Rationale:**
+
+Phase 11 edge-case testing demonstrated that worksheet Data Validation allowed exactly `100%`, while `NORM.S.INV(1)` produced `#NUM!` and propagated errors through replenishment outputs.
+
+Quality Control correctly exposed the invalid state. The defect was resolved by aligning worksheet prevention with the operational domain `0 < Service Level < 1`.
+
+This decision clarifies the valid input boundary supporting the existing Safety Stock methodology and does not alter that methodology.
