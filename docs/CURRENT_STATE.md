@@ -6,13 +6,13 @@ IN DEVELOPMENT
 
 ## Current Version
 
-v0.10.0
+v0.11.0
 
 ## Current Phase
 
 Phase 11 — Testing & Hardening
 
-Status: IN PROGRESS
+Status: COMPLETED
 
 Target Version: `v0.11.0`
 
@@ -22,13 +22,13 @@ Phase Branch:
 
 ## Last Completed Phase
 
-Phase 10 — Reporting & Dashboard
+Phase 11 — Testing & Hardening
 
-Phase Completion Version: `v0.10.0`
+Phase Completion Version: `v0.11.0`
 
 GitHub Pull Request:
 
-`#13 — Phase 10 — Reporting & Dashboard`
+`#14 — Phase 11 — Testing & Hardening`
 
 Pull Request Status:
 
@@ -36,15 +36,15 @@ MERGED
 
 Merge Commit:
 
-`6a8f07506f189dc8966f83975ccb883eb3f2f920`
+`9b301d6ee20dd6077195d610ff06a30a81e042df`
 
 Phase Tag:
 
-`phase-10-complete`
+`phase-11-complete`
 
 Version Tag:
 
-`v0.10.0`
+`v0.11.0`
 ## Corrective Release History
 
 Corrective releases do not change the formal completion version of the phase that preceded them unless explicitly stated.
@@ -267,38 +267,31 @@ See:
 
 ## Next Immediate Step
 
-Phase 10 — Reporting & Dashboard is complete and released as:
-
-`v0.10.0`
-
-Publication evidence:
-
-- Phase branch: `phase/10-reporting-dashboard`
-- Pull Request: `#13 — Phase 10 — Reporting & Dashboard`
-- Pull Request status: MERGED
-- Merge commit: `6a8f07506f189dc8966f83975ccb883eb3f2f920`
-- Phase tag: `phase-10-complete`
-- Version tag: `v0.10.0`
-
-The current development phase is:
-
-Phase 11 — Testing & Hardening
-
-Phase 11 technical validation, regression, hardening and User Acceptance Testing are complete. P11-001 through P11-020 are PASS. P11-021 remains pending for final documentation, Git/GitHub and phase-handoff validation.
-
-Its phase branch `phase/11-testing-hardening` was created from the released `v0.10.0` `main` baseline.
-
-## Next Phase
-
-Phase 11 — Testing & Hardening
-
-Status: IN PROGRESS
-
-Target Version:
+Phase 11 — Testing & Hardening is complete and released as:
 
 `v0.11.0`
 
-Phase 11 has completed its technical testing and User Acceptance Testing scope. The remaining activity is P11-021: final documentation, repository validation and phase handoff. After the GitHub Gate is completed, Phase 12 — Documentation & Portfolio Release becomes the next development phase.
+Publication evidence:
+
+- Phase branch: `phase/11-testing-hardening`
+- Pull Request: `#14 — Phase 11 — Testing & Hardening`
+- Pull Request status: MERGED
+- Merge commit: `9b301d6ee20dd6077195d610ff06a30a81e042df`
+- Phase tag: `phase-11-complete`
+- Version tag: `v0.11.0`
+
+The next development phase is Phase 12 — Documentation & Portfolio Release.
+
+## Next Phase
+
+Phase 12 — Documentation & Portfolio Release
+
+Status: NOT STARTED
+
+Target Version:
+
+`v1.0.0`
+
 ## Phase 1 Completion
 
 Phase 1 established the validated logical data model.

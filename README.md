@@ -12,7 +12,7 @@ Project status:
 
 Current released version:
 
-`v0.10.0`
+`v0.11.0`
 
 Current development phase:
 
@@ -20,19 +20,19 @@ Current development phase:
 
 Phase 11 status:
 
-**IN PROGRESS**
+**COMPLETED**
 
 Last completed phase:
 
-**Phase 10 — Reporting & Dashboard**
+**Phase 11 — Testing & Hardening**
 
 Pull Request:
 
-`#13 — Phase 10 — Reporting & Dashboard`
+`#14 — Phase 11 — Testing & Hardening`
 
 Version:
 
-`v0.10.0`
+`v0.11.0`
 ## Completed Phases
 
 ### Phase 0 — Project Design
@@ -232,6 +232,19 @@ Version:
 `v0.10.0`
 
 Implemented the operational replenishment report and management dashboard, including dynamic report filtering, reconciled management KPIs, validated dashboard visuals, final navigation, accessibility-conscious status presentation and integration with the existing production refresh workflow.
+
+### Phase 11 — Testing & Hardening
+
+Status:
+
+`COMPLETED`
+
+Version:
+
+`v0.11.0`
+
+Completed full-system regression, failure-path and edge-case validation, performance measurement, protection hardening, User Acceptance Testing and final end-to-end reconciliation.
+
 ## Current Workbook
 
 Executable workbook:

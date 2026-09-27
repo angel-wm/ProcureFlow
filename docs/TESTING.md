@@ -2,7 +2,7 @@
 
 ## Document Status
 
-Status: PHASE 11 TESTING IN PROGRESS
+Status: PHASE 11 TESTING COMPLETE
 
 Current Phase:
 
@@ -10,13 +10,13 @@ Phase 11 — Testing & Hardening
 
 Current Released Version:
 
-`v0.10.0`
+`v0.11.0`
 
 Target Phase Version:
 
 `v0.11.0`
 
-Formal testing is now proceeding under Phase 11 — Testing & Hardening.
+Formal Phase 11 testing and hardening are complete.
 
 This document records validation evidence only for work that has actually been executed.
 
@@ -3087,7 +3087,7 @@ No unresolved critical Phase 10 functional defect is currently known.
 
 ## Status
 
-IN PROGRESS
+COMPLETED
 
 Target Version:
 
@@ -3147,7 +3147,7 @@ Defects discovered during any wave must be classified, corrected where required 
 | P11-018 | UAT — Refresh | MUST | PASS | Valid source update flows through the documented process without manual copy/paste |
 | P11-019 | UAT — Data Quality Failure | MUST | PASS | Critical data-quality failure is visible before outputs are treated as reliable |
 | P11-020 | Final end-to-end regression and reconciliation | MUST | PASS | Accepted integrated state passes final complete-system regression |
-| P11-021 | Documentation, Git/GitHub and phase-handoff validation | MUST | NOT RUN | Canonical documentation and repository state reproduce the validated implementation |
+| P11-021 | Documentation, Git/GitHub and phase-handoff validation | MUST | PASS | Canonical documentation and repository state reproduce the validated implementation |
 
 ## P11-001 — Release Baseline and Workbook Structural Integrity
 
@@ -3379,6 +3379,16 @@ Final validated management values included:
 - CRITICAL: 86;
 - REORDER: 310.
 
+### P11-021 — Documentation, Git/GitHub and Phase Handoff
+
+PASS.
+
+- canonical Phase 11 documentation was synchronized to the validated implementation;
+- Pull Request `#14 — Phase 11 — Testing & Hardening` was merged into `main`;
+- merge commit: `9b301d6ee20dd6077195d610ff06a30a81e042df`;
+- the Phase 11 closeout and handoff to Phase 12 were finalized;
+- release tags `phase-11-complete` and `v0.11.0` are published as part of the Phase 11 release gate.
+
 ## Defect Classification
 
 Phase 11 defects will use the following release-impact interpretation:
@@ -3416,7 +3426,7 @@ Phase 11 cannot be marked COMPLETED until evidence supports all of the following
 
 ## Current Phase 11 Result
 
-Phase 11 testing is in progress.
+Phase 11 testing is complete.
 
 Current executed results:
 

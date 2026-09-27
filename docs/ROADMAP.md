@@ -5,8 +5,8 @@
 Status: CONFIRMED
 Project State: IN DEVELOPMENT
 Current Phase: Phase 11 — Testing & Hardening
-Current Phase Status: IN PROGRESS
-Current Released Version: v0.10.0
+Current Phase Status: COMPLETED
+Current Released Version: v0.11.0
 This roadmap defines the approved sequential development plan for ProcureFlow.
 
 A phase is only considered COMPLETED after its technical work, validation, documentation and GitHub publication gate have all been completed.
@@ -361,7 +361,14 @@ Create the first physical ProcureFlow workbook and establish a professional work
 
 ## GitHub Gate
 
-Complete phase branch workflow, Pull Request, merge, push and phase tag.
+- phase branch `phase/11-testing-hardening` completed;
+- Pull Request `#14 — Phase 11 — Testing & Hardening` merged;
+- merge commit `9b301d6ee20dd6077195d610ff06a30a81e042df`;
+- final release-state synchronization completed on `main`;
+- phase tag `phase-11-complete`;
+- version tag `v0.11.0`.
+
+GitHub Gate: COMPLETE.
 
 ## Version
 
@@ -448,7 +455,14 @@ Build a reproducible Power Query ingestion and preparation pipeline from raw sou
 
 ## GitHub Gate
 
-Complete phase branch workflow, Pull Request, merge, push and phase tag.
+- phase branch `phase/11-testing-hardening` completed;
+- Pull Request `#14 — Phase 11 — Testing & Hardening` merged;
+- merge commit `9b301d6ee20dd6077195d610ff06a30a81e042df`;
+- final release-state synchronization completed on `main`;
+- phase tag `phase-11-complete`;
+- version tag `v0.11.0`.
+
+GitHub Gate: COMPLETE.
 
 ## Version
 
@@ -521,7 +535,14 @@ Build the structured operational calculation model required before implementing 
 
 ## GitHub Gate
 
-Complete phase branch workflow, Pull Request, merge, push and phase tag.
+- phase branch `phase/11-testing-hardening` completed;
+- Pull Request `#14 — Phase 11 — Testing & Hardening` merged;
+- merge commit `9b301d6ee20dd6077195d610ff06a30a81e042df`;
+- final release-state synchronization completed on `main`;
+- phase tag `phase-11-complete`;
+- version tag `v0.11.0`.
+
+GitHub Gate: COMPLETE.
 
 ## Version
 
@@ -628,7 +649,14 @@ Legacy functions will be understood but not forced into production logic when a 
 
 ## GitHub Gate
 
-Complete phase branch workflow, Pull Request, merge, push and phase tag.
+- phase branch `phase/11-testing-hardening` completed;
+- Pull Request `#14 — Phase 11 — Testing & Hardening` merged;
+- merge commit `9b301d6ee20dd6077195d610ff06a30a81e042df`;
+- final release-state synchronization completed on `main`;
+- phase tag `phase-11-complete`;
+- version tag `v0.11.0`.
+
+GitHub Gate: COMPLETE.
 
 ## Version
 
@@ -702,7 +730,14 @@ Implement the formal ProcureFlow data-quality, logic-quality and reconciliation 
 
 ## GitHub Gate
 
-Complete phase branch workflow, Pull Request, merge, push and phase tag.
+- phase branch `phase/11-testing-hardening` completed;
+- Pull Request `#14 — Phase 11 — Testing & Hardening` merged;
+- merge commit `9b301d6ee20dd6077195d610ff06a30a81e042df`;
+- final release-state synchronization completed on `main`;
+- phase tag `phase-11-complete`;
+- version tag `v0.11.0`.
+
+GitHub Gate: COMPLETE.
 
 ## Version
 
@@ -781,7 +816,14 @@ Develop:
 
 ## GitHub Gate
 
-Complete phase branch workflow, Pull Request, merge, push and phase tag.
+- phase branch `phase/11-testing-hardening` completed;
+- Pull Request `#14 — Phase 11 — Testing & Hardening` merged;
+- merge commit `9b301d6ee20dd6077195d610ff06a30a81e042df`;
+- final release-state synchronization completed on `main`;
+- phase tag `phase-11-complete`;
+- version tag `v0.11.0`.
+
+GitHub Gate: COMPLETE.
 
 ## Version
 
@@ -1054,7 +1096,7 @@ v0.10.0
 
 ## Status
 
-IN PROGRESS — TECHNICAL VALIDATION COMPLETE, GITHUB GATE PENDING
+COMPLETED
 
 ## Target Version
 
@@ -1122,7 +1164,14 @@ Perform complete system validation, resolve defects and harden ProcureFlow for f
 
 ## GitHub Gate
 
-Complete phase branch workflow, Pull Request, merge, push and phase tag.
+- phase branch `phase/11-testing-hardening` completed;
+- Pull Request `#14 — Phase 11 — Testing & Hardening` merged;
+- merge commit `9b301d6ee20dd6077195d610ff06a30a81e042df`;
+- final release-state synchronization completed on `main`;
+- phase tag `phase-11-complete`;
+- version tag `v0.11.0`.
+
+GitHub Gate: COMPLETE.
 
 ## Version
 
@@ -1237,34 +1286,31 @@ v1.0.0
 | 8 | VBA Foundations | COMPLETED | v0.8.1 |
 | 9 | Automation | COMPLETED | v0.9.0 |
 | 10 | Reporting & Dashboard | COMPLETED | v0.10.0 |
-| 11 | Testing & Hardening | IN PROGRESS | v0.11.0 |
+| 11 | Testing & Hardening | COMPLETED | v0.11.0 |
 | 12 | Documentation & Portfolio Release | NOT STARTED | v1.0.0 |
 
 ---
 
 # 17. Current Immediate Next Step
 
-Phase 10 — Reporting & Dashboard is complete.
+Phase 11 — Testing & Hardening is complete.
 
 Publication evidence:
 
-- Phase branch: `phase/10-reporting-dashboard`
-- Pull Request: `#13 — Phase 10 — Reporting & Dashboard`
+- Pull Request: `#14 — Phase 11 — Testing & Hardening`
 - Pull Request status: MERGED
-- Merge commit: `6a8f07506f189dc8966f83975ccb883eb3f2f920`
-- release version: `v0.10.0`
-- phase tag: `phase-10-complete`
+- merge commit: `9b301d6ee20dd6077195d610ff06a30a81e042df`
+- release version: `v0.11.0`
+- phase tag: `phase-11-complete`
 
-The current development phase is:
+The next development phase is:
 
-Phase 11 — Testing & Hardening
+Phase 12 — Documentation & Portfolio Release
 
 Status:
 
-IN PROGRESS
+NOT STARTED
 
 Target version:
 
-`v0.11.0`
-
-Phase 11 is in progress on `phase/11-testing-hardening`, created from the released `v0.10.0` `main` baseline.
+`v1.0.0`
