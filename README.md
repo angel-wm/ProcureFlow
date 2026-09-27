@@ -12,7 +12,7 @@ Project status:
 
 Current released version:
 
-`v0.11.0`
+`v0.11.1`
 
 Current development phase:
 

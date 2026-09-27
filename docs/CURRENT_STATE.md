@@ -6,7 +6,7 @@ IN DEVELOPMENT
 
 ## Current Version
 
-v0.11.0
+v0.11.1
 
 ## Current Phase
 
@@ -46,6 +46,21 @@ Version Tag:
 
 `v0.11.0`
 ## Corrective Release History
+
+### v0.11.1 — Post-Phase-11 Documentation Synchronization
+
+The formal Phase 11 completion version remains:
+
+0.11.0
+
+0.11.1 is a documentation-only corrective release published after Phase 11.
+
+Scope:
+
+- synchronized the final Phase 11 summary in docs/TESTING.md;
+- corrected the stale P11-021 NOT RUN statement after the test had formally passed;
+- no workbook, VBA, Power Query, formula, PivotTable, reporting or business-logic behavior changed.
+
 
 Corrective releases do not change the formal completion version of the phase that preceded them unless explicitly stated.
 

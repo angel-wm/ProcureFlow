@@ -6,7 +6,7 @@ Status: CONFIRMED
 Project State: IN DEVELOPMENT
 Current Phase: Phase 11 — Testing & Hardening
 Current Phase Status: COMPLETED
-Current Released Version: v0.11.0
+Current Released Version: v0.11.1
 This roadmap defines the approved sequential development plan for ProcureFlow.
 
 A phase is only considered COMPLETED after its technical work, validation, documentation and GitHub publication gate have all been completed.
