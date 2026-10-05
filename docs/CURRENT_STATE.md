@@ -10,15 +10,15 @@ v0.11.1
 
 ## Current Phase
 
-Phase 11 — Testing & Hardening
+Phase 12 — Documentation & Portfolio Release
 
-Status: COMPLETED
+Status: IN PROGRESS
 
-Target Version: `v0.11.0`
+Target Version: `v1.0.0`
 
 Phase Branch:
 
-`phase/11-testing-hardening`
+`phase/12-documentation-portfolio-release`
 
 ## Last Completed Phase
 
@@ -282,26 +282,27 @@ See:
 
 ## Next Immediate Step
 
-Phase 11 — Testing & Hardening is complete and released as:
+Phase 12 — Documentation & Portfolio Release is now in progress.
 
-`v0.11.0`
+Phase branch:
 
-Publication evidence:
+`phase/12-documentation-portfolio-release`
 
-- Phase branch: `phase/11-testing-hardening`
-- Pull Request: `#14 — Phase 11 — Testing & Hardening`
-- Pull Request status: MERGED
-- Merge commit: `9b301d6ee20dd6077195d610ff06a30a81e042df`
-- Phase tag: `phase-11-complete`
-- Version tag: `v0.11.0`
+Current release baseline:
 
-The next development phase is Phase 12 — Documentation & Portfolio Release.
+`v0.11.1`
 
-## Next Phase
+Immediate work:
+
+- audit canonical documentation and repository consistency;
+- identify and resolve documentation drift against actual implementation evidence;
+- prepare the final portfolio and release documentation required for `v1.0.0`.
+
+## Current Development Phase
 
 Phase 12 — Documentation & Portfolio Release
 
-Status: NOT STARTED
+Status: IN PROGRESS
 
 Target Version:
 

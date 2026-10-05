@@ -16,21 +16,21 @@ Current released version:
 
 Current development phase:
 
-**Phase 11 — Testing & Hardening**
+**Phase 12 — Documentation & Portfolio Release**
 
-Phase 11 status:
+Phase 12 status:
 
-**COMPLETED**
+**IN PROGRESS**
 
 Last completed phase:
 
 **Phase 11 — Testing & Hardening**
 
-Pull Request:
+Last completed phase Pull Request:
 
 `#14 — Phase 11 — Testing & Hardening`
 
-Version:
+Last completed phase version:
 
 `v0.11.0`
 ## Completed Phases

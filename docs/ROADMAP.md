@@ -4,8 +4,8 @@
 
 Status: CONFIRMED
 Project State: IN DEVELOPMENT
-Current Phase: Phase 11 — Testing & Hardening
-Current Phase Status: COMPLETED
+Current Phase: Phase 12 — Documentation & Portfolio Release
+Current Phase Status: IN PROGRESS
 Current Released Version: v0.11.1
 This roadmap defines the approved sequential development plan for ProcureFlow.
 
@@ -1183,7 +1183,7 @@ v0.11.0
 
 ## Status
 
-NOT STARTED
+IN PROGRESS
 
 ## Target Version
 
@@ -1303,13 +1303,13 @@ Publication evidence:
 - release version: `v0.11.0`
 - phase tag: `phase-11-complete`
 
-The next development phase is:
+The current development phase is:
 
 Phase 12 — Documentation & Portfolio Release
 
 Status:
 
-NOT STARTED
+IN PROGRESS
 
 Target version:
 

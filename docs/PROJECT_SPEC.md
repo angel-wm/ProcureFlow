@@ -4,9 +4,9 @@
 
 Status: CONFIRMED DESIGN BASELINE  
 Project State: IN DEVELOPMENT  
-Current Phase: Phase 11 — Testing & Hardening
+Current Phase: Phase 12 — Documentation & Portfolio Release
 Current Phase Status: IN PROGRESS
-Current Released Version: v0.10.0
+Current Released Version: v0.11.1
 
 This document defines the approved functional and business specification of ProcureFlow before implementation begins.
 

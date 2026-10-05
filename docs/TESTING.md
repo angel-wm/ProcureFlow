@@ -6,11 +6,11 @@ Status: PHASE 11 TESTING COMPLETE
 
 Current Phase:
 
-Phase 11 — Testing & Hardening
+Phase 12 — Documentation & Portfolio Release
 
 Current Released Version:
 
-`v0.11.0`
+`v0.11.1`
 
 Target Phase Version:
 
