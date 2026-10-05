@@ -1655,6 +1655,20 @@ Defines the data model at field level once Phase 1 is completed.
 
 Maintains testing strategy and evidence.
 
+## `USER_GUIDE.md`
+
+Defines the supported operational handoff for end users and reviewers, including:
+
+- prerequisites and setup;
+- source-data placement;
+- business configuration;
+- production refresh workflow;
+- Quality Control interpretation;
+- replenishment and management workflows;
+- protection boundaries;
+- failure recovery;
+- troubleshooting.
+
 ## `PHASE_XX_CLOSEOUT.md`
 
 Provides historical evidence of each completed phase.

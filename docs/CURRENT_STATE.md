@@ -205,16 +205,18 @@ Implemented project assets include:
 - all four mandatory User Acceptance Testing scenarios passed;
 - final Phase 11 end-to-end reconciliation passed;
 - complete production refresh performance measured at approximately 12 minutes;
-- no critical known Phase 11 defect remains open.
+- no critical known Phase 11 defect remains open;
+- Phase 12 canonical documentation audit completed against Phase 0–11 release history;
+- `docs/USER_GUIDE.md` created with setup, configuration, production refresh, operational workflow, failure recovery and troubleshooting guidance;
+- README Quick Start added for public-facing onboarding.
 
 ## Remaining Phase 12 Work
 
 The remaining project scope is the Documentation & Portfolio Release work required for `v1.0.0`, including:
 
-- canonical documentation audit and final synchronization;
-- final user, setup and refresh workflow documentation;
 - final source-artifact and repository review;
 - representative portfolio screenshots;
+- final public-facing README polish;
 - final Definition of Done and acceptance review;
 - Phase 12 closeout and final GitHub release publication.
 
@@ -311,9 +313,9 @@ Current release baseline:
 
 Immediate work:
 
-- audit canonical documentation and repository consistency;
-- identify and resolve documentation drift against actual implementation evidence;
-- prepare the final portfolio and release documentation required for `v1.0.0`.
+- validate and publish the final user-handoff documentation;
+- audit final workbook, Power Query and VBA source artifacts;
+- prepare the portfolio screenshots and public release presentation required for `v1.0.0`.
 
 ## Current Development Phase
 

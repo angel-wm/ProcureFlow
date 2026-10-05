@@ -310,6 +310,26 @@ The current Power Query pipeline loads the following structured Excel Tables:
 | `tblReplenishment` | Product × Site replenishment calculation engine | 1,800 |
 | `tblSupplierPerformance` | Supplier-performance calculation model | 40 |
 
+## Quick Start
+
+1. Use Microsoft Excel 365 Desktop for Windows.
+2. Preserve the repository folder relationship between `workbook/` and `data/raw/`.
+3. Place the four required source CSV files in `data/raw/`:
+   - `parts_master.csv`
+   - `supply_chain_history.csv`
+   - `purchase_orders.csv`
+   - `quality_incidents.csv`
+4. Open `workbook/ProcureFlow.xlsm`.
+5. Review the business configuration in `01_CONFIG`.
+6. Return to `00_HOME`.
+7. Run the `Refresh ProcureFlow` button.
+8. Confirm the workflow and Quality Control state before relying on refreshed outputs.
+9. Use `40_RPT_Replenishment` for operational action and `41_DASH_Management` for management reporting.
+
+The complete setup, refresh, operating and troubleshooting workflow is documented in:
+
+`docs/USER_GUIDE.md`
+
 ## Documentation
 
 Canonical project documentation is maintained under:
@@ -326,6 +346,7 @@ Important documents include:
 - `docs/DATA_DICTIONARY.md`
 - `docs/TESTING.md`
 - `docs/FORMULAS.md`
+- `docs/USER_GUIDE.md`
 
 Phase closeout documents are maintained under:
 
