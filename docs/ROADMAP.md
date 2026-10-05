@@ -1202,7 +1202,9 @@ Finalize ProcureFlow as a professional, reproducible and portfolio-ready project
 - verify all phase closeouts;
 - verify decisions;
 - export final VBA source;
-- produce screenshots;
+- complete final UI/UX and visual polish;
+- revalidate affected user-facing and protection boundaries;
+- produce final screenshots only after visual polish;
 - document user workflow;
 - document refresh workflow;
 - document installation / setup;
@@ -1287,24 +1289,37 @@ v1.0.0
 
 # 17. Current Immediate Next Step
 
-Phase 11 — Testing & Hardening is complete.
-
-Publication evidence:
-
-- Pull Request: `#14 — Phase 11 — Testing & Hardening`
-- Pull Request status: MERGED
-- merge commit: `9b301d6ee20dd6077195d610ff06a30a81e042df`
-- release version: `v0.11.0`
-- phase tag: `phase-11-complete`
-
-The current development phase is:
-
-Phase 12 — Documentation & Portfolio Release
-
-Status:
+Phase 12 — Documentation & Portfolio Release remains:
 
 IN PROGRESS
 
 Target version:
 
 `v1.0.0`
+
+Completed Phase 12 work to date includes:
+
+- formal Phase 12 baseline;
+- canonical documentation audit;
+- user/setup/refresh handoff documentation;
+- Release Assets Audit;
+- repository release-hygiene validation;
+- preliminary Definition of Done acceptance checkpoint.
+
+The authoritative preliminary acceptance checkpoint is:
+
+`docs/phases/PHASE_12_ACCEPTANCE.md`
+
+Next implementation work:
+
+Phase 12 — UI/UX & Visual Polish
+
+This work remains inside Phase 12 under `DEC-065`.
+
+After visual polish:
+
+1. run targeted post-polish regression;
+2. produce representative final screenshots;
+3. complete final public README presentation;
+4. finalize Definition of Done acceptance;
+5. execute Phase 12 closeout and GitHub release gate.

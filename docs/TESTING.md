@@ -3462,3 +3462,24 @@ The release-asset audit intentionally relies on the already validated Phase 11 e
 Result:
 
 PASS
+# Phase 12 — Preliminary Definition of Done Acceptance
+
+Status:
+
+PRELIMINARY PASS / FINAL GATE PENDING
+
+The Phase 12 Definition of Done was reviewed before the planned final visual-polish work.
+
+Authoritative matrix:
+
+`docs/phases/PHASE_12_ACCEPTANCE.md`
+
+Current classification:
+
+- 19 criteria PRE-ACCEPTED;
+- 5 criteria require targeted revalidation after visual polish;
+- 2 criteria remain pending final visual presentation;
+- 6 criteria remain pending Phase 12 closeout and final GitHub release publication;
+- no Definition of Done criterion is currently classified as failed.
+
+Final acceptance must not be recorded until the post-polish regression, screenshots, final README presentation and GitHub release gate are complete.

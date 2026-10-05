@@ -214,17 +214,41 @@ Implemented project assets include:
 - all 16 Power Query source files and 5 production VBA modules remain versioned and unchanged;
 - repository release-hygiene checks passed.
 
+## Phase 12 Preliminary Acceptance
+
+A formal preliminary Definition of Done checkpoint is recorded in:
+
+`docs/phases/PHASE_12_ACCEPTANCE.md`
+
+Current preliminary matrix:
+
+- 19 criteria PRE-ACCEPTED;
+- 5 criteria require targeted revalidation after visual polish;
+- 2 criteria remain pending visual presentation;
+- 6 criteria remain pending the final GitHub/release gate;
+- 0 criteria are currently classified as failed.
+
+Visual polish remains inside Phase 12 under:
+
+`DEC-065`
+
 ## Remaining Phase 12 Work
 
-The remaining project scope is the Documentation & Portfolio Release work required for `v1.0.0`, including:
+The remaining project scope required for `v1.0.0` is:
 
-- representative portfolio screenshots;
+- UI/UX and visual polish of the workbook;
+- targeted post-polish regression of affected user-facing/protection boundaries;
+- representative final portfolio screenshots;
 - final public-facing README polish;
-- final Definition of Done and acceptance review;
-- Phase 12 closeout and final GitHub release publication.
+- final Definition of Done acceptance;
+- `PHASE_12_CLOSEOUT.md`;
+- final Pull Request merge to `main`;
+- `phase-12-complete`;
+- `v1.0.0`;
+- final GitHub Release;
+- final `CURRENT_STATE.md` transition to `COMPLETED`.
 
 No Phase 12 deliverable is considered complete until supported by actual validation and release evidence.
-
 ## Official Dataset
 
 Aerospace Supply Chain Performance & Forecasting
@@ -304,7 +328,7 @@ See:
 
 ## Next Immediate Step
 
-Phase 12 — Documentation & Portfolio Release is now in progress.
+Phase 12 — Documentation & Portfolio Release remains in progress.
 
 Phase branch:
 
@@ -314,12 +338,23 @@ Current release baseline:
 
 `v0.11.1`
 
-Immediate work:
+Next dedicated workstream:
 
-- validate and publish the final user-handoff documentation;
-- audit final workbook, Power Query and VBA source artifacts;
-- prepare the portfolio screenshots and public release presentation required for `v1.0.0`.
+`Phase 12 — UI/UX & Visual Polish`
 
+Authoritative handoff:
+
+`docs/phases/PHASE_12_ACCEPTANCE.md`
+
+The visual-polish work must preserve the validated technical/business baseline unless a functional change is explicitly approved and revalidated.
+
+After visual polish:
+
+- run targeted post-polish regression;
+- capture final portfolio screenshots;
+- finish the public README presentation;
+- complete final acceptance;
+- execute Phase 12 closeout and the `v1.0.0` GitHub gate.
 ## Current Development Phase
 
 Phase 12 — Documentation & Portfolio Release
