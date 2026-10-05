@@ -255,16 +255,19 @@ Target application:
 
 Microsoft Excel 365 Desktop for Windows.
 
-The workbook currently contains the approved layered architecture for:
+The workbook currently contains the implemented and validated layered architecture for:
 
 - configuration and control;
-- structured data;
-- operational calculations;
-- PivotTable analysis;
-- reporting;
-- management dashboard development.
+- Power Query ingestion and structured data;
+- operational replenishment calculations;
+- Supplier Performance calculations;
+- centralized Quality Control;
+- PivotTables, PivotCharts, Slicers and Timelines;
+- VBA refresh orchestration;
+- operational replenishment reporting;
+- management dashboarding.
 
-Later-phase worksheets may exist structurally without implying that their future functionality has already been implemented.
+Technical implementation through Phase 11 has been completed and validated. Phase 12 is focused on final documentation, portfolio presentation and release publication rather than introducing a new operational layer.
 
 ## Technology Stack
 
@@ -365,18 +368,19 @@ Major functionality is not marked implemented until it has been:
 
 Each completed phase uses a dedicated branch, Pull Request, merge, phase-completion tag and semantic version tag.
 
-## Next Planned Phase
+## Current Development Phase
 
-**Phase 11 — Testing & Hardening**
+**Phase 12 — Documentation & Portfolio Release**
 
 Target version:
 
-`v0.11.0`
+`v1.0.0`
+
 ## Portfolio Status
 
-ProcureFlow is still under active development.
+ProcureFlow is in its final documentation and portfolio-release phase.
 
-The final public-facing portfolio presentation, screenshots, polished repository documentation and complete README are planned for the later documentation and release phase.
+Phase 12 is responsible for the final public-facing README, representative screenshots, reproducibility and usage documentation, repository-quality review, final acceptance, `v1.0.0` tag and GitHub Release.
 
 ## License
 

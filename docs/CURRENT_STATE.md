@@ -152,8 +152,7 @@ Implemented project assets include:
 - seven Data Validation-controlled configuration inputs;
 - eight workbook-scoped `cfg_*` Defined Names: seven business configuration names plus technical `cfg_RawDataFolder`;
 - Reporting Date exposure;
-- `02_CONTROL` structural foundation;
-- remaining later-phase technical-sheet placeholders;
+- operational `02_CONTROL` Quality Control and automation-state layer;
 - implemented physical `16_DATA_Date` worksheet with `tblDate`;
 - approved workbook visual design system;
 - layer-based worksheet tab colors;
@@ -193,15 +192,33 @@ Implemented project assets include:
 - validated recovery from a controlled Power Query source failure;
 - `00_HOME` integration for Last Successful Refresh and Overall Quality Status;
 - user-facing `Refresh ProcureFlow` Form Control button;
-- Phase 9 automation test evidence recorded in `docs/TESTING.md`.
+- Phase 9 automation test evidence recorded in `docs/TESTING.md`;
+- implemented and validated `40_RPT_Replenishment` operational report;
+- implemented and validated `41_DASH_Management` management dashboard;
+- Dynamic Array operational reporting with validated filtering and priority sorting;
+- eight reconciled management KPI cards;
+- validated management charts and navigation;
+- full-system Phase 11 regression testing;
+- validated failure-path and recovery behavior;
+- Phase 11 edge-case testing and Service Level boundary correction;
+- validated workbook protection hardening;
+- all four mandatory User Acceptance Testing scenarios passed;
+- final Phase 11 end-to-end reconciliation passed;
+- complete production refresh performance measured at approximately 12 minutes;
+- no critical known Phase 11 defect remains open.
 
-## Not Yet Implemented
+## Remaining Phase 12 Work
 
-The following remain assigned to later roadmap phases:
+The remaining project scope is the Documentation & Portfolio Release work required for `v1.0.0`, including:
 
-- later protection, performance and release-hardening work.
+- canonical documentation audit and final synchronization;
+- final user, setup and refresh workflow documentation;
+- final source-artifact and repository review;
+- representative portfolio screenshots;
+- final Definition of Done and acceptance review;
+- Phase 12 closeout and final GitHub release publication.
 
-No future-phase component is considered implemented without actual implementation and validation evidence.
+No Phase 12 deliverable is considered complete until supported by actual validation and release evidence.
 
 ## Official Dataset
 

@@ -361,12 +361,11 @@ Create the first physical ProcureFlow workbook and establish a professional work
 
 ## GitHub Gate
 
-- phase branch `phase/11-testing-hardening` completed;
-- Pull Request `#14 — Phase 11 — Testing & Hardening` merged;
-- merge commit `9b301d6ee20dd6077195d610ff06a30a81e042df`;
-- final release-state synchronization completed on `main`;
-- phase tag `phase-11-complete`;
-- version tag `v0.11.0`.
+- phase branch `phase/02-workbook-foundation` completed;
+- Pull Request `#3 — Phase 2 — Workbook Foundation` merged;
+- merge commit `bf9dcb8`;
+- phase tag `phase-2-complete`;
+- version tag `v0.3.0`.
 
 GitHub Gate: COMPLETE.
 
@@ -455,12 +454,11 @@ Build a reproducible Power Query ingestion and preparation pipeline from raw sou
 
 ## GitHub Gate
 
-- phase branch `phase/11-testing-hardening` completed;
-- Pull Request `#14 — Phase 11 — Testing & Hardening` merged;
-- merge commit `9b301d6ee20dd6077195d610ff06a30a81e042df`;
-- final release-state synchronization completed on `main`;
-- phase tag `phase-11-complete`;
-- version tag `v0.11.0`.
+- phase branch `phase/03-power-query-pipeline` completed;
+- Pull Request `#4 — Phase 3 — Power Query Pipeline` merged;
+- merge commit `540aa99`;
+- phase tag `phase-3-complete`;
+- version tag `v0.4.0`.
 
 GitHub Gate: COMPLETE.
 
@@ -535,12 +533,11 @@ Build the structured operational calculation model required before implementing 
 
 ## GitHub Gate
 
-- phase branch `phase/11-testing-hardening` completed;
-- Pull Request `#14 — Phase 11 — Testing & Hardening` merged;
-- merge commit `9b301d6ee20dd6077195d610ff06a30a81e042df`;
-- final release-state synchronization completed on `main`;
-- phase tag `phase-11-complete`;
-- version tag `v0.11.0`.
+- phase branch `phase/04-operational-model` completed;
+- Pull Request `#5 — Phase 4 — Operational Model` merged;
+- merge commit `7d3f11fdb069436dd767fd1c371be169c31b2804`;
+- phase tag `phase-4-complete`;
+- version tag `v0.5.0`.
 
 GitHub Gate: COMPLETE.
 
@@ -649,12 +646,11 @@ Legacy functions will be understood but not forced into production logic when a 
 
 ## GitHub Gate
 
-- phase branch `phase/11-testing-hardening` completed;
-- Pull Request `#14 — Phase 11 — Testing & Hardening` merged;
-- merge commit `9b301d6ee20dd6077195d610ff06a30a81e042df`;
-- final release-state synchronization completed on `main`;
-- phase tag `phase-11-complete`;
-- version tag `v0.11.0`.
+- phase branch `phase/05-business-logic-advanced-formulas` completed;
+- Pull Request `#6 — Phase 5 — Business Logic & Advanced Formulas` merged;
+- merge commit `43efd6a76bd9f4ce54093121289486bafd32e2bf`;
+- phase tag `phase-5-complete`;
+- version tag `v0.6.0`.
 
 GitHub Gate: COMPLETE.
 
@@ -730,12 +726,11 @@ Implement the formal ProcureFlow data-quality, logic-quality and reconciliation 
 
 ## GitHub Gate
 
-- phase branch `phase/11-testing-hardening` completed;
-- Pull Request `#14 — Phase 11 — Testing & Hardening` merged;
-- merge commit `9b301d6ee20dd6077195d610ff06a30a81e042df`;
-- final release-state synchronization completed on `main`;
-- phase tag `phase-11-complete`;
-- version tag `v0.11.0`.
+- phase branch `phase/06-quality-control-system` completed;
+- Pull Request `#7 — Phase 6 — Quality Control System` merged;
+- merge commit `8a5dc7279eb3701e86c8014250cce0f8671b4515`;
+- phase tag `phase-6-complete`;
+- version tag `v0.7.0`.
 
 GitHub Gate: COMPLETE.
 
@@ -816,12 +811,11 @@ Develop:
 
 ## GitHub Gate
 
-- phase branch `phase/11-testing-hardening` completed;
-- Pull Request `#14 — Phase 11 — Testing & Hardening` merged;
-- merge commit `9b301d6ee20dd6077195d610ff06a30a81e042df`;
-- final release-state synchronization completed on `main`;
-- phase tag `phase-11-complete`;
-- version tag `v0.11.0`.
+- phase branch `phase/07-analysis-pivottables` completed;
+- Pull Request `#8 — Phase 7 — Analysis & PivotTables` merged;
+- merge commit `008340ac0c2a8c8cf872a42d31a44b116df37cf8`;
+- phase tag `phase-7-complete`;
+- version tag `v0.8.0`.
 
 GitHub Gate: COMPLETE.
 
@@ -1287,7 +1281,7 @@ v1.0.0
 | 9 | Automation | COMPLETED | v0.9.0 |
 | 10 | Reporting & Dashboard | COMPLETED | v0.10.0 |
 | 11 | Testing & Hardening | COMPLETED | v0.11.0 |
-| 12 | Documentation & Portfolio Release | NOT STARTED | v1.0.0 |
+| 12 | Documentation & Portfolio Release | IN PROGRESS | v1.0.0 |
 
 ---
 

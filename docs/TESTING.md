@@ -2,7 +2,7 @@
 
 ## Document Status
 
-Status: PHASE 11 TESTING COMPLETE
+Status: PHASE 11 TESTING COMPLETE — PHASE 12 FINAL RELEASE VALIDATION PENDING
 
 Current Phase:
 
@@ -12,11 +12,15 @@ Current Released Version:
 
 `v0.11.1`
 
-Target Phase Version:
+Current Phase Target Version:
+
+`v1.0.0`
+
+Last Completed Test Phase Version:
 
 `v0.11.0`
 
-Formal Phase 11 testing and hardening are complete.
+Formal Phase 11 testing and hardening are complete. Phase 12 final documentation, repository and release acceptance evidence has not yet been completed.
 
 This document records validation evidence only for work that has actually been executed.
 
