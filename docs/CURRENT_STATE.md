@@ -208,13 +208,16 @@ Implemented project assets include:
 - no critical known Phase 11 defect remains open;
 - Phase 12 canonical documentation audit completed against Phase 0–11 release history;
 - `docs/USER_GUIDE.md` created with setup, configuration, production refresh, operational workflow, failure recovery and troubleshooting guidance;
-- README Quick Start added for public-facing onboarding.
+- README Quick Start added for public-facing onboarding;
+- Release Assets Audit passed against the validated `v0.11.1` baseline;
+- executable workbook remains unchanged from the validated Phase 11 baseline;
+- all 16 Power Query source files and 5 production VBA modules remain versioned and unchanged;
+- repository release-hygiene checks passed.
 
 ## Remaining Phase 12 Work
 
 The remaining project scope is the Documentation & Portfolio Release work required for `v1.0.0`, including:
 
-- final source-artifact and repository review;
 - representative portfolio screenshots;
 - final public-facing README polish;
 - final Definition of Done and acceptance review;
