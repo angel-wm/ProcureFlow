@@ -1,302 +1,53 @@
 # ProcureFlow
 
-ProcureFlow is an Excel-based Procurement & Inventory Management System designed as a professional end-to-end workbook for procurement, inventory, replenishment and supplier-performance workflows.
+ProcureFlow is an Excel-based Procurement & Inventory Management System for inventory monitoring, replenishment decisions, procurement analysis, supplier performance, Quality Control, and management reporting.
 
-The solution was developed incrementally in Microsoft Excel with reproducible data ingestion, structured operational models, auditable formulas, validation controls and Git/GitHub documentation.
+It is built as a professional end-to-end Excel solution rather than an isolated dashboard: source data is ingested through Power Query, business rules remain auditable in Excel, VBA orchestrates the supported refresh workflow, and reporting is backed by validation controls and documented test evidence.
 
-## Current Project Status
+## Is ProcureFlow relevant to you?
 
-Project status:
+ProcureFlow is designed for:
 
-`COMPLETED`
+- procurement and inventory analysts who refresh data, monitor stock, identify replenishment needs, and investigate exceptions;
+- buyers who need recommended order quantities, site context, open-purchase visibility, and prioritization;
+- procurement or operations managers who need inventory-risk, supplier-delivery, quality, and procurement KPIs;
+- reviewers who want to inspect a versioned, portfolio-ready Excel implementation with Power Query, formulas, PivotTables, VBA, testing evidence, and technical documentation.
 
-Current released version:
+### Important requirements and limitations
 
-`v1.0.1`
+Before using the supported production workflow, note that:
 
-Final completed phase:
+- the supported platform is **Microsoft Excel 365 Desktop for Windows**;
+- the production refresh workflow depends on VBA and therefore requires macro execution to be permitted by the user's environment;
+- four source CSV files are required under `data/raw/` and are intentionally excluded from Git;
+- the relative folder relationship between `workbook/` and `data/raw/` must be preserved;
+- the validated executable workbook remains the `v1.0.0` artifact; `v1.0.1` is a documentation and repository-state maintenance release.
 
-**Phase 12 — Documentation & Portfolio Release**
+For detailed setup and operating instructions, see the [ProcureFlow User Guide](docs/USER_GUIDE.md).
 
-Phase 12 status:
+## Quick Start
 
-**COMPLETED**
+1. Clone or download this repository.
+2. Place the four required source files in `data/raw/`:
+   - `parts_master.csv`
+   - `supply_chain_history.csv`
+   - `purchase_orders.csv`
+   - `quality_incidents.csv`
+3. Open [`workbook/ProcureFlow.xlsm`](workbook/ProcureFlow.xlsm) in Microsoft Excel 365 Desktop for Windows.
+4. Allow VBA execution only if permitted by your environment's security policy.
+5. Review the business configuration on `01_CONFIG`.
+6. Return to `00_HOME` and run **Refresh ProcureFlow**.
+7. Confirm the workflow state and Overall Quality Status before relying on refreshed outputs.
+8. Use `40_RPT_Replenishment` for operational replenishment actions and `41_DASH_Management` for management reporting.
 
-Final Phase Pull Request:
+A successful production refresh should leave the workflow in an accepted state such as:
 
-`#15 — Phase 12 — Documentation & Portfolio Release`
+- `WorkflowStatus = SUCCESS`;
+- `PivotRefreshStatus = PASS`;
+- Overall Quality Status = `PASS`;
+- `LastSuccessfulRefresh` advanced to the accepted refresh timestamp.
 
-Final merge commit:
-
-`d3d382a485a890fbd4cb692dd261127d1633b06b`
-
-Phase tag:
-
-`phase-12-complete`
-
-Phase 12 completion release:
-
-`v1.0.0`
-
-Post-release maintenance:
-
-`v1.0.1` — documentation and repository-state synchronization only. The executable workbook remains the validated `v1.0.0` artifact.
-## Completed Phases
-
-### Phase 0 — Project Design
-
-Status:
-
-`COMPLETED`
-
-Version:
-
-`v0.1.0`
-
-Established the initial project specification, architecture, roadmap, decision framework and Git/GitHub governance.
-
-### Phase 1 — Data Design
-
-Status:
-
-`COMPLETED`
-
-Version:
-
-`v0.2.0`
-
-Established and validated the logical data model, field definitions, grains, source relationships and data-quality baseline.
-
-### Phase 2 — Workbook Foundation
-
-Status:
-
-`COMPLETED`
-
-Version:
-
-`v0.3.0`
-
-Created the physical macro-enabled Excel workbook, configuration layer, navigation, worksheet architecture, visual conventions, Named Ranges and initial controls.
-
-### Phase 3 — Power Query Pipeline
-
-Status:
-
-`COMPLETED`
-
-Technical release:
-
-`v0.4.0`
-
-Phase 3 corrective documentation release:
-
-`v0.4.1`
-
-Implemented the reproducible Power Query pipeline from raw CSV files through source, staging, dimension and fact queries into structured Excel Tables.
-
-### Phase 4 — Operational Model
-
-Status:
-
-`COMPLETED`
-
-Version:
-
-`v0.5.0`
-
-Completed implementation includes:
-
-- Product × Site operational model;
-- `tblReplenishment`;
-- 1,800 validated Product × Site rows;
-- Supplier operational model;
-- `tblSupplierPerformance`;
-- 40 validated Supplier rows;
-- Product and Supplier master attributes;
-- Reporting Date relationships;
-- weekly Inventory Snapshot resolution;
-- On-Hand Quantity;
-- Blocked Quantity;
-- Backorder Quantity;
-- completed historical-demand window preparation;
-- Lead-Time inputs;
-- Purchase Order inputs prepared for later business logic;
-- versioned Excel formula documentation;
-- full post-implementation Refresh validation.
-
-Phase 4 intentionally stopped before Phase 5 business calculations.
-
-### Phase 5 — Business Logic & Advanced Formulas
-
-Status:
-
-`COMPLETED`
-
-Version:
-
-`v0.6.0`
-
-Corrective documentation releases after Phase 5:
-
-- `v0.6.1` — synchronized Phase 5 release metadata; commit `0f447a3599556a0444103d43cdfc49ff1eef48cb`.
-- `v0.6.2` — finalized Phase 5 release synchronization; commit `1ae9dfecdba3badd7bf071a35341994b66594602`.
-
-These corrective versions did not change the formal Phase 5 completion version, which remains `v0.6.0`.
-
-Completed implementation includes:
-
-- Historical Demand;
-- Average Weekly Demand;
-- demand variability;
-- historical Actual Lead Time;
-- Lead-Time variability;
-- Effective Lead-Time fallback;
-- Open PO Quantity;
-- Available Stock;
-- configurable Service Levels;
-- Safety Stock;
-- Reorder Point;
-- Inventory Position;
-- Target Stock;
-- Recommended Order Quantity;
-- Inventory Status;
-- NoRecentDemand;
-- On-Time Delivery metrics;
-- Late Delivery metrics;
-- partial-receipt metrics;
-- supplier Lead-Time metrics;
-- supplier Quality Incident counts;
-- documented and validated Excel business formulas.
-
-Phase 5 validation completed with zero formula errors. The Product × Site replenishment engine contains 1,800 validated rows and Supplier Performance contains 40 validated Suppliers.
-
-### Phase 6 — Quality Control System
-
-Status:
-
-`COMPLETED`
-
-Version:
-
-`v0.7.0`
-
-Implemented the centralized Quality Control framework, reconciliation controls, Power Query technical-health feed and validated PASS / WARNING / FAIL behavior.
-
-### Phase 7 — Analysis & PivotTables
-
-Status:
-
-`COMPLETED`
-
-Version:
-
-`v0.8.0`
-
-Implemented the Inventory, Procurement and Supplier analytical layers using PivotTables, PivotCharts, Slicers and Timelines, with source-to-Pivot reconciliation and full refresh validation.
-
-### Phase 8 — VBA Foundations
-
-Status:
-
-`COMPLETED`
-
-Version:
-
-`v0.8.1`
-
-Established practical VBA foundations using the real ProcureFlow workbook, validated readiness for production automation and preserved educational VBA separately from the operational workbook.
-
-### Phase 9 — Automation
-
-Status:
-
-`COMPLETED`
-
-Version:
-
-`v0.9.0`
-
-Implemented the production VBA automation layer, including controlled synchronous Power Query refresh, persistent automation state, staged Quality Control orchestration, PivotTable refresh coordination, user-facing refresh execution, controlled failure handling and late-stage successful-refresh rollback protection.
-
-## Post-Phase-9 Corrective Releases
-
-### v0.9.1
-
-Documentation-only synchronization after the Phase 9 release. Published through Pull Request `#11` with no changes to the executable workbook, VBA, Power Query or business logic.
-
-### v0.9.2
-
-Documentation-only cleanup before Phase 10, covering duplicated Phase 9 test evidence, obsolete architecture-status wording, corrective-release traceability, CURRENT_STATE normalization and establishment of v0.9.2 as the Phase 10 baseline.
-
-### Phase 10 — Reporting & Dashboard
-
-Status:
-
-`COMPLETED`
-
-Version:
-
-`v0.10.0`
-
-Implemented the operational replenishment report and management dashboard, including dynamic report filtering, reconciled management KPIs, validated dashboard visuals, final navigation, accessibility-conscious status presentation and integration with the existing production refresh workflow.
-
-### Phase 11 — Testing & Hardening
-
-Status:
-
-`COMPLETED`
-
-Version:
-
-`v0.11.0`
-
-Completed full-system regression, failure-path and edge-case validation, performance measurement, protection hardening, User Acceptance Testing and final end-to-end reconciliation.
-
-### Phase 12 — Documentation & Portfolio Release
-
-Status:
-
-`COMPLETED`
-
-Version:
-
-`v1.0.0`
-
-Finalized canonical documentation, operating guidance, release-asset validation, professional UI/UX visual polish, targeted post-polish regression, portfolio screenshots, public README presentation and final release acceptance.
-
-Final targeted post-polish regression completed with:
-
-`9 / 9 PASS`
-
-Final Definition of Done:
-
-`32 / 32 ACCEPTED`
-
-No critical known defect remains open.
-## Current Workbook
-
-Executable workbook:
-
-`workbook/ProcureFlow.xlsm`
-
-Target application:
-
-Microsoft Excel 365 Desktop for Windows.
-
-The workbook currently contains the implemented and validated layered architecture for:
-
-- configuration and control;
-- Power Query ingestion and structured data;
-- operational replenishment calculations;
-- Supplier Performance calculations;
-- centralized Quality Control;
-- PivotTables, PivotCharts, Slicers and Timelines;
-- VBA refresh orchestration;
-- operational replenishment reporting;
-- management dashboarding.
-
-Technical implementation through Phase 11 was completed and validated, and Phase 12 completed final UI/UX visual polish, targeted post-polish regression, portfolio preparation and the final GitHub release gate in `v1.0.0`. The current maintenance release is `v1.0.1`, which changes documentation and repository-state metadata only; the executable workbook remains unchanged from `v1.0.0`.
+If refresh fails, do not treat changed worksheet values as accepted output. Use the [troubleshooting guidance](docs/USER_GUIDE.md#20-troubleshooting-checklist) before retrying.
 
 ## Portfolio Preview
 
@@ -304,13 +55,7 @@ Technical implementation through Phase 11 was completed and validated, and Phase
 
 ![ProcureFlow Management Dashboard](screenshots/procureflow-management-dashboard.png)
 
-The management dashboard provides a reconciled view of inventory risk, replenishment, open purchase orders, backorders, supplier delivery performance and quality incidents.
-
-### Home & Navigation
-
-![ProcureFlow Home](screenshots/procureflow-home.png)
-
-`00_HOME` provides the primary navigation and operating context, including Reporting Date, Last Successful Refresh and Overall Quality Status.
+The management dashboard provides a reconciled view of inventory risk, replenishment, open purchase orders, backorders, supplier delivery performance, and quality incidents.
 
 ### Replenishment Report
 
@@ -318,44 +63,41 @@ The management dashboard provides a reconciled view of inventory risk, replenish
 
 The operational replenishment report provides prioritized Product × Site actions with configurable filtering and validated replenishment outputs.
 
+### Home and Navigation
+
+![ProcureFlow Home](screenshots/procureflow-home.png)
+
+`00_HOME` provides the primary navigation and operating context, including Reporting Date, Last Successful Refresh, and Overall Quality Status.
+
 ### Quality Control
 
 ![ProcureFlow Quality Control](screenshots/procureflow-quality-control.png)
 
-The centralized Quality Control layer exposes structural, reconciliation, integrity and business-rule controls with explicit PASS / WARNING / FAIL states.
+The centralized Quality Control layer exposes structural, reconciliation, integrity, and business-rule controls with explicit PASS / WARNING / FAIL states.
 
-Additional technical evidence, including the Power Query dependency view, is maintained under `screenshots/`.
-## Technology Stack
+Additional technical evidence, including the Power Query dependency view, is available in [`screenshots/`](screenshots/).
 
-ProcureFlow is intentionally centered on Excel.
+## What ProcureFlow Includes
 
-Current and planned technologies include:
+The validated workbook contains:
 
-- Microsoft Excel 365 Desktop for Windows
-- Excel Tables
-- Structured References
-- Power Query
-- Excel formulas
-- Dynamic Arrays
-- Named Ranges and Named Formulas
-- Data Validation
-- Conditional Formatting
-- PivotTables and PivotCharts
-- Slicers and Timelines
-- Macros
-- Visual Basic for Applications (VBA)
-- Git
-- GitHub
-- Markdown technical documentation
+- reproducible Power Query ingestion and preparation;
+- structured Product, Site, Supplier, Inventory, Purchase Order, Quality, and Date data;
+- a 1,800-row Product × Site replenishment engine;
+- a 40-row Supplier Performance model;
+- Safety Stock, Reorder Point, Inventory Position, Target Stock, and Recommended Order Quantity logic;
+- centralized Quality Control and reconciliation;
+- Inventory, Procurement, and Supplier analytical PivotTables;
+- PivotCharts, Slicers, and Timelines;
+- VBA-driven production refresh orchestration;
+- an operational replenishment report;
+- a management dashboard;
+- versioned formula, Power Query, VBA, architecture, decision, and testing documentation.
 
-Power Pivot / Excel Data Model is not currently required.
-
-## Implemented Data Layer
-
-The current Power Query pipeline loads the following structured Excel Tables:
+### Implemented data layer
 
 | Excel Table | Purpose | Validated Rows |
-|---|---|---:|
+| --- | --- | ---: |
 | `tblProducts` | Product dimension | 300 |
 | `tblSites` | Site dimension | 6 |
 | `tblSuppliers` | Supplier dimension | 40 |
@@ -366,122 +108,138 @@ The current Power Query pipeline loads the following structured Excel Tables:
 | `tblReplenishment` | Product × Site replenishment calculation engine | 1,800 |
 | `tblSupplierPerformance` | Supplier-performance calculation model | 40 |
 
-## Quick Start
+## Architecture at a Glance
 
-1. Use Microsoft Excel 365 Desktop for Windows.
-2. Preserve the repository folder relationship between `workbook/` and `data/raw/`.
-3. Place the four required source CSV files in `data/raw/`:
-   - `parts_master.csv`
-   - `supply_chain_history.csv`
-   - `purchase_orders.csv`
-   - `quality_incidents.csv`
-4. Open `workbook/ProcureFlow.xlsm`.
-5. Review the business configuration in `01_CONFIG`.
-6. Return to `00_HOME`.
-7. Run the `Refresh ProcureFlow` button.
-8. Confirm the workflow and Quality Control state before relying on refreshed outputs.
-9. Use `40_RPT_Replenishment` for operational action and `41_DASH_Management` for management reporting.
+The supported data and operating flow is:
 
-The complete setup, refresh, operating and troubleshooting workflow is documented in:
+```text
+source CSV files
+    ↓
+Power Query ingestion and preparation
+    ↓
+structured Excel Tables
+    ↓
+operational formulas and business rules
+    ↓
+Quality Control
+    ↓
+PivotTables and analytical outputs
+    ↓
+VBA-orchestrated production refresh
+    ↓
+replenishment report and management dashboard
+```
 
-`docs/USER_GUIDE.md`
+The architecture intentionally keeps responsibilities separated: Power Query prepares data, Excel formulas calculate business decisions, PivotTables aggregate, VBA orchestrates, and reporting presents validated outputs.
 
-## Documentation
+For the full design and implementation evidence, see [Architecture](docs/ARCHITECTURE.md).
 
-Canonical project documentation is maintained under:
+## Repository Map
 
-`docs/`
+```text
+ProcureFlow/
+├── workbook/       executable macro-enabled workbook
+├── data/           source-data policy and local raw-data location
+├── power-query/    versioned Power Query M source
+├── vba/            versioned VBA source and educational examples
+├── docs/           canonical project documentation
+└── screenshots/    portfolio and technical visual evidence
+```
 
-Important documents include:
+The four source CSV files belong under `data/raw/`, but raw data is intentionally excluded from Git.
 
-- `docs/PROJECT_SPEC.md`
-- `docs/ROADMAP.md`
-- `docs/ARCHITECTURE.md`
-- `docs/DECISIONS.md`
-- `docs/CURRENT_STATE.md`
-- `docs/DATA_DICTIONARY.md`
-- `docs/TESTING.md`
-- `docs/FORMULAS.md`
-- `docs/USER_GUIDE.md`
+## Documentation Map
 
-Phase closeout documents are maintained under:
+Use the document that matches what you are trying to do:
 
-`docs/phases/`
+| Need | Document |
+| --- | --- |
+| Set up, refresh, operate, or troubleshoot ProcureFlow | [User Guide](docs/USER_GUIDE.md) |
+| Check the authoritative current project state | [Current State](docs/CURRENT_STATE.md) |
+| Understand requirements, scope, and Definition of Done | [Project Specification](docs/PROJECT_SPEC.md) |
+| Understand workbook and technical architecture | [Architecture](docs/ARCHITECTURE.md) |
+| Review phases, target versions, and historical progression | [Roadmap](docs/ROADMAP.md) |
+| Understand material design and governance decisions | [Decision Log](docs/DECISIONS.md) |
+| Review source fields, grains, keys, and logical data model | [Data Dictionary](docs/DATA_DICTIONARY.md) |
+| Inspect implemented Excel business formulas | [Formula Catalog](docs/FORMULAS.md) |
+| Review validation, regression, acceptance, and audit evidence | [Testing](docs/TESTING.md) |
+| Review VBA learning material from Phase 8 | [VBA Foundations](docs/VBA_FOUNDATIONS.md) |
+| Review phase-by-phase closeout evidence | [Phase Closeouts](docs/phases/) |
+| Review versioned Power Query source conventions | [Power Query Source](power-query/README.md) |
+| Review production and educational VBA source conventions | [VBA Source](vba/README.md) |
+| Understand source-data handling | [Data README](data/README.md) |
 
-The canonical documents, rather than this README alone, are the authoritative source for detailed project state and implementation decisions.
+The canonical documents, rather than this README alone, remain authoritative for detailed project state, requirements, decisions, implementation evidence, and validation.
 
-## Formula Versioning
+## Current Project Status
 
-Important Excel formulas implemented in the workbook are also maintained as text in:
+| Item | Current State |
+| --- | --- |
+| Project status | `COMPLETED` |
+| Final development phase | Phase 12 — Documentation & Portfolio Release |
+| Phase 12 completion version | `v1.0.0` |
+| Current maintenance version | `v1.0.1` |
+| Definition of Done | `32 / 32 ACCEPTED` |
+| Final Phase 12 regression | `9 / 9 PASS` |
+| Quality Control at final acceptance | `35 PASS / 0 WARNING / 0 FAIL` |
+| Critical known defects at final acceptance | `0` |
 
-`docs/FORMULAS.md`
+The `v1.0.1` maintenance release changes documentation and repository-state metadata only. The executable workbook remains unchanged from the validated `v1.0.0` artifact.
 
-This provides inspectable Git history for formulas that otherwise live inside the binary `.xlsm` workbook.
+For authoritative release-state details, see [Current State](docs/CURRENT_STATE.md) and [Testing](docs/TESTING.md).
 
-## Power Query Source Versioning
+## Technology Stack
 
-Executable Power Query M code lives inside:
+ProcureFlow is intentionally centered on Excel:
 
-`workbook/ProcureFlow.xlsm`
+- Microsoft Excel 365 Desktop for Windows;
+- Excel Tables and Structured References;
+- Power Query;
+- Excel formulas and Dynamic Arrays;
+- Named Ranges and Named Formulas;
+- Data Validation and Conditional Formatting;
+- PivotTables and PivotCharts;
+- Slicers and Timelines;
+- Macros and Visual Basic for Applications (VBA);
+- Git, GitHub, and Markdown technical documentation.
 
-A synchronized text representation is maintained under:
+Power Pivot / Excel Data Model is not required by the current implementation.
 
-`power-query/`
+## Versioned Source
 
-This allows Power Query implementation to be reviewed through normal Git and GitHub diffs.
+The executable implementation lives in [`workbook/ProcureFlow.xlsm`](workbook/ProcureFlow.xlsm), while text representations make otherwise-binary implementation details reviewable in Git:
 
-## Development Approach
+- important Excel formulas are maintained in the [Formula Catalog](docs/FORMULAS.md);
+- Power Query M source is maintained under [`power-query/`](power-query/);
+- production VBA source is maintained under [`vba/modules/`](vba/modules/);
+- educational Phase 8 VBA is kept separately under [`vba/examples/phase08/`](vba/examples/phase08/).
 
-ProcureFlow was developed phase by phase.
+The workbook remains the executable source for Power Query, VBA, formulas, PivotTables, and reporting behavior. Versioned text source must stay synchronized whenever the corresponding workbook implementation changes.
 
-Major functionality is not marked implemented until it has been:
+## Development and Release History
 
-1. designed;
-2. created in the workbook;
-3. validated with actual Excel evidence;
-4. documented;
-5. versioned in Git;
-6. reviewed through the corresponding phase workflow.
+ProcureFlow was developed sequentially. A phase was considered complete only after implementation, validation, documentation, Git workflow, merge, and publication criteria were satisfied.
 
-Each completed phase uses a dedicated branch, Pull Request, merge, phase-completion tag and semantic version tag.
+| Phase | Scope | Completion Version |
+| ---: | --- | --- |
+| 0 | Project Design | `v0.1.0` |
+| 1 | Data Design | `v0.2.0` |
+| 2 | Workbook Foundation | `v0.3.0` |
+| 3 | Power Query Pipeline | `v0.4.0` |
+| 4 | Operational Model | `v0.5.0` |
+| 5 | Business Logic & Advanced Formulas | `v0.6.0` |
+| 6 | Quality Control System | `v0.7.0` |
+| 7 | Analysis & PivotTables | `v0.8.0` |
+| 8 | VBA Foundations | `v0.8.1` |
+| 9 | Automation | `v0.9.0` |
+| 10 | Reporting & Dashboard | `v0.10.0` |
+| 11 | Testing & Hardening | `v0.11.0` |
+| 12 | Documentation & Portfolio Release | `v1.0.0` |
 
-## Final Project State
+Corrective and maintenance releases do not change the formal completion version of the phase they follow. Historical patch details are maintained in [Current State](docs/CURRENT_STATE.md), while full phase history and closeout evidence are available in the [Roadmap](docs/ROADMAP.md) and [phase closeouts](docs/phases/).
 
-ProcureFlow is complete.
-
-Phase 12 completion version:
-
-`v1.0.0`
-
-Current maintenance release:
-
-`v1.0.1`
-
-Final phase:
-
-**Phase 12 — Documentation & Portfolio Release**
-## Portfolio Status
-
-ProcureFlow is a completed portfolio-ready Excel Procurement & Inventory Management System.
-
-Final release state:
-
-- 32 of 32 Definition of Done criteria accepted;
-- final workbook validated;
-- 35 Quality Control checks PASS;
-- targeted Phase 12 post-polish regression: 9 / 9 PASS;
-- representative portfolio screenshots versioned;
-- canonical documentation complete;
-- Phase 12 closeout complete;
-- no critical known defects;
-- functional and portfolio release `v1.0.0`;
-- current documentation maintenance release `v1.0.1`.
 ## License
 
-ProcureFlow source code and original project documentation are licensed under the MIT License.
+ProcureFlow source code and original project documentation are licensed under the [MIT License](LICENSE).
 
 External datasets retain their own applicable licenses and terms.
-
-
-
-
