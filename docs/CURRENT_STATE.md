@@ -68,7 +68,7 @@ Scope:
 - R1 reorganized the repository entry point and public README around reader intent, prerequisites, Quick Start, portfolio preview, and descriptive documentation links;
 - R2 normalized canonical Markdown heading hierarchy while preserving technical content;
 - R3 improved reader navigation, troubleshooting recovery patterns, descriptive links, and progressive disclosure;
-- R4 performed repository-wide documentation QA, normalized remaining historical heading inconsistencies, removed residual Spanish status labels, validated English-only repository text, and checked for accidental conversational or unrelated generated text;
+- R4 performed repository-wide documentation QA, normalized remaining historical heading inconsistencies, removed residual Spanish status labels, validated English-only repository text, and checked for accidental conversational or non-project text;
 - the validated executable workbook remains unchanged from `v1.0.0`;
 - no Power Query logic, production VBA behavior, Excel formula logic, PivotTable configuration, screenshot asset, or business rule was changed by R1–R4.
 
