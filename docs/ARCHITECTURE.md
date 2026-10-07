@@ -26,8 +26,6 @@ Use the section that matches the architectural question:
 
 ---
 
-
-
 ## 1. Architecture Objective
 
 ProcureFlow must provide a maintainable separation between:
@@ -2243,8 +2241,6 @@ This preserves the architectural principle:
 VBA orchestrates.
 
 Excel remains responsible for the established auditable business calculations.
-
-
 
 ## Phase 10 Operational Reporting Implementation Evidence
 
