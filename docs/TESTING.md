@@ -2,7 +2,7 @@
 
 ## Document Status
 
-Status: PHASE 11 TESTING COMPLETE — PHASE 12 FINAL RELEASE VALIDATION PENDING
+Status: FINAL TESTING AND RELEASE VALIDATION COMPLETE
 
 Current Phase:
 
@@ -10,17 +10,17 @@ Phase 12 — Documentation & Portfolio Release
 
 Current Released Version:
 
-`v0.11.1`
-
-Current Phase Target Version:
-
 `v1.0.0`
 
-Last Completed Test Phase Version:
+Current Phase Status:
+
+`COMPLETED`
+
+Last Completed Full Test Phase Version:
 
 `v0.11.0`
 
-Formal Phase 11 testing and hardening are complete. Phase 12 final documentation, repository and release acceptance evidence has not yet been completed.
+Final Phase 12 targeted regression and release acceptance are complete. Historical preliminary checkpoints below are retained as executed evidence and must not be interpreted as the current project state.
 
 This document records validation evidence only for work that has actually been executed.
 
@@ -3464,7 +3464,9 @@ Result:
 PASS
 # Phase 12 — Preliminary Definition of Done Acceptance
 
-Status:
+Historical checkpoint: this section records the pre-release state before the final Phase 12 GitHub gate.
+
+Status at that checkpoint:
 
 PRELIMINARY PASS / FINAL GATE PENDING
 

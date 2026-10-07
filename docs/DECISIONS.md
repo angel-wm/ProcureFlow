@@ -1015,6 +1015,10 @@ Decisions confirmed during Phase 11 — Testing & Hardening:
 
 `DEC-064`
 
+Decisions confirmed during Phase 12 — Documentation & Portfolio Release:
+
+`DEC-065`
+
 Current superseded decisions:
 
 - `DEC-059` — superseded by `DEC-060` with respect to the phase assignment of persistent `QC-032` automation. Its Phase 7 manual PivotTable validation evidence remains valid.
@@ -1025,7 +1029,7 @@ None.
 
 Next major decision review:
 
-As required during later phases when implementation evidence identifies a material architecture, business-rule, automation or scope decision.
+As required by any future maintenance or separately approved project evolution that introduces a material architecture, business-rule, automation, scope or release-management decision.
 ---
 
 ## DEC-049 — Workbook-Relative Power Query Source Path

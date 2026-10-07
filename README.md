@@ -292,7 +292,7 @@ The workbook currently contains the implemented and validated layered architectu
 - operational replenishment reporting;
 - management dashboarding.
 
-Technical implementation through Phase 11 has been completed and validated. Phase 12 has completed the final UI/UX visual-polish pass, targeted post-polish regression and portfolio screenshot preparation. Final `v1.0.0` publication remains pending the Phase 12 GitHub release gate.
+Technical implementation through Phase 11 was completed and validated, and Phase 12 completed final UI/UX visual polish, targeted post-polish regression, portfolio preparation and the final GitHub release gate. ProcureFlow is released as `v1.0.0`.
 
 ## Portfolio Preview
 

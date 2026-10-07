@@ -595,7 +595,9 @@ Validated user scenarios include:
 
 The final Phase 11 full-dataset regression passed with no critical known defect open.
 
-The current project phase is focused on final documentation and portfolio release preparation for:
+ProcureFlow completed its final documentation, portfolio preparation and release acceptance in Phase 12.
+
+Current released version:
 
 `v1.0.0`
 
