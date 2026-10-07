@@ -2,9 +2,9 @@
 
 ## Status
 
-RELEASE PUBLICATION PENDING
+COMPLETED
 
-Target Release Version:
+Release Version:
 
 `v1.0.0`
 
@@ -12,31 +12,32 @@ Phase Branch:
 
 `phase/12-documentation-portfolio-release`
 
-Phase 12 is technically and documentationally complete.
-
-The final Pull Request is merged. Phase 12 remains formally `IN PROGRESS` until release publication and final release-state synchronization are complete.
-
 ---
 
 ## Objective
 
 Finalize ProcureFlow as a professional, reproducible and portfolio-ready Excel Procurement & Inventory Management System.
 
+Result:
+
+PASS
+
 ---
 
-## Completed Phase 12 Scope
+## Completed Scope
 
 Phase 12 completed:
 
 - canonical documentation reconciliation;
 - final user/setup/refresh documentation;
-- repository and release-asset audit;
-- final UI/UX and visual polish across all 17 worksheets;
+- release-asset and repository-hygiene audits;
+- UI/UX & Visual Polish across all 17 worksheets;
 - targeted post-polish regression;
+- Supplier Risk Pivot aggregation correction and validation;
 - representative portfolio screenshots;
-- final public-facing README presentation;
+- final public README;
 - final Definition of Done review;
-- release-readiness validation.
+- final GitHub publication gate.
 
 ---
 
@@ -46,75 +47,15 @@ Executable workbook:
 
 `workbook/ProcureFlow.xlsm`
 
-Final Phase 12 visual-polish and portfolio-assets commit:
+Final visual-polish and portfolio-assets commit:
 
 `bbd6d0137638a7b44da3e6a5e4ae1ca568445366`
 
-Commit:
-
-`feat: finalize phase 12 visual polish and portfolio assets`
-
-The final workbook preserves the validated Excel-centered architecture, including:
-
-- Power Query ingestion;
-- structured Excel Tables;
-- replenishment business logic;
-- Supplier Performance logic;
-- centralized Quality Control;
-- PivotTables and PivotCharts;
-- Slicers and Timelines;
-- VBA production refresh orchestration;
-- operational replenishment reporting;
-- management dashboarding.
-
----
-
-## UI/UX & Visual Polish
-
-The final visual-polish work was completed under:
-
-`DEC-065`
-
-The work remained inside Phase 12 and did not create a new numbered phase.
-
-Visual improvements included:
-
-- consistent Aptos typography;
-- professional navy / steel / teal visual hierarchy;
-- improved spacing and alignment;
-- clearer input/output distinction;
-- improved HOME presentation and navigation;
-- improved CONFIG usability;
-- improved CONTROL readability;
-- improved operational report presentation;
-- improved dashboard composition;
-- harmonized analytical worksheets;
-- harmonized CALC and DATA worksheets;
-- representative final portfolio presentation.
-
-The existing `Refresh ProcureFlow` Form Control retained its native Excel appearance to avoid unnecessary functional risk.
-
----
-
-## Post-Polish Regression
-
-Final targeted regression result:
+Final targeted regression:
 
 `9 / 9 PASS`
 
-Validated areas:
-
-1. `00_HOME` navigation;
-2. `02_CONTROL`;
-3. `40_RPT_Replenishment`;
-4. `41_DASH_Management`;
-5. workbook protection and editable boundaries;
-6. filters, Slicers and Timelines;
-7. explicit PASS / WARNING / FAIL visibility;
-8. normal workbook close and reopen;
-9. preservation of formulas, VBA, Power Query, Named Ranges, Tables, Data Validation and PivotTable/PivotCache contracts.
-
-Final Quality Control result:
+Final Quality Control:
 
 - PASS: 35;
 - WARNING: 0;
@@ -125,102 +66,38 @@ No critical known defect remains open.
 
 ---
 
-## Supplier Risk Pivot Correction
+## Final Acceptance
 
-Phase 12 regression identified one pre-existing analytical aggregation drift.
+Definition of Done:
 
-PivotTable:
+`32 / 32 ACCEPTED`
 
-`pvtSupplierRiskPerformance`
+Failed:
 
-Field:
+`0`
 
-`Avg Lead Time Days`
+Pending:
 
-Incorrect aggregation:
+`0`
 
-`SUM`
+Authoritative acceptance record:
 
-Approved documented aggregation:
-
-`AVERAGE`
-
-The PivotTable was corrected and all seven measures were revalidated against the 40-Supplier analytical model.
-
-Result:
-
-PASS
-
-The correction did not alter Supplier Performance source formulas, Power Query or VBA.
+`docs/phases/PHASE_12_ACCEPTANCE.md`
 
 ---
 
 ## Portfolio Assets
 
-Final representative screenshots:
+Final screenshots:
 
 - `screenshots/procureflow-home.png`;
 - `screenshots/procureflow-management-dashboard.png`;
 - `screenshots/procureflow-quality-control.png`;
 - `screenshots/procureflow-replenishment-report.png`.
 
-Additional technical evidence remains available in:
+Additional technical evidence:
 
 `screenshots/phase-03-query-dependencies.png`
-
----
-
-## Documentation
-
-Final Phase 12 documentation includes:
-
-- `README.md`;
-- `docs/PROJECT_SPEC.md`;
-- `docs/ROADMAP.md`;
-- `docs/ARCHITECTURE.md`;
-- `docs/DECISIONS.md`;
-- `docs/CURRENT_STATE.md`;
-- `docs/DATA_DICTIONARY.md`;
-- `docs/TESTING.md`;
-- `docs/FORMULAS.md`;
-- `docs/USER_GUIDE.md`;
-- `docs/phases/PHASE_12_ACCEPTANCE.md`;
-- this Phase 12 closeout document.
-
----
-
-## Definition of Done
-
-Current final acceptance state:
-
-- ACCEPTED: 29;
-- PENDING FINAL GATE: 3;
-- FAILED: 0.
-
-The remaining six criteria are exclusively final GitHub/release-gate requirements:
-
-- Phase 12 final closeout completion;
-- complete approved GitHub history;
-- final accepted state on `main`;
-- tag `v1.0.0`;
-- final GitHub Release;
-- `CURRENT_STATE.md` reporting project status `COMPLETED`.
-
-No workbook or functional implementation work remains pending.
-
----
-
-## Known Issues
-
-No critical known defect is currently open.
-
-Documented operating characteristic:
-
-- full production refresh approximately 12 minutes on the validated environment.
-
-Documented source characteristic:
-
-- `shelf_life_days` remains nullable for 274 of 300 Product records by source design.
 
 ---
 
@@ -228,7 +105,7 @@ Documented source characteristic:
 
 Status:
 
-IN PROGRESS — RELEASE PUBLICATION PENDING
+COMPLETE
 
 Pull Request:
 
@@ -242,23 +119,45 @@ Merge Commit:
 
 `d3d382a485a890fbd4cb692dd261127d1633b06b`
 
-Completed gate items:
+Release tags:
 
-- final Phase 12 branch merged to `main`;
-- final accepted workbook and portfolio assets present on `main`;
-- Phase 12 closeout exists;
-- approved GitHub history through PR #15 is complete.
+- `phase-12-complete`;
+- `v1.0.0`.
 
-Remaining actions:
-
-1. publish `v1.0.0`;
-2. create GitHub Release `v1.0.0`;
-3. synchronize final canonical state to `COMPLETED`;
-4. publish `phase-12-complete`.
----
-
-## Final Release Target
+GitHub Release:
 
 `v1.0.0`
 
-ProcureFlow is ready to enter its final GitHub release gate.
+Final branch state:
+
+`main`
+
+---
+
+## Known Characteristics
+
+No critical known defect remains open.
+
+Measured full production refresh:
+
+approximately 12 minutes in the validated environment.
+
+Source characteristic:
+
+`shelf_life_days` is nullable for 274 of 300 Product records by source design.
+
+---
+
+## Final State
+
+ProcureFlow is:
+
+`COMPLETED`
+
+Final version:
+
+`v1.0.0`
+
+Phase 12 — Documentation & Portfolio Release is formally complete.
+
+No development phase remains pending.

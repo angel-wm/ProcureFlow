@@ -2,33 +2,29 @@
 
 ## Project Status
 
-IN DEVELOPMENT
+COMPLETED
 
 ## Current Version
 
-v0.11.1
+v1.0.0
 
 ## Current Phase
 
 Phase 12 — Documentation & Portfolio Release
 
-Status: IN PROGRESS
+Status: COMPLETED
 
-Target Version: `v1.0.0`
+Phase Completion Version:
+
+`v1.0.0`
 
 Phase Branch:
 
 `phase/12-documentation-portfolio-release`
 
-## Last Completed Phase
-
-Phase 11 — Testing & Hardening
-
-Phase Completion Version: `v0.11.0`
-
 GitHub Pull Request:
 
-`#14 — Phase 11 — Testing & Hardening`
+`#15 — Phase 12 — Documentation & Portfolio Release`
 
 Pull Request Status:
 
@@ -36,15 +32,23 @@ MERGED
 
 Merge Commit:
 
-`9b301d6ee20dd6077195d610ff06a30a81e042df`
+`d3d382a485a890fbd4cb692dd261127d1633b06b`
 
 Phase Tag:
 
-`phase-11-complete`
+`phase-12-complete`
 
 Version Tag:
 
-`v0.11.0`
+`v1.0.0`
+
+GitHub Release:
+
+`v1.0.0`
+
+## Last Completed Phase
+
+Phase 12 — Documentation & Portfolio Release
 ## Corrective Release History
 
 ### v0.11.1 — Post-Phase-11 Documentation Synchronization
@@ -221,27 +225,30 @@ Implemented project assets include:
 
 ## Phase 12 Final Acceptance
 
-Current Definition of Done state:
+Final Definition of Done state:
 
-- 29 criteria ACCEPTED;
-- 3 criteria PENDING FINAL GATE;
+- 32 criteria ACCEPTED;
+- 0 criteria PENDING;
 - 0 criteria FAILED.
 
-Completed final-gate evidence:
+Final Phase 12 evidence includes:
 
-- Phase 12 closeout exists;
-- Pull Request `#15 — Phase 12 — Documentation & Portfolio Release` is MERGED;
-- merge commit: `d3d382a485a890fbd4cb692dd261127d1633b06b`;
-- `main` contains the final accepted workbook, documentation and portfolio assets.
+- canonical documentation reconciliation;
+- final user/setup/refresh documentation;
+- Release Assets Audit;
+- repository release-hygiene validation;
+- UI/UX & Visual Polish across all 17 worksheets;
+- targeted post-polish regression with 9 / 9 PASS;
+- Supplier Risk Pivot aggregation correction and validation;
+- four representative portfolio screenshots;
+- final public-facing README;
+- Phase 12 closeout;
+- Pull Request `#15` merged to `main`;
+- `phase-12-complete`;
+- `v1.0.0`;
+- final GitHub Release `v1.0.0`.
 
-Remaining release actions:
-
-- publish `v1.0.0`;
-- create GitHub Release `v1.0.0`;
-- synchronize project status to `COMPLETED`;
-- publish `phase-12-complete`.
-
-Phase 12 remains `IN PROGRESS` until release publication is complete.
+No implementation, documentation or release requirement remains pending.
 ## Official Dataset
 
 Aerospace Supply Chain Performance & Forecasting

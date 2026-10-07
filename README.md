@@ -2,37 +2,41 @@
 
 ProcureFlow is an Excel-based Procurement & Inventory Management System designed as a professional end-to-end workbook for procurement, inventory, replenishment and supplier-performance workflows.
 
-The solution is being developed incrementally in Microsoft Excel with reproducible data ingestion, structured operational models, auditable formulas, validation controls and Git/GitHub documentation.
+The solution was developed incrementally in Microsoft Excel with reproducible data ingestion, structured operational models, auditable formulas, validation controls and Git/GitHub documentation.
 
 ## Current Project Status
 
 Project status:
 
-`IN DEVELOPMENT`
+`COMPLETED`
 
 Current released version:
 
-`v0.11.1`
+`v1.0.0`
 
-Current development phase:
+Final completed phase:
 
 **Phase 12 — Documentation & Portfolio Release**
 
 Phase 12 status:
 
-**IN PROGRESS**
+**COMPLETED**
 
-Last completed phase:
+Final Phase Pull Request:
 
-**Phase 11 — Testing & Hardening**
+`#15 — Phase 12 — Documentation & Portfolio Release`
 
-Last completed phase Pull Request:
+Final merge commit:
 
-`#14 — Phase 11 — Testing & Hardening`
+`d3d382a485a890fbd4cb692dd261127d1633b06b`
 
-Last completed phase version:
+Phase tag:
 
-`v0.11.0`
+`phase-12-complete`
+
+Release:
+
+`v1.0.0`
 ## Completed Phases
 
 ### Phase 0 — Project Design
@@ -245,6 +249,27 @@ Version:
 
 Completed full-system regression, failure-path and edge-case validation, performance measurement, protection hardening, User Acceptance Testing and final end-to-end reconciliation.
 
+### Phase 12 — Documentation & Portfolio Release
+
+Status:
+
+`COMPLETED`
+
+Version:
+
+`v1.0.0`
+
+Finalized canonical documentation, operating guidance, release-asset validation, professional UI/UX visual polish, targeted post-polish regression, portfolio screenshots, public README presentation and final release acceptance.
+
+Final targeted post-polish regression completed with:
+
+`9 / 9 PASS`
+
+Final Definition of Done:
+
+`32 / 32 ACCEPTED`
+
+No critical known defect remains open.
 ## Current Workbook
 
 Executable workbook:
@@ -403,7 +428,7 @@ This allows Power Query implementation to be reviewed through normal Git and Git
 
 ## Development Approach
 
-ProcureFlow is developed phase by phase.
+ProcureFlow was developed phase by phase.
 
 Major functionality is not marked implemented until it has been:
 
@@ -416,25 +441,32 @@ Major functionality is not marked implemented until it has been:
 
 Each completed phase uses a dedicated branch, Pull Request, merge, phase-completion tag and semantic version tag.
 
-## Current Development Phase
+## Final Project State
 
-**Phase 12 — Documentation & Portfolio Release**
+ProcureFlow is complete.
 
-Target version:
+Final version:
 
 `v1.0.0`
 
+Final phase:
+
+**Phase 12 — Documentation & Portfolio Release**
 ## Portfolio Status
 
-ProcureFlow has completed workbook implementation, testing, visual polish and portfolio preparation.
+ProcureFlow is a completed portfolio-ready Excel Procurement & Inventory Management System.
 
-Current release-gate state:
+Final release state:
 
-- 29 of 32 Definition of Done criteria accepted;
-- PR #15 merged to `main`;
-- final workbook and representative screenshots are versioned;
-- no critical known defect is open;
-- remaining actions are `v1.0.0` publication, GitHub Release and final project-state synchronization.
+- 32 of 32 Definition of Done criteria accepted;
+- final workbook validated;
+- 35 Quality Control checks PASS;
+- targeted Phase 12 post-polish regression: 9 / 9 PASS;
+- representative portfolio screenshots versioned;
+- canonical documentation complete;
+- Phase 12 closeout complete;
+- no critical known defects;
+- final release `v1.0.0`.
 ## License
 
 ProcureFlow source code and original project documentation are licensed under the MIT License.

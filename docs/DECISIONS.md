@@ -3,10 +3,10 @@
 ## Document Status
 
 Status: CONFIRMED
-Project State: IN DEVELOPMENT
+Project State: COMPLETED
 Current Phase: Phase 12 — Documentation & Portfolio Release
-Current Phase Status: IN PROGRESS
-Current Released Version: v0.11.1
+Current Phase Status: COMPLETED
+Current Released Version: v1.0.0
 This document records material project decisions that affect ProcureFlow scope, architecture, business rules, implementation strategy, governance or release management.
 
 ---

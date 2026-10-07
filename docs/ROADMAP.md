@@ -3,10 +3,10 @@
 ## Document Status
 
 Status: CONFIRMED
-Project State: IN DEVELOPMENT
+Project State: COMPLETED
 Current Phase: Phase 12 — Documentation & Portfolio Release
-Current Phase Status: IN PROGRESS
-Current Released Version: v0.11.1
+Current Phase Status: COMPLETED
+Current Released Version: v1.0.0
 This roadmap defines the approved sequential development plan for ProcureFlow.
 
 A phase is only considered COMPLETED after its technical work, validation, documentation and GitHub publication gate have all been completed.
@@ -1177,7 +1177,7 @@ v0.11.0
 
 ## Status
 
-IN PROGRESS
+COMPLETED
 
 ## Target Version
 
@@ -1283,30 +1283,42 @@ v1.0.0
 | 9 | Automation | COMPLETED | v0.9.0 |
 | 10 | Reporting & Dashboard | COMPLETED | v0.10.0 |
 | 11 | Testing & Hardening | COMPLETED | v0.11.0 |
-| 12 | Documentation & Portfolio Release | IN PROGRESS | v1.0.0 |
+| 12 | Documentation & Portfolio Release | COMPLETED | v1.0.0 |
 
 ---
 
-# 17. Current Immediate Next Step
+# 17. Final Project State
 
-Phase 12 — Documentation & Portfolio Release remains:
+ProcureFlow is complete.
 
-IN PROGRESS
+Final phase:
 
-PR `#15 — Phase 12 — Documentation & Portfolio Release` is merged.
+Phase 12 — Documentation & Portfolio Release
+
+Status:
+
+COMPLETED
+
+Final version:
+
+`v1.0.0`
+
+Final Pull Request:
+
+`#15 — Phase 12 — Documentation & Portfolio Release`
 
 Merge commit:
 
 `d3d382a485a890fbd4cb692dd261127d1633b06b`
 
-Current Definition of Done state:
+Final release artifacts:
 
-- 29 ACCEPTED;
-- 3 PENDING FINAL GATE;
-- 0 FAILED.
+- `phase-12-complete`;
+- `v1.0.0`;
+- GitHub Release `v1.0.0`.
 
-Remaining sequence:
+Definition of Done:
 
-`v1.0.0` tag → GitHub Release → final canonical state synchronization → `phase-12-complete`.
+`32 / 32 ACCEPTED`
 
-No workbook implementation work remains pending.
+No development phase remains pending.
