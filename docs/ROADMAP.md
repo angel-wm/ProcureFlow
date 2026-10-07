@@ -49,12 +49,12 @@ A completed phase must:
 
 A new phase chat should reconstruct project state from GitHub, primarily through:
 
-1. `docs/CURRENT_STATE.md`
-2. previous `docs/phases/PHASE_XX_CLOSEOUT.md`
-3. `docs/ROADMAP.md`
-4. `docs/ARCHITECTURE.md`
-5. `docs/DECISIONS.md`
-6. other relevant documentation as required.
+1. [Current State](CURRENT_STATE.md);
+2. the relevant previous closeout under [`docs/phases/`](phases/);
+3. this [Roadmap](ROADMAP.md);
+4. [Architecture](ARCHITECTURE.md);
+5. the [Decision Log](DECISIONS.md);
+6. other relevant canonical documentation as required.
 
 Learning or debugging chats do not automatically modify official project state.
 

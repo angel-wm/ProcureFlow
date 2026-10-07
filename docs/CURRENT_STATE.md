@@ -301,59 +301,24 @@ Known source characteristic:
 
 ## Relevant Decisions
 
-Confirmed through Phase 0:
+| Project point | Confirmed decisions |
+| --- | --- |
+| Phase 0 | `DEC-001` through `DEC-041` |
+| Phase 1 | `DEC-042` through `DEC-045` |
+| Phase 2 | `DEC-046` through `DEC-048` |
+| Phase 3 | `DEC-049` through `DEC-050` |
+| Phase 4 | `DEC-051` through `DEC-052` |
+| Phase 5 | `DEC-053` through `DEC-055` |
+| Phase 6 | `DEC-056` through `DEC-058` |
+| Phase 7 | `DEC-059` |
+| Phase 8 | `DEC-060` through `DEC-061` |
+| Phase 9 | `DEC-062` through `DEC-063` |
+| Phase 11 | `DEC-064` |
+| Phase 12 | `DEC-065` |
 
-`DEC-001` through `DEC-041`
+`DEC-059` is superseded by `DEC-060` for the Phase 8 / Phase 9 automation boundary.
 
-Confirmed during Phase 1:
-
-`DEC-042` through `DEC-045`
-
-Confirmed during Phase 2:
-
-`DEC-046` through `DEC-048`
-
-Confirmed during Phase 3:
-
-`DEC-049` through `DEC-050`
-
-Confirmed during Phase 4:
-
-`DEC-051` through `DEC-052`
-
-Confirmed during Phase 5:
-
-`DEC-053` through `DEC-055`
-
-Confirmed during Phase 6:
-
-`DEC-056` through `DEC-058`
-
-Confirmed during Phase 7:
-
-`DEC-059`
-
-DEC-059 is SUPERSEDED by DEC-060 for the Phase 8 / Phase 9 automation boundary.
-
-Confirmed during Phase 8:
-
-`DEC-060` through `DEC-061`
-
-Confirmed during Phase 9:
-
-`DEC-062` through `DEC-063`
-
-Confirmed during Phase 11:
-
-`DEC-064`
-
-Confirmed during Phase 12:
-
-`DEC-065`
-
-See:
-
-`docs/DECISIONS.md`
+See the [Decision Log](DECISIONS.md) for the authoritative rationale, status, and supersession history.
 
 ## Current Maintenance State
 

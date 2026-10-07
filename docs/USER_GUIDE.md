@@ -14,6 +14,16 @@ The supported platform is:
 
 Microsoft Excel 365 Desktop for Windows.
 
+### How to use this guide
+
+Use the shortest path that matches your task:
+
+- before first use, review [Requirements](#2-requirements), [Repository and Folder Structure](#3-repository-and-folder-structure), and [Source Data Setup](#4-source-data-setup);
+- for the normal operating sequence, go to [Standard User Workflow](#8-standard-user-workflow);
+- for refresh behavior and accepted states, use [Production Refresh Workflow](#9-production-refresh-workflow) through [Failed Refresh](#12-failed-refresh);
+- when something goes wrong, start with [Troubleshooting](#20-troubleshooting);
+- for the supported production boundary, see [Supported Operating Boundary](#23-supported-operating-boundary).
+
 ---
 
 ## 1. Operating Model
@@ -29,7 +39,7 @@ source CSV files
 → operational report
 → management dashboard
 
-Production refresh orchestration is handled by VBA.
+Production refresh orchestration is handled by Visual Basic for Applications (VBA).
 
 The supported production entry point is:
 
@@ -528,43 +538,77 @@ Configuration inputs and supported report filters are the intended normal user c
 
 ---
 
-## 20. Troubleshooting Checklist
+## 20. Troubleshooting
+
+Use the current workflow state and Quality Control evidence to diagnose problems. Do not infer success from changed worksheet values or from an older `LastSuccessfulRefresh` timestamp.
 
 ### Refresh does not start
 
-Verify:
+**Symptom:** selecting **Refresh ProcureFlow** does not begin the supported production workflow.
 
-- the workbook is opened in Microsoft Excel 365 Desktop for Windows;
-- VBA execution is permitted by the environment;
-- the `Refresh ProcureFlow` button is being used from `00_HOME`.
+**Likely causes:**
+
+- the workbook is not open in Microsoft Excel 365 Desktop for Windows;
+- VBA execution is blocked by the environment;
+- the supported button on `00_HOME` is not being used.
+
+**Resolution:**
+
+1. open `ProcureFlow.xlsm` in the supported Excel desktop environment;
+2. confirm that VBA execution is permitted by the applicable security policy;
+3. return to `00_HOME`;
+4. run **Refresh ProcureFlow** again.
+
+**Verify:** inspect `02_CONTROL` and confirm that a new workflow attempt is recorded and the refresh proceeds beyond the initial state.
 
 ### Source-file error
 
-Verify that all four required files exist under:
+**Symptom:** refresh reports that a required source cannot be found or loaded.
 
-`data/raw/`
+**Likely causes:**
 
-with their exact approved filenames.
+- one or more required CSV files are missing;
+- a required filename has changed;
+- the repository relationship between `workbook/` and `data/raw/` has changed.
 
-Also verify that the repository folder relationship has not been changed.
+**Resolution:**
+
+1. confirm that all four approved CSV files exist under `data/raw/`;
+2. confirm the exact approved filenames;
+3. restore the documented repository folder relationship if it was changed;
+4. do not manually rewrite or clean the source files as a workaround;
+5. run **Refresh ProcureFlow** again.
+
+**Verify:** confirm that the source step completes without the same file error and then verify the final workflow and Quality Control state.
 
 ### Quality Control returns FAIL
 
-Open:
+**Symptom:** Overall Quality Status or an applicable control reports `FAIL`.
 
-`02_CONTROL`
+**Likely cause:** a source, configuration, calculation, reconciliation, or workflow condition violates an implemented control.
 
-Identify the failing control and exception count.
+**Resolution:**
 
-Correct the underlying source, configuration or workflow issue rather than manually overwriting the control result.
+1. open `02_CONTROL`;
+2. identify the failing control and its exception count;
+3. review the associated result and failure information;
+4. correct the underlying source, configuration, or workflow issue;
+5. do not manually overwrite the control result;
+6. rerun **Refresh ProcureFlow** when the underlying issue has been corrected.
 
-### Service Level produces or attempts an invalid value
+**Verify:** confirm that the affected control no longer reports `FAIL` and that the resulting Overall Quality Status is acceptable before using refreshed outputs.
+
+### Service Level is rejected or produces an invalid condition
+
+**Symptom:** a Service Level entry is rejected by Data Validation or is identified as invalid by Quality Control.
+
+**Likely cause:** the value is outside the supported domain required by the Safety Stock calculation.
 
 Valid Service Levels must satisfy:
 
 `0 < Service Level < 1`
 
-Use values such as the approved defaults:
+**Resolution:** enter a valid value such as the approved defaults:
 
 - 99%;
 - 97%;
@@ -572,30 +616,30 @@ Use values such as the approved defaults:
 
 Do not use exactly 0% or 100%.
 
+**Verify:** confirm that the value is accepted by worksheet validation and that the Service Level control does not report an invalid configuration after refresh.
+
 ### Latest refresh fails after an earlier successful run
 
-Check the current workflow state.
+**Symptom:** the latest workflow is `FAILED`, while `LastSuccessfulRefresh` still shows an earlier timestamp.
 
-`LastSuccessfulRefresh` intentionally retains the previous accepted timestamp after a failed attempt.
+**Likely cause:** this is intentional rollback protection. A failed attempt does not replace the timestamp of the last accepted production refresh.
 
-The preserved timestamp is historical evidence of the last accepted run, not evidence that the latest attempt succeeded.
+**Resolution:**
+
+1. inspect the current workflow state in `02_CONTROL`;
+2. review the recorded failure step and error information;
+3. correct the current failure rather than relying on the historical timestamp;
+4. run **Refresh ProcureFlow** again.
+
+**Verify:** confirm a successful or otherwise accepted workflow state and verify that `LastSuccessfulRefresh` advances only after the new run is accepted.
 
 ---
 
 ## 21. Validated Acceptance Baseline
 
-Phase 11 completed full-system regression and User Acceptance Testing.
+Phase 11 completed full-system regression and User Acceptance Testing, including Replenishment, Supplier Performance, Refresh, and Data Quality Failure scenarios. Phase 12 then completed final documentation, portfolio preparation, and release acceptance.
 
-Validated user scenarios include:
-
-- Replenishment;
-- Supplier Performance;
-- Refresh;
-- Data Quality Failure.
-
-The final Phase 11 full-dataset regression passed with no critical known defect open.
-
-ProcureFlow completed its final documentation, portfolio preparation and release acceptance in Phase 12.
+The detailed executed evidence is maintained in [Testing](TESTING.md); this guide summarizes only the operating baseline needed by users.
 
 Current released version:
 
@@ -605,17 +649,17 @@ Current released version:
 
 ## 22. Technical Documentation
 
-For deeper technical information, refer to:
+For deeper technical information, use the document that matches the question:
 
-- `docs/PROJECT_SPEC.md` — requirements, business rules and Definition of Done;
-- `docs/ARCHITECTURE.md` — technical and workbook architecture;
-- `docs/DATA_DICTIONARY.md` — source-data and logical-model definitions;
-- `docs/FORMULAS.md` — versioned Excel business formulas;
-- `docs/DECISIONS.md` — material project decisions;
-- `docs/TESTING.md` — validation and test evidence;
-- `docs/CURRENT_STATE.md` — current authoritative project state;
-- `vba/README.md` — production VBA source overview;
-- `data/README.md` — source-data handling policy.
+- [Project Specification](PROJECT_SPEC.md) — requirements, business rules, and Definition of Done;
+- [Architecture](ARCHITECTURE.md) — technical and workbook architecture;
+- [Data Dictionary](DATA_DICTIONARY.md) — source-data and logical-model definitions;
+- [Formula Catalog](FORMULAS.md) — versioned Excel business formulas;
+- [Decision Log](DECISIONS.md) — material project decisions;
+- [Testing](TESTING.md) — validation, regression, and acceptance evidence;
+- [Current State](CURRENT_STATE.md) — authoritative current project state;
+- [VBA Source Overview](../vba/README.md) — production and educational VBA source layout;
+- [Data README](../data/README.md) — source-data handling policy.
 
 ---
 

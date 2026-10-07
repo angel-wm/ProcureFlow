@@ -2,7 +2,7 @@
 
 ProcureFlow is an Excel-based Procurement & Inventory Management System for inventory monitoring, replenishment decisions, procurement analysis, supplier performance, Quality Control, and management reporting.
 
-It is built as a professional end-to-end Excel solution rather than an isolated dashboard: source data is ingested through Power Query, business rules remain auditable in Excel, VBA orchestrates the supported refresh workflow, and reporting is backed by validation controls and documented test evidence.
+It is built as a professional end-to-end Excel solution rather than an isolated dashboard: source data is ingested through Power Query, business rules remain auditable in Excel, Visual Basic for Applications (VBA) orchestrates the supported refresh workflow, and reporting is backed by validation controls and documented test evidence.
 
 ## Is ProcureFlow relevant to you?
 
@@ -47,7 +47,7 @@ A successful production refresh should leave the workflow in an accepted state s
 - Overall Quality Status = `PASS`;
 - `LastSuccessfulRefresh` advanced to the accepted refresh timestamp.
 
-If refresh fails, do not treat changed worksheet values as accepted output. Use the [troubleshooting guidance](docs/USER_GUIDE.md#20-troubleshooting-checklist) before retrying.
+If refresh fails, do not treat changed worksheet values as accepted output. Use the [troubleshooting guidance](docs/USER_GUIDE.md#20-troubleshooting) before retrying.
 
 ## Portfolio Preview
 
