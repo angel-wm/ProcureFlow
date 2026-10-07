@@ -221,39 +221,27 @@ Implemented project assets include:
 
 ## Phase 12 Final Acceptance
 
-The authoritative Phase 12 acceptance review is:
-
-`docs/phases/PHASE_12_ACCEPTANCE.md`
-
 Current Definition of Done state:
 
-- 26 criteria ACCEPTED;
-- 6 criteria PENDING FINAL GATE;
+- 29 criteria ACCEPTED;
+- 3 criteria PENDING FINAL GATE;
 - 0 criteria FAILED.
 
-All workbook, functional, documentation, usability and portfolio requirements that can be completed before the final GitHub/release gate are accepted.
+Completed final-gate evidence:
 
-Visual polish and post-polish regression are complete.
+- Phase 12 closeout exists;
+- Pull Request `#15 — Phase 12 — Documentation & Portfolio Release` is MERGED;
+- merge commit: `d3d382a485a890fbd4cb692dd261127d1633b06b`;
+- `main` contains the final accepted workbook, documentation and portfolio assets.
 
-Representative final screenshots are versioned under:
+Remaining release actions:
 
-`screenshots/`
-
-## Remaining Phase 12 Work
-
-Only the final GitHub/release gate remains:
-
-- create `PHASE_12_CLOSEOUT.md`;
-- synchronize final release-state documentation;
-- finalize the Phase 12 Pull Request;
-- merge to `main`;
-- verify final `main`;
-- publish `phase-12-complete`;
 - publish `v1.0.0`;
-- create the final GitHub Release;
-- transition `CURRENT_STATE.md` to project status `COMPLETED`.
+- create GitHub Release `v1.0.0`;
+- synchronize project status to `COMPLETED`;
+- publish `phase-12-complete`.
 
-Phase 12 remains `IN PROGRESS` until that gate is complete.
+Phase 12 remains `IN PROGRESS` until release publication is complete.
 ## Official Dataset
 
 Aerospace Supply Chain Performance & Forecasting

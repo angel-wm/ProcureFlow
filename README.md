@@ -426,18 +426,15 @@ Target version:
 
 ## Portfolio Status
 
-The final ProcureFlow workbook has completed its Phase 12 UI/UX visual polish and targeted post-polish regression.
+ProcureFlow has completed workbook implementation, testing, visual polish and portfolio preparation.
 
-Current final-acceptance state:
+Current release-gate state:
 
-- 26 of 32 Definition of Done criteria are accepted;
-- the remaining 6 criteria are GitHub/release-gate items that can only be completed during final Phase 12 closeout;
-- representative final screenshots are versioned under `screenshots/`;
-- no critical known defect is currently open.
-
-The final publication sequence remains:
-
-Phase 12 closeout → final Pull Request → merge to `main` → `phase-12-complete` → `v1.0.0` → GitHub Release.
+- 29 of 32 Definition of Done criteria accepted;
+- PR #15 merged to `main`;
+- final workbook and representative screenshots are versioned;
+- no critical known defect is open;
+- remaining actions are `v1.0.0` publication, GitHub Release and final project-state synchronization.
 ## License
 
 ProcureFlow source code and original project documentation are licensed under the MIT License.

@@ -1293,33 +1293,20 @@ Phase 12 — Documentation & Portfolio Release remains:
 
 IN PROGRESS
 
-Target version:
+PR `#15 — Phase 12 — Documentation & Portfolio Release` is merged.
 
-`v1.0.0`
+Merge commit:
 
-Completed Phase 12 work now includes:
-
-- canonical documentation audit;
-- user/setup/refresh handoff documentation;
-- Release Assets Audit;
-- repository release-hygiene validation;
-- UI/UX & Visual Polish across all 17 worksheets;
-- targeted post-polish regression with 9 / 9 PASS;
-- Supplier Risk Pivot aggregation correction and validation;
-- four representative portfolio screenshots;
-- final public-facing README presentation;
-- final Definition of Done acceptance review.
+`d3d382a485a890fbd4cb692dd261127d1633b06b`
 
 Current Definition of Done state:
 
-- 26 ACCEPTED;
-- 6 PENDING FINAL GATE;
+- 29 ACCEPTED;
+- 3 PENDING FINAL GATE;
 - 0 FAILED.
 
-Authoritative acceptance record:
+Remaining sequence:
 
-`docs/phases/PHASE_12_ACCEPTANCE.md`
+`v1.0.0` tag → GitHub Release → final canonical state synchronization → `phase-12-complete`.
 
-The only remaining work is the Phase 12 closeout and final GitHub/release gate:
-
-Phase 12 closeout → Pull Request → merge to `main` → `phase-12-complete` → `v1.0.0` → GitHub Release → project status `COMPLETED`.
+No workbook implementation work remains pending.

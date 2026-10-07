@@ -2,7 +2,7 @@
 
 ## Status
 
-READY FOR FINAL GITHUB GATE
+RELEASE PUBLICATION PENDING
 
 Target Release Version:
 
@@ -14,7 +14,7 @@ Phase Branch:
 
 Phase 12 is technically and documentationally complete.
 
-The phase remains formally `IN PROGRESS` until the final Pull Request, merge, release-state synchronization, tags and GitHub Release are complete.
+The final Pull Request is merged. Phase 12 remains formally `IN PROGRESS` until release publication and final release-state synchronization are complete.
 
 ---
 
@@ -193,8 +193,8 @@ Final Phase 12 documentation includes:
 
 Current final acceptance state:
 
-- ACCEPTED: 26;
-- PENDING FINAL GATE: 6;
+- ACCEPTED: 29;
+- PENDING FINAL GATE: 3;
 - FAILED: 0.
 
 The remaining six criteria are exclusively final GitHub/release-gate requirements:
@@ -228,23 +228,33 @@ Documented source characteristic:
 
 Status:
 
-PENDING
+IN PROGRESS — RELEASE PUBLICATION PENDING
 
-Required remaining actions:
+Pull Request:
 
-1. commit and push this closeout preparation;
-2. create the final Phase 12 Pull Request;
-3. merge the Pull Request into `main`;
-4. synchronize final release-state documentation on `main`;
-5. verify final `main`;
-6. publish `phase-12-complete`;
-7. publish `v1.0.0`;
-8. create the GitHub Release;
-9. verify repository presentation;
-10. mark ProcureFlow `COMPLETED`.
+`#15 — Phase 12 — Documentation & Portfolio Release`
 
-The final Pull Request number, merge commit and release publication evidence will be added after the GitHub gate completes.
+Pull Request Status:
 
+MERGED
+
+Merge Commit:
+
+`d3d382a485a890fbd4cb692dd261127d1633b06b`
+
+Completed gate items:
+
+- final Phase 12 branch merged to `main`;
+- final accepted workbook and portfolio assets present on `main`;
+- Phase 12 closeout exists;
+- approved GitHub history through PR #15 is complete.
+
+Remaining actions:
+
+1. publish `v1.0.0`;
+2. create GitHub Release `v1.0.0`;
+3. synchronize final canonical state to `COMPLETED`;
+4. publish `phase-12-complete`.
 ---
 
 ## Final Release Target

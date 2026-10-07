@@ -2,7 +2,7 @@
 
 ## Status
 
-[CONFIRMADO] ACCEPTANCE REVIEW COMPLETE — FINAL GITHUB GATE PENDING
+[CONFIRMADO] RELEASE PREPARATION COMPLETE — PUBLICATION PENDING
 
 Phase 12 remains:
 
@@ -136,12 +136,12 @@ Status meanings:
 | 21 | End-to-end and UAT complete | ACCEPTED | Phase 11 UAT + final targeted regression |
 | 22 | No critical known defects remain | ACCEPTED | Final regression result |
 | 23 | Canonical docs reflect implementation | ACCEPTED | Phase 12 documentation synchronization |
-| 24 | Every phase has a closeout | PENDING FINAL GATE | Phase 12 closeout still required |
-| 25 | GitHub contains complete approved project history | PENDING FINAL GATE | Final PR/merge still required |
+| 24 | Every phase has a closeout | ACCEPTED | Phase 12 closeout exists and PR #15 is merged |
+| 25 | GitHub contains complete approved project history | ACCEPTED | PR #15 merged to main |
 | 26 | Repository reconstructs project state without prior chats | ACCEPTED | Canonical docs, USER_GUIDE and acceptance evidence |
 | 27 | Public README complete | ACCEPTED | Final portfolio README |
 | 28 | Representative screenshots exist | ACCEPTED | Four final post-polish screenshots |
-| 29 | `main` contains final accepted state | PENDING FINAL GATE | Final merge required |
+| 29 | `main` contains final accepted state | ACCEPTED | PR #15 merged at `d3d382a485a890fbd4cb692dd261127d1633b06b` |
 | 30 | Git tag `v1.0.0` exists | PENDING FINAL GATE | Final release tag required |
 | 31 | Final GitHub Release exists | PENDING FINAL GATE | Release publication required |
 | 32 | `CURRENT_STATE.md` marks project COMPLETED | PENDING FINAL GATE | Final state transition occurs after release gate |
@@ -152,8 +152,8 @@ Status meanings:
 
 Current Definition of Done state:
 
-- `ACCEPTED`: 26;
-- `PENDING FINAL GATE`: 6;
+- `ACCEPTED`: 29;
+- `PENDING FINAL GATE`: 3;
 - `FAILED`: 0.
 
 Total:
@@ -164,21 +164,25 @@ All workbook, functional, documentation, usability and portfolio requirements th
 
 ---
 
-# 7. Remaining Final GitHub Gate
+# 7. Remaining Release Publication Gate
 
-The only remaining Phase 12 work is:
+PR `#15 — Phase 12 — Documentation & Portfolio Release` is merged to `main`.
 
-1. create `docs/phases/PHASE_12_CLOSEOUT.md`;
-2. synchronize final release-state documentation;
-3. create/finalize the Phase 12 Pull Request;
-4. merge the accepted branch into `main`;
-5. verify final `main`;
-6. publish `phase-12-complete`;
-7. publish `v1.0.0`;
-8. create the final GitHub Release;
-9. verify repository presentation;
-10. transition `CURRENT_STATE.md` to project status `COMPLETED`.
+Merge commit:
 
-No earlier release tag will be moved or rewritten.
+`d3d382a485a890fbd4cb692dd261127d1633b06b`
 
-Phase 12 remains `IN PROGRESS` until this gate is complete.
+Current Definition of Done state:
+
+- 29 ACCEPTED;
+- 3 PENDING FINAL GATE;
+- 0 FAILED.
+
+Remaining actions:
+
+1. publish tag `v1.0.0`;
+2. create GitHub Release `v1.0.0`;
+3. synchronize final project state to `COMPLETED`;
+4. publish `phase-12-complete`.
+
+Phase 12 remains `IN PROGRESS` until those actions are complete.
