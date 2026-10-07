@@ -12,7 +12,7 @@ Project status:
 
 Current released version:
 
-`v1.0.0`
+`v1.0.1`
 
 Final completed phase:
 
@@ -34,9 +34,13 @@ Phase tag:
 
 `phase-12-complete`
 
-Release:
+Phase 12 completion release:
 
 `v1.0.0`
+
+Post-release maintenance:
+
+`v1.0.1` — documentation and repository-state synchronization only. The executable workbook remains the validated `v1.0.0` artifact.
 ## Completed Phases
 
 ### Phase 0 — Project Design
@@ -292,7 +296,7 @@ The workbook currently contains the implemented and validated layered architectu
 - operational replenishment reporting;
 - management dashboarding.
 
-Technical implementation through Phase 11 was completed and validated, and Phase 12 completed final UI/UX visual polish, targeted post-polish regression, portfolio preparation and the final GitHub release gate. ProcureFlow is released as `v1.0.0`.
+Technical implementation through Phase 11 was completed and validated, and Phase 12 completed final UI/UX visual polish, targeted post-polish regression, portfolio preparation and the final GitHub release gate in `v1.0.0`. The current maintenance release is `v1.0.1`, which changes documentation and repository-state metadata only; the executable workbook remains unchanged from `v1.0.0`.
 
 ## Portfolio Preview
 
@@ -445,9 +449,13 @@ Each completed phase uses a dedicated branch, Pull Request, merge, phase-complet
 
 ProcureFlow is complete.
 
-Final version:
+Phase 12 completion version:
 
 `v1.0.0`
+
+Current maintenance release:
+
+`v1.0.1`
 
 Final phase:
 
@@ -466,7 +474,8 @@ Final release state:
 - canonical documentation complete;
 - Phase 12 closeout complete;
 - no critical known defects;
-- final release `v1.0.0`.
+- functional and portfolio release `v1.0.0`;
+- current documentation maintenance release `v1.0.1`.
 ## License
 
 ProcureFlow source code and original project documentation are licensed under the MIT License.

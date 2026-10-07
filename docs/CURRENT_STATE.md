@@ -6,7 +6,7 @@ COMPLETED
 
 ## Current Version
 
-v1.0.0
+v1.0.1
 
 ## Current Phase
 
@@ -38,9 +38,13 @@ Phase Tag:
 
 `phase-12-complete`
 
-Version Tag:
+Phase Completion Version Tag:
 
 `v1.0.0`
+
+Current Maintenance Version Tag:
+
+`v1.0.1`
 
 GitHub Release:
 
@@ -50,6 +54,27 @@ GitHub Release:
 
 Phase 12 — Documentation & Portfolio Release
 ## Corrective Release History
+
+### v1.0.1 — Post-v1.0.0 Documentation and Repository-State Synchronization
+
+The formal Phase 12 completion version and executable workbook release remain:
+
+`v1.0.0`
+
+`v1.0.1` is a documentation-only maintenance release created after the final repository-wide drift audit.
+
+Scope:
+
+- synchronized canonical current-version metadata after the post-`v1.0.0` documentation correction;
+- recorded the repository-wide audit across Phases 0–12, tags, Power Query, VBA, internal references and release assets;
+- normalized minor Markdown end-of-file hygiene;
+- preserved all historical phase-completion tags and the `v1.0.0` GitHub Release;
+- made no workbook, VBA, Power Query, formula, PivotTable, reporting or business-logic change.
+
+Publication:
+
+- Pull Request: `#17 — docs: publish v1.0.1 maintenance state`;
+- version tag: `v1.0.1`.
 
 ### v0.11.1 — Post-Phase-11 Documentation Synchronization
 
@@ -332,9 +357,13 @@ See:
 
 ## Current Maintenance State
 
-ProcureFlow completed Phase 12 — Documentation & Portfolio Release and is released as:
+ProcureFlow completed Phase 12 — Documentation & Portfolio Release in `v1.0.0`.
 
-`v1.0.0`
+Current maintenance release:
+
+`v1.0.1`
+
+The executable workbook remains unchanged from `v1.0.0`.
 
 Project status:
 

@@ -599,7 +599,7 @@ ProcureFlow completed its final documentation, portfolio preparation and release
 
 Current released version:
 
-`v1.0.0`
+`v1.0.1`
 
 ---
 
@@ -621,7 +621,7 @@ For deeper technical information, refer to:
 
 # 23. Supported Operating Boundary
 
-ProcureFlow `v1.0.0` is designed as a professional Excel solution using the approved architecture and workflow.
+ProcureFlow `v1.0.1` retains the validated `v1.0.0` executable workbook and operating architecture. The `v1.0.1` maintenance release changes documentation and repository-state metadata only.
 
 The supported operating boundary is:
 

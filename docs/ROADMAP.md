@@ -6,7 +6,7 @@ Status: CONFIRMED
 Project State: COMPLETED
 Current Phase: Phase 12 — Documentation & Portfolio Release
 Current Phase Status: COMPLETED
-Current Released Version: v1.0.0
+Current Released Version: v1.0.1
 This roadmap defines the approved sequential development plan for ProcureFlow.
 
 A phase is only considered COMPLETED after its technical work, validation, documentation and GitHub publication gate have all been completed.
@@ -1250,7 +1250,7 @@ All applicable mandatory Acceptance Criteria and Definition of Done items are sa
 
 Project Status: COMPLETED
 
-Current Version: v1.0.0
+Current Version: v1.0.1
 
 ## GitHub Gate
 
@@ -1299,9 +1299,13 @@ Status:
 
 COMPLETED
 
-Final version:
+Phase 12 completion version:
 
 `v1.0.0`
+
+Current maintenance release:
+
+`v1.0.1`
 
 Final Pull Request:
 
@@ -1322,3 +1326,5 @@ Definition of Done:
 `32 / 32 ACCEPTED`
 
 No development phase remains pending.
+
+Post-roadmap maintenance release `v1.0.1` synchronizes documentation and repository state only. It does not create Phase 13 or alter any Phase 0–12 target/completion version.
