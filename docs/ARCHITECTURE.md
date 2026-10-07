@@ -11,7 +11,22 @@ This document defines the approved architecture of ProcureFlow and records imple
 
 Architecture described here is a design baseline. Components must not be considered implemented until supported by actual workbook, query, formula, VBA or testing evidence.
 
+### Reading paths
+
+Use the section that matches the architectural question:
+
+- for orientation, start with [Architecture Objective](#1-architecture-objective) and [High-Level Architecture](#2-high-level-architecture);
+- for ingestion and data preparation, use [Power Query Architecture](#5-power-query-architecture);
+- for the logical model and physical workbook, use [Conceptual Data Model](#9-conceptual-data-model) and [Workbook Physical Architecture](#17-workbook-physical-architecture);
+- for controls and reconciliation, use [Quality-Control Architecture](#25-quality-control-architecture) and [Reconciliation Architecture](#27-reconciliation-architecture);
+- for automation, use [VBA Architecture](#29-vba-architecture);
+- for reporting, use [Reporting Architecture](#32-reporting-architecture);
+- for repository and documentation governance, use [Repository Architecture](#39-repository-architecture) and [Documentation Architecture](#42-documentation-architecture);
+- for the supported implementation baseline, use [Current Architecture Status](#44-current-architecture-status).
+
 ---
+
+
 
 ## 1. Architecture Objective
 
@@ -35,16 +50,27 @@ The design must support both business usability and technical auditability.
 
 The approved conceptual flow is:
 
+```text
 Source CSV files
-→ Power Query ingestion
-→ staging and validation
-→ dimension and fact datasets
-→ Excel Tables
-→ operational calculation layer
-→ quality-control layer
-→ PivotTable analytical layer
-→ VBA orchestration
-→ operational reporting and management dashboard
+    ↓
+Power Query ingestion
+    ↓
+staging and validation
+    ↓
+dimension and fact datasets
+    ↓
+Excel Tables
+    ↓
+operational calculation layer
+    ↓
+quality-control layer
+    ↓
+PivotTable analytical layer
+    ↓
+VBA orchestration
+    ↓
+operational reporting and management dashboard
+```
 
 The solution remains centered on Microsoft Excel.
 
