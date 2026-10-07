@@ -133,7 +133,7 @@ No workbook, VBA, Power Query, Excel formula, PivotTable or production automatio
 
 ## Implemented
 
-ProcureFlow currently includes the completed Project Design, Data Design, Workbook Foundation, Power Query Pipeline, Operational Model, Business Logic, Quality Control, Analysis & PivotTables, VBA Foundations and Automation baselines.
+ProcureFlow includes the completed Project Design, Data Design, Workbook Foundation, Power Query Pipeline, Operational Model, Business Logic, Quality Control, Analysis & PivotTables, VBA Foundations, Automation, Reporting & Dashboard, Testing & Hardening, and Documentation & Portfolio Release baselines.
 
 Implemented project assets include:
 
@@ -322,48 +322,25 @@ Confirmed during Phase 11:
 
 `DEC-064`
 
+Confirmed during Phase 12:
+
+`DEC-065`
+
 See:
 
 `docs/DECISIONS.md`
 
-## Next Immediate Step
+## Current Maintenance State
 
-Phase 12 — Documentation & Portfolio Release remains in progress.
-
-Phase branch:
-
-`phase/12-documentation-portfolio-release`
-
-Current release baseline:
-
-`v0.11.1`
-
-Next dedicated workstream:
-
-`Phase 12 — UI/UX & Visual Polish`
-
-Authoritative handoff:
-
-`docs/phases/PHASE_12_ACCEPTANCE.md`
-
-The visual-polish work must preserve the validated technical/business baseline unless a functional change is explicitly approved and revalidated.
-
-After visual polish:
-
-- run targeted post-polish regression;
-- capture final portfolio screenshots;
-- finish the public README presentation;
-- complete final acceptance;
-- execute Phase 12 closeout and the `v1.0.0` GitHub gate.
-## Current Development Phase
-
-Phase 12 — Documentation & Portfolio Release
-
-Status: IN PROGRESS
-
-Target Version:
+ProcureFlow completed Phase 12 — Documentation & Portfolio Release and is released as:
 
 `v1.0.0`
+
+Project status:
+
+`COMPLETED`
+
+No development phase remains pending. Future changes, if any, must be handled as explicitly documented maintenance or a separately approved project evolution without rewriting the completed Phase 0–12 history.
 
 ## Phase 1 Completion
 
