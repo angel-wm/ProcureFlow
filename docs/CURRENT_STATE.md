@@ -919,7 +919,7 @@ At the Phase 8 close, `QC-032 — PivotTable refresh status` remained N/A pendin
 
 Phase 8 is formally COMPLETED. Technical implementation, validation, readiness assessment, Pull Request review, merge and release publication are complete.
 
-# Phase 10 Operational Replenishment Report Implementation
+## Phase 10 Operational Replenishment Report Implementation
 
 [IMPLEMENTED] [VALIDATED]
 
@@ -975,7 +975,7 @@ Manual validation also confirmed:
 
 No management-dashboard implementation is implied by this evidence.
 
-# Phase 10 Management Dashboard Implementation
+## Phase 10 Management Dashboard Implementation
 
 [IMPLEMENTED] [VALIDATED]
 
