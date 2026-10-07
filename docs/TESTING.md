@@ -10,7 +10,7 @@ Phase 12 — Documentation & Portfolio Release
 
 Current Released Version:
 
-`v1.0.0`
+`v1.0.1`
 
 Current Phase Status:
 
@@ -3597,3 +3597,36 @@ Final project status:
 `COMPLETED`
 
 No critical known defect remains open.
+
+# Post-v1.0.0 Repository Audit — v1.0.1 Maintenance Release
+
+Status:
+
+PASS
+
+Scope:
+
+Repository-wide post-release drift and integrity audit across Phases 0–12.
+
+Validated evidence:
+
+- canonical project documents agree on completed Phase 12 state;
+- all Phase 0–12 closeout documents are present;
+- Pull Requests #1 through #16 are merged;
+- all `phase-0-complete` through `phase-12-complete` tags exist;
+- historical version tags remain intact;
+- `v1.0.0` remains attached to the original Phase 12 completion commit;
+- the workbook blob on `main` is identical to the workbook blob at `v1.0.0`;
+- the GitHub Release `v1.0.0` remains published with the final `ProcureFlow.xlsm` asset;
+- 16 versioned Power Query sources are present and their internal query references resolve;
+- 5 production VBA modules are present with `Option Explicit`, without debug output, placeholders or user-specific absolute paths;
+- no broken internal Markdown links or versioned artifact references were found;
+- no open Pull Requests or issues were present at audit time;
+- no functional workbook, Power Query, VBA, formula, PivotTable, reporting or business-logic change was introduced by the post-`v1.0.0` corrections.
+
+Release classification:
+
+`v1.0.1` is documentation and repository-state maintenance only.
+
+The validated executable workbook baseline remains the `v1.0.0` artifact.
+
