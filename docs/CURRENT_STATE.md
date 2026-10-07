@@ -71,6 +71,11 @@ Scope:
 - preserved all historical phase-completion tags and the `v1.0.0` GitHub Release;
 - made no workbook, VBA, Power Query, formula, PivotTable, reporting or business-logic change.
 
+Publication:
+
+- Pull Request: `#17 — docs: publish v1.0.1 maintenance state`;
+- version tag: `v1.0.1`.
+
 ### v0.11.1 — Post-Phase-11 Documentation Synchronization
 
 The formal Phase 11 completion version remains:
