@@ -6,7 +6,7 @@ Status: CONFIRMED DESIGN BASELINE
 Project State: COMPLETED
 Current Phase: Phase 12 — Documentation & Portfolio Release
 Current Phase Status: COMPLETED
-Current Released Version: v1.0.1
+Current Released Version: v1.0.2
 This document defines the approved architecture of ProcureFlow and records implementation evidence as project phases are completed.
 
 Architecture described here is a design baseline. Components must not be considered implemented until supported by actual workbook, query, formula, VBA or testing evidence.
@@ -25,8 +25,6 @@ Use the section that matches the architectural question:
 - for the supported implementation baseline, use [Current Architecture Status](#44-current-architecture-status).
 
 ---
-
-
 
 ## 1. Architecture Objective
 
@@ -1617,9 +1615,9 @@ The GitHub gate requires:
 
 ## 41. Phase Handoff Architecture
 
-GitHub is the authoritative handoff mechanism between project-phase chats.
+GitHub is the authoritative handoff mechanism between project phases.
 
-A new phase chat should begin by reviewing:
+A new phase workstream should begin by reviewing:
 
 1. `CURRENT_STATE.md`
 2. previous `PHASE_XX_CLOSEOUT.md`
@@ -1627,7 +1625,7 @@ A new phase chat should begin by reviewing:
 4. relevant architecture and decisions
 5. other canonical documents as needed
 
-The new chat should not require a manually reconstructed summary of prior work.
+The new workstream should not require a manually reconstructed summary of prior work.
 
 ---
 
@@ -2243,8 +2241,6 @@ This preserves the architectural principle:
 VBA orchestrates.
 
 Excel remains responsible for the established auditable business calculations.
-
-
 
 ## Phase 10 Operational Reporting Implementation Evidence
 

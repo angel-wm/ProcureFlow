@@ -6,7 +6,7 @@ COMPLETED
 
 ## Current Version
 
-v1.0.1
+v1.0.2
 
 ## Current Phase
 
@@ -44,7 +44,7 @@ Phase Completion Version Tag:
 
 Current Maintenance Version Tag:
 
-`v1.0.1`
+`v1.0.2`
 
 GitHub Release:
 
@@ -54,6 +54,27 @@ GitHub Release:
 
 Phase 12 — Documentation & Portfolio Release
 ## Corrective Release History
+
+### v1.0.2 — Documentation Readability and Full Repository QA
+
+The formal Phase 12 completion version and executable workbook release remain:
+
+`v1.0.0`
+
+`v1.0.2` is a documentation-readability and repository-QA maintenance release. It consolidates the post-`v1.0.1` R1–R4 work without changing workbook behavior.
+
+Scope:
+
+- R1 reorganized the repository entry point and public README around reader intent, prerequisites, Quick Start, portfolio preview, and descriptive documentation links;
+- R2 normalized canonical Markdown heading hierarchy while preserving technical content;
+- R3 improved reader navigation, troubleshooting recovery patterns, descriptive links, and progressive disclosure;
+- R4 performed repository-wide documentation QA, normalized remaining historical heading inconsistencies, removed residual Spanish status labels, validated English-only repository text, and checked for accidental conversational or non-project text;
+- the validated executable workbook remains unchanged from `v1.0.0`;
+- no Power Query logic, production VBA behavior, Excel formula logic, PivotTable configuration, screenshot asset, or business rule was changed by R1–R4.
+
+Publication target:
+
+- version tag: `v1.0.2`.
 
 ### v1.0.1 — Post-v1.0.0 Documentation and Repository-State Synchronization
 
@@ -326,7 +347,7 @@ ProcureFlow completed Phase 12 — Documentation & Portfolio Release in `v1.0.0`
 
 Current maintenance release:
 
-`v1.0.1`
+`v1.0.2`
 
 The executable workbook remains unchanged from `v1.0.0`.
 
@@ -599,7 +620,7 @@ At the Phase 4 close, no Phase 5 demand aggregation or statistical business calc
 
 ## Phase 4 Technical Exit Criteria Satisfied
 
-[CONFIRMADO]
+[CONFIRMED]
 
 A full workbook `Refresh All` was executed after the Phase 4 operational-model implementation.
 

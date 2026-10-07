@@ -2,7 +2,7 @@
 
 ## Status
 
-[CONFIRMADO] FINAL ACCEPTANCE COMPLETE
+[CONFIRMED] FINAL ACCEPTANCE COMPLETE
 
 Phase 12:
 
@@ -14,7 +14,7 @@ Final release:
 
 ---
 
-# 1. Final Validation
+## 1. Final Validation
 
 The Phase 12 UI/UX & Visual Polish work defined by `DEC-065` is complete.
 
@@ -35,7 +35,7 @@ The workbook closed and reopened normally without repair warnings.
 
 ---
 
-# 2. Final Workbook and Portfolio State
+## 2. Final Workbook and Portfolio State
 
 Validated final artifacts include:
 
@@ -56,7 +56,7 @@ Representative screenshots:
 
 ---
 
-# 3. Supplier Risk Pivot Correction
+## 3. Supplier Risk Pivot Correction
 
 Final Phase 12 regression identified and corrected a pre-existing aggregation drift in:
 
@@ -78,7 +78,7 @@ PASS
 
 ---
 
-# 4. Definition of Done
+## 4. Definition of Done
 
 Final state:
 
@@ -109,7 +109,7 @@ Final state:
 | 23 | Canonical documentation reflects implementation | ACCEPTED |
 | 24 | Every phase has a closeout | ACCEPTED |
 | 25 | GitHub contains complete approved project history | ACCEPTED |
-| 26 | Repository reconstructs project state without prior chats | ACCEPTED |
+| 26 | Repository reconstructs project state without prior working-session context | ACCEPTED |
 | 27 | Public README complete | ACCEPTED |
 | 28 | Representative screenshots exist | ACCEPTED |
 | 29 | `main` contains final accepted state | ACCEPTED |
@@ -131,7 +131,7 @@ Pending:
 
 ---
 
-# 5. GitHub Gate
+## 5. GitHub Gate
 
 Final Pull Request:
 

@@ -6,7 +6,7 @@ Status: CONFIRMED
 Project State: COMPLETED
 Current Phase: Phase 12 — Documentation & Portfolio Release
 Current Phase Status: COMPLETED
-Current Released Version: v1.0.1
+Current Released Version: v1.0.2
 This roadmap defines the approved sequential development plan for ProcureFlow.
 
 A phase is only considered COMPLETED after its technical work, validation, documentation and GitHub publication gate have all been completed.
@@ -47,7 +47,7 @@ A completed phase must:
 
 ### 1.4 Canonical Phase Handoff
 
-A new phase chat should reconstruct project state from GitHub, primarily through:
+A new phase workstream should reconstruct project state from GitHub, primarily through:
 
 1. [Current State](CURRENT_STATE.md);
 2. the relevant previous closeout under [`docs/phases/`](phases/);
@@ -56,7 +56,7 @@ A new phase chat should reconstruct project state from GitHub, primarily through
 5. the [Decision Log](DECISIONS.md);
 6. other relevant canonical documentation as required.
 
-Learning or debugging chats do not automatically modify official project state.
+Learning or debugging workstreams do not automatically modify official project state.
 
 ---
 
@@ -1250,7 +1250,7 @@ All applicable mandatory Acceptance Criteria and Definition of Done items are sa
 
 Project Status: COMPLETED
 
-Current Version: v1.0.1
+Current Version: v1.0.2
 
 ### GitHub Gate
 
@@ -1305,7 +1305,7 @@ Phase 12 completion version:
 
 Current maintenance release:
 
-`v1.0.1`
+`v1.0.2`
 
 Final Pull Request:
 
@@ -1327,4 +1327,4 @@ Definition of Done:
 
 No development phase remains pending.
 
-Post-roadmap maintenance release `v1.0.1` synchronizes documentation and repository state only. It does not create Phase 13 or alter any Phase 0–12 target/completion version.
+Post-roadmap maintenance release `v1.0.2` consolidates documentation-readability improvements and full repository QA. It does not create Phase 13, change the validated workbook, or alter any Phase 0–12 target/completion version. The earlier `v1.0.1` patch remains part of the immutable maintenance history.

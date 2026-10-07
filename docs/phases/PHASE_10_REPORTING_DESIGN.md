@@ -2,7 +2,7 @@
 
 ## Status
 
-[CONFIRMADO] [IMPLEMENTADO]
+[CONFIRMED] [IMPLEMENTED]
 
 Phase:
 
@@ -38,9 +38,9 @@ Nothing in this document is considered implemented until supported by workbook a
 
 ---
 
-# 1. Reporting Principles
+## 1. Reporting Principles
 
-[CONFIRMADO]
+[CONFIRMED]
 
 Phase 10 will preserve the established ProcureFlow architecture:
 
@@ -62,7 +62,7 @@ Important meaning must not depend on color alone.
 
 ---
 
-# 2. Operational Replenishment Report
+## 2. Operational Replenishment Report
 
 Worksheet:
 
@@ -80,7 +80,7 @@ Primary source:
 
 `tblReplenishment`
 
-## 2.1 Proposed Fields
+### 2.1 Proposed Fields
 
 The operational report should expose the business context required to understand and act on replenishment recommendations.
 
@@ -105,7 +105,7 @@ Candidate fields:
 
 Additional fields may be included only when they materially improve operational decision-making.
 
-## 2.2 Status Priority
+### 2.2 Status Priority
 
 The existing Inventory Status priority remains authoritative:
 
@@ -118,7 +118,7 @@ The existing Inventory Status priority remains authoritative:
 
 Phase 10 will not create a competing inventory-status classification.
 
-## 2.3 Formula Strategy
+### 2.3 Formula Strategy
 
 Dynamic Array formulas are preferred where they provide a transparent and maintainable operational view.
 
@@ -132,7 +132,7 @@ The final formula design must be explained and validated before being considered
 
 ---
 
-# 3. Management Dashboard
+## 3. Management Dashboard
 
 Worksheet:
 
@@ -150,7 +150,7 @@ The dashboard is a presentation layer.
 
 Complex business rules must remain upstream.
 
-## 3.1 Status and Context
+### 3.1 Status and Context
 
 Candidate management context:
 
@@ -159,7 +159,7 @@ Candidate management context:
 - Last Successful Refresh
 - Overall Quality Status
 
-## 3.2 Inventory and Replenishment
+### 3.2 Inventory and Replenishment
 
 Candidate KPIs:
 
@@ -182,7 +182,7 @@ Primary source:
 
 `tblReplenishment`
 
-## 3.3 Procurement and Supplier Performance
+### 3.3 Procurement and Supplier Performance
 
 Candidate KPIs and measures:
 
@@ -202,7 +202,7 @@ Historical Purchase Order analysis may use `tblPurchaseOrders` only when its dat
 
 No arbitrary aggregate Supplier Score will be introduced.
 
-## 3.4 Supplier Quality
+### 3.4 Supplier Quality
 
 Candidate measures:
 
@@ -214,9 +214,9 @@ Quality metrics must clearly identify their date context.
 
 ---
 
-# 4. Interactive Filtering
+## 4. Interactive Filtering
 
-[CONFIRMADO]
+[CONFIRMED]
 
 ProcureFlow will not force a universal dashboard slicer across incompatible PivotCaches or source tables.
 
@@ -242,7 +242,7 @@ A filter must not visually imply that it controls metrics to which it is not act
 
 ---
 
-# 5. Existing Phase 7 Analytical Assets
+## 5. Existing Phase 7 Analytical Assets
 
 The following validated Phase 7 analytical worksheets already exist:
 
@@ -258,7 +258,7 @@ In particular, full-source Purchase Order analysis must not automatically be pre
 
 ---
 
-# 6. Automation Boundary
+## 6. Automation Boundary
 
 The existing Phase 9 production workflow remains authoritative.
 
@@ -270,7 +270,7 @@ Phase 10 must not silently break the validated Phase 9 PivotTable-count or Pivot
 
 ---
 
-# 7. Accessibility and Visual Design
+## 7. Accessibility and Visual Design
 
 The existing ProcureFlow visual system remains authoritative.
 
@@ -286,7 +286,7 @@ Important requirements include:
 
 ---
 
-# 8. Reconciliation Requirement
+## 8. Reconciliation Requirement
 
 Every management KPI must have an identifiable source and a reconciliation method.
 
@@ -296,11 +296,11 @@ A visually correct dashboard is not considered valid if its displayed metrics ca
 
 ---
 
-# 9. Phase 10 Design State
+## 9. Phase 10 Design State
 
 Current state:
 
-[IMPLEMENTADO]
+[IMPLEMENTED]
 
 Phase 10 reporting and dashboard implementation has now been validated; physical implementation evidence is recorded in Section 19 and the canonical project documentation.
 
@@ -308,11 +308,11 @@ The design was finalized before physical workbook implementation began.
 
 ---
 
-# 10. Physical Implementation Specification
+## 10. Physical Implementation Specification
 
 Status:
 
-[IMPLEMENTADO]
+[IMPLEMENTED]
 
 This section defines the physical Phase 10 implementation baseline before workbook construction.
 
@@ -320,7 +320,7 @@ The specifications in this section are now supported by workbook and validation 
 
 ---
 
-## 10.1 Operational Replenishment Report Layout
+### 10.1 Operational Replenishment Report Layout
 
 Worksheet:
 
@@ -334,7 +334,7 @@ Primary user:
 
 Inventory Analyst / Buyer
 
-### User-facing layout
+#### User-facing layout
 
 Rows 1–2:
 
@@ -361,7 +361,7 @@ The primary report area will use columns:
 
 `A:P`
 
-### Report columns
+#### Report columns
 
 The operational output will expose the following columns in this order:
 
@@ -386,7 +386,7 @@ These values must originate from the validated `tblReplenishment` operational mo
 
 The reporting sheet must not recalculate the underlying replenishment business rules.
 
-### Operational filters
+#### Operational filters
 
 The report will provide user-facing filters for:
 
@@ -425,7 +425,7 @@ This does not create a new Inventory Status classification.
 
 It is only a reporting filter over the existing authoritative statuses.
 
-### Default report population
+#### Default report population
 
 The initial operational view will exclude `HEALTHY` positions.
 
@@ -439,7 +439,7 @@ Default included statuses:
 
 The user may explicitly select `HEALTHY` or `ALL` when required.
 
-### Sorting
+#### Sorting
 
 The default operational sort will apply:
 
@@ -465,7 +465,7 @@ Criticality sorting:
 2. B
 3. C
 
-### Formula approach
+#### Formula approach
 
 The report is expected to use Dynamic Array formulas.
 
@@ -481,7 +481,7 @@ Any new function introduced during implementation must be explained before use a
 
 The final production formula must be validated against `tblReplenishment`.
 
-### Output behavior
+#### Output behavior
 
 The spilled report output will be read-only from the user's perspective.
 
@@ -493,7 +493,7 @@ Text values must remain visible so status meaning does not depend only on color.
 
 ---
 
-# 11. Management Dashboard Physical Specification
+## 11. Management Dashboard Physical Specification
 
 Worksheet:
 
@@ -511,7 +511,7 @@ The dashboard is intended to function as a concise management snapshot rather th
 
 ---
 
-## 11.1 Dashboard Context Area
+### 11.1 Dashboard Context Area
 
 Approximate area:
 
@@ -546,7 +546,7 @@ No duplicate workflow-state engine will be created on the dashboard.
 
 ---
 
-## 11.2 Inventory and Replenishment KPI Area
+### 11.2 Inventory and Replenishment KPI Area
 
 Approximate area:
 
@@ -563,7 +563,7 @@ The dashboard will expose these eight primary KPIs:
 7. On-Time Delivery Rate
 8. Quality Incident Count
 
-### KPI sources
+#### KPI sources
 
 STOCKOUT Positions:
 
@@ -599,15 +599,13 @@ Reporting-Date-safe Supplier Performance data.
 
 ---
 
-## 11.3 Overall On-Time Delivery Calculation
+### 11.3 Overall On-Time Delivery Calculation
 
 The management On-Time Delivery Rate must not be calculated as a simple arithmetic average of individual Supplier percentages.
 
 The approved overall interpretation is:
 
-total On-Time received Purchase Orders
-divided by
-total received Purchase Orders
+`total On-Time received Purchase Orders / total received Purchase Orders`
 
 Source columns:
 
@@ -624,7 +622,7 @@ The final Excel formula will be documented and validated during implementation.
 
 ---
 
-## 11.4 Quality Incident KPI
+### 11.4 Quality Incident KPI
 
 Management Quality Incident Count will use:
 
@@ -638,7 +636,7 @@ This prevents future Quality Incident information from leaking into an earlier m
 
 ---
 
-# 12. Dashboard Visual Analysis
+## 12. Dashboard Visual Analysis
 
 The baseline dashboard will contain two primary charts.
 
@@ -646,7 +644,7 @@ No new PivotTable is required for the Phase 10 baseline.
 
 ---
 
-## 12.1 Inventory Status by Site
+### 12.1 Inventory Status by Site
 
 Source analytical object:
 
@@ -670,7 +668,7 @@ Creating a new PivotTable merely to support this chart is not required.
 
 ---
 
-## 12.2 Supplier Delivery Performance by Risk Class
+### 12.2 Supplier Delivery Performance by Risk Class
 
 Source analytical object:
 
@@ -697,7 +695,7 @@ A standard Excel chart referencing the validated PivotTable output is preferred.
 
 ---
 
-# 13. Dashboard Interaction Strategy
+## 13. Dashboard Interaction Strategy
 
 The Phase 10 baseline will not introduce a universal dashboard slicer architecture.
 
@@ -727,7 +725,7 @@ The operational replenishment report will provide its own dedicated report filte
 
 ---
 
-# 14. Dashboard Navigation
+## 14. Dashboard Navigation
 
 The management dashboard will provide user-facing navigation to:
 
@@ -747,7 +745,7 @@ Navigation must be validated functionally before Phase 10 completion.
 
 ---
 
-# 15. PivotTable and VBA Impact
+## 15. PivotTable and VBA Impact
 
 The Phase 10 baseline does not require new PivotTables.
 
@@ -769,7 +767,7 @@ If workbook implementation demonstrates that an additional PivotTable is genuine
 
 ---
 
-# 16. Automation Integration
+## 16. Automation Integration
 
 The existing production entry point remains:
 
@@ -792,7 +790,7 @@ After Phase 10 implementation, validation must prove that:
 
 ---
 
-# 17. Dashboard Visual Layout
+## 17. Dashboard Visual Layout
 
 The initial dashboard grid will use approximately columns:
 
@@ -845,7 +843,7 @@ The exact cell dimensions may be refined during workbook construction for readab
 
 ---
 
-# 18. Reporting Reconciliation Baseline
+## 18. Reporting Reconciliation Baseline
 
 Phase 10 validation must reconcile dashboard and operational-report results to upstream validated sources.
 
@@ -870,7 +868,7 @@ They must not be treated as permanent constants.
 
 ---
 
-# 19. Physical Design Baseline State
+## 19. Physical Design Baseline State
 
 Current Phase 10 implementation state:
 
@@ -895,7 +893,7 @@ Phase 10 technical implementation and validation are complete.
 
 Phase 10 is formally COMPLETED. Pull Request #13 was merged and the Phase 10 release state is published as v0.10.0.
 
-## 19.1 Implemented Chart Object Types
+### 19.1 Implemented Chart Object Types
 
 Inventory Status by Site:
 

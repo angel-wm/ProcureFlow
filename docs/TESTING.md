@@ -10,7 +10,7 @@ Phase 12 — Documentation & Portfolio Release
 
 Current Released Version:
 
-`v1.0.1`
+`v1.0.2`
 
 Current Phase Status:
 
@@ -33,6 +33,7 @@ Testing evidence is intentionally chronological. Use these entry points instead 
 - [Phase 11 — Testing & Hardening Master Test Plan](#phase-11--testing--hardening-master-test-plan) contains the full-system regression, hardening, performance, protection, and User Acceptance Testing baseline;
 - [Phase 12 — Final Release Acceptance](#phase-12--final-release-acceptance) records the final Definition of Done and release gate;
 - [Post-v1.0.0 Repository Audit — v1.0.1 Maintenance Release](#post-v100-repository-audit--v101-maintenance-release) records the repository-wide post-release integrity audit.
+- [Readability R4 — Full Documentation QA and v1.0.2 Release](#readability-r4--full-documentation-qa-and-v102-release) records the final documentation-readability and repository-integrity gate.
 
 Earlier sections remain historical evidence for the phase in which they were executed and should not be interpreted as the current project state.
 
@@ -3638,6 +3639,38 @@ Validated evidence:
 Release classification:
 
 `v1.0.1` is documentation and repository-state maintenance only.
+
+The validated executable workbook baseline remains the `v1.0.0` artifact.
+
+## Readability R4 — Full Documentation QA and v1.0.2 Release
+
+Status:
+
+PASS — PUBLICATION TARGET `v1.0.2`
+
+Scope:
+
+Final repository-wide readability, language, drift, source-integrity, and release QA after R1–R3.
+
+Validated evidence:
+
+- repository tree reviewed across canonical documentation, phase documentation, Power Query source, VBA source, workbook, screenshots, tags, branches, and repository metadata;
+- README and canonical documentation retain one H1 per document with valid heading progression;
+- remaining historical heading inconsistencies in the Phase 10 reporting design and Phase 12 acceptance documents were normalized without changing their technical meaning;
+- residual Spanish project-status labels were translated to their English equivalents;
+- repository documentation, Power Query source, and VBA source were scanned for Spanish prose, accidental conversational or non-project text, placeholders, machine-specific paths, stale current-state wording, and malformed or incomplete documentation fragments;
+- no accidental conversational or non-project text remains in the audited repository text;
+- production Power Query source contains no user-specific absolute paths or development placeholders;
+- all five production VBA modules retain `Option Explicit` and contain no `Debug.Print` development output;
+- `Debug.Print` remains only in the Phase 8 educational VBA example where it is intentional teaching material;
+- repository metadata description is coherent, concise, and English-only;
+- `v1.0.0` remains the validated executable workbook release;
+- `v1.0.1` remains immutable as the earlier documentation/repository-state patch;
+- R1–R4 introduce no workbook, Power Query logic, production VBA behavior, Excel formula logic, PivotTable, screenshot, or business-rule change.
+
+Release classification:
+
+`v1.0.2` is documentation readability, language consistency, and repository QA maintenance only.
 
 The validated executable workbook baseline remains the `v1.0.0` artifact.
 

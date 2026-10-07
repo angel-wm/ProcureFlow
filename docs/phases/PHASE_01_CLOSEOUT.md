@@ -731,4 +731,4 @@ When Phase 1 is formally completed, the next phase must begin by reviewing:
 
 The GitHub repository remains the authoritative handoff mechanism.
 
-No reconstruction of the Phase 1 conversation should be required.
+No reconstruction of prior Phase 1 working-session context should be required.

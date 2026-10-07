@@ -21,7 +21,7 @@ Before using the supported production workflow, note that:
 - the production refresh workflow depends on VBA and therefore requires macro execution to be permitted by the user's environment;
 - four source CSV files are required under `data/raw/` and are intentionally excluded from Git;
 - the relative folder relationship between `workbook/` and `data/raw/` must be preserved;
-- the validated executable workbook remains the `v1.0.0` artifact; `v1.0.1` is a documentation and repository-state maintenance release.
+- the validated executable workbook remains the `v1.0.0` artifact; `v1.0.2` is the current documentation-readability and repository-QA maintenance release.
 
 For detailed setup and operating instructions, see the [ProcureFlow User Guide](docs/USER_GUIDE.md).
 
@@ -178,13 +178,13 @@ The canonical documents, rather than this README alone, remain authoritative for
 | Project status | `COMPLETED` |
 | Final development phase | Phase 12 — Documentation & Portfolio Release |
 | Phase 12 completion version | `v1.0.0` |
-| Current maintenance version | `v1.0.1` |
+| Current maintenance version | `v1.0.2` |
 | Definition of Done | `32 / 32 ACCEPTED` |
 | Final Phase 12 regression | `9 / 9 PASS` |
 | Quality Control at final acceptance | `35 PASS / 0 WARNING / 0 FAIL` |
 | Critical known defects at final acceptance | `0` |
 
-The `v1.0.1` maintenance release changes documentation and repository-state metadata only. The executable workbook remains unchanged from the validated `v1.0.0` artifact.
+The `v1.0.2` maintenance release consolidates the R1–R4 documentation-readability work and final repository QA. It does not change the executable workbook, which remains the validated `v1.0.0` artifact.
 
 For authoritative release-state details, see [Current State](docs/CURRENT_STATE.md) and [Testing](docs/TESTING.md).
 

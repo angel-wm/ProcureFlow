@@ -6,7 +6,7 @@ Status: CONFIRMED
 Project State: COMPLETED
 Current Phase: Phase 12 — Documentation & Portfolio Release
 Current Phase Status: COMPLETED
-Current Released Version: v1.0.1
+Current Released Version: v1.0.2
 This document records material project decisions that affect ProcureFlow scope, architecture, business rules, implementation strategy, governance or release management.
 
 ---
@@ -351,7 +351,7 @@ This reduces repository size and keeps source-distribution concerns separate fro
 Canonical project documents will use Markdown rather than JSON.
 
 **Rationale:**
-Markdown is easier for humans, GitHub and future project chats to inspect while remaining versionable.
+Markdown is easier for humans, GitHub, and future project workstreams to inspect while remaining versionable.
 
 ---
 
@@ -374,10 +374,10 @@ GitHub already provides purpose-built release management.
 **Status:** CONFIRMED
 
 **Decision:**
-GitHub will be the authoritative handoff mechanism between major project-phase chats.
+GitHub will be the authoritative handoff mechanism between major project phases.
 
 **Rationale:**
-A new chat must be able to reconstruct project state without depending on conversational memory.
+A new project participant must be able to reconstruct project state without depending on undocumented prior-session context.
 
 ---
 
@@ -470,7 +470,7 @@ Explicit versions make project evolution easier to understand and present profes
 **Status:** CONFIRMED
 
 **Decision:**
-A new phase chat will begin by reviewing, at minimum:
+A new phase workstream will begin by reviewing, at minimum:
 
 1. `CURRENT_STATE.md`
 2. previous phase closeout;
@@ -544,12 +544,12 @@ The version must signify a complete portfolio-ready system rather than an arbitr
 
 ---
 
-### DEC-036 — Learning and Debugging Chats Are Non-Authoritative
+### DEC-036 — Learning and Debugging Workstreams Are Non-Authoritative
 
 **Status:** CONFIRMED
 
 **Decision:**
-Educational, experimental and debugging conversations do not automatically modify official project state.
+Educational, experimental and debugging workstreams do not automatically modify official project state.
 
 A change only becomes authoritative when incorporated into the canonical project workflow.
 
