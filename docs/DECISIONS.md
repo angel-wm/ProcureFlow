@@ -549,7 +549,7 @@ The version must signify a complete portfolio-ready system rather than an arbitr
 **Status:** CONFIRMED
 
 **Decision:**
-Educational, experimental and debugging conversations do not automatically modify official project state.
+Educational, experimental and debugging workstreams do not automatically modify official project state.
 
 A change only becomes authoritative when incorporated into the canonical project workflow.
 
