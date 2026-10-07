@@ -643,7 +643,7 @@ The detailed executed evidence is maintained in [Testing](TESTING.md); this guid
 
 Current released version:
 
-`v1.0.1`
+`v1.0.2`
 
 ---
 
@@ -665,7 +665,7 @@ For deeper technical information, use the document that matches the question:
 
 ## 23. Supported Operating Boundary
 
-ProcureFlow `v1.0.1` retains the validated `v1.0.0` executable workbook and operating architecture. The `v1.0.1` maintenance release changes documentation and repository-state metadata only.
+ProcureFlow `v1.0.2` retains the validated `v1.0.0` executable workbook and operating architecture. The `v1.0.2` maintenance release changes documentation readability, navigation, language consistency, and repository-state metadata only.
 
 The supported operating boundary is:
 
