@@ -28,7 +28,7 @@ A PASS in Phase 1 does not imply that Power Query, workbook functionality, formu
 
 ---
 
-# 1. Test Status Values
+## 1. Test Status Values
 
 - PASS — executed and validated successfully.
 - WARNING — unusual but potentially valid behavior requiring awareness.
@@ -38,7 +38,7 @@ A PASS in Phase 1 does not imply that Power Query, workbook functionality, formu
 
 ---
 
-# 2. Phase 1 Test Environment
+## 2. Phase 1 Test Environment
 
 Validation method:
 
@@ -59,7 +59,7 @@ No source CSV was modified during testing.
 
 ---
 
-# 3. Source Availability and Counts
+## 3. Source Availability and Counts
 
 | Test | Expected | Observed | Status |
 |---|---:|---:|---|
@@ -74,9 +74,9 @@ No source CSV was modified during testing.
 
 ---
 
-# 4. Source Schema Validation
+## 4. Source Schema Validation
 
-## parts_master.csv
+### parts_master.csv
 
 Validated fields:
 
@@ -98,7 +98,7 @@ Status:
 
 PASS
 
-## supply_chain_history.csv
+### supply_chain_history.csv
 
 Validated fields:
 
@@ -122,7 +122,7 @@ Status:
 
 PASS
 
-## purchase_orders.csv
+### purchase_orders.csv
 
 Validated fields:
 
@@ -144,7 +144,7 @@ Status:
 
 PASS
 
-## quality_incidents.csv
+### quality_incidents.csv
 
 Validated fields:
 
@@ -167,7 +167,7 @@ PASS
 
 ---
 
-# 5. Key Validation
+## 5. Key Validation
 
 | Test | Observed | Status |
 |---|---:|---|
@@ -196,7 +196,7 @@ Validated Inventory composite key:
 
 ---
 
-# 6. Entity Population Validation
+## 6. Entity Population Validation
 
 | Entity | Observed Count | Status |
 |---|---:|---|
@@ -207,9 +207,9 @@ Validated Inventory composite key:
 
 ---
 
-# 7. Referential Integrity Tests
+## 7. Referential Integrity Tests
 
-## Product References
+### Product References
 
 | Test | Invalid References | Status |
 |---|---:|---|
@@ -217,14 +217,14 @@ Validated Inventory composite key:
 | Purchase Orders → Product | 0 | PASS |
 | Quality → Product | 0 | PASS |
 
-## Site References
+### Site References
 
 | Test | Invalid References | Status |
 |---|---:|---|
 | Purchase Orders → Site | 0 | PASS |
 | Quality → Site | 0 | PASS |
 
-## Supplier References
+### Supplier References
 
 Validated Supplier counts:
 
@@ -237,7 +237,7 @@ Validated Supplier counts:
 | PO Suppliers outside Product Supplier population | 0 | PASS |
 | Quality Suppliers outside Product Supplier population | 0 | PASS |
 
-## Blank Relationship Identifiers
+### Blank Relationship Identifiers
 
 The following blank counts were validated:
 
@@ -256,7 +256,7 @@ PASS
 
 ---
 
-# 8. Product-to-Supplier Consistency
+## 8. Product-to-Supplier Consistency
 
 Every Product has one Primary Supplier in `parts_master.csv`.
 
@@ -278,7 +278,7 @@ PASS
 
 ---
 
-# 9. Supplier Attribute Dependency
+## 9. Supplier Attribute Dependency
 
 Test:
 
@@ -300,7 +300,7 @@ PASS
 
 ---
 
-# 10. Supplier-to-Product Cardinality
+## 10. Supplier-to-Product Cardinality
 
 Observed:
 
@@ -320,7 +320,7 @@ PASS
 
 ---
 
-# 11. Inventory Grain and Historical Completeness
+## 11. Inventory Grain and Historical Completeness
 
 Observed Product × Site combinations:
 
@@ -370,7 +370,7 @@ PASS
 
 ---
 
-# 12. Null / Blank Validation
+## 12. Null / Blank Validation
 
 Only one source field contains blank values:
 
@@ -393,7 +393,7 @@ PASS
 
 ---
 
-# 13. Shelf-Life Behavior
+## 13. Shelf-Life Behavior
 
 Observed non-null Shelf Life range:
 
@@ -431,11 +431,11 @@ PASS
 
 ---
 
-# 14. Categorical Domain Validation
+## 14. Categorical Domain Validation
 
 Validated current domains:
 
-## Part Family
+### Part Family
 
 - Avionics
 - Cabin
@@ -446,40 +446,40 @@ Validated current domains:
 - LandingGear
 - Structure
 
-## Criticality
+### Criticality
 
 - A
 - B
 - C
 
-## Supplier Risk
+### Supplier Risk
 
 - High
 - Low
 - Medium
 
-## Is Repairable
+### Is Repairable
 
 - Yes
 - No
 
-## Planned Maintenance
+### Planned Maintenance
 
 - True
 - False
 
-## Forecast Type
+### Forecast Type
 
 - Adjusted
 - Baseline
 
-## Defect Severity
+### Defect Severity
 
 - Critical
 - Major
 - Minor
 
-## Defect Type
+### Defect Type
 
 - Certification
 - Dimensional
@@ -494,7 +494,7 @@ PASS
 
 ---
 
-# 15. Identifier Format Validation
+## 15. Identifier Format Validation
 
 Observed required formats:
 
@@ -518,7 +518,7 @@ PASS
 
 ---
 
-# 16. Product Numeric Validation
+## 16. Product Numeric Validation
 
 Observed ranges:
 
@@ -540,7 +540,7 @@ PASS
 
 ---
 
-# 17. Inventory Numeric Validation
+## 17. Inventory Numeric Validation
 
 Observed ranges:
 
@@ -567,7 +567,7 @@ PASS
 
 ---
 
-# 18. Forecast Semantics Validation
+## 18. Forecast Semantics Validation
 
 Observed:
 
@@ -597,7 +597,7 @@ PASS
 
 ---
 
-# 19. Purchase Order Quantity Validation
+## 19. Purchase Order Quantity Validation
 
 Observed:
 
@@ -625,7 +625,7 @@ PASS
 
 ---
 
-# 20. Purchase Order Chronological Validation
+## 20. Purchase Order Chronological Validation
 
 Observed date ranges:
 
@@ -655,7 +655,7 @@ It is valid supplier-performance information.
 
 ---
 
-# 21. Purchase Order Lead-Time Validation
+## 21. Purchase Order Lead-Time Validation
 
 Promised Lead Time:
 
@@ -678,7 +678,7 @@ PASS
 
 ---
 
-# 22. Quality Incident Validation
+## 22. Quality Incident Validation
 
 Observed:
 
@@ -694,7 +694,7 @@ PASS
 
 ---
 
-# 23. Date-Domain Validation
+## 23. Date-Domain Validation
 
 Observed minimum required date:
 
@@ -724,7 +724,7 @@ PASS
 
 ---
 
-# 24. Logical Data-Type Validation
+## 24. Logical Data-Type Validation
 
 Phase 1 inspected source fields for compatibility with the planned logical data types.
 
@@ -745,7 +745,7 @@ PASS
 
 ---
 
-# 25. Phase 1 Data-Design Test Summary
+## 25. Phase 1 Data-Design Test Summary
 
 Current result:
 
@@ -763,7 +763,7 @@ These observations must not be silently cleaned away.
 
 ---
 
-# 26. Phase 1 Tests Not Yet Run at Phase 1 Close
+## 26. Phase 1 Tests Not Yet Run at Phase 1 Close
 
 At the close of Phase 1, the following were NOT RUN because implementation had not reached their corresponding phases:
 
@@ -788,13 +788,13 @@ It must not be interpreted as the current Phase 11 test status.
 
 ---
 
-# 27. Mandatory User Acceptance Scenarios
+## 27. Mandatory User Acceptance Scenarios
 
 These scenarios were defined during Phase 1 and are carried forward as mandatory Phase 11 acceptance scenarios.
 
 At the start of Phase 11, all four scenarios remain NOT RUN.
 
-## Replenishment
+### Replenishment
 
 Status:
 
@@ -802,7 +802,7 @@ PASS
 
 An Inventory Analyst must eventually be able to identify which Products require action at a selected Site and understand the recommended quantity.
 
-## Supplier Performance
+### Supplier Performance
 
 Status:
 
@@ -810,7 +810,7 @@ PASS
 
 A Procurement Manager must eventually be able to identify Suppliers with delivery, Lead-Time or quality issues.
 
-## Refresh
+### Refresh
 
 Status:
 
@@ -818,7 +818,7 @@ PASS
 
 A valid source update must eventually be processed through the documented refresh workflow without manual copy/paste.
 
-## Data Quality Failure
+### Data Quality Failure
 
 Status:
 
@@ -828,7 +828,7 @@ A critical data-quality problem must eventually be visible before results are tr
 
 ---
 
-# 28. Phase 1 Evidence Boundary
+## 28. Phase 1 Evidence Boundary
 
 Phase 1 testing establishes confidence in:
 
@@ -847,9 +847,9 @@ It does not prove implementation of any Excel, Power Query or VBA component.
 
 ---
 
-# Phase 2 — Workbook Foundation Test Evidence
+## Phase 2 — Workbook Foundation Test Evidence
 
-## Phase 2 Test Environment
+### Phase 2 Test Environment
 
 Target application:
 
@@ -873,7 +873,7 @@ They do not imply that Power Query, operational calculations, PivotTables, VBA, 
 
 ---
 
-## Workbook Foundation Tests
+### Workbook Foundation Tests
 
 | Test ID | Test | Expected Result | Observed Result | Status |
 |---|---|---|---|---|
@@ -897,7 +897,7 @@ They do not imply that Power Query, operational calculations, PivotTables, VBA, 
 | P2-WB-018 | Workbook default typography | Workbook Normal style uses Aptos 11 as the default font | Normal style configured as Aptos 11 | PASS |
 ---
 
-## Phase 2 Workbook Foundation Evidence
+### Phase 2 Workbook Foundation Evidence
 
 Implemented and manually validated so far:
 
@@ -938,9 +938,9 @@ These remain assigned to their respective roadmap phases.
 
 ---
 
-# Phase 3 — Power Query Pipeline Test Evidence
+## Phase 3 — Power Query Pipeline Test Evidence
 
-## Phase 3 Test Environment
+### Phase 3 Test Environment
 
 Target application:
 
@@ -969,7 +969,7 @@ Raw source files remained unchanged during testing.
 
 ---
 
-## Power Query Pipeline Validation
+### Power Query Pipeline Validation
 
 | Test ID | Test | Expected | Observed | Status |
 |---|---|---:|---:|---|
@@ -995,7 +995,7 @@ All workbook Quality Control exceptions for `PQ-001` through `PQ-017` were zero.
 
 ---
 
-## Refresh Validation
+### Refresh Validation
 
 A full Excel `Refresh All` was executed after the final Phase 3 Power Query tables and workbook controls were implemented.
 
@@ -1013,7 +1013,7 @@ PASS
 
 ---
 
-## Query Load Behavior
+### Query Load Behavior
 
 Intermediate queries use Connection Only behavior:
 
@@ -1046,7 +1046,7 @@ PASS
 
 ---
 
-## Phase 3 Transformation Reconciliation
+### Phase 3 Transformation Reconciliation
 
 The Phase 3 pipeline preserves validated source behavior:
 
@@ -1063,7 +1063,7 @@ PASS
 
 ---
 
-## Phase 3 Testing Result
+### Phase 3 Testing Result
 
 Current result:
 
@@ -1076,19 +1076,19 @@ This evidence validates Phase 3 ingestion, staging, dimension/fact preparation, 
 It does not validate later-phase operational formulas, replenishment calculations, supplier-performance calculations, PivotTables, VBA, reporting or dashboard functionality.
 ---
 
-## Phase 4 — Replenishment Foundation Validation
+### Phase 4 — Replenishment Foundation Validation
 
-### Status
+#### Status
 
 PASS
 
-### Scope
+#### Scope
 
 Validation of the initial `tblReplenishment` structural and source-input implementation in `20_CALC_Replenishment`.
 
 No Phase 5 replenishment business formulas are included in this validation.
 
-### Operational Grain
+#### Operational Grain
 
 | Test | Expected | Result |
 |---|---:|---:|
@@ -1102,7 +1102,7 @@ Result:
 
 PASS
 
-### Master Attribute Validation
+#### Master Attribute Validation
 
 | Test | Expected | Result |
 |---|---:|---:|
@@ -1114,7 +1114,7 @@ Result:
 
 PASS
 
-### Reporting Date and Inventory Snapshot Validation
+#### Reporting Date and Inventory Snapshot Validation
 
 Current restored Reporting Date:
 
@@ -1133,7 +1133,7 @@ DEC-051 non-Monday test:
 
 The Reporting Date was restored to `2024-12-23` after the test.
 
-### Inventory Snapshot Reconciliation
+#### Inventory Snapshot Reconciliation
 
 | Test | Expected | Result |
 |---|---:|---:|
@@ -1148,7 +1148,7 @@ Result:
 
 PASS
 
-### Phase Boundary
+#### Phase Boundary
 
 The following remain outside this validation and remain assigned to Phase 5:
 
@@ -1168,19 +1168,19 @@ The following remain outside this validation and remain assigned to Phase 5:
 - No Recent Demand
 ---
 
-## Phase 4 — Supplier Performance Foundation Validation
+### Phase 4 — Supplier Performance Foundation Validation
 
-### Status
+#### Status
 
 PASS
 
-### Scope
+#### Scope
 
 Validation of the structural `tblSupplierPerformance` model in `21_CALC_SupplierPerformance`.
 
 No Phase 5 supplier-performance metrics are included.
 
-### Supplier Grain
+#### Supplier Grain
 
 | Test | Expected | Result |
 |---|---:|---:|
@@ -1194,13 +1194,13 @@ Result:
 
 PASS
 
-### Implemented Fields
+#### Implemented Fields
 
 - `SupplierID`
 - `SupplierRiskClass`
 - `ReportingDate`
 
-### Phase 5 Boundary
+#### Phase 5 Boundary
 
 The following remain unimplemented:
 
@@ -1218,19 +1218,19 @@ The following remain unimplemented:
 No aggregate Supplier Score has been implemented.
 ---
 
-## Phase 4 — Historical Demand Context Validation
+### Phase 4 — Historical Demand Context Validation
 
-### Status
+#### Status
 
 PASS
 
-### Scope
+#### Scope
 
 Validation of the completed-week historical-demand temporal context prepared in `tblReplenishment`.
 
 No Phase 5 demand aggregation or statistical formulas are included.
 
-### Results
+#### Results
 
 | Test | Expected | Result |
 |---|---:|---:|
@@ -1247,7 +1247,7 @@ Result:
 
 PASS
 
-### Current Validated Window
+#### Current Validated Window
 
 - Inventory Snapshot Date: `2024-12-23`
 - Demand History Weeks: 26
@@ -1258,7 +1258,7 @@ The validated interval contains exactly:
 
 26 weeks × 1,800 Product × Site combinations = 46,800 source observations.
 
-### Phase Boundary
+#### Phase Boundary
 
 The following remain assigned to Phase 5:
 
@@ -1269,13 +1269,13 @@ The following remain assigned to Phase 5:
 - replenishment business calculations
 ---
 
-## Phase 4 — Final Refresh and Exit Validation
+### Phase 4 — Final Refresh and Exit Validation
 
-### Status
+#### Status
 
 PASS
 
-### Refresh Validation
+#### Refresh Validation
 
 A full Excel `Refresh All` was executed after the Phase 4 operational-model implementation.
 
@@ -1285,7 +1285,7 @@ PASS
 
 No critical Power Query refresh error was observed.
 
-### Post-Refresh Operational Validation
+#### Post-Refresh Operational Validation
 
 | Test | Expected | Result |
 |---|---:|---:|
@@ -1302,9 +1302,9 @@ Result:
 
 PASS
 
-### Phase 4 Exit Criteria
+#### Phase 4 Exit Criteria
 
-#### Operational grains are correct
+##### Operational grains are correct
 
 PASS
 
@@ -1313,7 +1313,7 @@ Validated grains:
 - `tblReplenishment`: 1 Product × 1 Site
 - `tblSupplierPerformance`: 1 Supplier
 
-#### Required inputs are available
+##### Required inputs are available
 
 PASS
 
@@ -1330,29 +1330,29 @@ Prepared areas include:
 - Purchase Order transactional inputs;
 - historical Actual Lead Time input.
 
-#### No unresolved critical structural issue remains
+##### No unresolved critical structural issue remains
 
 PASS
 
 No unresolved critical Phase 4 structural defect is currently known.
 
-#### Model ready for business-rule formulas
+##### Model ready for business-rule formulas
 
 PASS
 
 The operational model is ready for Phase 5 — Business Logic & Advanced Formulas.
 
-### Phase Boundary
+#### Phase Boundary
 
 Phase 5 calculations remain unimplemented.
 
-## Phase 5 — Business Logic Validation
+### Phase 5 — Business Logic Validation
 
 Status: PASS
 
 Phase 5 business formulas were validated against the complete operational model.
 
-### Replenishment Validation
+#### Replenishment Validation
 
 All planned reconciliation tests returned their expected result:
 
@@ -1369,7 +1369,7 @@ All planned reconciliation tests returned their expected result:
 - invalid Inventory Status count: 0
 - Phase 5 formula error count: 0
 
-### Inventory Status Distribution
+#### Inventory Status Distribution
 
 - STOCKOUT: 2
 - CRITICAL: 86
@@ -1383,7 +1383,7 @@ The distribution reconciles exactly to the Product × Site operational grain.
 
 The comparatively high EXCESS population is retained as an observed business-model result and is not treated as a formula defect without further business evidence.
 
-### Additional Replenishment Evidence
+#### Additional Replenishment Evidence
 
 - NoRecentDemand rows: 0
 - rows using Master Lead Time fallback: 0
@@ -1392,7 +1392,7 @@ The comparatively high EXCESS population is retained as an observed business-mod
 - Open PO Quantity at Reporting Date: 20,146 units
 - Phase 5 formula errors: 0
 
-### Supplier Performance Validation
+#### Supplier Performance Validation
 
 All planned supplier-performance reconciliations returned their expected result:
 
@@ -1403,7 +1403,7 @@ All planned supplier-performance reconciliations returned their expected result:
 - Late PO reconciliation: PASS
 - Quality Incident reconciliation: PASS
 
-### Refresh and Calculation Performance
+#### Refresh and Calculation Performance
 
 Refresh All completed successfully with the full dataset.
 
@@ -1425,13 +1425,13 @@ No business rules were changed solely to improve performance.
 
 ---
 
-# Phase 6 — Quality Control System Test Evidence
+## Phase 6 — Quality Control System Test Evidence
 
-## Status
+### Status
 
 PASS — IMPLEMENTATION, CONTROLLED VALIDATION AND GITHUB PUBLICATION COMPLETE
 
-## Environment
+### Environment
 
 Application:
 
@@ -1445,7 +1445,7 @@ Phase branch:
 
 `phase/06-quality-control-system`
 
-## Operational Quality Control Baseline
+### Operational Quality Control Baseline
 
 Implemented table:
 
@@ -1470,7 +1470,7 @@ Final valid-baseline results:
 
 `QC-032 — PivotTable refresh status` is intentionally N/A because PivotTables are assigned to Phase 7.
 
-## Power Query Technical Health Feed
+### Power Query Technical Health Feed
 
 Implemented query:
 
@@ -1496,7 +1496,7 @@ Result:
 
 PASS
 
-## Integrity and Business-Rule Validation
+### Integrity and Business-Rule Validation
 
 Validated controls include:
 
@@ -1525,7 +1525,7 @@ Final valid-baseline exception count:
 
 0
 
-## Critical FAIL Path Test
+### Critical FAIL Path Test
 
 Controlled test:
 
@@ -1545,7 +1545,7 @@ Result:
 
 PASS
 
-## WARNING Path Test
+### WARNING Path Test
 
 Controlled test:
 
@@ -1565,7 +1565,7 @@ Result:
 
 PASS
 
-## Incomplete-Evaluation Safeguard Test
+### Incomplete-Evaluation Safeguard Test
 
 Controlled test:
 
@@ -1582,7 +1582,7 @@ Result:
 
 PASS
 
-## Restored Final State
+### Restored Final State
 
 After all controlled tests:
 
@@ -1599,7 +1599,7 @@ Result:
 
 PASS
 
-## Refresh-State Limitation
+### Refresh-State Limitation
 
 Phase 6 validates the current Power Query technical evaluation timestamp through `QC-030`.
 
@@ -1609,7 +1609,7 @@ Persistent successful-refresh state remains assigned to later workflow automatio
 
 This limitation is documented and is not treated as implemented functionality.
 
-## Phase 6 Exit-Criteria Evidence
+### Phase 6 Exit-Criteria Evidence
 
 Mandatory controls implemented:
 
@@ -1639,9 +1639,9 @@ No critical Quality Control issue is currently known.
 
 ---
 
-# Phase 7 — Analysis & PivotTables Test Evidence
+## Phase 7 — Analysis & PivotTables Test Evidence
 
-## Status
+### Status
 
 PASS — LOCAL IMPLEMENTATION AND VALIDATION COMPLETE
 
@@ -1653,7 +1653,7 @@ Phase 7 Target Version:
 
 `v0.8.0`
 
-## Analytical Worksheets
+### Analytical Worksheets
 
 Validated worksheets:
 
@@ -1665,9 +1665,9 @@ Status:
 
 PASS
 
-## Inventory Analysis Validation
+### Inventory Analysis Validation
 
-### INV-01 — Inventory Status by Site
+#### INV-01 — Inventory Status by Site
 
 PivotTable:
 
@@ -1693,7 +1693,7 @@ Result:
 
 PASS
 
-### INV-02 — Inventory Quantities by Site
+#### INV-02 — Inventory Quantities by Site
 
 PivotTable:
 
@@ -1714,7 +1714,7 @@ Result:
 
 PASS
 
-### INV-03 — Weekly Inventory & Demand Trend
+#### INV-03 — Weekly Inventory & Demand Trend
 
 PivotTable:
 
@@ -1742,9 +1742,9 @@ Result:
 
 PASS
 
-## Procurement Analysis Validation
+### Procurement Analysis Validation
 
-### PROC-01 — Procurement Volume Trend
+#### PROC-01 — Procurement Volume Trend
 
 PivotTable:
 
@@ -1763,7 +1763,7 @@ Result:
 
 PASS
 
-### PROC-02 — Late Receipts and Lead Time by Supplier
+#### PROC-02 — Late Receipts and Lead Time by Supplier
 
 PivotTable:
 
@@ -1782,7 +1782,7 @@ Result:
 
 PASS
 
-### PROC-03 — Partial Receipts by Supplier
+#### PROC-03 — Partial Receipts by Supplier
 
 PivotTable:
 
@@ -1805,7 +1805,7 @@ Result:
 
 PASS
 
-### PROC-04 — Open PO Quantity
+#### PROC-04 — Open PO Quantity
 
 PivotTable:
 
@@ -1833,9 +1833,9 @@ Result:
 
 PASS
 
-## Supplier Analysis Validation
+### Supplier Analysis Validation
 
-### SUP-01 — Supplier Performance Detail
+#### SUP-01 — Supplier Performance Detail
 
 PivotTable:
 
@@ -1857,7 +1857,7 @@ Result:
 
 PASS
 
-### SUP-02 — Supplier Performance by Risk
+#### SUP-02 — Supplier Performance by Risk
 
 PivotTable:
 
@@ -1877,7 +1877,7 @@ Result:
 
 PASS
 
-### SUP-03 — Supplier Quality Analysis
+#### SUP-03 — Supplier Quality Analysis
 
 PivotTable:
 
@@ -1913,7 +1913,7 @@ Result:
 
 PASS
 
-## Interactive Filtering Validation
+### Interactive Filtering Validation
 
 Validated behaviors:
 
@@ -1927,7 +1927,7 @@ Result:
 
 PASS
 
-## Analytical Layout Validation
+### Analytical Layout Validation
 
 The three Phase 7 worksheets were reviewed and reorganized after functional implementation.
 
@@ -1944,7 +1944,7 @@ Result:
 
 PASS
 
-## Full Refresh Validation
+### Full Refresh Validation
 
 A complete:
 
@@ -1984,7 +1984,7 @@ Functional Refresh result:
 
 PASS
 
-## Refresh Performance Diagnostic Evidence
+### Refresh Performance Diagnostic Evidence
 
 Observed approximate timings:
 
@@ -2004,7 +2004,7 @@ The measured duration is documented as a performance optimization opportunity ra
 
 No Phase 7 redesign of the Power Query pipeline was introduced solely to reduce refresh time.
 
-## QC-032 Validation Boundary
+### QC-032 Validation Boundary
 
 Control:
 
@@ -2026,7 +2026,7 @@ Result:
 
 DOCUMENTED AND DEFERRED BY DESIGN
 
-## Phase 7 Exit-Criteria Evidence
+### Phase 7 Exit-Criteria Evidence
 
 Inventory analytical domain implemented:
 
@@ -2074,15 +2074,15 @@ COMPLETE
 
 ---
 
-# Phase 8 Test Evidence — VBA Foundations
+## Phase 8 Test Evidence — VBA Foundations
 
-## Validation Scope
+### Validation Scope
 
 Phase 8 validation focused on practical VBA understanding rather than production automation.
 
 All exercises were performed against the real ProcureFlow workbook.
 
-## Macro Recorder and Navigation
+### Macro Recorder and Navigation
 
 Recorded navigation macro:
 
@@ -2096,7 +2096,7 @@ Recorded code refactored using explicit workbook and worksheet objects:
 
 PASS
 
-## VBA Compilation
+### VBA Compilation
 
 `Option Explicit` enabled:
 
@@ -2110,7 +2110,7 @@ Final educational module compiled successfully before removal:
 
 PASS
 
-## Variables and Object Model
+### Variables and Object Model
 
 Worksheet object assignment with `Set`:
 
@@ -2128,7 +2128,7 @@ Worksheet collection iteration:
 
 PASS
 
-## Loop Validation
+### Loop Validation
 
 `For`:
 
@@ -2142,7 +2142,7 @@ PASS
 
 PASS
 
-## Structured Table Validation
+### Structured Table Validation
 
 `tblReplenishment` located through `ListObject`:
 
@@ -2174,7 +2174,7 @@ PASS
 
 No operational business formula was rewritten in VBA.
 
-## Procedure and Function Validation
+### Procedure and Function Validation
 
 Public and Private procedure behavior:
 
@@ -2200,7 +2200,7 @@ Reusable validation hierarchy:
 
 PASS
 
-## Error Handling
+### Error Handling
 
 `On Error GoTo ErrorHandler` behavior:
 
@@ -2218,7 +2218,7 @@ Unrestricted `On Error Resume Next` rejected as the default error-handling strat
 
 PASS
 
-## PivotTable and PivotCache Validation
+### PivotTable and PivotCache Validation
 
 Existing ProcureFlow PivotTables discovered through the Excel Object Model:
 
@@ -2242,7 +2242,7 @@ PASS
 
 No production `RefreshAll` orchestration was introduced.
 
-## Workbook Cleanup
+### Workbook Cleanup
 
 Educational VBA source exported to:
 
@@ -2260,7 +2260,7 @@ Educational macros no longer exposed as operational workbook macros:
 
 PASS
 
-## Readiness Assessment
+### Readiness Assessment
 
 Foundational VBA readiness assessment:
 
@@ -2278,7 +2278,7 @@ The user demonstrated understanding of:
 - PivotTable versus PivotCache versus workbook refresh scope;
 - Excel business-logic responsibility versus VBA orchestration responsibility.
 
-## Phase 8 Technical Validation Result
+### Phase 8 Technical Validation Result
 
 PASS
 
@@ -2288,9 +2288,9 @@ COMPLETE
 
 ---
 
-# Phase 9 Test Evidence — Automation
+## Phase 9 Test Evidence — Automation
 
-## Status
+### Status
 
 PASS — PRODUCTION AUTOMATION IMPLEMENTED AND FUNCTIONALLY VALIDATED
 
@@ -2302,7 +2302,7 @@ Target version:
 
 `v0.9.0`
 
-## Automation-State Infrastructure
+### Automation-State Infrastructure
 
 Implemented structured table:
 
@@ -2333,7 +2333,7 @@ Result:
 
 PASS
 
-## Persistent Quality-Control Integration
+### Persistent Quality-Control Integration
 
 `QC-030 — Last Successful Refresh`
 
@@ -2364,7 +2364,7 @@ Result:
 
 PASS
 
-## Automation-State Module Validation
+### Automation-State Module Validation
 
 Production module:
 
@@ -2392,7 +2392,7 @@ Result:
 
 PASS
 
-## Power Query Refresh Strategy Validation
+### Power Query Refresh Strategy Validation
 
 Production module:
 
@@ -2400,7 +2400,7 @@ Production module:
 
 Several refresh strategies were evaluated against the real ProcureFlow workbook.
 
-### Asynchronous WorkbookConnection Refresh
+#### Asynchronous WorkbookConnection Refresh
 
 Observed:
 
@@ -2411,7 +2411,7 @@ Result:
 
 Confirmed asynchronous behavior.
 
-### `Application.CalculateUntilAsyncQueriesDone`
+#### `Application.CalculateUntilAsyncQueriesDone`
 
 Observed:
 
@@ -2421,7 +2421,7 @@ Result:
 
 REJECTED for ProcureFlow production orchestration.
 
-### Parallel Refresh of Eight Loaded Power Query Outputs
+#### Parallel Refresh of Eight Loaded Power Query Outputs
 
 Observed:
 
@@ -2433,7 +2433,7 @@ Result:
 
 REJECTED for ProcureFlow production orchestration.
 
-### Synchronous QueryTable Refresh
+#### Synchronous QueryTable Refresh
 
 Adopted method:
 
@@ -2459,7 +2459,7 @@ PASS
 
 Production Power Query orchestration therefore uses controlled sequential synchronous refresh of the eight loaded output QueryTables.
 
-## Power Query Target Validation
+### Power Query Target Validation
 
 Validated loaded outputs:
 
@@ -2478,7 +2478,7 @@ Result:
 
 PASS
 
-## Quality-Control Orchestration Validation
+### Quality-Control Orchestration Validation
 
 Production module:
 
@@ -2502,7 +2502,7 @@ Result:
 
 PASS
 
-## PivotTable Refresh Validation
+### PivotTable Refresh Validation
 
 Production module:
 
@@ -2532,7 +2532,7 @@ Result:
 
 PASS
 
-## Production Orchestrator Validation
+### Production Orchestrator Validation
 
 Production entry point:
 
@@ -2562,7 +2562,7 @@ Result:
 
 PASS
 
-## Controlled Finalization Defect and Recovery
+### Controlled Finalization Defect and Recovery
 
 During the first complete production workflow test, post-Pivot Quality Control returned:
 
@@ -2594,7 +2594,7 @@ Result:
 
 PASS
 
-## Successful End-to-End Workflow
+### Successful End-to-End Workflow
 
 Validated final state after successful production execution:
 
@@ -2614,7 +2614,7 @@ Result:
 
 PASS
 
-## Controlled Power Query Failure Test
+### Controlled Power Query Failure Test
 
 Failure mechanism:
 
@@ -2640,7 +2640,7 @@ Result:
 
 PASS
 
-## Recovery After Failure
+### Recovery After Failure
 
 After restoring:
 
@@ -2664,7 +2664,7 @@ Result:
 
 PASS
 
-## Stale-Output Prevention and User Experience
+### Stale-Output Prevention and User Experience
 
 `00_HOME` now exposes:
 
@@ -2697,7 +2697,7 @@ Result:
 
 PASS
 
-## Phase 9 Current Technical Result
+### Phase 9 Current Technical Result
 
 Production automation implemented:
 
@@ -2741,7 +2741,7 @@ PASS
 
 No unresolved critical Phase 9 functional defect is currently known.
 
-## Post-Finalization Rollback Validation
+### Post-Finalization Rollback Validation
 
 A dedicated late-stage failure test was executed to validate the `DEC-062` requirement that a failed workflow must not advance `LastSuccessfulRefresh`.
 
@@ -2788,19 +2788,19 @@ PASS
 
 This closes the late-stage failure gap discovered during final Pull Request review and confirms compliance with `DEC-062` and the ProcureFlow stale-output safety requirement.
 
-# Phase 10 — Operational Replenishment Report Validation
+## Phase 10 — Operational Replenishment Report Validation
 
-## Status
+### Status
 
 PASS
 
-## Scope
+### Scope
 
 Manual functional validation of:
 
 `40_RPT_Replenishment`
 
-## Baseline State
+### Baseline State
 
 Default filters:
 
@@ -2810,7 +2810,7 @@ Default filters:
 - Supplier Risk: ALL
 - Inventory Status: ACTIONABLE
 
-## Dynamic Array Row Validation
+### Dynamic Array Row Validation
 
 | Test | Expected | Observed | Status |
 |---|---:|---:|---|
@@ -2819,7 +2819,7 @@ Default filters:
 | Inventory Status = STOCKOUT | 2 | 2 | PASS |
 | Inventory Status = HEALTHY | 332 | 332 | PASS |
 
-## Filter Validation
+### Filter Validation
 
 Validated manually:
 
@@ -2830,7 +2830,7 @@ Validated manually:
 - Inventory Status filter: PASS
 - combined filtering: PASS
 
-## Sorting Validation
+### Sorting Validation
 
 Validated:
 
@@ -2845,7 +2845,7 @@ Result:
 
 PASS
 
-## Presentation and Navigation Validation
+### Presentation and Navigation Validation
 
 Validated:
 
@@ -2865,7 +2865,7 @@ Result:
 
 PASS
 
-## Phase 10 Operational Report Result
+### Phase 10 Operational Report Result
 
 Operational report implemented:
 
@@ -2883,13 +2883,13 @@ No unresolved critical operational-report defect is currently known.
 
 The management dashboard was subsequently implemented and validated in the Phase 10 dashboard test evidence below.
 
-# Phase 10 — Management Dashboard and Integration Validation
+## Phase 10 — Management Dashboard and Integration Validation
 
-## Status
+### Status
 
 PASS
 
-## Dashboard KPI Reconciliation
+### Dashboard KPI Reconciliation
 
 | KPI | Expected / Baseline | Observed | Status |
 |---|---:|---:|---|
@@ -2916,7 +2916,7 @@ Result:
 
 PASS
 
-## Dashboard Chart Validation
+### Dashboard Chart Validation
 
 Inventory Status by Site:
 
@@ -2965,7 +2965,7 @@ Validated series:
 
 The chart title explicitly identifies these as averages and therefore does not imply equivalence to the weighted 44.4% global On-Time Delivery KPI.
 
-## Navigation Validation
+### Navigation Validation
 
 Validated dashboard destinations:
 
@@ -2982,7 +2982,7 @@ Result:
 
 PASS
 
-## Accessibility / Presentation Validation
+### Accessibility / Presentation Validation
 
 Validated:
 
@@ -2997,7 +2997,7 @@ Result:
 
 PASS
 
-## Production Refresh Integration
+### Production Refresh Integration
 
 The existing user-facing:
 
@@ -3023,7 +3023,7 @@ Result:
 
 PASS
 
-## Phase 9 Analytical Contract Regression
+### Phase 9 Analytical Contract Regression
 
 Physical workbook-package inspection returned:
 
@@ -3049,7 +3049,7 @@ Result:
 
 PASS
 
-## Phase 10 Technical Validation Result
+### Phase 10 Technical Validation Result
 
 Operational replenishment report:
 
@@ -3087,9 +3087,9 @@ No unresolved critical Phase 10 functional defect is currently known.
 
 ---
 
-# Phase 11 — Testing & Hardening Master Test Plan
+## Phase 11 — Testing & Hardening Master Test Plan
 
-## Status
+### Status
 
 COMPLETED
 
@@ -3105,7 +3105,7 @@ Phase Branch:
 
 `phase/11-testing-hardening`
 
-## Testing Principle
+### Testing Principle
 
 Phase 11 is the complete-system validation and hardening phase.
 
@@ -3115,7 +3115,7 @@ Historical PASS evidence remains valid where its tested contract has not changed
 
 No proposed fix, optimization, protection change or documentation statement is considered validated until evidence exists.
 
-## Phase 11 Execution Waves
+### Phase 11 Execution Waves
 
 Phase 11 testing will proceed in five controlled waves:
 
@@ -3127,7 +3127,7 @@ Phase 11 testing will proceed in five controlled waves:
 
 Defects discovered during any wave must be classified, corrected where required and retested before final acceptance.
 
-## Master Test Matrix
+### Master Test Matrix
 
 | ID | Test Suite | Priority | Initial Status | Required Outcome |
 |---|---|---|---|---|
@@ -3153,7 +3153,7 @@ Defects discovered during any wave must be classified, corrected where required 
 | P11-020 | Final end-to-end regression and reconciliation | MUST | PASS | Accepted integrated state passes final complete-system regression |
 | P11-021 | Documentation, Git/GitHub and phase-handoff validation | MUST | PASS | Canonical documentation and repository state reproduce the validated implementation |
 
-## P11-001 — Release Baseline and Workbook Structural Integrity
+### P11-001 — Release Baseline and Workbook Structural Integrity
 
 Status:
 
@@ -3182,7 +3182,7 @@ Validated evidence:
 - manual Excel inspection confirmed the workbook tables are present;
 - workbook opened in Microsoft Excel without a reported repair prompt or workbook-content error.
 
-### Test Harness Observation
+#### Test Harness Observation
 
 Three PowerShell / Excel COM inspection attempts produced automation-layer errors:
 
@@ -3200,7 +3200,7 @@ PASS
 
 No structural ProcureFlow defect was identified by P11-001.
 
-## P11-002 — Full-Dataset Ingestion and Power Query Refresh
+### P11-002 — Full-Dataset Ingestion and Power Query Refresh
 
 Status:
 
@@ -3221,7 +3221,7 @@ Result:
 
 PASS
 
-## P11-003 — Data-Model Integrity and Reconciliation
+### P11-003 — Data-Model Integrity and Reconciliation
 
 Status:
 
@@ -3249,9 +3249,9 @@ Result:
 
 PASS
 
-## Phase 11 Executed Functional, Hardening and UAT Evidence
+### Phase 11 Executed Functional, Hardening and UAT Evidence
 
-### P11-004 / P11-012 — Configuration and Edge Cases
+#### P11-004 / P11-012 — Configuration and Edge Cases
 
 PASS after defect correction and retest.
 
@@ -3266,7 +3266,7 @@ PASS after defect correction and retest.
 - defect classification: Major;
 - defect status: RESOLVED.
 
-### P11-005 — Replenishment Regression
+#### P11-005 — Replenishment Regression
 
 PASS.
 
@@ -3282,7 +3282,7 @@ PASS.
 - Open PO Qty: 20,146;
 - Recommended Order Qty: 2,109.
 
-### P11-006 — Procurement and Supplier Performance Regression
+#### P11-006 — Procurement and Supplier Performance Regression
 
 PASS.
 
@@ -3293,19 +3293,19 @@ PASS.
 - Suppliers: 40;
 - Quality Incidents: 368.
 
-### P11-007 — Quality Control Regression
+#### P11-007 — Quality Control Regression
 
 PASS.
 
 Valid baseline behavior remained PASS. Controlled invalid configuration and source-failure conditions produced FAIL, and restoration returned the system to PASS.
 
-### P11-008 — Analytical Regression
+#### P11-008 — Analytical Regression
 
 PASS.
 
 Slicers and Timelines remained interactive, PivotTables and PivotCharts responded correctly, and clearing filters restored baseline totals.
 
-### P11-009 — Report and Dashboard Reconciliation
+#### P11-009 — Report and Dashboard Reconciliation
 
 PASS.
 
@@ -3318,25 +3318,25 @@ PASS.
 - On-Time Delivery Rate: approximately 44.4%;
 - Quality Incident Count through Reporting Date: 350.
 
-### P11-010 — Production VBA Successful Path
+#### P11-010 — Production VBA Successful Path
 
 PASS.
 
 The production Refresh ProcureFlow workflow completed successfully with WorkflowStatus = SUCCESS, PivotRefreshStatus = PASS, blank failure fields, QC-030 = PASS, QC-032 = PASS and an advanced LastSuccessfulRefresh.
 
-### P11-011 — Failure and Recovery
+#### P11-011 — Failure and Recovery
 
 PASS.
 
 A controlled missing-source failure preserved the previous LastSuccessfulRefresh. After source restoration, the production workflow recovered successfully and advanced the timestamp only after successful completion.
 
-### P11-013 — Complete-System Performance
+#### P11-013 — Complete-System Performance
 
 PASS.
 
 The final complete production refresh with the full dataset completed successfully in approximately 12 minutes. The duration is recorded as a performance observation rather than a defect because the complete workflow finished successfully and no approved performance threshold was violated.
 
-### P11-014 — Workbook Protection Hardening
+#### P11-014 — Workbook Protection Hardening
 
 PASS.
 
@@ -3349,7 +3349,7 @@ PASS.
 - required filters remain usable;
 - no password was introduced.
 
-### P11-015 — Navigation, Accessibility and Usability
+#### P11-015 — Navigation, Accessibility and Usability
 
 PASS.
 
@@ -3359,7 +3359,7 @@ PASS.
 - editable inputs remain visually distinguishable;
 - PASS / WARNING / FAIL states retain explicit text.
 
-### P11-016 through P11-019 — User Acceptance Testing
+#### P11-016 through P11-019 — User Acceptance Testing
 
 PASS.
 
@@ -3368,7 +3368,7 @@ PASS.
 - Refresh UAT: the documented Refresh ProcureFlow workflow processes the approved source pipeline without manual copy/paste;
 - Data Quality Failure UAT: controlled failures are visibly surfaced before results can be treated as reliable.
 
-### P11-020 — Final End-to-End Regression
+#### P11-020 — Final End-to-End Regression
 
 PASS.
 
@@ -3383,7 +3383,7 @@ Final validated management values included:
 - CRITICAL: 86;
 - REORDER: 310.
 
-### P11-021 — Documentation, Git/GitHub and Phase Handoff
+#### P11-021 — Documentation, Git/GitHub and Phase Handoff
 
 PASS.
 
@@ -3393,27 +3393,27 @@ PASS.
 - the Phase 11 closeout and handoff to Phase 12 were finalized;
 - release tags `phase-11-complete` and `v0.11.0` are published as part of the Phase 11 release gate.
 
-## Defect Classification
+### Defect Classification
 
 Phase 11 defects will use the following release-impact interpretation:
 
-### Critical
+#### Critical
 
 A defect that can cause materially incorrect business results, unreliable refresh state, corrupted or misleading accepted output, loss of required functionality, or failure of a mandatory acceptance criterion.
 
 Critical defects block Phase 11 completion.
 
-### Major
+#### Major
 
 A significant functional, performance, protection or usability problem that does not currently produce a known materially incorrect accepted business result but requires correction or explicit disposition before release readiness.
 
-### Minor
+#### Minor
 
 A limited issue that does not materially affect calculation correctness, data integrity, refresh truthfulness or completion of mandatory workflows.
 
 Minor issues may be corrected in Phase 11 or explicitly documented if they do not block the approved exit criteria.
 
-## Phase 11 Exit Evidence Required
+### Phase 11 Exit Evidence Required
 
 Phase 11 cannot be marked COMPLETED until evidence supports all of the following:
 
@@ -3428,7 +3428,7 @@ Phase 11 cannot be marked COMPLETED until evidence supports all of the following
 - canonical documentation reflects the actual validated state;
 - the system is ready for Phase 12 — Documentation & Portfolio Release.
 
-## Current Phase 11 Result
+### Current Phase 11 Result
 
 Phase 11 testing is complete.
 
@@ -3440,7 +3440,7 @@ All mandatory Phase 11 test suites passed.
 
 No Phase 11 test suite is considered PASS solely because an earlier phase contains historical validation evidence.
 
-# Phase 12 — Release Asset Audit
+## Phase 12 — Release Asset Audit
 
 Status:
 
@@ -3462,7 +3462,7 @@ The release-asset audit intentionally relies on the already validated Phase 11 e
 Result:
 
 PASS
-# Phase 12 — Preliminary Definition of Done Acceptance
+## Phase 12 — Preliminary Definition of Done Acceptance
 
 Historical checkpoint: this section records the pre-release state before the final Phase 12 GitHub gate.
 
@@ -3485,7 +3485,7 @@ Current classification:
 - no Definition of Done criterion is currently classified as failed.
 
 Final acceptance must not be recorded until the post-polish regression, screenshots, final README presentation and GitHub release gate are complete.
-# Phase 12 — Post-Polish Regression
+## Phase 12 — Post-Polish Regression
 
 Status:
 
@@ -3525,7 +3525,7 @@ Validated post-polish evidence included:
 - workbook closed and reopened normally without repair warnings;
 - formulas, VBA, Power Query, Named Ranges, Tables, Data Validation and PivotTable/PivotCache contracts remained preserved.
 
-## Phase 12 Supplier Risk Pivot Correction
+### Phase 12 Supplier Risk Pivot Correction
 
 During post-polish regression, `pvtSupplierRiskPerformance` was found to aggregate `Avg Lead Time Days` using `SUM`.
 
@@ -3551,7 +3551,7 @@ PASS
 
 This was a correction of a pre-existing analytical aggregation drift and did not change the underlying Supplier Performance formulas, source data, Power Query pipeline or VBA workflow.
 
-## Phase 12 Portfolio Screenshot Validation
+### Phase 12 Portfolio Screenshot Validation
 
 Representative final screenshots are versioned under `screenshots/`:
 
@@ -3565,7 +3565,7 @@ The screenshots represent the final post-polish validated workbook state.
 Result:
 
 PASS
-# Phase 12 — Final Release Acceptance
+## Phase 12 — Final Release Acceptance
 
 Status:
 
@@ -3598,7 +3598,7 @@ Final project status:
 
 No critical known defect remains open.
 
-# Post-v1.0.0 Repository Audit — v1.0.1 Maintenance Release
+## Post-v1.0.0 Repository Audit — v1.0.1 Maintenance Release
 
 Status:
 
