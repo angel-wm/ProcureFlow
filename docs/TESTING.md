@@ -26,6 +26,16 @@ This document records validation evidence only for work that has actually been e
 
 A PASS in Phase 1 does not imply that Power Query, workbook functionality, formulas, VBA, PivotTables or reporting have been implemented.
 
+### How to read this evidence
+
+Testing evidence is intentionally chronological. Use these entry points instead of reading the full history when you only need the current validation state:
+
+- [Phase 11 — Testing & Hardening Master Test Plan](#phase-11--testing--hardening-master-test-plan) contains the full-system regression, hardening, performance, protection, and User Acceptance Testing baseline;
+- [Phase 12 — Final Release Acceptance](#phase-12--final-release-acceptance) records the final Definition of Done and release gate;
+- [Post-v1.0.0 Repository Audit — v1.0.1 Maintenance Release](#post-v100-repository-audit--v101-maintenance-release) records the repository-wide post-release integrity audit.
+
+Earlier sections remain historical evidence for the phase in which they were executed and should not be interpreted as the current project state.
+
 ---
 
 ## 1. Test Status Values
