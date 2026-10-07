@@ -1902,7 +1902,7 @@ No unresolved critical data-design ambiguity is currently known.
 ---
 ## 19. Implementation Status
 
-[CONFIRMADO]
+[CONFIRMED]
 
 - source schemas inspected;
 - grains validated;
@@ -1914,7 +1914,7 @@ No unresolved critical data-design ambiguity is currently known.
 - categorical domains documented;
 - source-supported quality rules identified.
 
-[PENDIENTE]
+[PENDING]
 
 - Power Query implementation;
 - Excel Tables;
