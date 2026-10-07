@@ -157,16 +157,27 @@ Available Stock + Open Purchase Orders − Backorders.
 
 ## Architecture Baseline
 
-Source CSV files  
-→ Power Query  
-→ structured dimension/fact data  
-→ Excel operational model  
-→ business formulas  
-→ quality controls  
-→ PivotTables  
-→ VBA automation  
-→ operational report  
-→ management dashboard
+```text
+Source CSV files
+    ↓
+Power Query
+    ↓
+structured dimension/fact data
+    ↓
+Excel operational model
+    ↓
+business formulas
+    ↓
+quality controls
+    ↓
+PivotTables
+    ↓
+VBA automation
+    ↓
+operational report
+    ↓
+management dashboard
+```
 
 Power Pivot remains deferred unless later evidence justifies its use.
 
@@ -272,4 +283,4 @@ The next phase must begin by reviewing:
 
 The GitHub repository is the authoritative handoff mechanism.
 
-No manual reconstruction of the Phase 0 conversation should be required.
+No manual reconstruction of prior Phase 0 working-session context should be required.
