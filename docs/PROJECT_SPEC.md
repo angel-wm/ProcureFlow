@@ -2,11 +2,11 @@
 
 ## Document Status
 
-Status: CONFIRMED DESIGN BASELINE  
-Project State: COMPLETED  
+Status: CONFIRMED DESIGN BASELINE
+Project State: COMPLETED
 Current Phase: Phase 12 — Documentation & Portfolio Release
 Current Phase Status: COMPLETED
-Current Released Version: v1.0.1
+Current Released Version: v1.0.2
 
 This document defines the approved functional and business specification of ProcureFlow before implementation begins.
 
@@ -261,8 +261,8 @@ ProcureFlow will cover:
 - inventory position;
 - demand analysis;
 - Lead Time analysis;
-- Stock de Seguridad / Safety Stock;
-- Punto de Reposición / Reorder Point;
+- Safety Stock;
+- Reorder Point;
 - target inventory;
 - recommended order quantity;
 - inventory-status classification;
@@ -1133,7 +1133,7 @@ At minimum:
 23. Canonical documentation reflects the actual implementation.
 24. Every phase has a closeout document.
 25. GitHub contains the complete approved project history.
-26. A new project participant can reconstruct project state from the repository without reading prior chat conversations.
+26. A new project participant can reconstruct project state from the repository without relying on prior working-session context.
 27. The public README is complete.
 28. Representative screenshots exist.
 29. `main` contains the final accepted state.
@@ -1173,11 +1173,11 @@ Future versions may extend the system after v1.0.0.
 
 The project uses:
 
-- `[PROPUESTO]` — proposed, not yet approved;
-- `[CONFIRMADO]` — approved design or decision;
-- `[IMPLEMENTADO]` — exists and has evidence;
-- `[PENDIENTE]` — not yet completed;
-- `[SUPERADO]` — consciously replaced by a later decision.
+- `[PROPOSED]` — proposed, not yet approved;
+- `[CONFIRMED]` — approved design or decision;
+- `[IMPLEMENTED]` — exists and has evidence;
+- `[PENDING]` — not yet completed;
+- `[SUPERSEDED]` — consciously replaced by a later decision.
 
 ### 19.2 Source of Truth
 
@@ -1206,7 +1206,7 @@ A new execution phase must not begin until the previous phase:
 - is pushed to GitHub;
 - has its phase-complete tag.
 
-GitHub must contain enough information for a new phase chat to reconstruct project context without requiring a manual summary from the previous chat.
+GitHub must contain enough information for a new phase workstream to reconstruct project context without requiring a manual summary from prior working-session context.
 
 ---
 
