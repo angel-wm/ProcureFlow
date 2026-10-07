@@ -3658,8 +3658,8 @@ Validated evidence:
 - README and canonical documentation retain one H1 per document with valid heading progression;
 - remaining historical heading inconsistencies in the Phase 10 reporting design and Phase 12 acceptance documents were normalized without changing their technical meaning;
 - residual Spanish project-status labels were translated to their English equivalents;
-- repository documentation, Power Query source, and VBA source were scanned for Spanish prose, accidental conversational or unrelated generated text, placeholders, machine-specific paths, stale current-state wording, and malformed or incomplete documentation fragments;
-- no accidental conversational or unrelated generated text remains in the audited repository text;
+- repository documentation, Power Query source, and VBA source were scanned for Spanish prose, accidental conversational or non-project text, placeholders, machine-specific paths, stale current-state wording, and malformed or incomplete documentation fragments;
+- no accidental conversational or non-project text remains in the audited repository text;
 - production Power Query source contains no user-specific absolute paths or development placeholders;
 - all five production VBA modules retain `Option Explicit` and contain no `Debug.Print` development output;
 - `Debug.Print` remains only in the Phase 8 educational VBA example where it is intentional teaching material;
