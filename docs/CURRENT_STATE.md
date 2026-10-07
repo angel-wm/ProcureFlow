@@ -209,46 +209,51 @@ Implemented project assets include:
 - Phase 12 canonical documentation audit completed against Phase 0–11 release history;
 - `docs/USER_GUIDE.md` created with setup, configuration, production refresh, operational workflow, failure recovery and troubleshooting guidance;
 - README Quick Start added for public-facing onboarding;
-- Release Assets Audit passed against the validated `v0.11.1` baseline;
-- executable workbook remains unchanged from the validated Phase 11 baseline;
-- all 16 Power Query source files and 5 production VBA modules remain versioned and unchanged;
-- repository release-hygiene checks passed.
+- Release Assets Audit passed against the validated `v0.11.1` pre-polish baseline;
+- all 16 Power Query source files and 5 production VBA modules remain versioned;
+- repository release-hygiene checks passed;
+- Phase 12 UI/UX & Visual Polish completed across all 17 worksheets under `DEC-065`;
+- targeted post-polish regression completed with 9 / 9 PASS;
+- `pvtSupplierRiskPerformance` `Avg Lead Time Days` corrected from `SUM` to the documented `AVERAGE` aggregation and revalidated;
+- final workbook closed and reopened normally without repair warnings;
+- four representative portfolio screenshots created and versioned;
+- final public-facing README portfolio presentation completed.
 
-## Phase 12 Preliminary Acceptance
+## Phase 12 Final Acceptance
 
-A formal preliminary Definition of Done checkpoint is recorded in:
+The authoritative Phase 12 acceptance review is:
 
 `docs/phases/PHASE_12_ACCEPTANCE.md`
 
-Current preliminary matrix:
+Current Definition of Done state:
 
-- 19 criteria PRE-ACCEPTED;
-- 5 criteria require targeted revalidation after visual polish;
-- 2 criteria remain pending visual presentation;
-- 6 criteria remain pending the final GitHub/release gate;
-- 0 criteria are currently classified as failed.
+- 26 criteria ACCEPTED;
+- 6 criteria PENDING FINAL GATE;
+- 0 criteria FAILED.
 
-Visual polish remains inside Phase 12 under:
+All workbook, functional, documentation, usability and portfolio requirements that can be completed before the final GitHub/release gate are accepted.
 
-`DEC-065`
+Visual polish and post-polish regression are complete.
+
+Representative final screenshots are versioned under:
+
+`screenshots/`
 
 ## Remaining Phase 12 Work
 
-The remaining project scope required for `v1.0.0` is:
+Only the final GitHub/release gate remains:
 
-- UI/UX and visual polish of the workbook;
-- targeted post-polish regression of affected user-facing/protection boundaries;
-- representative final portfolio screenshots;
-- final public-facing README polish;
-- final Definition of Done acceptance;
-- `PHASE_12_CLOSEOUT.md`;
-- final Pull Request merge to `main`;
-- `phase-12-complete`;
-- `v1.0.0`;
-- final GitHub Release;
-- final `CURRENT_STATE.md` transition to `COMPLETED`.
+- create `PHASE_12_CLOSEOUT.md`;
+- synchronize final release-state documentation;
+- finalize the Phase 12 Pull Request;
+- merge to `main`;
+- verify final `main`;
+- publish `phase-12-complete`;
+- publish `v1.0.0`;
+- create the final GitHub Release;
+- transition `CURRENT_STATE.md` to project status `COMPLETED`.
 
-No Phase 12 deliverable is considered complete until supported by actual validation and release evidence.
+Phase 12 remains `IN PROGRESS` until that gate is complete.
 ## Official Dataset
 
 Aerospace Supply Chain Performance & Forecasting

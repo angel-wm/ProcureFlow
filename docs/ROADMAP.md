@@ -1297,29 +1297,29 @@ Target version:
 
 `v1.0.0`
 
-Completed Phase 12 work to date includes:
+Completed Phase 12 work now includes:
 
-- formal Phase 12 baseline;
 - canonical documentation audit;
 - user/setup/refresh handoff documentation;
 - Release Assets Audit;
 - repository release-hygiene validation;
-- preliminary Definition of Done acceptance checkpoint.
+- UI/UX & Visual Polish across all 17 worksheets;
+- targeted post-polish regression with 9 / 9 PASS;
+- Supplier Risk Pivot aggregation correction and validation;
+- four representative portfolio screenshots;
+- final public-facing README presentation;
+- final Definition of Done acceptance review.
 
-The authoritative preliminary acceptance checkpoint is:
+Current Definition of Done state:
+
+- 26 ACCEPTED;
+- 6 PENDING FINAL GATE;
+- 0 FAILED.
+
+Authoritative acceptance record:
 
 `docs/phases/PHASE_12_ACCEPTANCE.md`
 
-Next implementation work:
+The only remaining work is the Phase 12 closeout and final GitHub/release gate:
 
-Phase 12 — UI/UX & Visual Polish
-
-This work remains inside Phase 12 under `DEC-065`.
-
-After visual polish:
-
-1. run targeted post-polish regression;
-2. produce representative final screenshots;
-3. complete final public README presentation;
-4. finalize Definition of Done acceptance;
-5. execute Phase 12 closeout and GitHub release gate.
+Phase 12 closeout → Pull Request → merge to `main` → `phase-12-complete` → `v1.0.0` → GitHub Release → project status `COMPLETED`.

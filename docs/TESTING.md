@@ -3483,3 +3483,83 @@ Current classification:
 - no Definition of Done criterion is currently classified as failed.
 
 Final acceptance must not be recorded until the post-polish regression, screenshots, final README presentation and GitHub release gate are complete.
+# Phase 12 — Post-Polish Regression
+
+Status:
+
+PASS
+
+The final Phase 12 UI/UX visual-polish pass was followed by targeted regression against the acceptance contract recorded in `docs/phases/PHASE_12_ACCEPTANCE.md`.
+
+Final results:
+
+| # | Validation | Result |
+|---:|---|---|
+| 1 | `00_HOME` navigation | PASS |
+| 2 | `02_CONTROL` operational status and visibility | PASS |
+| 3 | `40_RPT_Replenishment` integrity and usability | PASS |
+| 4 | `41_DASH_Management` reconciliation and usability | PASS |
+| 5 | Protection and editable boundaries | PASS |
+| 6 | Filters, Slicers and Timelines | PASS |
+| 7 | Explicit PASS / WARNING / FAIL text visibility | PASS |
+| 8 | Normal workbook close and reopen | PASS |
+| 9 | No unintended logic or structural changes | PASS |
+
+Validated post-polish evidence included:
+
+- 35 Quality Control checks PASS;
+- 0 WARNING controls;
+- 0 FAIL controls;
+- 0 exceptions;
+- 1,800 replenishment rows reconciled;
+- report filters validated individually and in combination;
+- report filters restored to `ALL`;
+- all eight management KPIs reconciled;
+- both management charts reconciled;
+- CONFIG and CALC protection boundaries preserved;
+- `10_DATA_Products` restored to all 300 visible rows with no temporary filter;
+- five Slicers validated and restored;
+- three Timelines validated and restored;
+- workbook closed and reopened normally without repair warnings;
+- formulas, VBA, Power Query, Named Ranges, Tables, Data Validation and PivotTable/PivotCache contracts remained preserved.
+
+## Phase 12 Supplier Risk Pivot Correction
+
+During post-polish regression, `pvtSupplierRiskPerformance` was found to aggregate `Avg Lead Time Days` using `SUM`.
+
+The approved Phase 7 analytical contract defines this field as:
+
+`Avg Lead Time Days`
+
+The PivotTable was corrected from:
+
+`SUM`
+
+to:
+
+`AVERAGE`
+
+The correction preserved the field name, position and visual format.
+
+All seven measures in `pvtSupplierRiskPerformance` were then checked against the documented Phase 7 contract and reconciled to the 40-Supplier model.
+
+Result:
+
+PASS
+
+This was a correction of a pre-existing analytical aggregation drift and did not change the underlying Supplier Performance formulas, source data, Power Query pipeline or VBA workflow.
+
+## Phase 12 Portfolio Screenshot Validation
+
+Representative final screenshots are versioned under `screenshots/`:
+
+- `procureflow-home.png`;
+- `procureflow-management-dashboard.png`;
+- `procureflow-quality-control.png`;
+- `procureflow-replenishment-report.png`.
+
+The screenshots represent the final post-polish validated workbook state.
+
+Result:
+
+PASS
