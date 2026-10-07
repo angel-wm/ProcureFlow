@@ -16,7 +16,7 @@ Microsoft Excel 365 Desktop for Windows.
 
 ---
 
-# 1. Operating Model
+## 1. Operating Model
 
 The normal ProcureFlow workflow is:
 
@@ -47,7 +47,7 @@ Users should not need to copy and paste source data manually into the workbook.
 
 ---
 
-# 2. Requirements
+## 2. Requirements
 
 To operate ProcureFlow as designed, the following are required:
 
@@ -65,7 +65,7 @@ Do not weaken organizational security controls solely to run the workbook.
 
 ---
 
-# 3. Repository and Folder Structure
+## 3. Repository and Folder Structure
 
 The relevant runtime structure is:
 
@@ -97,7 +97,7 @@ Production Power Query queries do not contain a machine-specific absolute source
 
 ---
 
-# 4. Source Data Setup
+## 4. Source Data Setup
 
 ProcureFlow uses the Aerospace Supply Chain Performance & Forecasting dataset.
 
@@ -127,7 +127,7 @@ Power Query is responsible for ingestion, typing, preparation and validation.
 
 ---
 
-# 5. Opening ProcureFlow
+## 5. Opening ProcureFlow
 
 1. Preserve the approved repository folder structure.
 2. Confirm that all four source CSV files exist in `data/raw/`.
@@ -145,9 +145,9 @@ The workbook should open without a repair prompt or workbook-content error.
 
 ---
 
-# 6. Main User-Facing Worksheets
+## 6. Main User-Facing Worksheets
 
-## `00_HOME`
+### `00_HOME`
 
 Primary operational entry point.
 
@@ -159,7 +159,7 @@ It exposes:
 - navigation to the main functional areas;
 - the `Refresh ProcureFlow` production button.
 
-## `01_CONFIG`
+### `01_CONFIG`
 
 Central business-configuration sheet.
 
@@ -169,7 +169,7 @@ Editable configuration inputs are located in:
 
 The sheet remains protected against unintended structural edits while the approved configuration inputs remain editable.
 
-## `02_CONTROL`
+### `02_CONTROL`
 
 System-control and Quality Control layer.
 
@@ -182,13 +182,13 @@ Use it to inspect:
 - refresh failure information;
 - reconciliation evidence.
 
-## `40_RPT_Replenishment`
+### `40_RPT_Replenishment`
 
 Operational replenishment report.
 
 Use it to determine which Product × Site positions require action and what quantity is recommended.
 
-## `41_DASH_Management`
+### `41_DASH_Management`
 
 Management dashboard.
 
@@ -202,7 +202,7 @@ Analytical worksheets remain available for deeper investigation:
 
 ---
 
-# 7. Business Configuration
+## 7. Business Configuration
 
 The approved configurable parameters are:
 
@@ -249,7 +249,7 @@ Worksheet Data Validation and Quality Control enforce the approved Service Level
 
 ---
 
-# 8. Standard User Workflow
+## 8. Standard User Workflow
 
 The recommended operating sequence is:
 
@@ -270,7 +270,7 @@ The workflow state and Quality Control result are part of the acceptance conditi
 
 ---
 
-# 9. Production Refresh Workflow
+## 9. Production Refresh Workflow
 
 The sole supported production refresh entry point is:
 
@@ -303,7 +303,7 @@ Actual duration may vary by machine and environment.
 
 ---
 
-# 10. Successful Refresh
+## 10. Successful Refresh
 
 A valid successful execution should result in an accepted system state such as:
 
@@ -317,7 +317,7 @@ After a successful refresh, users may proceed to operational and management anal
 
 ---
 
-# 11. Warning State
+## 11. Warning State
 
 A valid workflow may expose a warning condition where applicable.
 
@@ -334,7 +334,7 @@ Important status meaning is always represented by text and does not depend exclu
 
 ---
 
-# 12. Failed Refresh
+## 12. Failed Refresh
 
 If the workflow fails:
 
@@ -363,7 +363,7 @@ When a refresh fails:
 
 ---
 
-# 13. Quality Control
+## 13. Quality Control
 
 `02_CONTROL` is the centralized system-control layer.
 
@@ -382,7 +382,7 @@ Before relying on refreshed business outputs, confirm that the Quality Control s
 
 ---
 
-# 14. Replenishment Workflow
+## 14. Replenishment Workflow
 
 For day-to-day inventory action:
 
@@ -423,7 +423,7 @@ Use the report to identify:
 
 ---
 
-# 15. Supplier and Procurement Analysis
+## 15. Supplier and Procurement Analysis
 
 For procurement and supplier review, use:
 
@@ -441,7 +441,7 @@ It must not be interpreted as a simple average of Supplier-level delivery-rate p
 
 ---
 
-# 16. Management Dashboard
+## 16. Management Dashboard
 
 `41_DASH_Management` provides management-level decision support.
 
@@ -467,7 +467,7 @@ It does not implement a separate business-rule engine.
 
 ---
 
-# 17. Protection and Editable Areas
+## 17. Protection and Editable Areas
 
 Workbook protection is intended to reduce accidental modification of critical structures.
 
@@ -493,7 +493,7 @@ No worksheet-protection password is part of the validated Phase 11 baseline.
 
 ---
 
-# 18. Raw Data Rules
+## 18. Raw Data Rules
 
 The normal operating process must preserve source traceability.
 
@@ -509,7 +509,7 @@ If source data must change, replace it only through the approved source-file wor
 
 ---
 
-# 19. What Not to Modify
+## 19. What Not to Modify
 
 Normal business users should avoid structural changes to:
 
@@ -528,9 +528,9 @@ Configuration inputs and supported report filters are the intended normal user c
 
 ---
 
-# 20. Troubleshooting Checklist
+## 20. Troubleshooting Checklist
 
-## Refresh does not start
+### Refresh does not start
 
 Verify:
 
@@ -538,7 +538,7 @@ Verify:
 - VBA execution is permitted by the environment;
 - the `Refresh ProcureFlow` button is being used from `00_HOME`.
 
-## Source-file error
+### Source-file error
 
 Verify that all four required files exist under:
 
@@ -548,7 +548,7 @@ with their exact approved filenames.
 
 Also verify that the repository folder relationship has not been changed.
 
-## Quality Control returns FAIL
+### Quality Control returns FAIL
 
 Open:
 
@@ -558,7 +558,7 @@ Identify the failing control and exception count.
 
 Correct the underlying source, configuration or workflow issue rather than manually overwriting the control result.
 
-## Service Level produces or attempts an invalid value
+### Service Level produces or attempts an invalid value
 
 Valid Service Levels must satisfy:
 
@@ -572,7 +572,7 @@ Use values such as the approved defaults:
 
 Do not use exactly 0% or 100%.
 
-## Latest refresh fails after an earlier successful run
+### Latest refresh fails after an earlier successful run
 
 Check the current workflow state.
 
@@ -582,7 +582,7 @@ The preserved timestamp is historical evidence of the last accepted run, not evi
 
 ---
 
-# 21. Validated Acceptance Baseline
+## 21. Validated Acceptance Baseline
 
 Phase 11 completed full-system regression and User Acceptance Testing.
 
@@ -603,7 +603,7 @@ Current released version:
 
 ---
 
-# 22. Technical Documentation
+## 22. Technical Documentation
 
 For deeper technical information, refer to:
 
@@ -619,7 +619,7 @@ For deeper technical information, refer to:
 
 ---
 
-# 23. Supported Operating Boundary
+## 23. Supported Operating Boundary
 
 ProcureFlow `v1.0.1` retains the validated `v1.0.0` executable workbook and operating architecture. The `v1.0.1` maintenance release changes documentation and repository-state metadata only.
 
