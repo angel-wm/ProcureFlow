@@ -72,8 +72,9 @@ Scope:
 - the validated executable workbook remains unchanged from `v1.0.0`;
 - no Power Query logic, production VBA behavior, Excel formula logic, PivotTable configuration, screenshot asset, or business rule was changed by R1–R4.
 
-Publication target:
+Publication:
 
+- Readability R4 Pull Request: `#21 — docs: complete readability R4 full QA and v1.0.2 release` — MERGED;
 - version tag: `v1.0.2`.
 
 ### v1.0.1 — Post-v1.0.0 Documentation and Repository-State Synchronization
