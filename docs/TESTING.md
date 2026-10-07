@@ -3646,7 +3646,7 @@ The validated executable workbook baseline remains the `v1.0.0` artifact.
 
 Status:
 
-PASS — PUBLICATION TARGET `v1.0.2`
+PASS — RELEASE GATE COMPLETE
 
 Scope:
 
@@ -3666,7 +3666,8 @@ Validated evidence:
 - repository metadata description is coherent, concise, and English-only;
 - `v1.0.0` remains the validated executable workbook release;
 - `v1.0.1` remains immutable as the earlier documentation/repository-state patch;
-- R1–R4 introduce no workbook, Power Query logic, production VBA behavior, Excel formula logic, PivotTable, screenshot, or business-rule change.
+- R1–R4 introduce no workbook, Power Query logic, production VBA behavior, Excel formula logic, PivotTable, screenshot, or business-rule change;
+- Readability R4 Pull Request `#21 — docs: complete readability R4 full QA and v1.0.2 release` was merged to `main`.
 
 Release classification:
 
