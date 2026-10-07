@@ -18,17 +18,17 @@ English Excel function names.
 
 ---
 
-# Phase 4 — Operational Model
+## Phase 4 — Operational Model
 
-## Worksheet
+### Worksheet
 
 `20_CALC_Replenishment`
 
-## Table
+### Table
 
 `tblReplenishment`
 
-## Grain
+### Grain
 
 1 Product × 1 Site
 
@@ -38,9 +38,9 @@ Validated population:
 
 ---
 
-## Production Formulas
+### Production Formulas
 
-### ProductID
+#### ProductID
 
 **Status:** IMPLEMENTED
 
@@ -63,7 +63,7 @@ Each Product appears once for every Site.
 
 ---
 
-### SiteID
+#### SiteID
 
 **Status:** IMPLEMENTED
 
@@ -85,7 +85,7 @@ Each Product is associated with all six validated Sites.
 
 ---
 
-### ProductSiteKey
+#### ProductSiteKey
 
 **Status:** IMPLEMENTED
 
@@ -103,7 +103,7 @@ Create a deterministic technical key for the Product × Site operational grain.
 
 ---
 
-### PartFamily
+#### PartFamily
 
 **Status:** IMPLEMENTED
 
@@ -117,7 +117,7 @@ Expose the Product-owned Part Family attribute.
 
 ---
 
-### CriticalityClass
+#### CriticalityClass
 
 **Status:** IMPLEMENTED
 
@@ -131,7 +131,7 @@ Expose the Product-owned Criticality Class.
 
 ---
 
-### PrimarySupplierID
+#### PrimarySupplierID
 
 **Status:** IMPLEMENTED
 
@@ -145,7 +145,7 @@ Expose the Product's validated Primary Supplier.
 
 ---
 
-### SupplierRiskClass
+#### SupplierRiskClass
 
 **Status:** IMPLEMENTED
 
@@ -163,7 +163,7 @@ Expose Supplier Risk from the Supplier dimension.
 
 ---
 
-### UnitCost
+#### UnitCost
 
 **Status:** IMPLEMENTED
 
@@ -177,7 +177,7 @@ Expose Product Unit Cost.
 
 ---
 
-### MasterLeadTimeDays
+#### MasterLeadTimeDays
 
 **Status:** IMPLEMENTED
 
@@ -191,7 +191,7 @@ Expose the master Lead-Time input for later Phase 5 business logic.
 
 ---
 
-### ReportingDate
+#### ReportingDate
 
 **Status:** IMPLEMENTED
 
@@ -205,7 +205,7 @@ Expose the configurable business Reporting Date to every Product × Site operati
 
 ---
 
-### InventorySnapshotDate
+#### InventorySnapshotDate
 
 **Status:** IMPLEMENTED
 
@@ -227,7 +227,7 @@ A non-Monday Reporting Date of `2024-12-18` resolved to Inventory Snapshot Date 
 
 ---
 
-### OnHandQty
+#### OnHandQty
 
 **Status:** IMPLEMENTED
 
@@ -241,7 +241,7 @@ Expose On-Hand Quantity for the Product × Site snapshot.
 
 ---
 
-### BlockedQty
+#### BlockedQty
 
 **Status:** IMPLEMENTED
 
@@ -255,7 +255,7 @@ Expose Blocked Quantity for the Product × Site snapshot.
 
 ---
 
-### BackorderQty
+#### BackorderQty
 
 **Status:** IMPLEMENTED
 
@@ -269,7 +269,7 @@ Expose Backorder Quantity for the Product × Site snapshot.
 
 ---
 
-### DemandHistoryWeeks
+#### DemandHistoryWeeks
 
 **Status:** IMPLEMENTED
 
@@ -283,7 +283,7 @@ Expose the configurable number of completed historical-demand weeks used by late
 
 ---
 
-### DemandHistoryStartDate
+#### DemandHistoryStartDate
 
 **Status:** IMPLEMENTED
 
@@ -297,7 +297,7 @@ Resolve the first completed weekly period included in the historical-demand wind
 
 ---
 
-### DemandHistoryEndDate
+#### DemandHistoryEndDate
 
 **Status:** IMPLEMENTED
 
@@ -314,11 +314,11 @@ Resolve the final completed weekly period immediately preceding the current Inve
 `DEC-052 — Completed Demand History Window`
 
 ---
-# Phase 4 Validation Formulas
+## Phase 4 Validation Formulas
 
 The following formulas were used as implementation evidence and are not operational output columns.
 
-## Operational Row Count
+### Operational Row Count
 
     =ROWS(tblReplenishment[ProductSiteKey])
 
@@ -328,7 +328,7 @@ Expected:
 
 ---
 
-## Expected Product × Site Population
+### Expected Product × Site Population
 
     =ROWS(tblProducts[ProductID])*ROWS(tblSites[SiteID])
 
@@ -338,7 +338,7 @@ Expected:
 
 ---
 
-## Unique ProductSiteKey Count
+### Unique ProductSiteKey Count
 
     =ROWS(UNIQUE(tblReplenishment[ProductSiteKey]))
 
@@ -348,7 +348,7 @@ Expected:
 
 ---
 
-## Master-Attribute Formula Errors
+### Master-Attribute Formula Errors
 
     =SUMPRODUCT(--ISERROR(tblReplenishment[[PartFamily]:[MasterLeadTimeDays]]))
 
@@ -358,7 +358,7 @@ Expected:
 
 ---
 
-## Distinct Primary Suppliers
+### Distinct Primary Suppliers
 
     =ROWS(UNIQUE(tblReplenishment[PrimarySupplierID]))
 
@@ -368,7 +368,7 @@ Expected:
 
 ---
 
-## Product Site Coverage Sample
+### Product Site Coverage Sample
 
     =COUNTIF(tblReplenishment[ProductID],"P00001")
 
@@ -378,7 +378,7 @@ Expected:
 
 ---
 
-## Distinct Reporting Dates
+### Distinct Reporting Dates
 
     =ROWS(UNIQUE(tblReplenishment[ReportingDate]))
 
@@ -388,7 +388,7 @@ Expected:
 
 ---
 
-## Distinct Inventory Snapshot Dates
+### Distinct Inventory Snapshot Dates
 
     =ROWS(UNIQUE(tblReplenishment[InventorySnapshotDate]))
 
@@ -398,7 +398,7 @@ Expected:
 
 ---
 
-## Snapshot Causality
+### Snapshot Causality
 
     =MAX(tblReplenishment[InventorySnapshotDate])<=MIN(tblReplenishment[ReportingDate])
 
@@ -408,7 +408,7 @@ Expected:
 
 ---
 
-## Snapshot-Date Relationship
+### Snapshot-Date Relationship
 
     =INDEX(tblReplenishment[InventorySnapshotDate],1)=XLOOKUP(cfg_ReportingDate,tblDate[Date],tblDate[WeekStartDate])
 
@@ -418,7 +418,7 @@ Expected:
 
 ---
 
-## DEC-051 Non-Monday Test
+### DEC-051 Non-Monday Test
 
     =INDEX(tblReplenishment[InventorySnapshotDate],1)=DATE(2024,12,16)
 
@@ -432,7 +432,7 @@ Expected:
 
 ---
 
-## Inventory Snapshot Source Rows
+### Inventory Snapshot Source Rows
 
     =COUNTIF(tblInventoryHistory[WeekStartDate],INDEX(tblReplenishment[InventorySnapshotDate],1))
 
@@ -442,7 +442,7 @@ Expected:
 
 ---
 
-## Product × Site Snapshot Matches
+### Product × Site Snapshot Matches
 
     =SUMPRODUCT(COUNTIFS(tblInventoryHistory[WeekStartDate],tblReplenishment[InventorySnapshotDate],tblInventoryHistory[ProductID],tblReplenishment[ProductID],tblInventoryHistory[SiteID],tblReplenishment[SiteID]))
 
@@ -452,7 +452,7 @@ Expected:
 
 ---
 
-## On-Hand Reconciliation
+### On-Hand Reconciliation
 
     =SUM(tblReplenishment[OnHandQty])=SUMIFS(tblInventoryHistory[OnHandQty],tblInventoryHistory[WeekStartDate],INDEX(tblReplenishment[InventorySnapshotDate],1))
 
@@ -462,7 +462,7 @@ Expected:
 
 ---
 
-## Blocked Quantity Reconciliation
+### Blocked Quantity Reconciliation
 
     =SUM(tblReplenishment[BlockedQty])=SUMIFS(tblInventoryHistory[BlockedQty],tblInventoryHistory[WeekStartDate],INDEX(tblReplenishment[InventorySnapshotDate],1))
 
@@ -472,7 +472,7 @@ Expected:
 
 ---
 
-## Backorder Reconciliation
+### Backorder Reconciliation
 
     =SUM(tblReplenishment[BackorderQty])=SUMIFS(tblInventoryHistory[BackorderQty],tblInventoryHistory[WeekStartDate],INDEX(tblReplenishment[InventorySnapshotDate],1))
 
@@ -482,7 +482,7 @@ Expected:
 
 ---
 
-## Blocked Quantity Integrity
+### Blocked Quantity Integrity
 
     =SUMPRODUCT(--(tblReplenishment[BlockedQty]>tblReplenishment[OnHandQty]))
 
@@ -492,7 +492,7 @@ Expected:
 
 ---
 
-# Phase Boundary
+## Phase Boundary
 
 Phase 5 formulas are intentionally not documented as implemented yet.
 
@@ -517,15 +517,15 @@ Future Phase 5 formula areas include:
 - Supplier-performance business metrics
 ---
 
-# Phase 4 — Supplier Performance Structural Model
+## Phase 4 — Supplier Performance Structural Model
 
-## Worksheet — 21_CALC_SupplierPerformance
+### Worksheet — 21_CALC_SupplierPerformance
 
-## Table
+### Table
 
 `tblSupplierPerformance`
 
-## Grain
+### Grain
 
 1 row = 1 Supplier
 
@@ -535,7 +535,7 @@ Validated population:
 
 ---
 
-### SupplierID
+#### SupplierID
 
 **Status:** IMPLEMENTED
 
@@ -549,7 +549,7 @@ Populate the structural Supplier grain from `tblSuppliers`.
 
 ---
 
-### SupplierRiskClass
+#### SupplierRiskClass
 
 **Status:** IMPLEMENTED
 
@@ -563,7 +563,7 @@ Expose the validated Supplier Risk classification.
 
 ---
 
-### ReportingDate
+#### ReportingDate
 
 **Status:** IMPLEMENTED
 
@@ -577,9 +577,9 @@ Expose the configurable Reporting Date to the Supplier Performance operational s
 
 ---
 
-## Validation Formulas
+### Validation Formulas
 
-### Supplier Row Count
+#### Supplier Row Count
 
     =ROWS(tblSupplierPerformance[SupplierID])
 
@@ -589,7 +589,7 @@ Expected:
 
 ---
 
-### Unique Supplier Count
+#### Unique Supplier Count
 
     =ROWS(UNIQUE(tblSupplierPerformance[SupplierID]))
 
@@ -599,7 +599,7 @@ Expected:
 
 ---
 
-### Supplier Population Reconciliation
+#### Supplier Population Reconciliation
 
     =ROWS(tblSupplierPerformance[SupplierID])=ROWS(tblSuppliers[SupplierID])
 
@@ -609,7 +609,7 @@ Expected:
 
 ---
 
-### Master-Data Errors
+#### Master-Data Errors
 
     =SUMPRODUCT(--ISERROR(tblSupplierPerformance[[SupplierID]:[SupplierRiskClass]]))
 
@@ -619,16 +619,16 @@ Expected:
 
 ---
 
-### Distinct Reporting Dates
+#### Distinct Reporting Dates
 
     =ROWS(UNIQUE(tblSupplierPerformance[ReportingDate]))
 
 Expected:
 
 `1`
-## Historical Demand Window Validation
+### Historical Demand Window Validation
 
-### Distinct Demand History Week Configurations
+#### Distinct Demand History Week Configurations
 
     =ROWS(UNIQUE(tblReplenishment[DemandHistoryWeeks]))
 
@@ -638,7 +638,7 @@ Expected:
 
 ---
 
-### Rows Using 26 Weeks
+#### Rows Using 26 Weeks
 
     =COUNTIF(tblReplenishment[DemandHistoryWeeks],26)
 
@@ -648,7 +648,7 @@ Expected:
 
 ---
 
-### Distinct Demand History Start Dates
+#### Distinct Demand History Start Dates
 
     =ROWS(UNIQUE(tblReplenishment[DemandHistoryStartDate]))
 
@@ -658,7 +658,7 @@ Expected:
 
 ---
 
-### Distinct Demand History End Dates
+#### Distinct Demand History End Dates
 
     =ROWS(UNIQUE(tblReplenishment[DemandHistoryEndDate]))
 
@@ -668,7 +668,7 @@ Expected:
 
 ---
 
-### Configured Window Length
+#### Configured Window Length
 
     =(INDEX(tblReplenishment[DemandHistoryEndDate],1)-INDEX(tblReplenishment[DemandHistoryStartDate],1))/7+1=cfg_DemandHistoryWeeks
 
@@ -678,7 +678,7 @@ Expected:
 
 ---
 
-### Completed-Week Boundary
+#### Completed-Week Boundary
 
     =INDEX(tblReplenishment[DemandHistoryEndDate],1)=INDEX(tblReplenishment[InventorySnapshotDate],1)-7
 
@@ -688,7 +688,7 @@ Expected:
 
 ---
 
-### Distinct Source Weeks
+#### Distinct Source Weeks
 
     =ROWS(UNIQUE(FILTER(tblInventoryHistory[WeekStartDate],(tblInventoryHistory[WeekStartDate]>=INDEX(tblReplenishment[DemandHistoryStartDate],1))*(tblInventoryHistory[WeekStartDate]<=INDEX(tblReplenishment[DemandHistoryEndDate],1)))))
 
@@ -698,7 +698,7 @@ Expected:
 
 ---
 
-### Historical Source Row Count
+#### Historical Source Row Count
 
     =COUNTIFS(tblInventoryHistory[WeekStartDate],">="&INDEX(tblReplenishment[DemandHistoryStartDate],1),tblInventoryHistory[WeekStartDate],"<="&INDEX(tblReplenishment[DemandHistoryEndDate],1))
 
@@ -707,9 +707,9 @@ Expected:
 `46800`
 ---
 
-## Final Phase 4 Refresh Validation
+### Final Phase 4 Refresh Validation
 
-### Replenishment Row Count
+#### Replenishment Row Count
 
     =ROWS(tblReplenishment[ProductSiteKey])
 
@@ -719,7 +719,7 @@ Expected:
 
 ---
 
-### Unique Product-Site Keys
+#### Unique Product-Site Keys
 
     =ROWS(UNIQUE(tblReplenishment[ProductSiteKey]))
 
@@ -729,7 +729,7 @@ Expected:
 
 ---
 
-### Replenishment Master/Input Errors
+#### Replenishment Master/Input Errors
 
     =SUMPRODUCT(--ISERROR(tblReplenishment[[PartFamily]:[BackorderQty]]))
 
@@ -739,7 +739,7 @@ Expected:
 
 ---
 
-### Reporting Date Relationship
+#### Reporting Date Relationship
 
     =INDEX(tblReplenishment[ReportingDate],1)=cfg_ReportingDate
 
@@ -749,7 +749,7 @@ Expected:
 
 ---
 
-### Historical-Demand Source Coverage
+#### Historical-Demand Source Coverage
 
     =COUNTIFS(tblInventoryHistory[WeekStartDate],">="&INDEX(tblReplenishment[DemandHistoryStartDate],1),tblInventoryHistory[WeekStartDate],"<="&INDEX(tblReplenishment[DemandHistoryEndDate],1))
 
@@ -759,7 +759,7 @@ Expected:
 
 ---
 
-### Supplier Performance Row Count
+#### Supplier Performance Row Count
 
     =ROWS(tblSupplierPerformance[SupplierID])
 
@@ -769,7 +769,7 @@ Expected:
 
 ---
 
-### Unique Supplier Count
+#### Unique Supplier Count
 
     =ROWS(UNIQUE(tblSupplierPerformance[SupplierID]))
 
@@ -779,7 +779,7 @@ Expected:
 
 ---
 
-### Supplier Structural Errors
+#### Supplier Structural Errors
 
     =SUMPRODUCT(--ISERROR(tblSupplierPerformance[[SupplierID]:[SupplierRiskClass]]))
 
@@ -939,7 +939,7 @@ No aggregate Supplier Score is introduced in Phase 5.
 
 ---
 
-# Phase 6 — Quality Control System Formulas
+## Phase 6 — Quality Control System Formulas
 
 Status:
 
@@ -953,7 +953,7 @@ Primary table:
 
 `tblQualityControl`
 
-## Status Formula
+### Status Formula
 
 Implemented in `tblQualityControl[Status]`:
 
@@ -966,7 +966,7 @@ Purpose:
 - return PASS for zero exceptions;
 - return WARNING or FAIL according to configured severity.
 
-## Overall Quality Status
+### Overall Quality Status
 
 Implemented summary formula:
 
@@ -980,7 +980,7 @@ Apply the precedence:
 
 while preventing an incomplete set of applicable controls from reporting PASS.
 
-## Summary Metrics
+### Summary Metrics
 
 PASS controls:
 
@@ -1010,7 +1010,7 @@ Phase 6 current valid technical refresh (historical baseline):
 
     =XLOOKUP("QC-030",tblQualityControl[ControlID],tblQualityControl[Result],"")
 
-## Technical Power Query Feed Lookups — Phase 6 Baseline
+### Technical Power Query Feed Lookups — Phase 6 Baseline
 
 For `QC-001`, `QC-002`, `QC-003`, `QC-004`, `QC-030` and `QC-031`:
 
@@ -1026,7 +1026,7 @@ ExceptionCount:
 
     =XLOOKUP([@ControlID],tblQCPipelineHealth[ControlID],tblQCPipelineHealth[ExceptionCount],"")
 
-## Representative Integrity Controls
+### Representative Integrity Controls
 
 Duplicate Product IDs:
 
@@ -1052,7 +1052,7 @@ Invalid Quality Product references:
 
     =SUMPRODUCT(--ISNA(MATCH(tblQualityIncidents[ProductID],tblProducts[ProductID],0)))
 
-## Representative Business-Rule Controls
+### Representative Business-Rule Controls
 
 Non-positive Ordered Quantity:
 
@@ -1078,7 +1078,7 @@ Promised Date before Order Date:
 
     =SUMPRODUCT(--(tblPurchaseOrders[PromisedDate]<tblPurchaseOrders[OrderDate]))
 
-## Configuration Controls
+### Configuration Controls
 
 Demand History Weeks:
 
@@ -1102,7 +1102,7 @@ The Service Level Quality Control uses the stricter operational requirement:
 
 because `NORM.S.INV()` cannot safely operate at exactly 0% or 100%.
 
-## Extended Phase 6 Controls
+### Extended Phase 6 Controls
 
 Duplicate Inventory composite keys:
 
@@ -1116,7 +1116,7 @@ Calculation formula errors:
 
     =SUMPRODUCT(--ISERROR(tblReplenishment[#Data]))+SUMPRODUCT(--ISERROR(tblSupplierPerformance[#Data]))
 
-## Phase 6 Validation Baseline
+### Phase 6 Validation Baseline
 
 Validated final baseline:
 
@@ -1175,7 +1175,7 @@ Status:
 
     =IF([@Severity]="N/A","N/A",IF([@ExceptionCount]="","",IF([@ExceptionCount]=0,"PASS",IF([@Severity]="Warning","WARNING","FAIL"))))
 
-# Phase 10 — Operational Replenishment Report Formulas
+## Phase 10 — Operational Replenishment Report Formulas
 
 Status:
 
@@ -1185,7 +1185,7 @@ Worksheet:
 
 `40_RPT_Replenishment`
 
-## Reporting Date
+### Reporting Date
 
     =cfg_ReportingDate
 
@@ -1193,7 +1193,7 @@ Purpose:
 
 Expose the configured business Reporting Date without duplicating business logic.
 
-## Inventory Snapshot Date
+### Inventory Snapshot Date
 
     =INDEX(tblReplenishment[InventorySnapshotDate],1)
 
@@ -1201,7 +1201,7 @@ Purpose:
 
 Expose the validated common Inventory Snapshot Date used by the operational Product × Site model.
 
-## Last Successful Refresh
+### Last Successful Refresh
 
     =LET(last,XLOOKUP("LastSuccessfulRefresh",tblAutomationState[StateKey],tblAutomationState[StateValue],""),IF(OR(last="",last=0),"Not available",last))
 
@@ -1209,7 +1209,7 @@ Purpose:
 
 Expose persistent accepted production-refresh state maintained by Phase 9 automation.
 
-## Overall Quality Status
+### Overall Quality Status
 
     =LET(StatusRange,tblQualityControl[Status],Applicable,ROWS(tblQualityControl[ControlID])-COUNTIF(tblQualityControl[Severity],"N/A"),Evaluated,COUNTIF(StatusRange,"PASS")+COUNTIF(StatusRange,"WARNING")+COUNTIF(StatusRange,"FAIL"),IF(COUNTIF(StatusRange,"FAIL")>0,"FAIL",IF(Evaluated<Applicable,"WARNING",IF(COUNTIF(StatusRange,"WARNING")>0,"WARNING","PASS"))))
 
@@ -1221,7 +1221,7 @@ Expose the established Quality Control precedence:
 
 without creating a second Quality Control engine.
 
-## Data Validation Helper Lists
+### Data Validation Helper Lists
 
 Site:
 
@@ -1245,7 +1245,7 @@ Inventory Status:
 
 The helper Dynamic Arrays feed Data Validation through spilled-range references.
 
-## Operational Dynamic Array
+### Operational Dynamic Array
 
 Implemented from:
 
@@ -1280,7 +1280,7 @@ Validated counts:
 - STOCKOUT: 2;
 - HEALTHY: 332.
 
-# Phase 10 — Management Dashboard Formulas
+## Phase 10 — Management Dashboard Formulas
 
 Status:
 
@@ -1290,7 +1290,7 @@ Worksheet:
 
 `41_DASH_Management`
 
-## STOCKOUT Positions
+### STOCKOUT Positions
 
     =COUNTIF(tblReplenishment[InventoryStatus],"STOCKOUT")
 
@@ -1298,7 +1298,7 @@ Validated baseline:
 
 2
 
-## CRITICAL Positions
+### CRITICAL Positions
 
     =COUNTIF(tblReplenishment[InventoryStatus],"CRITICAL")
 
@@ -1306,7 +1306,7 @@ Validated baseline:
 
 86
 
-## REORDER Positions
+### REORDER Positions
 
     =COUNTIF(tblReplenishment[InventoryStatus],"REORDER")
 
@@ -1314,7 +1314,7 @@ Validated baseline:
 
 310
 
-## Recommended Order Qty
+### Recommended Order Qty
 
     =SUM(tblReplenishment[RecommendedOrderQty])
 
@@ -1322,7 +1322,7 @@ Validated baseline:
 
 2,109
 
-## Backorder Qty
+### Backorder Qty
 
     =SUM(tblReplenishment[BackorderQty])
 
@@ -1330,7 +1330,7 @@ Validated baseline:
 
 27
 
-## Open PO Qty
+### Open PO Qty
 
     =SUM(tblReplenishment[OpenPOQty])
 
@@ -1338,7 +1338,7 @@ Validated baseline:
 
 20,146
 
-## Weighted On-Time Delivery Rate
+### Weighted On-Time Delivery Rate
 
     =LET(OnTime,SUM(tblSupplierPerformance[OnTimePOCount]),Received,SUM(tblSupplierPerformance[ReceivedPOCount]),IF(Received=0,"",OnTime/Received))
 
@@ -1360,7 +1360,7 @@ Validated baseline:
 
 44.4%
 
-## Quality Incident Count
+### Quality Incident Count
 
     =SUM(tblSupplierPerformance[QualityIncidentCount])
 
@@ -1372,7 +1372,7 @@ Validated baseline:
 
 350
 
-## Reporting Context
+### Reporting Context
 
 Reporting Date:
 
@@ -1390,13 +1390,13 @@ Overall Quality Status:
 
     =LET(StatusRange,tblQualityControl[Status],Applicable,ROWS(tblQualityControl[ControlID])-COUNTIF(tblQualityControl[Severity],"N/A"),Evaluated,COUNTIF(StatusRange,"PASS")+COUNTIF(StatusRange,"WARNING")+COUNTIF(StatusRange,"FAIL"),IF(COUNTIF(StatusRange,"FAIL")>0,"FAIL",IF(Evaluated<Applicable,"WARNING",IF(COUNTIF(StatusRange,"WARNING")>0,"WARNING","PASS"))))
 
-## Phase 10 Navigation Formulas
+### Phase 10 Navigation Formulas
 
 Status:
 
 [IMPLEMENTED] [VALIDATED]
 
-### Operational Replenishment Report to Management Dashboard
+#### Operational Replenishment Report to Management Dashboard
 
 Worksheet:
 
@@ -1408,7 +1408,7 @@ Purpose:
 
 Provide direct user navigation from the operational replenishment report to the management dashboard.
 
-### Management Dashboard to Configuration
+#### Management Dashboard to Configuration
 
 Worksheet:
 
@@ -1420,7 +1420,7 @@ Purpose:
 
 Provide access to the approved ProcureFlow business-configuration layer without duplicating configuration inputs on the dashboard.
 
-### Management Dashboard to Replenishment Report
+#### Management Dashboard to Replenishment Report
 
 Top navigation:
 
@@ -1430,7 +1430,7 @@ Navigation area:
 
     =HYPERLINK("#'40_RPT_Replenishment'!A1","Replenishment Report")
 
-### Management Dashboard to Analytical Worksheets
+#### Management Dashboard to Analytical Worksheets
 
 Inventory Analysis:
 
@@ -1448,7 +1448,7 @@ These formulas provide navigation only.
 
 They do not create data dependencies or modify the analytical model.
 
-## Phase 10 Overall Quality Status Conditional Formatting Formulas
+### Phase 10 Overall Quality Status Conditional Formatting Formulas
 
 The user-facing Phase 10 reporting outputs reinforce the textual Overall Quality Status with Conditional Formatting.
 

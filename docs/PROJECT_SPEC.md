@@ -14,17 +14,17 @@ Nothing described as a requirement or design decision in this document should be
 
 ---
 
-# 1. Project Overview
+## 1. Project Overview
 
-## 1.1 Project Name
+### 1.1 Project Name
 
 ProcureFlow
 
-## 1.2 Project Type
+### 1.2 Project Type
 
 Excel-based Procurement & Inventory Management System.
 
-## 1.3 Purpose
+### 1.3 Purpose
 
 ProcureFlow will be an end-to-end business solution built primarily in Microsoft Excel for procurement, inventory monitoring, replenishment, supplier performance, quality control, operational reporting and management reporting.
 
@@ -36,7 +36,7 @@ The project is intended to resemble a maintainable business tool rather than:
 - a VBA demonstration;
 - a set of disconnected analytics.
 
-## 1.4 Professional Objective
+### 1.4 Professional Objective
 
 The final project must demonstrate the ability to design, build, validate, automate, document and version a professional Excel solution using:
 
@@ -60,7 +60,7 @@ The final project must demonstrate the ability to design, build, validate, autom
 
 ---
 
-# 2. Business Problem
+## 2. Business Problem
 
 ProcureFlow addresses a business environment in which procurement and inventory information exists across operational data sources but lacks a unified process for monitoring, replenishment and decision support.
 
@@ -96,9 +96,9 @@ ProcureFlow should enable business users to answer questions such as:
 
 ---
 
-# 3. Target Users
+## 3. Target Users
 
-## 3.1 Primary User — Procurement / Inventory Analyst
+### 3.1 Primary User — Procurement / Inventory Analyst
 
 Responsibilities supported by ProcureFlow:
 
@@ -111,7 +111,7 @@ Responsibilities supported by ProcureFlow:
 - analyze supplier performance;
 - prepare operational reports.
 
-## 3.2 Secondary User — Buyer / Purchasing Specialist
+### 3.2 Secondary User — Buyer / Purchasing Specialist
 
 Primary needs:
 
@@ -121,7 +121,7 @@ Primary needs:
 - monitor outstanding purchases;
 - prioritize urgent requirements.
 
-## 3.3 Management User — Procurement / Operations Manager
+### 3.3 Management User — Procurement / Operations Manager
 
 Primary needs:
 
@@ -133,13 +133,13 @@ Primary needs:
 
 ---
 
-# 4. Technology Scope
+## 4. Technology Scope
 
-## 4.1 Target Platform
+### 4.1 Target Platform
 
 Microsoft Excel 365 Desktop for Windows.
 
-## 4.2 Approved Core Technologies
+### 4.2 Approved Core Technologies
 
 - Excel Tables;
 - Structured References;
@@ -160,7 +160,7 @@ Microsoft Excel 365 Desktop for Windows.
 - GitHub;
 - Markdown documentation.
 
-## 4.3 Technologies Not Included in the Core Solution
+### 4.3 Technologies Not Included in the Core Solution
 
 ProcureFlow will not use:
 
@@ -177,13 +177,13 @@ Power Pivot / Excel Data Model is not part of the initial architecture and will 
 
 ---
 
-# 5. Official Dataset
+## 5. Official Dataset
 
-## 5.1 Dataset
+### 5.1 Dataset
 
 Aerospace Supply Chain Performance & Forecasting.
 
-## 5.2 Official Source Files
+### 5.2 Official Source Files
 
 ProcureFlow will use:
 
@@ -192,7 +192,7 @@ ProcureFlow will use:
 - `purchase_orders.csv`
 - `quality_incidents.csv`
 
-## 5.3 Source Data Policy
+### 5.3 Source Data Policy
 
 The original CSV files are treated as immutable raw data.
 
@@ -200,7 +200,7 @@ They must not be manually edited as part of the normal ProcureFlow workflow.
 
 Required cleaning, typing, transformation, validation and preparation will be performed through Power Query.
 
-## 5.4 Dataset Characteristics
+### 5.4 Dataset Characteristics
 
 The selected dataset provides approximately:
 
@@ -227,7 +227,7 @@ The data supports analysis of:
 - supplier quality;
 - site-level inventory behavior.
 
-## 5.5 Known Dataset Limitations
+### 5.5 Known Dataset Limitations
 
 The design explicitly accepts these limitations:
 
@@ -243,9 +243,9 @@ ProcureFlow must not invent unsupported business data merely to fill these gaps.
 
 ---
 
-# 6. Project Scope
+## 6. Project Scope
 
-## 6.1 In Scope
+### 6.1 In Scope
 
 ProcureFlow will cover:
 
@@ -279,7 +279,7 @@ ProcureFlow will cover:
 - Git/GitHub versioning;
 - technical documentation.
 
-## 6.2 Out of Scope for v1.0.0
+### 6.2 Out of Scope for v1.0.0
 
 The following are explicitly outside the mandatory scope:
 
@@ -309,11 +309,11 @@ The following are explicitly outside the mandatory scope:
 
 ---
 
-# 7. Conceptual Data Model
+## 7. Conceptual Data Model
 
 ProcureFlow will use the following conceptual entities.
 
-## 7.1 Product
+### 7.1 Product
 
 Source:
 
@@ -323,7 +323,7 @@ Grain:
 
 1 row = 1 product / part.
 
-## 7.2 Site
+### 7.2 Site
 
 Derived from unique Site identifiers in `supply_chain_history.csv`.
 
@@ -333,7 +333,7 @@ Grain:
 
 A Site is treated as an operational inventory location functionally similar to a warehouse, but ProcureFlow will not invent location attributes not provided by the source.
 
-## 7.3 Supplier
+### 7.3 Supplier
 
 Derived from Supplier identifiers present in procurement and quality sources.
 
@@ -341,7 +341,7 @@ Grain:
 
 1 row = 1 supplier.
 
-## 7.4 Inventory History
+### 7.4 Inventory History
 
 Source:
 
@@ -351,7 +351,7 @@ Grain:
 
 1 Product × 1 Site × 1 Week.
 
-## 7.5 Purchase Orders
+### 7.5 Purchase Orders
 
 Source:
 
@@ -361,7 +361,7 @@ Grain:
 
 1 row = 1 purchase record / Purchase Order record for one product.
 
-## 7.6 Quality Incidents
+### 7.6 Quality Incidents
 
 Source:
 
@@ -371,7 +371,7 @@ Grain:
 
 1 row = 1 supplier-quality incident.
 
-## 7.7 Date Dimension
+### 7.7 Date Dimension
 
 A date dimension will be derived to support consistent temporal filtering, reporting and analysis.
 
@@ -379,135 +379,135 @@ Its exact physical implementation will be determined during implementation.
 
 ---
 
-# 8. Functional Requirements
+## 8. Functional Requirements
 
-## 8.1 Master Data
+### 8.1 Master Data
 
-### FR-01 — Product Master
+#### FR-01 — Product Master
 
 The system must provide a validated product master based on the official source.
 
-### FR-02 — Supplier Master
+#### FR-02 — Supplier Master
 
 The system must maintain a unique supplier list derived from official source data.
 
-### FR-03 — Site Master
+#### FR-03 — Site Master
 
 The system must maintain a unique site list derived from official source data.
 
 ---
 
-## 8.2 Data Ingestion
+### 8.2 Data Ingestion
 
-### FR-04 — Automated Ingestion
+#### FR-04 — Automated Ingestion
 
 The four official source files must be ingested through Power Query.
 
-### FR-05 — Refresh
+#### FR-05 — Refresh
 
 Normal data updates must not require manual copy/paste of operational records.
 
-### FR-06 — Explicit Data Types
+#### FR-06 — Explicit Data Types
 
 Dates, identifiers, quantities, costs and other relevant fields must use appropriate data types.
 
 ---
 
-## 8.3 Inventory Management
+### 8.3 Inventory Management
 
-### FR-07 — Inventory Position Monitoring
+#### FR-07 — Inventory Position Monitoring
 
 The system must provide inventory information by Product × Site.
 
-### FR-08 — Historical Inventory
+#### FR-08 — Historical Inventory
 
 The system must support historical inventory analysis.
 
-### FR-09 — Consumption Analysis
+#### FR-09 — Consumption Analysis
 
 The system must analyze historical consumption by Product × Site.
 
-### FR-10 — Backorder Monitoring
+#### FR-10 — Backorder Monitoring
 
 The system must identify and analyze backorders.
 
-### FR-11 — Blocked Stock Monitoring
+#### FR-11 — Blocked Stock Monitoring
 
 Blocked stock must be distinguished from stock available for consumption.
 
 ---
 
-## 8.4 Replenishment
+### 8.4 Replenishment
 
-### FR-12 — Historical Demand
+#### FR-12 — Historical Demand
 
 The system must calculate demand indicators using approved historical consumption rules.
 
-### FR-13 — Safety Stock
+#### FR-13 — Safety Stock
 
 The system must calculate Safety Stock using a documented methodology.
 
-### FR-14 — Reorder Point
+#### FR-14 — Reorder Point
 
 The system must calculate Reorder Point using the approved business rule.
 
-### FR-15 — Inventory Status
+#### FR-15 — Inventory Status
 
 The system must classify Product × Site inventory positions using approved operational states.
 
-### FR-16 — Open Purchase Orders
+#### FR-16 — Open Purchase Orders
 
 Open Purchase Orders must be incorporated into replenishment decisions where applicable.
 
-### FR-17 — Recommended Order Quantity
+#### FR-17 — Recommended Order Quantity
 
 The system must produce a documented recommended order quantity.
 
 ---
 
-## 8.5 Procurement
+### 8.5 Procurement
 
-### FR-18 — Purchase Order Monitoring
+#### FR-18 — Purchase Order Monitoring
 
 The system must support Purchase Order analysis.
 
-### FR-19 — Open Purchase Orders as of Reporting Date
+#### FR-19 — Open Purchase Orders as of Reporting Date
 
 The system must determine which Purchase Orders were open at the selected Reporting Date.
 
-### FR-20 — Late Purchase Orders
+#### FR-20 — Late Purchase Orders
 
 The system must identify late receipts.
 
-### FR-21 — Partial Receipts
+#### FR-21 — Partial Receipts
 
 The system must identify receipts where received quantity is below ordered quantity.
 
-### FR-22 — Procurement Spend
+#### FR-22 — Procurement Spend
 
 The system must calculate purchasing value only where source fields support a valid interpretation.
 
 ---
 
-## 8.6 Supplier Performance
+### 8.6 Supplier Performance
 
-### FR-23 — Actual Lead Time
+#### FR-23 — Actual Lead Time
 
 Actual Lead Time must be calculated using order and receipt dates.
 
-### FR-24 — Lead-Time Variability
+#### FR-24 — Lead-Time Variability
 
 The system must analyze variation in actual Lead Times.
 
-### FR-25 — On-Time Delivery
+#### FR-25 — On-Time Delivery
 
 The system must calculate a reproducible On-Time Delivery metric.
 
-### FR-26 — Supplier Quality
+#### FR-26 — Supplier Quality
 
 The system must incorporate supplier-quality incidents.
 
-### FR-27 — Supplier Performance View
+#### FR-27 — Supplier Performance View
 
 The system must provide transparent supplier-performance metrics.
 
@@ -515,77 +515,77 @@ An aggregate Supplier Score is not mandatory and must not be introduced without 
 
 ---
 
-## 8.7 Data Quality
+### 8.7 Data Quality
 
-### FR-28 — Duplicate Detection
+#### FR-28 — Duplicate Detection
 
 The system must identify duplicates where uniqueness is required.
 
-### FR-29 — Referential Integrity
+#### FR-29 — Referential Integrity
 
 References between products, suppliers, sites and transactional data must be validated.
 
-### FR-30 — Required Fields
+#### FR-30 — Required Fields
 
 Mandatory fields must be checked for missing values.
 
-### FR-31 — Logical Date Validation
+#### FR-31 — Logical Date Validation
 
 Impossible or inconsistent date relationships must be detected.
 
-### FR-32 — Quantity Validation
+#### FR-32 — Quantity Validation
 
 Invalid or logically inconsistent quantities must be identified.
 
 ---
 
-## 8.8 Analysis and Reporting
+### 8.8 Analysis and Reporting
 
-### FR-33 — Inventory Analysis
+#### FR-33 — Inventory Analysis
 
 The system must provide aggregated inventory analysis.
 
-### FR-34 — Procurement Analysis
+#### FR-34 — Procurement Analysis
 
 The system must provide aggregated procurement analysis.
 
-### FR-35 — Supplier Analysis
+#### FR-35 — Supplier Analysis
 
 The system must provide supplier-performance and supplier-quality analysis.
 
-### FR-36 — Interactive Filtering
+#### FR-36 — Interactive Filtering
 
 Slicers and Timelines must be used where they provide meaningful analytical value.
 
-### FR-37 — Operational Replenishment Report
+#### FR-37 — Operational Replenishment Report
 
 A dedicated operational replenishment report must provide actionable purchasing recommendations.
 
-### FR-38 — Management Dashboard
+#### FR-38 — Management Dashboard
 
 A management dashboard must summarize relevant inventory, procurement and supplier information.
 
 ---
 
-## 8.9 Automation
+### 8.9 Automation
 
-### FR-39 — Refresh Automation
+#### FR-39 — Refresh Automation
 
 VBA may automate the complete refresh workflow once the manual workflow is stable.
 
-### FR-40 — Quality-Control Automation
+#### FR-40 — Quality-Control Automation
 
 VBA may automate or orchestrate quality-control execution and navigation.
 
-### FR-41 — Reporting Automation
+#### FR-41 — Reporting Automation
 
 VBA may automate report preparation and export where professionally justified.
 
 ---
 
-# 9. Business Rules
+## 9. Business Rules
 
-## 9.1 Reporting Date
+### 9.1 Reporting Date
 
 Reporting Date is a configurable system parameter.
 
@@ -595,7 +595,7 @@ The initial maximum Reporting Date for the current dataset is:
 
 The parameter must remain within the valid data range.
 
-## 9.2 Demand History Window
+### 9.2 Demand History Window
 
 Default historical demand window:
 
@@ -605,7 +605,7 @@ Demand calculations are performed by Product × Site.
 
 Weeks with zero consumption are valid observations and must not be discarded automatically.
 
-## 9.3 Review Period
+### 9.3 Review Period
 
 Default Review Period:
 
@@ -613,7 +613,7 @@ Default Review Period:
 
 This aligns with the weekly grain of the historical source.
 
-## 9.4 Lead Time
+### 9.4 Lead Time
 
 Actual Lead Time:
 
@@ -626,7 +626,7 @@ The system will use historical actual Lead Times to calculate:
 
 The product-master Lead Time may be used as a fallback if insufficient history exists.
 
-## 9.5 Service Levels by Criticality
+### 9.5 Service Levels by Criticality
 
 Initial configurable policy:
 
@@ -644,7 +644,7 @@ Exactly `0%` and exactly `100%` are invalid because the approved Safety Stock me
 
 Worksheet Data Validation and Quality Control must enforce this same operational domain.
 
-## 9.6 Available Stock
+### 9.6 Available Stock
 
 Conceptual rule:
 
@@ -652,13 +652,13 @@ Available Stock = On-Hand Inventory − Blocked Stock
 
 Available Stock must not be negative; implementation will apply an appropriate minimum-zero rule where required.
 
-## 9.7 Backorders
+### 9.7 Backorders
 
 Backorders represent demand already pending because available inventory was insufficient.
 
 Backorders reduce Inventory Position.
 
-## 9.8 Safety Stock
+### 9.8 Safety Stock
 
 Safety Stock must incorporate:
 
@@ -668,13 +668,13 @@ Safety Stock must incorporate:
 
 The formula must use consistent time units.
 
-## 9.9 Reorder Point
+### 9.9 Reorder Point
 
 Conceptual rule:
 
 Reorder Point = Expected Demand During Lead Time + Safety Stock
 
-## 9.10 Open Purchase Order
+### 9.10 Open Purchase Order
 
 A Purchase Order is open as of Reporting Date when:
 
@@ -684,13 +684,13 @@ While open, the originally ordered quantity is treated as incoming inventory.
 
 ProcureFlow must not use future receipt information retroactively to alter what was known at the Reporting Date.
 
-## 9.11 Inventory Position
+### 9.11 Inventory Position
 
 Conceptual rule:
 
 Inventory Position = Available Stock + Open Purchase Order Quantity − Backorders
 
-## 9.12 Target Stock
+### 9.12 Target Stock
 
 Target Stock must cover:
 
@@ -704,7 +704,7 @@ Target Stock = Average Demand × (Lead Time + Review Period) + Safety Stock
 
 with consistent units.
 
-## 9.13 Recommended Order Quantity
+### 9.13 Recommended Order Quantity
 
 A positive order recommendation is only produced when:
 
@@ -718,7 +718,7 @@ The result must never be negative and will be rounded appropriately to whole uni
 
 Minimum Order Quantity and order multiples are not applied because the official dataset does not provide them.
 
-## 9.14 Inventory Status Priority
+### 9.14 Inventory Status Priority
 
 Inventory states are evaluated in this priority order:
 
@@ -729,23 +729,23 @@ Inventory states are evaluated in this priority order:
 5. EXCESS
 6. HEALTHY
 
-### STOCKOUT
+#### STOCKOUT
 
 No usable stock exists and unmet demand / backorder exists.
 
-### CRITICAL
+#### CRITICAL
 
 A backorder exists or Available Stock is below Safety Stock.
 
-### REORDER
+#### REORDER
 
 Inventory Position is at or below Reorder Point.
 
-### ATTENTION
+#### ATTENTION
 
 Inventory Position is above Reorder Point but within approximately one week of average demand above the Reorder Point.
 
-### EXCESS
+#### EXCESS
 
 Inventory Position exceeds Target Stock by more than the configured Excess Buffer.
 
@@ -753,11 +753,11 @@ Initial Excess Buffer:
 
 4 weeks of average demand.
 
-### HEALTHY
+#### HEALTHY
 
 No higher-priority state applies.
 
-## 9.15 No Recent Demand
+### 9.15 No Recent Demand
 
 If total consumption during the configured 26-week window is zero:
 
@@ -767,7 +767,7 @@ must be raised as an additional flag.
 
 The system must not automatically create a purchasing recommendation solely because of a statistical formula in such cases.
 
-## 9.16 On-Time Delivery
+### 9.16 On-Time Delivery
 
 A received Purchase Order is On Time when:
 
@@ -775,13 +775,13 @@ Actual Receipt Date <= Promised Date
 
 The On-Time Delivery percentage is calculated using received orders only.
 
-## 9.17 Partial Receipt
+### 9.17 Partial Receipt
 
 A Purchase Order is considered partially received when:
 
 Received Quantity < Ordered Quantity
 
-## 9.18 Forecast
+### 9.18 Forecast
 
 Forecast data from the source will be preserved for analysis.
 
@@ -789,7 +789,7 @@ Forecast will not be the primary input of the initial replenishment engine.
 
 Forecast accuracy analysis is optional and must not block v1.0.0 unless later promoted into mandatory scope through a documented decision.
 
-## 9.19 Supplier Risk
+### 9.19 Supplier Risk
 
 Supplier Risk from the source may be used for:
 
@@ -802,7 +802,7 @@ It will not automatically multiply Safety Stock because observed Lead-Time varia
 
 ---
 
-# 10. Configurable Business Parameters
+## 10. Configurable Business Parameters
 
 The following parameters must be configurable rather than embedded as hidden constants:
 
@@ -828,9 +828,9 @@ Initial values:
 
 ---
 
-# 11. Non-Functional Requirements
+## 11. Non-Functional Requirements
 
-## NFR-01 — Maintainable Structure
+### NFR-01 — Maintainable Structure
 
 The workbook must clearly separate:
 
@@ -841,7 +841,7 @@ The workbook must clearly separate:
 - analysis;
 - reporting.
 
-## NFR-02 — Naming Conventions
+### NFR-02 — Naming Conventions
 
 Consistent naming must be used for:
 
@@ -852,19 +852,19 @@ Consistent naming must be used for:
 - VBA procedures;
 - quality controls.
 
-## NFR-03 — Structured References
+### NFR-03 — Structured References
 
 Excel Tables and Structured References should be preferred over fragile coordinate-based references where appropriate.
 
-## NFR-04 — No Hidden Business Constants
+### NFR-04 — No Hidden Business Constants
 
 Business-policy numbers must be centralized in configuration.
 
-## NFR-05 — Auditability
+### NFR-05 — Auditability
 
 Core business calculations must remain inspectable and explainable.
 
-## NFR-06 — Data Lineage
+### NFR-06 — Data Lineage
 
 The project must distinguish between:
 
@@ -874,105 +874,105 @@ The project must distinguish between:
 - Excel calculations;
 - analytical outputs.
 
-## NFR-07 — Decision Traceability
+### NFR-07 — Decision Traceability
 
 Important changes to architecture, rules or scope must be recorded in `DECISIONS.md`.
 
-## NFR-08 — Reasonable Performance
+### NFR-08 — Reasonable Performance
 
 Normal user interaction must remain practical with the complete official dataset.
 
-## NFR-09 — Avoid Unnecessary Volatile Formulas
+### NFR-09 — Avoid Unnecessary Volatile Formulas
 
 Volatile functions must only be used when justified.
 
-## NFR-10 — Avoid Unnecessary Full-Column Calculations
+### NFR-10 — Avoid Unnecessary Full-Column Calculations
 
 Large-range formulas must be designed with performance in mind.
 
-## NFR-11 — Measured Optimization
+### NFR-11 — Measured Optimization
 
 Optimization decisions must be based on observed performance rather than premature complexity.
 
-## NFR-12 — Reproducible Refresh
+### NFR-12 — Reproducible Refresh
 
 The documented refresh workflow must rebuild required processed data without manual copy/paste.
 
-## NFR-13 — Raw Data Immutability
+### NFR-13 — Raw Data Immutability
 
 Original CSV files remain unchanged.
 
-## NFR-14 — No Hidden Manual Steps
+### NFR-14 — No Hidden Manual Steps
 
 Any unavoidable manual procedure must be documented.
 
-## NFR-15 — Clear Navigation
+### NFR-15 — Clear Navigation
 
 Users must be able to reach core functional areas from `00_HOME`.
 
-## NFR-16 — Editable Inputs Clearly Identified
+### NFR-16 — Editable Inputs Clearly Identified
 
 Configurable cells must be visually and technically distinguishable from formulas and outputs.
 
-## NFR-17 — Concise User Instructions
+### NFR-17 — Concise User Instructions
 
 Workbook instructions must be practical and concise.
 
-## NFR-18 — Consistent Visual Design
+### NFR-18 — Consistent Visual Design
 
 Formatting, typography, hierarchy and states must follow a coherent visual system.
 
-## NFR-19 — Avoid Decorative Noise
+### NFR-19 — Avoid Decorative Noise
 
 The solution must avoid unnecessary 3D charts, excessive colors and decorative elements without functional value.
 
-## NFR-20 — Clear Visual Hierarchy
+### NFR-20 — Clear Visual Hierarchy
 
 Key performance indicators, warnings, details and navigation must be visually distinguishable.
 
-## NFR-21 — Editable Cells Remain Editable
+### NFR-21 — Editable Cells Remain Editable
 
 Protection must preserve legitimate user inputs.
 
-## NFR-22 — Critical Formulas Protected
+### NFR-22 — Critical Formulas Protected
 
 Critical formulas and structures should be protected against accidental modification.
 
-## NFR-23 — Power Query Output Is Not Manual Input
+### NFR-23 — Power Query Output Is Not Manual Input
 
 Users must not treat refreshed DATA tables as manually editable operational inputs.
 
-## NFR-24 — Error Transparency
+### NFR-24 — Error Transparency
 
 Errors must not be indiscriminately hidden using blanket IFERROR logic.
 
-## NFR-25 — Understandable Error Messages
+### NFR-25 — Understandable Error Messages
 
 User-facing errors must explain the problem and required action where possible.
 
-## NFR-26 — Safe Automation
+### NFR-26 — Safe Automation
 
 A VBA failure must not leave the workbook falsely marked as successfully refreshed or validated.
 
-## NFR-27 — Explicit Critical Actions
+### NFR-27 — Explicit Critical Actions
 
 Important automated actions must have understandable intent and behavior.
 
-## NFR-28 — Target Platform
+### NFR-28 — Target Platform
 
 Microsoft Excel 365 Desktop for Windows.
 
-## NFR-29 — Controlled Workbook Size
+### NFR-29 — Controlled Workbook Size
 
 The workbook must avoid redundant raw-data copies, unnecessary loaded queries and excessive unused objects.
 
-## NFR-30 — Accessibility
+### NFR-30 — Accessibility
 
 Status and meaning must not depend on color alone.
 
 ---
 
-# 12. Workbook Language
+## 12. Workbook Language
 
 The final workbook and technical naming convention will primarily use business English.
 
@@ -987,7 +987,7 @@ Development explanations may be provided in Spanish, with English terminology in
 
 ---
 
-# 13. Quality-Control Requirements
+## 13. Quality-Control Requirements
 
 ProcureFlow must provide a formal Quality Control layer using:
 
@@ -1020,9 +1020,9 @@ Unusual but potentially valid data must not automatically be treated as invalid.
 
 ---
 
-# 14. Reporting Requirements
+## 14. Reporting Requirements
 
-## 14.1 Operational Replenishment Report
+### 14.1 Operational Replenishment Report
 
 The operational report must allow a user to identify at minimum:
 
@@ -1034,7 +1034,7 @@ The operational report must allow a user to identify at minimum:
 - Reorder Point;
 - Recommended Order Quantity.
 
-## 14.2 Management Dashboard
+### 14.2 Management Dashboard
 
 The dashboard must communicate at minimum:
 
@@ -1048,7 +1048,7 @@ Important dashboard indicators must be traceable to validated underlying data.
 
 ---
 
-# 15. Automation Principles
+## 15. Automation Principles
 
 Visual Basic for Applications will be used for orchestration and automation, not as the hidden mathematical core of ProcureFlow.
 
@@ -1066,15 +1066,15 @@ The user must first understand the relevant manual process and VBA foundations b
 
 ---
 
-# 16. Acceptance Policy
+## 16. Acceptance Policy
 
 Acceptance criteria use two priority levels.
 
-## MUST
+### MUST
 
 Mandatory for v1.0.0 unless formally changed through an approved decision.
 
-## SHOULD
+### SHOULD
 
 Desirable but not necessarily release-blocking if omission is justified and documented.
 
@@ -1102,7 +1102,7 @@ Mandatory acceptance areas include:
 
 ---
 
-# 17. Definition of Done
+## 17. Definition of Done
 
 ProcureFlow may only be declared complete and released as `v1.0.0` when all mandatory applicable acceptance criteria and all mandatory Definition of Done conditions are satisfied or have been formally changed through an approved decision.
 
@@ -1143,7 +1143,7 @@ At minimum:
 
 ---
 
-# 18. Scope Protection for v1.0.0
+## 18. Scope Protection for v1.0.0
 
 The following are not mandatory for the initial Definition of Done:
 
@@ -1167,9 +1167,9 @@ Future versions may extend the system after v1.0.0.
 
 ---
 
-# 19. Project Governance
+## 19. Project Governance
 
-## 19.1 Status Labels
+### 19.1 Status Labels
 
 The project uses:
 
@@ -1179,7 +1179,7 @@ The project uses:
 - `[PENDIENTE]` — not yet completed;
 - `[SUPERADO]` — consciously replaced by a later decision.
 
-## 19.2 Source of Truth
+### 19.2 Source of Truth
 
 Canonical documents are:
 
@@ -1195,7 +1195,7 @@ Supporting canonical documents include:
 - `TESTING.md`
 - `docs/phases/PHASE_XX_CLOSEOUT.md`
 
-## 19.3 Phase Handoff Rule
+### 19.3 Phase Handoff Rule
 
 A new execution phase must not begin until the previous phase:
 
@@ -1210,7 +1210,7 @@ GitHub must contain enough information for a new phase chat to reconstruct proje
 
 ---
 
-# 20. Phase 0 Baseline Implementation Status
+## 20. Phase 0 Baseline Implementation Status
 
 As of the Phase 0 design baseline:
 

@@ -13,7 +13,7 @@ Architecture described here is a design baseline. Components must not be conside
 
 ---
 
-# 1. Architecture Objective
+## 1. Architecture Objective
 
 ProcureFlow must provide a maintainable separation between:
 
@@ -31,7 +31,7 @@ The design must support both business usability and technical auditability.
 
 ---
 
-# 2. High-Level Architecture
+## 2. High-Level Architecture
 
 The approved conceptual flow is:
 
@@ -50,15 +50,15 @@ The solution remains centered on Microsoft Excel.
 
 ---
 
-# 3. Architectural Principles
+## 3. Architectural Principles
 
-## 3.1 Layer Separation
+### 3.1 Layer Separation
 
 Each major responsibility must have a clear layer.
 
 Business logic must not be scattered arbitrarily across worksheets, Power Query and VBA.
 
-## 3.2 Raw Data Is External
+### 3.2 Raw Data Is External
 
 Original CSV files remain outside the workbook in:
 
@@ -66,23 +66,23 @@ Original CSV files remain outside the workbook in:
 
 ProcureFlow does not require a RAW worksheet containing duplicate copies of the original files.
 
-## 3.3 Power Query Prepares Data
+### 3.3 Power Query Prepares Data
 
 Power Query is responsible for ingestion and reproducible preparation.
 
-## 3.4 Excel Calculates Business Decisions
+### 3.4 Excel Calculates Business Decisions
 
 Core operational decision rules remain visible and auditable through Excel formulas.
 
-## 3.5 PivotTables Aggregate
+### 3.5 PivotTables Aggregate
 
 PivotTables and PivotCharts are used for analytical aggregation and exploration.
 
-## 3.6 VBA Orchestrates
+### 3.6 VBA Orchestrates
 
 Visual Basic for Applications automates workflows but must not become the hidden mathematical engine.
 
-## 3.7 Dashboard Presents
+### 3.7 Dashboard Presents
 
 The management dashboard is a presentation layer.
 
@@ -90,9 +90,9 @@ Complex business logic should not be created directly inside dashboard cells if 
 
 ---
 
-# 4. Source Layer
+## 4. Source Layer
 
-## 4.1 Official Source Files
+### 4.1 Official Source Files
 
 The source layer consists of:
 
@@ -105,7 +105,7 @@ Expected local location:
 
 `data/raw/`
 
-## 4.2 Source Policy
+### 4.2 Source Policy
 
 Raw files must:
 
@@ -117,15 +117,15 @@ Raw files must:
 
 ---
 
-# 5. Power Query Architecture
+## 5. Power Query Architecture
 
 Power Query will provide the ingestion and data-preparation layer.
 
-## 5.1 Query Naming Convention
+### 5.1 Query Naming Convention
 
 Queries will use prefixes based on responsibility.
 
-### `src_`
+#### `src_`
 
 Source-access queries.
 
@@ -136,7 +136,7 @@ Examples:
 - `src_PurchaseOrders`
 - `src_QualityIncidents`
 
-### `stg_`
+#### `stg_`
 
 Staging and preparation queries.
 
@@ -147,7 +147,7 @@ Examples:
 - `stg_PurchaseOrders`
 - `stg_QualityIncidents`
 
-### `dim_`
+#### `dim_`
 
 Dimension outputs.
 
@@ -158,7 +158,7 @@ Planned examples:
 - `dim_Supplier`
 - `dim_Date`
 
-### `fact_`
+#### `fact_`
 
 Fact outputs.
 
@@ -172,7 +172,7 @@ Exact query names may be refined during implementation if a documented naming im
 
 ---
 
-# 6. Power Query Responsibilities
+## 6. Power Query Responsibilities
 
 Power Query is expected to handle:
 
@@ -197,7 +197,7 @@ when doing so improves consistency and does not hide business-policy logic.
 
 ---
 
-# 7. Power Query Non-Responsibilities
+## 7. Power Query Non-Responsibilities
 
 Power Query should not become the primary layer for configurable decision rules such as:
 
@@ -212,7 +212,7 @@ These belong primarily in the Excel operational model.
 
 ---
 
-# 8. Query Loading Strategy
+## 8. Query Loading Strategy
 
 Intermediate source and staging queries should generally use:
 
@@ -231,18 +231,18 @@ The objective is to avoid:
 
 ---
 
-# 9. Conceptual Data Model
+## 9. Conceptual Data Model
 
 The approved conceptual model includes:
 
-## Dimensions
+### Dimensions
 
 - DimProduct
 - DimSite
 - DimSupplier
 - DimDate
 
-## Facts
+### Facts
 
 - FactInventoryWeekly
 - FactPurchaseOrders
@@ -254,9 +254,9 @@ It does not require Power Pivot or the Excel Data Model.
 
 ---
 
-# 10. Dimension Grain
+## 10. Dimension Grain
 
-## 10.1 Product Dimension
+### 10.1 Product Dimension
 
 Logical name:
 
@@ -289,7 +289,7 @@ Core logical attributes:
 
 It is sourced physically from `parts_master.csv` but belongs logically to `DimSupplier`.
 
-## 10.2 Site Dimension
+### 10.2 Site Dimension
 
 Logical name:
 
@@ -311,7 +311,7 @@ Validated current population:
 
 No unsupported Site names, regions, addresses or other attributes will be invented.
 
-## 10.3 Supplier Dimension
+### 10.3 Supplier Dimension
 
 Logical name:
 
@@ -348,7 +348,7 @@ Observed Products per Supplier:
 
 4 through 14
 
-## 10.4 Date Dimension
+### 10.4 Date Dimension
 
 Logical name:
 
@@ -407,9 +407,9 @@ because Inventory History does not extend beyond that date.
 
 ---
 
-# 11. Fact Grain
+## 11. Fact Grain
 
-## 11.1 Inventory Weekly Fact
+### 11.1 Inventory Weekly Fact
 
 Logical name:
 
@@ -443,7 +443,7 @@ Validated weekly semantics:
 - consecutive periods are exactly 7 days apart;
 - no Product × Site historical week is missing in the validated source range.
 
-## 11.2 Purchase Order Fact
+### 11.2 Purchase Order Fact
 
 Logical name:
 
@@ -474,7 +474,7 @@ Objective transaction-derived fields may include:
 
 Reporting-Date-dependent status such as `IsOpenPO` must not be stored as a permanent transaction state.
 
-## 11.3 Quality Incident Fact
+### 11.3 Quality Incident Fact
 
 Logical name:
 
@@ -492,7 +492,7 @@ Source:
 
 `quality_incidents.csv`
 
-## 11.4 Logical Relationship Diagram
+### 11.4 Logical Relationship Diagram
 
 ```mermaid
 erDiagram
@@ -517,7 +517,7 @@ The diagram represents logical analytical relationships.
 It does not imply that Power Pivot or the Excel Data Model is required.
 
 ---
-# 12. Excel Table Architecture
+## 12. Excel Table Architecture
 
 Planned structured tables include:
 
@@ -535,7 +535,7 @@ The exact column sets will be finalized during the relevant implementation phase
 
 ---
 
-# 13. Operational Model Architecture
+## 13. Operational Model Architecture
 
 The main operational decision engine uses:
 
@@ -567,7 +567,7 @@ It does not replace the underlying Product and Site business keys and does not i
 
 The operational layer consolidates the information required for later replenishment decisions without requiring every Phase 5 formula to repeatedly scan the complete 280,800-row Inventory History table unnecessarily.
 
-## 13.1 Reporting Date and Inventory Snapshot
+### 13.1 Reporting Date and Inventory Snapshot
 
 The operational model distinguishes:
 
@@ -594,7 +594,7 @@ This behavior is governed by:
 
 `DEC-051 — Inventory Snapshot Date`
 
-## 13.2 Phase 4 Structural Fields
+### 13.2 Phase 4 Structural Fields
 
 The approved Phase 4 `tblReplenishment` structure includes operational keys, attributes and prepared inputs.
 
@@ -617,7 +617,7 @@ Fields implemented or populated during Phase 4:
 
 These fields prepare the operational grain and source-supported inputs required by later business formulas.
 
-## 13.3 Completed Demand History Window
+### 13.3 Completed Demand History Window
 
 Phase 4 prepares the temporal boundaries required for Phase 5 historical-demand calculations.
 
@@ -653,7 +653,7 @@ Phase 4 prepares the window only.
 
 Consumption aggregation, average demand, variability and no-recent-demand logic remain Phase 5 responsibilities.
 
-## 13.4 Phase 5 Formula Boundary
+### 13.4 Phase 5 Formula Boundary
 
 The following fields belong to Phase 5 — Business Logic & Advanced Formulas:
 
@@ -677,7 +677,7 @@ These columns may be structurally reserved during Phase 4 when useful for table 
 
 ---
 
-# 14. Replenishment Calculation Layer
+## 14. Replenishment Calculation Layer
 
 The replenishment layer ultimately provides the operational inputs and calculations required to answer:
 
@@ -693,7 +693,7 @@ Phase 5 implements and validates the configurable business formulas.
 No Phase 5 calculation is considered implemented merely because its destination column exists in `tblReplenishment`.
 ---
 
-# 15. Excel Formula Responsibilities
+## 15. Excel Formula Responsibilities
 
 Excel formulas are the primary implementation layer for configurable operational business rules.
 
@@ -738,7 +738,7 @@ Legacy functions may be taught and understood where professionally relevant, but
 
 ---
 
-# 16. Configuration Architecture
+## 16. Configuration Architecture
 
 The configuration layer will be centralized in:
 
@@ -772,7 +772,7 @@ Exact names will be validated during workbook implementation.
 
 ---
 
-# 17. Workbook Physical Architecture
+## 17. Workbook Physical Architecture
 
 The planned workbook is:
 
@@ -782,9 +782,9 @@ The workbook will use numbered sheet groups to communicate architectural purpose
 
 ---
 
-# 18. User and Control Sheets
+## 18. User and Control Sheets
 
-## `00_HOME`
+### `00_HOME`
 
 Purpose:
 
@@ -800,7 +800,7 @@ Planned contents:
 - navigation;
 - later automation buttons where justified.
 
-## `01_CONFIG`
+### `01_CONFIG`
 
 Purpose:
 
@@ -816,7 +816,7 @@ Planned contents:
 - validation rules;
 - defined inputs.
 
-## `02_CONTROL`
+### `02_CONTROL`
 
 Purpose:
 
@@ -834,27 +834,27 @@ Planned contents:
 
 ---
 
-# 19. Data Sheets
+## 19. Data Sheets
 
-## `10_DATA_Products`
+### `10_DATA_Products`
 
 Planned table:
 
 `tblProducts`
 
-## `11_DATA_Sites`
+### `11_DATA_Sites`
 
 Planned table:
 
 `tblSites`
 
-## `12_DATA_Suppliers`
+### `12_DATA_Suppliers`
 
 Planned table:
 
 `tblSuppliers`
 
-## `13_DATA_Inventory`
+### `13_DATA_Inventory`
 
 Planned table:
 
@@ -864,19 +864,19 @@ Expected largest table:
 
 approximately 280,800 historical rows with current source.
 
-## `14_DATA_PurchaseOrders`
+### `14_DATA_PurchaseOrders`
 
 Planned table:
 
 `tblPurchaseOrders`
 
-## `15_DATA_Quality`
+### `15_DATA_Quality`
 
 Planned table:
 
 `tblQualityIncidents`
 
-## `16_DATA_Date`
+### `16_DATA_Date`
 
 Planned table:
 
@@ -906,9 +906,9 @@ Physical implementation was completed and validated during Phase 3 — Power Que
 
 ---
 
-# 20. Calculation Sheets
+## 20. Calculation Sheets
 
-## `20_CALC_Replenishment`
+### `20_CALC_Replenishment`
 
 Purpose:
 
@@ -922,7 +922,7 @@ Planned table:
 
 `tblReplenishment`
 
-## `21_CALC_SupplierPerformance`
+### `21_CALC_SupplierPerformance`
 
 Purpose:
 
@@ -936,7 +936,7 @@ Planned table:
 
 `tblSupplierPerformance`
 
-## `22_CALC_ForecastAccuracy`
+### `22_CALC_ForecastAccuracy`
 
 Status:
 
@@ -948,21 +948,21 @@ Forecast analysis is not required for the initial core replenishment engine.
 
 ---
 
-# 21. Analytical Sheets
+## 21. Analytical Sheets
 
-## `30_PVT_Inventory`
+### `30_PVT_Inventory`
 
 Purpose:
 
 Inventory PivotTables and related analysis.
 
-## `31_PVT_Procurement`
+### `31_PVT_Procurement`
 
 Purpose:
 
 Procurement PivotTables and related analysis.
 
-## `32_PVT_Suppliers`
+### `32_PVT_Suppliers`
 
 Purpose:
 
@@ -972,9 +972,9 @@ PivotCharts, Slicers and Timelines will be used only where they improve analysis
 
 ---
 
-# 22. Reporting Sheets
+## 22. Reporting Sheets
 
-## `40_RPT_Replenishment`
+### `40_RPT_Replenishment`
 
 Purpose:
 
@@ -984,7 +984,7 @@ This sheet is not the management dashboard.
 
 It is intended for users who need to identify what purchasing action should be taken.
 
-## `41_DASH_Management`
+### `41_DASH_Management`
 
 Purpose:
 
@@ -994,7 +994,7 @@ The dashboard will depend on validated upstream data and calculations rather tha
 
 ---
 
-# 23. Sheet Architecture Summary
+## 23. Sheet Architecture Summary
 
 Planned mandatory sheets:
 
@@ -1024,7 +1024,7 @@ Optional physical sheet:
 
 ---
 
-# 24. User-Facing vs Technical Sheets
+## 24. User-Facing vs Technical Sheets
 
 Primary user-facing sheets are expected to be:
 
@@ -1042,7 +1042,7 @@ Auditability remains a requirement.
 
 ---
 
-# 25. Quality-Control Architecture
+## 25. Quality-Control Architecture
 
 The quality-control system is centralized in:
 
@@ -1066,7 +1066,7 @@ A critical control failure must prevent the system from presenting the refresh o
 
 ---
 
-# 26. Planned Quality Controls
+## 26. Planned Quality Controls
 
 The current minimum design includes:
 
@@ -1107,7 +1107,7 @@ Exact implementation and severity may be refined after source-field validation.
 
 ---
 
-# 27. Reconciliation Architecture
+## 27. Reconciliation Architecture
 
 Important reconciliations will include, where applicable:
 
@@ -1123,13 +1123,13 @@ Reconciliations must distinguish real transformation logic from accidental data 
 
 ---
 
-# 28. PivotTable Architecture
+## 28. PivotTable Architecture
 
 PivotTables will serve analysis rather than operational rule calculation.
 
 The analytical domains are:
 
-## Inventory
+### Inventory
 
 Examples:
 
@@ -1140,7 +1140,7 @@ Examples:
 - blocked inventory;
 - excess inventory.
 
-## Procurement
+### Procurement
 
 Examples:
 
@@ -1151,7 +1151,7 @@ Examples:
 - partial receipts;
 - Lead Time.
 
-## Suppliers
+### Suppliers
 
 Examples:
 
@@ -1164,7 +1164,7 @@ Examples:
 
 ---
 
-# 29. VBA Architecture
+## 29. VBA Architecture
 
 Visual Basic for Applications was introduced progressively through Phase 8 VBA foundations and Phase 9 production automation.
 
@@ -1186,7 +1186,7 @@ Expected professional automation candidates include:
 - generate or prepare the replenishment report;
 - export approved outputs.
 
-## 29.1 Phase 9 Production Automation Implementation
+### 29.1 Phase 9 Production Automation Implementation
 
 Phase 9 implements production automation through standard VBA modules under:
 
@@ -1230,7 +1230,7 @@ Phase 10 operational reporting and management-dashboard presentation are now imp
 
 ---
 
-# 30. VBA Source Control
+## 30. VBA Source Control
 
 The executable VBA remains inside:
 
@@ -1254,7 +1254,7 @@ Class modules will be introduced only if justified by actual design needs.
 
 ---
 
-# 31. VBA Safety Principle
+## 31. VBA Safety Principle
 
 Automation must not communicate success when a critical step failed.
 
@@ -1275,11 +1275,11 @@ A failed required step does not advance `LastSuccessfulRefresh`.
 
 ---
 
-# 32. Reporting Architecture
+## 32. Reporting Architecture
 
 Operational reporting and management reporting are separated deliberately.
 
-## Operational Report
+### Operational Report
 
 `40_RPT_Replenishment`
 
@@ -1290,7 +1290,7 @@ Answers:
 - Why?
 - How much should be ordered?
 
-## Management Dashboard
+### Management Dashboard
 
 `41_DASH_Management`
 
@@ -1305,7 +1305,7 @@ This separation prevents the dashboard from becoming an overloaded operational w
 
 ---
 
-# 33. Data Validation Architecture
+## 33. Data Validation Architecture
 
 Data Validation will be used primarily for user-controlled configuration.
 
@@ -1320,7 +1320,7 @@ Validation must reduce accidental invalid input without making configuration unn
 
 ---
 
-# 34. Conditional Formatting Architecture
+## 34. Conditional Formatting Architecture
 
 Conditional Formatting will be used for meaningful business signaling.
 
@@ -1338,7 +1338,7 @@ Text labels remain required for important statuses.
 
 ---
 
-# 35. Protection Architecture
+## 35. Protection Architecture
 
 Protection will be introduced after workbook structure and formulas are stable.
 
@@ -1373,11 +1373,11 @@ See `DEC-048`.
 
 ---
 
-# 36. Workbook Visual Design System
+## 36. Workbook Visual Design System
 
 ProcureFlow uses a controlled visual system rather than worksheet-by-worksheet arbitrary formatting.
 
-## Typography
+### Typography
 
 Default workbook font:
 
@@ -1402,7 +1402,7 @@ This establishes the workbook-wide default without requiring worksheet-by-worksh
 
 Specialized title, header and status styles may override the Normal style where required.
 
-## Core Palette
+### Core Palette
 
 | Purpose | HEX |
 |---|---|
@@ -1419,7 +1419,7 @@ Specialized title, header and status styles may override the Normal style where 
 | FAIL | `#B3261E` |
 | Neutral | `#6B7280` |
 
-## Editable Input Convention
+### Editable Input Convention
 
 User-editable configuration cells use:
 
@@ -1431,7 +1431,7 @@ user-controlled input.
 
 It must not be used indiscriminately for formulas or system outputs.
 
-## Worksheet Layer Identification
+### Worksheet Layer Identification
 
 Worksheet tabs use layer-based colors:
 
@@ -1447,13 +1447,13 @@ Tab color provides secondary orientation only.
 
 Worksheet names and numbering remain the primary architectural identifiers.
 
-## Gridlines
+### Gridlines
 
 Designed user-facing worksheets normally hide standard Excel gridlines.
 
 Technical sheets may retain or hide them according to usability needs established during implementation.
 
-## Accessibility
+### Accessibility
 
 Meaning must not depend exclusively on color.
 
@@ -1466,7 +1466,7 @@ Important states must retain explicit text labels such as:
 
 Color is a supporting signal rather than the sole carrier of meaning.
 
-# 37. Performance Architecture
+## 37. Performance Architecture
 
 The expected largest current table is historical inventory at approximately 280,800 rows.
 
@@ -1484,7 +1484,7 @@ Architecture changes for performance must preserve business-rule correctness and
 
 ---
 
-# 38. Power Pivot Position
+## 38. Power Pivot Position
 
 Power Pivot / Excel Data Model is:
 
@@ -1503,7 +1503,7 @@ If introduced, the decision must be documented in `DECISIONS.md`.
 
 ---
 
-# 39. Repository Architecture
+## 39. Repository Architecture
 
 Approved repository structure:
 
@@ -1551,15 +1551,15 @@ Raw dataset files are excluded from Git unless a future documented decision chan
 
 ---
 
-# 40. Git Architecture
+## 40. Git Architecture
 
-## Main Branch
+### Main Branch
 
 `main`
 
 Contains only completed and approved phase states.
 
-## Phase Branches
+### Phase Branches
 
 Planned pattern:
 
@@ -1571,7 +1571,7 @@ Examples:
 - `phase/02-workbook-foundation`
 - `phase/03-power-query-pipeline`
 
-## Phase Completion
+### Phase Completion
 
 A phase is not considered complete merely because local work is finished.
 
@@ -1589,7 +1589,7 @@ The GitHub gate requires:
 
 ---
 
-# 41. Phase Handoff Architecture
+## 41. Phase Handoff Architecture
 
 GitHub is the authoritative handoff mechanism between project-phase chats.
 
@@ -1605,9 +1605,9 @@ The new chat should not require a manually reconstructed summary of prior work.
 
 ---
 
-# 42. Documentation Architecture
+## 42. Documentation Architecture
 
-## `PROJECT_SPEC.md`
+### `PROJECT_SPEC.md`
 
 Defines:
 
@@ -1617,7 +1617,7 @@ Defines:
 - acceptance baseline;
 - Definition of Done.
 
-## `ARCHITECTURE.md`
+### `ARCHITECTURE.md`
 
 Defines:
 
@@ -1626,7 +1626,7 @@ Defines:
 - technology responsibilities;
 - structural design.
 
-## `ROADMAP.md`
+### `ROADMAP.md`
 
 Defines:
 
@@ -1639,23 +1639,23 @@ Defines:
 - GitHub gates;
 - target versions.
 
-## `DECISIONS.md`
+### `DECISIONS.md`
 
 Records material approved decisions and their rationale.
 
-## `CURRENT_STATE.md`
+### `CURRENT_STATE.md`
 
 Provides the shortest authoritative view of the current project state and immediate next step.
 
-## `DATA_DICTIONARY.md`
+### `DATA_DICTIONARY.md`
 
 Defines the data model at field level once Phase 1 is completed.
 
-## `TESTING.md`
+### `TESTING.md`
 
 Maintains testing strategy and evidence.
 
-## `USER_GUIDE.md`
+### `USER_GUIDE.md`
 
 Defines the supported operational handoff for end users and reviewers, including:
 
@@ -1669,13 +1669,13 @@ Defines the supported operational handoff for end users and reviewers, including
 - failure recovery;
 - troubleshooting.
 
-## `PHASE_XX_CLOSEOUT.md`
+### `PHASE_XX_CLOSEOUT.md`
 
 Provides historical evidence of each completed phase.
 
 ---
 
-# 43. Architectural Change Control
+## 43. Architectural Change Control
 
 Material architectural changes must not occur silently.
 
@@ -1694,7 +1694,7 @@ Such changes require an explicit entry in `DECISIONS.md`.
 
 ---
 
-# 44. Current Architecture Status
+## 44. Current Architecture Status
 
 Confirmed:
 
@@ -1745,9 +1745,9 @@ Implementation evidence is recorded in `docs/CURRENT_STATE.md`, `docs/TESTING.md
 
 ---
 
-# Phase 3 — Implemented Power Query Architecture
+## Phase 3 — Implemented Power Query Architecture
 
-## Source-Path Resolution
+### Source-Path Resolution
 
 The implemented Phase 3 pipeline uses a workbook-relative source-path strategy.
 
@@ -1759,9 +1759,9 @@ Each `src_*` query reads this workbook Defined Name directly through `Excel.Curr
 
 No machine-specific absolute source path is embedded in the production M queries.
 
-## Implemented Query Layers
+### Implemented Query Layers
 
-### Source
+#### Source
 
 - `src_PartsMaster`
 - `src_SupplyChainHistory`
@@ -1779,7 +1779,7 @@ Load behavior:
 
 Connection Only.
 
-### Staging
+#### Staging
 
 - `stg_Products`
 - `stg_InventoryHistory`
@@ -1797,14 +1797,14 @@ Load behavior:
 
 Connection Only.
 
-### Dimensions
+#### Dimensions
 
 - `dim_Product`
 - `dim_Site`
 - `dim_Supplier`
 - `dim_Date`
 
-### Facts
+#### Facts
 
 - `fact_InventoryWeekly`
 - `fact_PurchaseOrders`
@@ -1819,7 +1819,7 @@ Connection Only.
 
 Configurable `IsOpenPO` logic is intentionally excluded from Power Query because it depends on the user-controlled Reporting Date and belongs to the later operational Excel model.
 
-## Implemented Physical Outputs
+### Implemented Physical Outputs
 
 | Power Query Output | Worksheet | Excel Table |
 |---|---|---|
@@ -1833,7 +1833,7 @@ Configurable `IsOpenPO` logic is intentionally excluded from Power Query because
 
 No Phase 3 query is loaded to the Excel Data Model.
 
-## Power Query Source Control
+### Power Query Source Control
 
 The implemented M code is mirrored as text under:
 
@@ -1850,7 +1850,7 @@ This source representation exists for Git inspection and review.
 
 The executable implementation remains embedded in `workbook/ProcureFlow.xlsm`.
 
-## Implemented Pipeline
+### Implemented Pipeline
 
 Source CSV files
 → `src_*`
@@ -1865,7 +1865,7 @@ Phase 3 validation evidence is recorded in:
 
 ---
 
-## Query Dependency Evidence
+### Query Dependency Evidence
 
 The implemented Power Query lineage is captured directly from Excel Power Query Query Dependencies:
 
@@ -1879,7 +1879,7 @@ These machine-specific paths are not hard-coded in the production `src_*` M quer
 
 The queries derive the raw-data location from the workbook-relative `cfg_RawDataFolder` configuration defined in `01_CONFIG`, preserving repository portability as long as the approved `workbook/` and `data/raw/` folder relationship is maintained.
 
-## Phase 5 Implemented Business Logic Layer
+### Phase 5 Implemented Business Logic Layer
 
 Phase 5 extends `tblReplenishment` from the Phase 4 structural model into the functioning Product × Site replenishment engine.
 
@@ -1922,9 +1922,9 @@ Business calculations remain implemented through auditable Excel formulas. Power
 
 ---
 
-# Phase 6 Quality Control Implementation Baseline
+## Phase 6 Quality Control Implementation Baseline
 
-## Status
+### Status
 
 [IMPLEMENTED] — technical implementation, validation and GitHub publication are complete.
 
@@ -1932,7 +1932,7 @@ Phase 6 release version:
 
 `v0.7.0`
 
-## Physical Quality Control Architecture
+### Physical Quality Control Architecture
 
 Worksheet:
 
@@ -1952,7 +1952,7 @@ with `QC-032` intentionally retained as not applicable until the PivotTable anal
 
 The Phase 3 `PQ-001` through `PQ-017` validation block is preserved lower on the worksheet as historical technical baseline evidence rather than treated as the current operational QC system.
 
-## tblQualityControl Structure
+### tblQualityControl Structure
 
 Implemented fields:
 
@@ -1972,7 +1972,7 @@ Implemented fields:
 
 These fields are intentionally separate because many controls expose descriptive or reconciliation results whose observed value is not itself an exception count.
 
-## Severity Model
+### Severity Model
 
 Supported severity values:
 
@@ -1989,7 +1989,7 @@ A positive exception count produces:
 
 `N/A` controls produce `N/A`.
 
-## Overall Quality State
+### Overall Quality State
 
 Overall system-quality precedence is:
 
@@ -1999,7 +1999,7 @@ Any applicable control left unevaluated prevents the overall system state from r
 
 This prevents incomplete validation from appearing fully trusted.
 
-## Power Query Quality Feed
+### Power Query Quality Feed
 
 Phase 6 adds:
 
@@ -2028,7 +2028,7 @@ Excel formulas remain responsible for business, integrity, configuration, calcul
 
 No VBA was introduced during Phase 6.
 
-## Implemented Control Boundary
+### Implemented Control Boundary
 
 Implemented and evaluated in Phase 6:
 
@@ -2043,7 +2043,7 @@ Implemented and evaluated in Phase 6:
 
 because PivotTables are not yet implemented.
 
-## Refresh Timestamp Boundary
+### Refresh Timestamp Boundary
 
 `QC-030` confirms that the current technical evaluation completed successfully and exposes its evaluation timestamp.
 
@@ -2055,9 +2055,9 @@ This limitation is explicit and must not be represented as functionality already
 
 ---
 
-# Phase 7 — Analytical Layer Implementation Evidence
+## Phase 7 — Analytical Layer Implementation Evidence
 
-## Status
+### Status
 
 [IMPLEMENTED] [VALIDATED] [COMPLETED]
 
@@ -2069,7 +2069,7 @@ Implemented worksheets:
 - `31_PVT_Procurement`
 - `32_PVT_Suppliers`
 
-## Inventory Analytical Layer
+### Inventory Analytical Layer
 
 Implemented PivotTables:
 
@@ -2092,7 +2092,7 @@ Sources:
 - `tblReplenishment`
 - `tblInventoryHistory`
 
-## Procurement Analytical Layer
+### Procurement Analytical Layer
 
 Implemented PivotTables:
 
@@ -2117,7 +2117,7 @@ Sources:
 - `tblPurchaseOrders`
 - `tblReplenishment`
 
-## Supplier Analytical Layer
+### Supplier Analytical Layer
 
 Implemented PivotTables:
 
@@ -2138,7 +2138,7 @@ Sources:
 - `tblSupplierPerformance`
 - `tblQualityIncidents`
 
-## PivotTable Source Boundary
+### PivotTable Source Boundary
 
 ProcureFlow continues to use normal Excel PivotTables without Power Pivot / Excel Data Model.
 
@@ -2148,7 +2148,7 @@ Cross-source relational filtering is not represented as available functionality.
 
 This preserves the Phase 0 architectural decision to defer the Data Model unless later evidence demonstrates material value.
 
-## Analytical Responsibility
+### Analytical Responsibility
 
 PivotTables aggregate and explore validated data.
 
@@ -2162,7 +2162,7 @@ Operational calculations remain upstream in:
 
 The analytical layer consumes those results.
 
-## Refresh Validation
+### Refresh Validation
 
 A complete workbook `Refresh All` was executed after Phase 7 implementation.
 
@@ -2178,7 +2178,7 @@ approximately 7 minutes 10 seconds.
 
 Refresh performance is documented as an optimization opportunity rather than a functional failure.
 
-## QC-032 Boundary
+### QC-032 Boundary
 
 `QC-032 — PivotTable refresh status`
 
@@ -2190,7 +2190,7 @@ Persistent PivotTable refresh-state evaluation is assigned to Phase 8 VBA orches
 
 ---
 
-# Phase 8 VBA Foundations Implementation Evidence
+## Phase 8 VBA Foundations Implementation Evidence
 
 Phase 8 validated the foundational VBA layer without introducing production automation.
 
@@ -2220,9 +2220,9 @@ Excel remains responsible for the established auditable business calculations.
 
 
 
-# Phase 10 Operational Reporting Implementation Evidence
+## Phase 10 Operational Reporting Implementation Evidence
 
-## Status
+### Status
 
 [IMPLEMENTED] [VALIDATED]
 
@@ -2264,9 +2264,9 @@ The existing Phase 9 automation and PivotTable refresh contracts therefore remai
 
 The management dashboard has subsequently been implemented and validated as part of Phase 10.
 
-# Phase 10 Management Dashboard Implementation Evidence
+## Phase 10 Management Dashboard Implementation Evidence
 
-## Status
+### Status
 
 [IMPLEMENTED] [VALIDATED]
 
@@ -2278,7 +2278,7 @@ The dashboard remains a presentation layer over validated upstream calculations 
 
 It does not introduce a second business-rule engine.
 
-## KPI Sources
+### KPI Sources
 
 Inventory and replenishment KPIs consume:
 
@@ -2303,7 +2303,7 @@ Quality Incident Count consumes the Reporting-Date-safe:
 
 `tblSupplierPerformance[QualityIncidentCount]`
 
-## Dashboard Charts
+### Dashboard Charts
 
 Inventory Status by Site references:
 
@@ -2320,7 +2320,7 @@ The Supplier Risk chart presents:
 
 Its labeling distinguishes analytical risk-class averages from the weighted overall management KPI.
 
-## Dashboard Chart Object Types
+### Dashboard Chart Object Types
 
 The implemented Inventory Status by Site visual is a PivotChart reusing the existing `pvtInvStatusBySite` analytical structure and established PivotCache.
 
@@ -2328,7 +2328,7 @@ The implemented Supplier Delivery Performance by Risk Class visual is a standard
 
 Neither object changes the established analytical PivotTable/PivotCache contract.
 
-## Analytical Contract
+### Analytical Contract
 
 Phase 10 introduces no new PivotTable or PivotCache.
 
@@ -2343,7 +2343,7 @@ Therefore:
 
 requires no Phase 10 modification.
 
-## Automation Boundary
+### Automation Boundary
 
 The existing:
 

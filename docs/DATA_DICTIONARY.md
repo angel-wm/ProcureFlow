@@ -16,7 +16,7 @@ They must not be interpreted as physically implemented Excel Tables, Power Query
 
 ---
 
-# 1. Official Dataset
+## 1. Official Dataset
 
 Dataset:
 
@@ -37,7 +37,7 @@ Raw files remain immutable and are excluded from Git.
 
 ---
 
-# 2. Validated Source Summary
+## 2. Validated Source Summary
 
 | Source File | Rows | Fields | Validated Grain |
 |---|---:|---:|---|
@@ -56,9 +56,9 @@ Validated entity populations:
 
 ---
 
-# 3. Validated Keys
+## 3. Validated Keys
 
-## 3.1 Product
+### 3.1 Product
 
 Primary Key:
 
@@ -80,7 +80,7 @@ Example:
 
 ---
 
-## 3.2 Inventory History
+### 3.2 Inventory History
 
 Composite Primary Key:
 
@@ -94,7 +94,7 @@ Validation:
 
 ---
 
-## 3.3 Purchase Orders
+### 3.3 Purchase Orders
 
 Primary Key:
 
@@ -116,7 +116,7 @@ Example:
 
 ---
 
-## 3.4 Quality Incidents
+### 3.4 Quality Incidents
 
 Primary Key:
 
@@ -138,9 +138,9 @@ Example:
 
 ---
 
-# 4. Identifier Domains
+## 4. Identifier Domains
 
-## Product ID
+### Product ID
 
 Observed format:
 
@@ -150,7 +150,7 @@ Invalid observed values:
 
 0
 
-## Supplier ID
+### Supplier ID
 
 Observed format:
 
@@ -160,7 +160,7 @@ Invalid observed values:
 
 0
 
-## Site ID
+### Site ID
 
 Observed format:
 
@@ -179,7 +179,7 @@ Invalid observed values:
 
 0
 
-## Purchase Order ID
+### Purchase Order ID
 
 Observed format:
 
@@ -189,7 +189,7 @@ Invalid observed values:
 
 0
 
-## Quality Incident ID
+### Quality Incident ID
 
 Observed format:
 
@@ -201,7 +201,7 @@ Invalid observed values:
 
 ---
 
-# 5. Source Referential Integrity
+## 5. Source Referential Integrity
 
 All validated Product references in:
 
@@ -248,16 +248,16 @@ Blank Product, Site or Supplier identifiers in relational source fields:
 
 ---
 
-# 6. Logical ProcureFlow Data Model
+## 6. Logical ProcureFlow Data Model
 
-## Dimensions
+### Dimensions
 
 - `DimProduct`
 - `DimSite`
 - `DimSupplier`
 - `DimDate`
 
-## Facts
+### Facts
 
 - `FactInventoryWeekly`
 - `FactPurchaseOrders`
@@ -269,9 +269,9 @@ Physical Power Query and Excel Table implementation occurs in later phases.
 
 ---
 
-# 7. Dimension Specification
+## 7. Dimension Specification
 
-## 7.1 DimProduct
+### 7.1 DimProduct
 
 Grain:
 
@@ -300,7 +300,7 @@ Planned attributes:
 
 ---
 
-## 7.2 DimSite
+### 7.2 DimSite
 
 Grain:
 
@@ -322,7 +322,7 @@ No additional Site attributes will be invented because the official dataset does
 
 ---
 
-## 7.3 DimSupplier
+### 7.3 DimSupplier
 
 Grain:
 
@@ -364,7 +364,7 @@ All 40 Suppliers supply multiple Products.
 
 ---
 
-## 7.4 DimDate
+### 7.4 DimDate
 
 Grain:
 
@@ -409,9 +409,9 @@ The later Purchase Order and Quality dates do not extend the inventory historica
 
 ---
 
-# 8. Fact Specification
+## 8. Fact Specification
 
-## 8.1 FactInventoryWeekly
+### 8.1 FactInventoryWeekly
 
 Source:
 
@@ -447,7 +447,7 @@ No Product × Site combination has a missing historical week within the validate
 
 ---
 
-## 8.2 FactPurchaseOrders
+### 8.2 FactPurchaseOrders
 
 Source:
 
@@ -471,7 +471,7 @@ Validated record count:
 
 ---
 
-## 8.3 FactQualityIncidents
+### 8.3 FactQualityIncidents
 
 Source:
 
@@ -491,11 +491,11 @@ Validated record count:
 
 ---
 
-# 9. Field-Level Data Dictionary
+## 9. Field-Level Data Dictionary
 
-## 9.1 parts_master.csv
+### 9.1 parts_master.csv
 
-### part_id
+#### part_id
 
 Logical target:
 
@@ -527,7 +527,7 @@ Nulls:
 
 ---
 
-### part_family
+#### part_family
 
 Logical target:
 
@@ -554,7 +554,7 @@ Observed domain:
 
 ---
 
-### criticality_class
+#### criticality_class
 
 Logical target:
 
@@ -576,7 +576,7 @@ Observed domain:
 
 ---
 
-### unit_cost
+#### unit_cost
 
 Logical target:
 
@@ -604,7 +604,7 @@ Negative values observed:
 
 ---
 
-### lead_time_days
+#### lead_time_days
 
 Logical target:
 
@@ -632,7 +632,7 @@ It must not be confused with Purchase Order Actual Lead Time derived from transa
 
 ---
 
-### supplier_id_primary
+#### supplier_id_primary
 
 Logical target:
 
@@ -664,7 +664,7 @@ Mismatches observed:
 
 ---
 
-### supplier_risk_class
+#### supplier_risk_class
 
 Logical target:
 
@@ -690,7 +690,7 @@ All 40 Suppliers have exactly one observed Supplier Risk Class.
 
 ---
 
-### is_repairable
+#### is_repairable
 
 Logical target:
 
@@ -713,7 +713,7 @@ Power Query may standardize this field into a logical TRUE/FALSE representation 
 
 ---
 
-### shelf_life_days
+#### shelf_life_days
 
 Logical target:
 
@@ -768,9 +768,9 @@ No unsupported rule will be created requiring all Electrical or Hydraulics Produ
 
 ---
 
-## 9.2 supply_chain_history.csv
+### 9.2 supply_chain_history.csv
 
-### date
+#### date
 
 Logical target:
 
@@ -804,7 +804,7 @@ All observed values are Mondays.
 
 ---
 
-### site_id
+#### site_id
 
 Logical target:
 
@@ -828,7 +828,7 @@ Observed format:
 
 ---
 
-### part_id
+#### part_id
 
 Logical target:
 
@@ -852,7 +852,7 @@ Observed format:
 
 ---
 
-### planned_maintenance
+#### planned_maintenance
 
 Logical target:
 
@@ -873,7 +873,7 @@ Observed domain:
 
 ---
 
-### consumption_qty
+#### consumption_qty
 
 Logical target:
 
@@ -897,7 +897,7 @@ Validated condition:
 
 ---
 
-### on_hand_qty
+#### on_hand_qty
 
 Logical target:
 
@@ -921,7 +921,7 @@ Validated condition:
 
 ---
 
-### backorder_qty
+#### backorder_qty
 
 Logical target:
 
@@ -945,7 +945,7 @@ Validated condition:
 
 ---
 
-### blocked_qty
+#### blocked_qty
 
 Logical target:
 
@@ -974,7 +974,7 @@ Violations observed:
 
 ---
 
-### forecast_qty
+#### forecast_qty
 
 Logical target:
 
@@ -1000,7 +1000,7 @@ Forecast is retained for analysis but does not drive the initial core replenishm
 
 ---
 
-### forecast_type
+#### forecast_type
 
 Logical target:
 
@@ -1026,7 +1026,7 @@ Observed rows:
 
 ---
 
-### forecast_uplift_pct
+#### forecast_uplift_pct
 
 Logical target:
 
@@ -1059,9 +1059,9 @@ Violations observed:
 
 ---
 
-## 9.3 purchase_orders.csv
+### 9.3 purchase_orders.csv
 
-### po_id
+#### po_id
 
 Logical target:
 
@@ -1093,7 +1093,7 @@ Nulls:
 
 ---
 
-### supplier_id
+#### supplier_id
 
 Logical target:
 
@@ -1117,7 +1117,7 @@ Observed format:
 
 ---
 
-### site_id
+#### site_id
 
 Logical target:
 
@@ -1141,7 +1141,7 @@ Observed format:
 
 ---
 
-### part_id
+#### part_id
 
 Logical target:
 
@@ -1165,7 +1165,7 @@ Observed format:
 
 ---
 
-### order_date
+#### order_date
 
 Logical target:
 
@@ -1189,7 +1189,7 @@ Observed range:
 
 ---
 
-### promised_date
+#### promised_date
 
 Logical target:
 
@@ -1221,7 +1221,7 @@ Violations observed:
 
 ---
 
-### receipt_date
+#### receipt_date
 
 Logical target:
 
@@ -1259,7 +1259,7 @@ Late receipts observed:
 
 ---
 
-### ordered_qty
+#### ordered_qty
 
 Logical target:
 
@@ -1283,7 +1283,7 @@ Validated condition:
 
 ---
 
-### received_qty
+#### received_qty
 
 Logical target:
 
@@ -1324,13 +1324,13 @@ Received greater than Ordered Quantity:
 
 ---
 
-# 10. Purchase Order Derived Fields
+## 10. Purchase Order Derived Fields
 
 The following fields are not raw source fields.
 
 They are objective derivations supported by source semantics.
 
-## PromisedLeadTimeDays
+### PromisedLeadTimeDays
 
 Definition:
 
@@ -1346,7 +1346,7 @@ Power Query
 
 ---
 
-## ActualLeadTimeDays
+### ActualLeadTimeDays
 
 Definition:
 
@@ -1368,7 +1368,7 @@ This is distinct from Product-master `MasterLeadTimeDays`.
 
 ---
 
-## IsLateReceipt
+### IsLateReceipt
 
 Definition:
 
@@ -1384,7 +1384,7 @@ Late receipts observed in source:
 
 ---
 
-## IsPartialReceipt
+### IsPartialReceipt
 
 Definition:
 
@@ -1400,7 +1400,7 @@ Partial receipts observed:
 
 ---
 
-## IsOpenPO
+### IsOpenPO
 
 This field must not be stored as a permanent source-level state.
 
@@ -1416,7 +1416,7 @@ Excel operational model / Reporting-Date-dependent calculation.
 
 ---
 
-# 11. quality_incidents.csv
+## 11. quality_incidents.csv
 
 ### incident_id
 
@@ -1613,7 +1613,7 @@ Zero-scrap incidents observed:
 
 ---
 
-# 12. Nullability Summary
+## 12. Nullability Summary
 
 Only one source field currently contains null / blank values:
 
@@ -1631,9 +1631,9 @@ No missing-value imputation will be invented for Shelf Life.
 
 ---
 
-# 13. Validated Categorical Domains
+## 13. Validated Categorical Domains
 
-## Product Family
+### Product Family
 
 - Avionics
 - Cabin
@@ -1644,40 +1644,40 @@ No missing-value imputation will be invented for Shelf Life.
 - LandingGear
 - Structure
 
-## Criticality
+### Criticality
 
 - A
 - B
 - C
 
-## Supplier Risk
+### Supplier Risk
 
 - High
 - Medium
 - Low
 
-## Repairable
+### Repairable
 
 - Yes
 - No
 
-## Planned Maintenance
+### Planned Maintenance
 
 - True
 - False
 
-## Forecast Type
+### Forecast Type
 
 - Adjusted
 - Baseline
 
-## Defect Severity
+### Defect Severity
 
 - Critical
 - Major
 - Minor
 
-## Defect Type
+### Defect Type
 
 - Certification
 - Dimensional
@@ -1692,7 +1692,7 @@ They must not automatically be treated as permanently exhaustive if future valid
 
 ---
 
-# 14. Validated Relationships
+## 14. Validated Relationships
 
 Logical relationships:
 
@@ -1748,31 +1748,31 @@ Validated source behavior:
 
 ---
 
-# 15. Core Data-Quality Rules Derived from Phase 1
+## 15. Core Data-Quality Rules Derived from Phase 1
 
 The following rules are supported by validated source semantics.
 
-## Structural
+### Structural
 
 - all four official source files must exist;
 - required source columns must exist;
 - required fields must be non-null;
 - source fields must be convertible to their approved logical data types.
 
-## Keys
+### Keys
 
 - ProductID must be unique;
 - PurchaseOrderID must be unique;
 - QualityIncidentID must be unique;
 - WeekStartDate + SiteID + ProductID must be unique.
 
-## Referential Integrity
+### Referential Integrity
 
 - all fact Product IDs must exist in DimProduct;
 - all fact Site IDs must exist in DimSite;
 - all Supplier IDs must exist in DimSupplier.
 
-## Inventory
+### Inventory
 
 - ConsumptionQty >= 0;
 - OnHandQty >= 0;
@@ -1781,14 +1781,14 @@ The following rules are supported by validated source semantics.
 - BlockedQty <= OnHandQty;
 - WeekStartDate must represent the expected weekly structure.
 
-## Product
+### Product
 
 - UnitCost >= 0;
 - MasterLeadTimeDays > 0;
 - ShelfLifeDays may be null;
 - non-null ShelfLifeDays must not be negative.
 
-## Purchase Orders
+### Purchase Orders
 
 - OrderedQty > 0;
 - ReceivedQty >= 0;
@@ -1798,13 +1798,13 @@ The following rules are supported by validated source semantics.
 
 ReceiptDate > PromisedDate represents late delivery and is valid business information rather than a source error.
 
-## Forecast
+### Forecast
 
 - ForecastQty >= 0;
 - Baseline records require ForecastUpliftPct = 0;
 - Adjusted records require ForecastUpliftPct <> 0 under the current validated source semantics.
 
-## Quality
+### Quality
 
 - ScrapQty >= 0;
 - required Quality identifiers must be valid;
@@ -1812,7 +1812,7 @@ ReceiptDate > PromisedDate represents late delivery and is valid business inform
 
 ---
 
-# 16. Observed Ranges vs Validation Rules
+## 16. Observed Ranges vs Validation Rules
 
 Observed minimum and maximum values document the current official dataset.
 
@@ -1830,9 +1830,9 @@ Hard validation should be based on business or semantic impossibility, not merel
 
 ---
 
-# 17. Source-to-Target Summary
+## 17. Source-to-Target Summary
 
-## Product Source
+### Product Source
 
 `parts_master.csv`
 
@@ -1841,7 +1841,7 @@ produces information for:
 - `DimProduct`
 - `DimSupplier`
 
-## Inventory Source
+### Inventory Source
 
 `supply_chain_history.csv`
 
@@ -1851,7 +1851,7 @@ produces:
 - `DimSite` identifiers
 - Date-domain evidence
 
-## Purchase Order Source
+### Purchase Order Source
 
 `purchase_orders.csv`
 
@@ -1862,7 +1862,7 @@ produces:
 - procurement Lead-Time derivations
 - Date-domain evidence
 
-## Quality Source
+### Quality Source
 
 `quality_incidents.csv`
 
@@ -1872,7 +1872,7 @@ produces:
 - Supplier/Site relationship validation
 - Date-domain evidence
 
-## Date Dimension
+### Date Dimension
 
 `DimDate` is derived rather than copied from one source file.
 
@@ -1880,7 +1880,7 @@ It must provide a continuous calendar spanning all required source-supported dat
 
 ---
 
-# 18. Phase 1 Data-Design Resolution
+## 18. Phase 1 Data-Design Resolution
 
 The material logical data-design questions identified during source validation are resolved.
 
@@ -1900,7 +1900,7 @@ Exact implementation details such as Power Query query names or final Excel phys
 No unresolved critical data-design ambiguity is currently known.
 
 ---
-# 19. Implementation Status
+## 19. Implementation Status
 
 [CONFIRMADO]
 

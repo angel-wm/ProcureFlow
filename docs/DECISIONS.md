@@ -11,7 +11,7 @@ This document records material project decisions that affect ProcureFlow scope, 
 
 ---
 
-# 1. Decision Statuses
+## 1. Decision Statuses
 
 Decisions may use the following statuses:
 
@@ -23,9 +23,9 @@ A material change to a CONFIRMED decision should be documented explicitly rather
 
 ---
 
-# 2. Decision Log
+## 2. Decision Log
 
-## DEC-001 — Official Dataset
+### DEC-001 — Official Dataset
 
 **Status:** CONFIRMED
 
@@ -39,7 +39,7 @@ AdventureWorks remains outside ProcureFlow and may be used in a separate future 
 
 ---
 
-## DEC-002 — Official Source Files
+### DEC-002 — Official Source Files
 
 **Status:** CONFIRMED
 
@@ -56,7 +56,7 @@ Together these files provide the minimum required procurement, inventory, suppli
 
 ---
 
-## DEC-003 — Source Data Immutability
+### DEC-003 — Source Data Immutability
 
 **Status:** CONFIRMED
 
@@ -70,7 +70,7 @@ This preserves traceability and prevents undocumented manual preprocessing.
 
 ---
 
-## DEC-004 — Core Analytical Grain
+### DEC-004 — Core Analytical Grain
 
 **Status:** CONFIRMED
 
@@ -90,7 +90,7 @@ Replenishment decisions must reflect location-specific inventory conditions.
 
 ---
 
-## DEC-005 — Do Not Invent Unsupported Business Data
+### DEC-005 — Do Not Invent Unsupported Business Data
 
 **Status:** CONFIRMED
 
@@ -110,7 +110,7 @@ Portfolio realism must come from transparent modeling, not from invented source 
 
 ---
 
-## DEC-006 — Layered Workbook Architecture
+### DEC-006 — Layered Workbook Architecture
 
 **Status:** CONFIRMED
 
@@ -130,7 +130,7 @@ Separation of responsibility improves maintainability, usability and auditabilit
 
 ---
 
-## DEC-007 — Raw Data Remains Outside the Workbook
+### DEC-007 — Raw Data Remains Outside the Workbook
 
 **Status:** CONFIRMED
 
@@ -144,7 +144,7 @@ This avoids redundant storage and preserves a clean ingestion architecture.
 
 ---
 
-## DEC-008 — Power Query Responsibility
+### DEC-008 — Power Query Responsibility
 
 **Status:** CONFIRMED
 
@@ -166,7 +166,7 @@ Power Query is the appropriate Extract, Transform and Load layer within an Excel
 
 ---
 
-## DEC-009 — Excel Formula Responsibility
+### DEC-009 — Excel Formula Responsibility
 
 **Status:** CONFIRMED
 
@@ -178,7 +178,7 @@ Business rules such as Safety Stock, Reorder Point and recommended purchasing qu
 
 ---
 
-## DEC-010 — VBA Responsibility
+### DEC-010 — VBA Responsibility
 
 **Status:** CONFIRMED
 
@@ -190,7 +190,7 @@ VBA is most valuable for repeatable workflows such as refresh, validation, repor
 
 ---
 
-## DEC-011 — Power Pivot Deferred
+### DEC-011 — Power Pivot Deferred
 
 **Status:** CONFIRMED
 
@@ -204,7 +204,7 @@ The project should not add technology merely for demonstration purposes.
 
 ---
 
-## DEC-012 — Operational Report Separate from Dashboard
+### DEC-012 — Operational Report Separate from Dashboard
 
 **Status:** CONFIRMED
 
@@ -224,7 +224,7 @@ Operational purchasing decisions and management summaries serve different users 
 
 ---
 
-## DEC-013 — Workbook Business Language
+### DEC-013 — Workbook Business Language
 
 **Status:** CONFIRMED
 
@@ -238,7 +238,7 @@ This improves professional portfolio value while allowing progressive learning.
 
 ---
 
-## DEC-014 — Target Excel Platform
+### DEC-014 — Target Excel Platform
 
 **Status:** CONFIRMED
 
@@ -250,7 +250,7 @@ The planned stack depends on modern Excel capabilities including Dynamic Arrays,
 
 ---
 
-## DEC-015 — Inputs Must Be Separated
+### DEC-015 — Inputs Must Be Separated
 
 **Status:** CONFIRMED
 
@@ -262,7 +262,7 @@ This reduces accidental changes and improves usability.
 
 ---
 
-## DEC-016 — Error Transparency
+### DEC-016 — Error Transparency
 
 **Status:** CONFIRMED
 
@@ -274,7 +274,7 @@ Errors that affect trust in calculations must remain visible or be handled expli
 
 ---
 
-## DEC-017 — Workbook Protection
+### DEC-017 — Workbook Protection
 
 **Status:** CONFIRMED
 
@@ -286,7 +286,7 @@ Protection must support usability without obstructing auditability.
 
 ---
 
-## DEC-018 — Repository Structure
+### DEC-018 — Repository Structure
 
 **Status:** CONFIRMED
 
@@ -305,7 +305,7 @@ The repository must represent the full engineering project rather than only the 
 
 ---
 
-## DEC-019 — Workbook Versioning
+### DEC-019 — Workbook Versioning
 
 **Status:** CONFIRMED
 
@@ -317,7 +317,7 @@ The workbook is the primary executable artifact and must be preserved with each 
 
 ---
 
-## DEC-020 — VBA Source Export
+### DEC-020 — VBA Source Export
 
 **Status:** CONFIRMED
 
@@ -329,7 +329,7 @@ Text-based VBA source enables direct inspection, review and meaningful Git diffs
 
 ---
 
-## DEC-021 — Raw Dataset Repository Policy
+### DEC-021 — Raw Dataset Repository Policy
 
 **Status:** CONFIRMED
 
@@ -343,7 +343,7 @@ This reduces repository size and keeps source-distribution concerns separate fro
 
 ---
 
-## DEC-022 — Canonical Documentation Format
+### DEC-022 — Canonical Documentation Format
 
 **Status:** CONFIRMED
 
@@ -355,7 +355,7 @@ Markdown is easier for humans, GitHub and future project chats to inspect while 
 
 ---
 
-## DEC-023 — GitHub Releases Instead of Release Folder
+### DEC-023 — GitHub Releases Instead of Release Folder
 
 **Status:** CONFIRMED
 
@@ -369,7 +369,7 @@ GitHub already provides purpose-built release management.
 
 ---
 
-## DEC-024 — Phase-Based GitHub Handoff
+### DEC-024 — Phase-Based GitHub Handoff
 
 **Status:** CONFIRMED
 
@@ -381,7 +381,7 @@ A new chat must be able to reconstruct project state without depending on conver
 
 ---
 
-## DEC-025 — Main Contains Completed States Only
+### DEC-025 — Main Contains Completed States Only
 
 **Status:** CONFIRMED
 
@@ -393,7 +393,7 @@ This keeps `main` stable and authoritative.
 
 ---
 
-## DEC-026 — Phase Branches
+### DEC-026 — Phase Branches
 
 **Status:** CONFIRMED
 
@@ -407,7 +407,7 @@ Phase branches isolate active work from the last approved project state.
 
 ---
 
-## DEC-027 — Local-First Development with Mandatory Publication
+### DEC-027 — Local-First Development with Mandatory Publication
 
 **Status:** CONFIRMED
 
@@ -421,7 +421,7 @@ This supports practical local development while preserving reliable phase handof
 
 ---
 
-## DEC-028 — Pull Request per Phase
+### DEC-028 — Pull Request per Phase
 
 **Status:** CONFIRMED
 
@@ -433,7 +433,7 @@ Pull Requests create a professional review and historical checkpoint.
 
 ---
 
-## DEC-029 — Phase Tags
+### DEC-029 — Phase Tags
 
 **Status:** CONFIRMED
 
@@ -449,7 +449,7 @@ Tags create permanent historical reference points independent of branch movement
 
 ---
 
-## DEC-030 — Semantic Versioning
+### DEC-030 — Semantic Versioning
 
 **Status:** CONFIRMED
 
@@ -465,7 +465,7 @@ Explicit versions make project evolution easier to understand and present profes
 
 ---
 
-## DEC-031 — GitHub Handoff Protocol
+### DEC-031 — GitHub Handoff Protocol
 
 **Status:** CONFIRMED
 
@@ -482,7 +482,7 @@ This establishes a reproducible context-loading procedure.
 
 ---
 
-## DEC-032 — Sequential Roadmap
+### DEC-032 — Sequential Roadmap
 
 **Status:** CONFIRMED
 
@@ -494,7 +494,7 @@ Later phases depend strongly on stable outputs from earlier phases.
 
 ---
 
-## DEC-033 — Formal Phase Gates
+### DEC-033 — Formal Phase Gates
 
 **Status:** CONFIRMED
 
@@ -506,7 +506,7 @@ A phase must be objectively complete rather than informally abandoned.
 
 ---
 
-## DEC-034 — Version Mapping by Phase
+### DEC-034 — Version Mapping by Phase
 
 **Status:** CONFIRMED
 
@@ -532,7 +532,7 @@ Versions provide visible project maturity checkpoints.
 
 ---
 
-## DEC-035 — Meaning of v1.0.0
+### DEC-035 — Meaning of v1.0.0
 
 **Status:** CONFIRMED
 
@@ -544,7 +544,7 @@ The version must signify a complete portfolio-ready system rather than an arbitr
 
 ---
 
-## DEC-036 — Learning and Debugging Chats Are Non-Authoritative
+### DEC-036 — Learning and Debugging Chats Are Non-Authoritative
 
 **Status:** CONFIRMED
 
@@ -558,7 +558,7 @@ This prevents exploratory work from silently changing requirements or architectu
 
 ---
 
-## DEC-037 — Acceptance Criteria Policy
+### DEC-037 — Acceptance Criteria Policy
 
 **Status:** CONFIRMED
 
@@ -570,7 +570,7 @@ Mandatory acceptance requirements must have release authority.
 
 ---
 
-## DEC-038 — Definition of Done
+### DEC-038 — Definition of Done
 
 **Status:** CONFIRMED
 
@@ -601,7 +601,7 @@ No single dashboard, macro or formula can by itself qualify the project as finis
 
 ---
 
-## DEC-039 — No Critical Known Defects at Release
+### DEC-039 — No Critical Known Defects at Release
 
 **Status:** CONFIRMED
 
@@ -613,7 +613,7 @@ A final release must represent a trusted and validated project state.
 
 ---
 
-## DEC-040 — Scope Protection
+### DEC-040 — Scope Protection
 
 **Status:** CONFIRMED
 
@@ -625,7 +625,7 @@ The project requires a controlled completion boundary and must not expand indefi
 
 ---
 
-## DEC-041 — Repository License
+### DEC-041 — Repository License
 
 **Status:** CONFIRMED
 
@@ -638,7 +638,7 @@ Third-party datasets and other external materials retain their own applicable li
 MIT provides a simple and permissive license suitable for a portfolio software project while maintaining the required copyright and license notice.
 
 ---
-## DEC-042 — Supplier Risk Logical Ownership
+### DEC-042 — Supplier Risk Logical Ownership
 
 **Status:** CONFIRMED
 
@@ -654,7 +654,7 @@ The validated dependency is therefore Supplier → Supplier Risk Class.
 
 ---
 
-## DEC-043 — Inventory Weekly Date Semantics
+### DEC-043 — Inventory Weekly Date Semantics
 
 **Status:** CONFIRMED
 
@@ -672,7 +672,7 @@ Phase 1 validation confirmed 156 distinct historical dates, all occurring on Mon
 
 ---
 
-## DEC-044 — Date Dimension Coverage and Inventory Reporting Boundary
+### DEC-044 — Date Dimension Coverage and Inventory Reporting Boundary
 
 **Status:** CONFIRMED
 
@@ -700,7 +700,7 @@ Allowing those later dates to extend Inventory Reporting Date would imply invent
 
 ---
 
-## DEC-045 — ISO Weekly Calendar Convention
+### DEC-045 — ISO Weekly Calendar Convention
 
 **Status:** CONFIRMED
 
@@ -725,7 +725,7 @@ ISO 8601 provides an established Monday-based week convention and avoids ambiguo
 
 ---
 
-## DEC-046 — Workbook Visual System and Layer Color Convention
+### DEC-046 — Workbook Visual System and Layer Color Convention
 
 **Status:** CONFIRMED
 
@@ -774,7 +774,7 @@ The palette provides a professional aerospace / industrial character while avoid
 
 ---
 
-## DEC-047 — Physical Date Worksheet
+### DEC-047 — Physical Date Worksheet
 
 **Status:** CONFIRMED
 
@@ -794,7 +794,7 @@ Reserving `16_DATA_Date` during Workbook Foundation provides a stable physical d
 
 ---
 
-## DEC-048 — Incremental Workbook Protection
+### DEC-048 — Incremental Workbook Protection
 
 **Status:** CONFIRMED
 
@@ -818,7 +818,7 @@ Incremental protection preserves usability and allows each layer to be secured w
 
 ---
 
-## Reporting Date
+### Reporting Date
 
 A configurable Reporting Date determines the historical point of view used by relevant calculations.
 
@@ -826,7 +826,7 @@ Initial dataset maximum:
 
 23-Dec-2024
 
-## Historical Demand Window
+### Historical Demand Window
 
 Default:
 
@@ -836,13 +836,13 @@ by Product × Site.
 
 Zero-consumption weeks remain valid observations.
 
-## Review Period
+### Review Period
 
 Default:
 
 1 week.
 
-## Service Levels
+### Service Levels
 
 Initial configurable values:
 
@@ -850,7 +850,7 @@ Initial configurable values:
 - Criticality B → 97%
 - Criticality C → 95%
 
-## Safety Stock
+### Safety Stock
 
 Safety Stock will account for:
 
@@ -858,15 +858,15 @@ Safety Stock will account for:
 - Lead-Time variability;
 - service level.
 
-## Reorder Point
+### Reorder Point
 
 Reorder Point consists of expected Lead-Time demand plus Safety Stock.
 
-## Available Stock
+### Available Stock
 
 Blocked inventory is excluded from Available Stock.
 
-## Open Purchase Orders
+### Open Purchase Orders
 
 An order is open when:
 
@@ -874,7 +874,7 @@ Order Date <= Reporting Date < Receipt Date
 
 Future receipt knowledge must not be leaked retroactively into historical calculations.
 
-## Inventory Position
+### Inventory Position
 
 Inventory Position includes:
 
@@ -882,7 +882,7 @@ Inventory Position includes:
 - Open Purchase Orders;
 - Backorders.
 
-## Target Stock
+### Target Stock
 
 Target Stock covers:
 
@@ -890,13 +890,13 @@ Target Stock covers:
 - Review Period demand;
 - Safety Stock.
 
-## Recommended Order Quantity
+### Recommended Order Quantity
 
 A recommendation is triggered when Inventory Position is at or below Reorder Point.
 
 The recommendation replenishes toward Target Stock and cannot be negative.
 
-## Inventory Status Priority
+### Inventory Status Priority
 
 Priority order:
 
@@ -907,17 +907,17 @@ Priority order:
 5. EXCESS
 6. HEALTHY
 
-## No Recent Demand
+### No Recent Demand
 
 A separate `NO_RECENT_DEMAND` flag applies when the configured historical window contains zero total consumption.
 
-## Excess Inventory
+### Excess Inventory
 
 Initial Excess Buffer:
 
 4 weeks of average demand.
 
-## Supplier Delivery Performance
+### Supplier Delivery Performance
 
 On-Time Delivery means:
 
@@ -925,25 +925,25 @@ Actual Receipt Date <= Promised Date
 
 and uses received orders as its denominator.
 
-## Supplier Performance Score
+### Supplier Performance Score
 
 No arbitrary aggregate Supplier Score will be created initially.
 
 Delivery, Lead Time, quantity and quality metrics remain individually visible.
 
-## Supplier Risk
+### Supplier Risk
 
 Source supplier-risk classification may support alerts, filtering and analysis.
 
 It will not automatically multiply Safety Stock because doing so could double-count supply uncertainty already reflected in observed Lead-Time variability.
 
-## Forecast
+### Forecast
 
 Source forecast data will be retained for analysis but will not drive the initial core replenishment engine.
 
 ---
 
-# 4. Change-Control Rule
+## 4. Change-Control Rule
 
 A new decision entry should be created when a future change materially affects:
 
@@ -969,7 +969,7 @@ and the replacement decision should identify what changed and why.
 
 ---
 
-# 5. Current Decision Baseline
+## 5. Current Decision Baseline
 
 Decisions confirmed through Phase 0:
 
@@ -1032,7 +1032,7 @@ Next major decision review:
 As required by any future maintenance or separately approved project evolution that introduces a material architecture, business-rule, automation, scope or release-management decision.
 ---
 
-## DEC-049 — Workbook-Relative Power Query Source Path
+### DEC-049 — Workbook-Relative Power Query Source Path
 
 **Status:** CONFIRMED
 
@@ -1064,7 +1064,7 @@ The relative strategy allows the entire ProcureFlow repository to move while pre
 
 ---
 
-## DEC-050 — Power Query M Source Versioning
+### DEC-050 — Power Query M Source Versioning
 
 **Status:** CONFIRMED
 
@@ -1092,7 +1092,7 @@ The `.xlsm` workbook is a binary Git artifact and does not provide meaningful li
 External `.pq` files make Power Query implementation directly inspectable on GitHub and enable useful Git diffs, technical review and traceability.
 ---
 
-## DEC-051 — Inventory Snapshot Date
+### DEC-051 — Inventory Snapshot Date
 
 **Status:** CONFIRMED
 
@@ -1130,7 +1130,7 @@ The configured Reporting Date is a business date rather than a weekly-key field.
 Resolving the latest available weekly snapshot at or before the Reporting Date preserves historical causality, avoids future-data leakage and allows daily Reporting Dates without inventing daily inventory observations.
 ---
 
-## DEC-052 — Completed Demand History Window
+### DEC-052 — Completed Demand History Window
 
 **Status:** CONFIRMED
 
@@ -1182,7 +1182,7 @@ Phase 4 prepares this temporal context only.
 
 Average demand, demand variability, total recent consumption and `NO_RECENT_DEMAND` remain Phase 5 business calculations.
 
-## DEC-053 — Reporting-Date-safe historical Lead Time
+### DEC-053 — Reporting-Date-safe historical Lead Time
 
 Status: CONFIRMED
 
@@ -1200,7 +1200,7 @@ For Product × Site replenishment calculations:
 
 No arbitrary Lead-Time lookback window is introduced because no approved configuration parameter currently defines one.
 
-## DEC-054 — Safety Stock statistical methodology
+### DEC-054 — Safety Stock statistical methodology
 
 Status: CONFIRMED
 
@@ -1214,7 +1214,7 @@ Lead Time measured in days is converted to weeks before combining it with weekly
 
 Supplier Risk Class is not used as a Safety Stock multiplier.
 
-## DEC-055 — NoRecentDemand replenishment safeguard
+### DEC-055 — NoRecentDemand replenishment safeguard
 
 Status: CONFIRMED
 
@@ -1228,7 +1228,7 @@ A real backorder is not suppressed by the NoRecentDemand safeguard because it re
 
 ---
 
-## DEC-056 — Formal Quality Control Severity and Status Model
+### DEC-056 — Formal Quality Control Severity and Status Model
 
 **Status:** CONFIRMED
 
@@ -1265,7 +1265,7 @@ Keeping them separate avoids embedding duplicated FAIL values in the control def
 
 ---
 
-## DEC-057 — Dedicated Power Query Quality-Control Feed
+### DEC-057 — Dedicated Power Query Quality-Control Feed
 
 **Status:** CONFIRMED
 
@@ -1299,7 +1299,7 @@ Power Query is therefore the appropriate technical evidence layer while Excel re
 
 ---
 
-## DEC-058 — Refresh-State and Pivot-Control Phase Boundary
+### DEC-058 — Refresh-State and Pivot-Control Phase Boundary
 
 **Status:** CONFIRMED
 
@@ -1331,7 +1331,7 @@ ProcureFlow must not claim persistence or PivotTable validation before the requi
 
 ---
 
-## DEC-059 — Pivot Refresh Validation and QC-032 Automation Boundary
+### DEC-059 — Pivot Refresh Validation and QC-032 Automation Boundary
 
 **Status:** SUPERSEDED
 
@@ -1364,7 +1364,7 @@ This decision preserves the distinction between:
 `DEC-058` remains valid and is clarified by this decision rather than superseded.
 ---
 
-## DEC-060 — Phase 8 / Phase 9 VBA Automation Boundary
+### DEC-060 — Phase 8 / Phase 9 VBA Automation Boundary
 
 **Status:** CONFIRMED
 
@@ -1427,7 +1427,7 @@ This decision supersedes `DEC-059` only with respect to the phase assignment of 
 
 ---
 
-## DEC-061 — Educational VBA Artifact Separation
+### DEC-061 — Educational VBA Artifact Separation
 
 **Status:** CONFIRMED
 
@@ -1461,7 +1461,7 @@ Separating educational and production VBA keeps the workbook interface professio
 
 ---
 
-## DEC-062 — Production Automation State and Refresh Contract
+### DEC-062 — Production Automation State and Refresh Contract
 
 **Status:** CONFIRMED
 
@@ -1526,7 +1526,7 @@ This decision implements the production-automation responsibility assigned to Ph
 
 ---
 
-## DEC-063 — Controlled Synchronous Power Query Refresh Strategy
+### DEC-063 — Controlled Synchronous Power Query Refresh Strategy
 
 **Status:** CONFIRMED
 
@@ -1579,7 +1579,7 @@ The decision is based on executed Phase 9 workbook tests rather than on an assum
 
 ---
 
-## DEC-064 — Service Level Operational Bounds and Validation Alignment
+### DEC-064 — Service Level Operational Bounds and Validation Alignment
 
 **Status:** CONFIRMED
 
@@ -1604,7 +1604,7 @@ Phase 11 edge-case testing demonstrated that worksheet Data Validation allowed e
 Quality Control correctly exposed the invalid state. The defect was resolved by aligning worksheet prevention with the operational domain `0 < Service Level < 1`.
 
 This decision clarifies the valid input boundary supporting the existing Safety Stock methodology and does not alter that methodology.
-## DEC-065 — Phase 12 Visual Polish and Final Presentation Sequence
+### DEC-065 — Phase 12 Visual Polish and Final Presentation Sequence
 
 **Status:** CONFIRMED
 
