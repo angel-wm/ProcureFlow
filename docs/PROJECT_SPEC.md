@@ -1233,5 +1233,3 @@ Implementation status:
 PENDING
 
 No workbook functionality is considered implemented at this stage.
-
-
