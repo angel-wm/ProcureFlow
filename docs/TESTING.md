@@ -3622,7 +3622,8 @@ Validated evidence:
 - 5 production VBA modules are present with `Option Explicit`, without debug output, placeholders or user-specific absolute paths;
 - no broken internal Markdown links or versioned artifact references were found;
 - no open Pull Requests or issues were present at audit time;
-- no functional workbook, Power Query, VBA, formula, PivotTable, reporting or business-logic change was introduced by the post-`v1.0.0` corrections.
+- no functional workbook, Power Query, VBA, formula, PivotTable, reporting or business-logic change was introduced by the post-`v1.0.0` corrections;
+- maintenance publication is performed through Pull Request `#17 — docs: publish v1.0.1 maintenance state` and version tag `v1.0.1`.
 
 Release classification:
 
