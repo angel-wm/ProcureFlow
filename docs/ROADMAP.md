@@ -13,9 +13,9 @@ A phase is only considered COMPLETED after its technical work, validation, docum
 
 ---
 
-# 1. Roadmap Governance
+## 1. Roadmap Governance
 
-## 1.1 Phase Status Values
+### 1.1 Phase Status Values
 
 Only the following phase statuses will be used:
 
@@ -24,13 +24,13 @@ Only the following phase statuses will be used:
 - BLOCKED
 - COMPLETED
 
-## 1.2 Sequential Execution
+### 1.2 Sequential Execution
 
 ProcureFlow will initially be developed sequentially.
 
 A new phase must not begin until the preceding phase has completed its exit criteria and GitHub gate.
 
-## 1.3 GitHub Completion Rule
+### 1.3 GitHub Completion Rule
 
 Local completion alone does not mark a phase as COMPLETED.
 
@@ -45,7 +45,7 @@ A completed phase must:
 7. be pushed to GitHub;
 8. have its phase-complete tag published.
 
-## 1.4 Canonical Phase Handoff
+### 1.4 Canonical Phase Handoff
 
 A new phase chat should reconstruct project state from GitHub, primarily through:
 
@@ -60,7 +60,7 @@ Learning or debugging chats do not automatically modify official project state.
 
 ---
 
-# 2. Version Strategy
+## 2. Version Strategy
 
 ProcureFlow uses Semantic Versioning concepts:
 
@@ -90,29 +90,29 @@ Patch versions may be created where corrective work is required.
 
 ---
 
-# 3. Phase 0 — Project Design
+## 3. Phase 0 — Project Design
 
-## Status
+### Status
 
 COMPLETED
 
-## Target Version
+### Target Version
 
 v0.1.0
 
-## Local Work Status
+### Local Work Status
 
 COMPLETE — GITHUB GATE PASSED
 
-## Depends On
+### Depends On
 
 None.
 
-## Objective
+### Objective
 
 Design ProcureFlow formally before implementation begins.
 
-## Scope
+### Scope
 
 - define business purpose;
 - establish project scope;
@@ -139,7 +139,7 @@ Design ProcureFlow formally before implementation begins.
 - create initial canonical documentation;
 - create and publish the initial repository state.
 
-## Deliverables
+### Deliverables
 
 - `README.md`
 - `.gitignore`
@@ -153,11 +153,11 @@ Design ProcureFlow formally before implementation begins.
 - initial `docs/TESTING.md`
 - `docs/phases/PHASE_00_CLOSEOUT.md`
 
-## Entry Criteria
+### Entry Criteria
 
 None.
 
-## Exit Criteria
+### Exit Criteria
 
 - design baseline approved;
 - official dataset confirmed;
@@ -174,7 +174,7 @@ None.
 - Phase 0 closeout completed;
 - no unresolved critical Phase 0 design issue.
 
-## GitHub Gate
+### GitHub Gate
 
 - local Git repository initialized;
 - canonical files committed;
@@ -184,31 +184,31 @@ None.
 - tag `phase-0-complete` created and pushed;
 - tag `v0.1.0` created and pushed.
 
-## Version
+### Version
 
 v0.1.0
 
 ---
 
-# 4. Phase 1 — Data Design
+## 4. Phase 1 — Data Design
 
-## Status
+### Status
 
 COMPLETED
 
-## Target Version
+### Target Version
 
 v0.2.0
 
-## Depends On
+### Depends On
 
 Phase 0 — Project Design.
 
-## Objective
+### Objective
 
 Transform the selected Aerospace dataset into a formally validated data specification before workbook construction.
 
-## Scope
+### Scope
 
 - inspect every source file;
 - validate row grain;
@@ -233,7 +233,7 @@ Transform the selected Aerospace dataset into a formally validated data specific
 - define source-to-ProcureFlow field mappings;
 - identify data-quality rules supported by source semantics.
 
-## Deliverables
+### Deliverables
 
 - completed field-level `DATA_DICTIONARY.md`;
 - validated grain definitions;
@@ -245,7 +245,7 @@ Transform the selected Aerospace dataset into a formally validated data specific
 - Phase 1 test evidence;
 - `PHASE_01_CLOSEOUT.md`.
 
-## Learning Focus
+### Learning Focus
 
 - table grain;
 - primary keys;
@@ -257,14 +257,14 @@ Transform the selected Aerospace dataset into a formally validated data specific
 - data dictionaries;
 - source validation.
 
-## Entry Criteria
+### Entry Criteria
 
 - Phase 0 COMPLETED;
 - Phase 0 documentation published;
 - `main` synchronized;
 - `phase-0-complete` tag available.
 
-## Exit Criteria
+### Exit Criteria
 
 - every required source field understood;
 - grains validated;
@@ -276,35 +276,35 @@ Transform the selected Aerospace dataset into a formally validated data specific
 - test evidence documented;
 - Phase 1 closeout completed.
 
-## GitHub Gate
+### GitHub Gate
 
 Complete phase branch workflow, Pull Request, merge to `main`, push and phase tag.
 
-## Version
+### Version
 
 v0.2.0
 
 ---
 
-# 5. Phase 2 — Workbook Foundation
+## 5. Phase 2 — Workbook Foundation
 
-## Status
+### Status
 
 COMPLETED
 
-## Target Version
+### Target Version
 
 v0.3.0
 
-## Depends On
+### Depends On
 
 Phase 1 — Data Design.
 
-## Objective
+### Objective
 
 Create the first physical ProcureFlow workbook and establish a professional workbook foundation.
 
-## Scope
+### Scope
 
 - create `ProcureFlow.xlsm`;
 - create approved worksheet architecture;
@@ -321,7 +321,7 @@ Create the first physical ProcureFlow workbook and establish a professional work
 - establish Excel Table placeholders where appropriate;
 - establish initial protection strategy.
 
-## Deliverables
+### Deliverables
 
 - first `workbook/ProcureFlow.xlsm`;
 - complete physical worksheet skeleton;
@@ -332,7 +332,7 @@ Create the first physical ProcureFlow workbook and establish a professional work
 - Phase 2 test evidence;
 - `PHASE_02_CLOSEOUT.md`.
 
-## Learning Focus
+### Learning Focus
 
 - workbook architecture;
 - Excel Tables;
@@ -344,13 +344,13 @@ Create the first physical ProcureFlow workbook and establish a professional work
 - workbook protection;
 - maintainable workbook design.
 
-## Entry Criteria
+### Entry Criteria
 
 - Phase 1 COMPLETED;
 - data design stable;
 - physical data requirements known.
 
-## Exit Criteria
+### Exit Criteria
 
 - workbook opens without errors;
 - required base sheets exist;
@@ -359,7 +359,7 @@ Create the first physical ProcureFlow workbook and establish a professional work
 - naming conventions are applied;
 - workbook is ready for Power Query integration.
 
-## GitHub Gate
+### GitHub Gate
 
 - phase branch `phase/02-workbook-foundation` completed;
 - Pull Request `#3 — Phase 2 — Workbook Foundation` merged;
@@ -369,31 +369,31 @@ Create the first physical ProcureFlow workbook and establish a professional work
 
 GitHub Gate: COMPLETE.
 
-## Version
+### Version
 
 v0.3.0
 
 ---
 
-# 6. Phase 3 — Power Query Pipeline
+## 6. Phase 3 — Power Query Pipeline
 
-## Status
+### Status
 
 COMPLETED
 
-## Target Version
+### Target Version
 
 v0.4.0
 
-## Depends On
+### Depends On
 
 Phase 2 — Workbook Foundation.
 
-## Objective
+### Objective
 
 Build a reproducible Power Query ingestion and preparation pipeline from raw source files to structured ProcureFlow data tables.
 
-## Scope
+### Scope
 
 - implement `src_*` queries;
 - implement `stg_*` queries;
@@ -410,7 +410,7 @@ Build a reproducible Power Query ingestion and preparation pipeline from raw sou
 - validate row counts and transformations;
 - document source-path strategy.
 
-## Deliverables
+### Deliverables
 
 - functioning Power Query pipeline;
 - `tblProducts`;
@@ -424,7 +424,7 @@ Build a reproducible Power Query ingestion and preparation pipeline from raw sou
 - query validation evidence;
 - `PHASE_03_CLOSEOUT.md`.
 
-## Learning Focus
+### Learning Focus
 
 - Power Query Editor;
 - query steps;
@@ -438,13 +438,13 @@ Build a reproducible Power Query ingestion and preparation pipeline from raw sou
 - Connection Only;
 - Refresh.
 
-## Entry Criteria
+### Entry Criteria
 
 - Phase 2 COMPLETED;
 - workbook architecture available;
 - source-to-target design confirmed.
 
-## Exit Criteria
+### Exit Criteria
 
 - valid source files refresh successfully;
 - expected final tables load correctly;
@@ -452,7 +452,7 @@ Build a reproducible Power Query ingestion and preparation pipeline from raw sou
 - no critical Power Query errors remain;
 - no manual cleansing of raw files is required.
 
-## GitHub Gate
+### GitHub Gate
 
 - phase branch `phase/03-power-query-pipeline` completed;
 - Pull Request `#4 — Phase 3 — Power Query Pipeline` merged;
@@ -462,31 +462,31 @@ Build a reproducible Power Query ingestion and preparation pipeline from raw sou
 
 GitHub Gate: COMPLETE.
 
-## Version
+### Version
 
 v0.4.0
 
 ---
 
-# 7. Phase 4 — Operational Model
+## 7. Phase 4 — Operational Model
 
-## Status
+### Status
 
 COMPLETED
 
-## Target Version
+### Target Version
 
 v0.5.0
 
-## Depends On
+### Depends On
 
 Phase 3 — Power Query Pipeline.
 
-## Objective
+### Objective
 
 Build the structured operational calculation model required before implementing final business formulas.
 
-## Scope
+### Scope
 
 - create Product × Site operational grain;
 - design `tblReplenishment`;
@@ -501,7 +501,7 @@ Build the structured operational calculation model required before implementing 
 - establish Reporting Date relationships;
 - reduce repeated scanning of large history tables where appropriate.
 
-## Deliverables
+### Deliverables
 
 - `20_CALC_Replenishment` structure;
 - `tblReplenishment` structural model;
@@ -511,7 +511,7 @@ Build the structured operational calculation model required before implementing 
 - prepared inputs for Phase 5;
 - `PHASE_04_CLOSEOUT.md`.
 
-## Learning Focus
+### Learning Focus
 
 - operational-model design;
 - grain preservation;
@@ -519,19 +519,19 @@ Build the structured operational calculation model required before implementing 
 - intermediate calculations;
 - performance-aware Excel modeling.
 
-## Entry Criteria
+### Entry Criteria
 
 - Phase 3 COMPLETED;
 - all required structured data tables refresh correctly.
 
-## Exit Criteria
+### Exit Criteria
 
 - operational grains are correct;
 - required inputs are available;
 - no unresolved critical structural issue remains;
 - model is ready for business-rule formulas.
 
-## GitHub Gate
+### GitHub Gate
 
 - phase branch `phase/04-operational-model` completed;
 - Pull Request `#5 — Phase 4 — Operational Model` merged;
@@ -541,31 +541,31 @@ Build the structured operational calculation model required before implementing 
 
 GitHub Gate: COMPLETE.
 
-## Version
+### Version
 
 v0.5.0
 
 ---
 
-# 8. Phase 5 — Business Logic & Advanced Formulas
+## 8. Phase 5 — Business Logic & Advanced Formulas
 
-## Status
+### Status
 
 COMPLETED
 
-## Target Version
+### Target Version
 
 v0.6.0
 
-## Depends On
+### Depends On
 
 Phase 4 — Operational Model.
 
-## Objective
+### Objective
 
 Implement and validate the core inventory, replenishment, procurement and supplier-performance business logic using auditable Excel formulas.
 
-## Scope
+### Scope
 
 Implement:
 
@@ -591,7 +591,7 @@ Implement:
 - partial-receipt metrics;
 - supplier-quality metrics.
 
-## Formula Learning Focus
+### Formula Learning Focus
 
 Use and understand professionally relevant functions including:
 
@@ -622,7 +622,7 @@ Use and understand professionally relevant functions including:
 
 Legacy functions will be understood but not forced into production logic when a more maintainable modern function is preferable.
 
-## Deliverables
+### Deliverables
 
 - functioning replenishment engine;
 - functioning supplier-performance calculations;
@@ -631,12 +631,12 @@ Legacy functions will be understood but not forced into production logic when a 
 - formula test evidence;
 - `PHASE_05_CLOSEOUT.md`.
 
-## Entry Criteria
+### Entry Criteria
 
 - Phase 4 COMPLETED;
 - operational model structurally valid.
 
-## Exit Criteria
+### Exit Criteria
 
 - mandatory business rules implemented;
 - critical calculations manually reconciled;
@@ -644,7 +644,7 @@ Legacy functions will be understood but not forced into production logic when a 
 - no critical negative or contradictory outputs remain;
 - formula performance is acceptable on full data.
 
-## GitHub Gate
+### GitHub Gate
 
 - phase branch `phase/05-business-logic-advanced-formulas` completed;
 - Pull Request `#6 — Phase 5 — Business Logic & Advanced Formulas` merged;
@@ -654,31 +654,31 @@ Legacy functions will be understood but not forced into production logic when a 
 
 GitHub Gate: COMPLETE.
 
-## Version
+### Version
 
 v0.6.0
 
 ---
 
-# 9. Phase 6 — Quality Control System
+## 9. Phase 6 — Quality Control System
 
-## Status
+### Status
 
 COMPLETED
 
-## Target Version
+### Target Version
 
 v0.7.0
 
-## Depends On
+### Depends On
 
 Phase 5 — Business Logic & Advanced Formulas.
 
-## Objective
+### Objective
 
 Implement the formal ProcureFlow data-quality, logic-quality and reconciliation framework.
 
-## Scope
+### Scope
 
 - implement `02_CONTROL`;
 - implement structural controls;
@@ -692,7 +692,7 @@ Implement the formal ProcureFlow data-quality, logic-quality and reconciliation 
 - document exceptions;
 - establish refresh-state controls.
 
-## Deliverables
+### Deliverables
 
 - operational `02_CONTROL`;
 - mandatory Quality Control checks;
@@ -702,7 +702,7 @@ Implement the formal ProcureFlow data-quality, logic-quality and reconciliation 
 - Quality Control test evidence;
 - `PHASE_06_CLOSEOUT.md`.
 
-## Learning Focus
+### Learning Focus
 
 - error controls;
 - COUNTIFS;
@@ -712,19 +712,19 @@ Implement the formal ProcureFlow data-quality, logic-quality and reconciliation 
 - exception design;
 - transparent error handling.
 
-## Entry Criteria
+### Entry Criteria
 
 - Phase 5 COMPLETED;
 - business calculations available for validation.
 
-## Exit Criteria
+### Exit Criteria
 
 - mandatory controls implemented;
 - critical FAIL behavior works;
 - reconciliations pass for valid source data;
 - no critical data-quality problem is silently hidden.
 
-## GitHub Gate
+### GitHub Gate
 
 - phase branch `phase/06-quality-control-system` completed;
 - Pull Request `#7 — Phase 6 — Quality Control System` merged;
@@ -734,35 +734,35 @@ Implement the formal ProcureFlow data-quality, logic-quality and reconciliation 
 
 GitHub Gate: COMPLETE.
 
-## Version
+### Version
 
 v0.7.0
 
 ---
 
-# 10. Phase 7 — Analysis & PivotTables
+## 10. Phase 7 — Analysis & PivotTables
 
-## Status
+### Status
 
 COMPLETED
 
-## GitHub Gate Status
+### GitHub Gate Status
 
 COMPLETE
 
-## Target Version
+### Target Version
 
 v0.8.0
 
-## Depends On
+### Depends On
 
 Phase 6 — Quality Control System.
 
-## Objective
+### Objective
 
 Build the analytical layer using PivotTables, PivotCharts, Slicers and Timelines.
 
-## Scope
+### Scope
 
 Develop:
 
@@ -777,7 +777,7 @@ Develop:
 - Timelines where justified;
 - reconciliation with source tables.
 
-## Deliverables
+### Deliverables
 
 - inventory analysis;
 - procurement analysis;
@@ -787,7 +787,7 @@ Develop:
 - Phase 7 test evidence;
 - `PHASE_07_CLOSEOUT.md`.
 
-## Learning Focus
+### Learning Focus
 
 - PivotTables;
 - PivotCharts;
@@ -797,19 +797,19 @@ Develop:
 - Timelines;
 - refresh behavior.
 
-## Entry Criteria
+### Entry Criteria
 
 - Phase 6 COMPLETED;
 - validated structured tables and business calculations available.
 
-## Exit Criteria
+### Exit Criteria
 
 - required analytical domains exist;
 - PivotTable totals reconcile;
 - interactive filters work;
 - refresh behavior is validated.
 
-## GitHub Gate
+### GitHub Gate
 
 - phase branch `phase/07-analysis-pivottables` completed;
 - Pull Request `#8 — Phase 7 — Analysis & PivotTables` merged;
@@ -819,35 +819,35 @@ Develop:
 
 GitHub Gate: COMPLETE.
 
-## Version
+### Version
 
 v0.8.0
 
 ---
 
-# 11. Phase 8 — VBA Foundations
+## 11. Phase 8 — VBA Foundations
 
-## Status
+### Status
 
 COMPLETED
 
-## Target Version
+### Target Version
 
 v0.8.1
 
-## Local Work Status
+### Local Work Status
 
 COMPLETE — GITHUB GATE PASSED
 
-## Depends On
+### Depends On
 
 Phase 7 — Analysis & PivotTables.
 
-## Objective
+### Objective
 
 Build practical understanding of Visual Basic for Applications before implementing production automation.
 
-## Scope
+### Scope
 
 Progressively learn:
 
@@ -872,7 +872,7 @@ Progressively learn:
 19. PivotTable interaction;
 20. refresh concepts.
 
-## Deliverables
+### Deliverables
 
 - educational macros tied to relevant workbook operations;
 - documented VBA learning examples where appropriate;
@@ -880,22 +880,22 @@ Progressively learn:
 - readiness assessment for production automation;
 - `PHASE_08_CLOSEOUT.md`.
 
-## Learning Focus
+### Learning Focus
 
 Visual Basic for Applications fundamentals.
 
-## Entry Criteria
+### Entry Criteria
 
 - Phase 7 COMPLETED;
 - workbook manual workflows are sufficiently stable to automate.
 
-## Exit Criteria
+### Exit Criteria
 
 - core VBA concepts understood;
 - user can inspect and explain foundational code;
 - production automation can proceed without treating VBA as a black box.
 
-## GitHub Gate
+### GitHub Gate
 
 COMPLETE
 
@@ -916,35 +916,35 @@ Release tags:
 - `phase-8-complete`
 - `v0.8.1`
 
-## Version
+### Version
 
 v0.8.1
 
 ---
 
-# 12. Phase 9 — Automation
+## 12. Phase 9 — Automation
 
-## Status
+### Status
 
 COMPLETED
 
-## Local Work Status
+### Local Work Status
 
 COMPLETE — GITHUB GATE PASSED
 
-## Target Version
+### Target Version
 
 v0.9.0
 
-## Depends On
+### Depends On
 
 Phase 8 — VBA Foundations.
 
-## Objective
+### Objective
 
 Implement professional VBA automation for stable ProcureFlow workflows.
 
-## Scope
+### Scope
 
 Potential automations include:
 
@@ -959,7 +959,7 @@ Potential automations include:
 - error handling;
 - stale-output prevention.
 
-## Deliverables
+### Deliverables
 
 - production VBA modules;
 - documented procedures;
@@ -968,7 +968,7 @@ Potential automations include:
 - automation test evidence;
 - `PHASE_09_CLOSEOUT.md`.
 
-## Learning Focus
+### Learning Focus
 
 - modular procedures;
 - workbook automation;
@@ -978,19 +978,19 @@ Potential automations include:
 - error handling;
 - maintainable VBA structure.
 
-## Entry Criteria
+### Entry Criteria
 
 - Phase 8 COMPLETED;
 - manual workflows understood and stable.
 
-## Exit Criteria
+### Exit Criteria
 
 - required automation works;
 - expected failures are handled safely;
 - failed refresh does not appear successful;
 - relevant VBA source exported and versioned.
 
-## GitHub Gate
+### GitHub Gate
 
 - phase branch `phase/09-automation` completed;
 - Pull Request `#10 — Phase 9 — Automation` merged;
@@ -1000,31 +1000,31 @@ Potential automations include:
 - version tag `v0.9.0`.
 
 GitHub Gate: COMPLETE.
-## Version
+### Version
 
 v0.9.0
 
 ---
 
-# 13. Phase 10 — Reporting & Dashboard
+## 13. Phase 10 — Reporting & Dashboard
 
-## Status
+### Status
 
 COMPLETED
 
-## Target Version
+### Target Version
 
 v0.10.0
 
-## Depends On
+### Depends On
 
 Phase 9 — Automation.
 
-## Objective
+### Objective
 
 Build the final operational reporting and management presentation layer on top of a stable validated backend.
 
-## Scope
+### Scope
 
 - complete `40_RPT_Replenishment`;
 - complete `41_DASH_Management`;
@@ -1038,7 +1038,7 @@ Build the final operational reporting and management presentation layer on top o
 - finalize navigation;
 - integrate relevant automation.
 
-## Deliverables
+### Deliverables
 
 - professional operational replenishment report;
 - management dashboard;
@@ -1047,7 +1047,7 @@ Build the final operational reporting and management presentation layer on top o
 - reporting test evidence;
 - `PHASE_10_CLOSEOUT.md`.
 
-## Learning Focus
+### Learning Focus
 
 - dashboard design;
 - information hierarchy;
@@ -1057,12 +1057,12 @@ Build the final operational reporting and management presentation layer on top o
 - accessibility;
 - report reconciliation.
 
-## Entry Criteria
+### Entry Criteria
 
 - Phase 9 COMPLETED;
 - backend logic and automation stable.
 
-## Exit Criteria
+### Exit Criteria
 
 - operational report is actionable;
 - dashboard metrics reconcile;
@@ -1070,7 +1070,7 @@ Build the final operational reporting and management presentation layer on top o
 - presentation is professional;
 - important meaning does not depend only on color.
 
-## GitHub Gate
+### GitHub Gate
 
 - phase branch `phase/10-reporting-dashboard` completed;
 - Pull Request `#13 — Phase 10 — Reporting & Dashboard` merged;
@@ -1081,30 +1081,30 @@ Build the final operational reporting and management presentation layer on top o
 
 GitHub Gate: COMPLETE.
 
-## Version
+### Version
 
 v0.10.0
 
 ---
-# 14. Phase 11 — Testing & Hardening
+## 14. Phase 11 — Testing & Hardening
 
-## Status
+### Status
 
 COMPLETED
 
-## Target Version
+### Target Version
 
 v0.11.0
 
-## Depends On
+### Depends On
 
 Phase 10 — Reporting & Dashboard.
 
-## Objective
+### Objective
 
 Perform complete system validation, resolve defects and harden ProcureFlow for final release.
 
-## Scope
+### Scope
 
 - end-to-end testing;
 - formula tests;
@@ -1124,7 +1124,7 @@ Perform complete system validation, resolve defects and harden ProcureFlow for f
 - defect correction;
 - final reconciliation.
 
-## Deliverables
+### Deliverables
 
 - completed `TESTING.md`;
 - resolved critical defects;
@@ -1133,7 +1133,7 @@ Perform complete system validation, resolve defects and harden ProcureFlow for f
 - final hardening changes;
 - `PHASE_11_CLOSEOUT.md`.
 
-## Learning Focus
+### Learning Focus
 
 - structured testing;
 - debugging;
@@ -1142,12 +1142,12 @@ Perform complete system validation, resolve defects and harden ProcureFlow for f
 - User Acceptance Testing;
 - performance evaluation.
 
-## Entry Criteria
+### Entry Criteria
 
 - Phase 10 COMPLETED;
 - complete functional system available for validation.
 
-## Exit Criteria
+### Exit Criteria
 
 - no critical known defect;
 - mandatory acceptance tests pass;
@@ -1156,7 +1156,7 @@ Perform complete system validation, resolve defects and harden ProcureFlow for f
 - documentation reflects validated behavior;
 - system is ready for portfolio release preparation.
 
-## GitHub Gate
+### GitHub Gate
 
 - phase branch `phase/11-testing-hardening` completed;
 - Pull Request `#14 — Phase 11 — Testing & Hardening` merged;
@@ -1167,31 +1167,31 @@ Perform complete system validation, resolve defects and harden ProcureFlow for f
 
 GitHub Gate: COMPLETE.
 
-## Version
+### Version
 
 v0.11.0
 
 ---
 
-# 15. Phase 12 — Documentation & Portfolio Release
+## 15. Phase 12 — Documentation & Portfolio Release
 
-## Status
+### Status
 
 COMPLETED
 
-## Target Version
+### Target Version
 
 v1.0.0
 
-## Depends On
+### Depends On
 
 Phase 11 — Testing & Hardening.
 
-## Objective
+### Objective
 
 Finalize ProcureFlow as a professional, reproducible and portfolio-ready project.
 
-## Scope
+### Scope
 
 - update all canonical documentation;
 - finalize `README.md`;
@@ -1215,7 +1215,7 @@ Finalize ProcureFlow as a professional, reproducible and portfolio-ready project
 - create final tag;
 - create GitHub Release.
 
-## Deliverables
+### Deliverables
 
 - final `ProcureFlow.xlsm`;
 - final VBA source;
@@ -1227,7 +1227,7 @@ Finalize ProcureFlow as a professional, reproducible and portfolio-ready project
 - tag `v1.0.0`;
 - GitHub Release.
 
-## Learning Focus
+### Learning Focus
 
 - technical communication;
 - portfolio presentation;
@@ -1236,13 +1236,13 @@ Finalize ProcureFlow as a professional, reproducible and portfolio-ready project
 - maintainability;
 - professional project handoff.
 
-## Entry Criteria
+### Entry Criteria
 
 - Phase 11 COMPLETED;
 - no critical known defects;
 - mandatory acceptance evidence available.
 
-## Exit Criteria
+### Exit Criteria
 
 All applicable mandatory Acceptance Criteria and Definition of Done items are satisfied or formally superseded through an approved decision.
 
@@ -1252,7 +1252,7 @@ Project Status: COMPLETED
 
 Current Version: v1.0.1
 
-## GitHub Gate
+### GitHub Gate
 
 - final Pull Request merged;
 - final `main` pushed;
@@ -1261,13 +1261,13 @@ Current Version: v1.0.1
 - GitHub Release created;
 - repository reviewed as portfolio-ready.
 
-## Version
+### Version
 
 v1.0.0
 
 ---
 
-# 16. Roadmap Summary
+## 16. Roadmap Summary
 
 | Phase | Name | Status | Target Version |
 |---:|---|---|---|
@@ -1287,7 +1287,7 @@ v1.0.0
 
 ---
 
-# 17. Final Project State
+## 17. Final Project State
 
 ProcureFlow is complete.
 
