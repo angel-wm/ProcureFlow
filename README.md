@@ -16,21 +16,21 @@ Current released version:
 
 Current development phase:
 
-**Phase 11 — Testing & Hardening**
+**Phase 12 — Documentation & Portfolio Release**
 
-Phase 11 status:
+Phase 12 status:
 
-**COMPLETED**
+**IN PROGRESS**
 
 Last completed phase:
 
 **Phase 11 — Testing & Hardening**
 
-Pull Request:
+Last completed phase Pull Request:
 
 `#14 — Phase 11 — Testing & Hardening`
 
-Version:
+Last completed phase version:
 
 `v0.11.0`
 ## Completed Phases
@@ -255,17 +255,47 @@ Target application:
 
 Microsoft Excel 365 Desktop for Windows.
 
-The workbook currently contains the approved layered architecture for:
+The workbook currently contains the implemented and validated layered architecture for:
 
 - configuration and control;
-- structured data;
-- operational calculations;
-- PivotTable analysis;
-- reporting;
-- management dashboard development.
+- Power Query ingestion and structured data;
+- operational replenishment calculations;
+- Supplier Performance calculations;
+- centralized Quality Control;
+- PivotTables, PivotCharts, Slicers and Timelines;
+- VBA refresh orchestration;
+- operational replenishment reporting;
+- management dashboarding.
 
-Later-phase worksheets may exist structurally without implying that their future functionality has already been implemented.
+Technical implementation through Phase 11 has been completed and validated. Phase 12 has completed the final UI/UX visual-polish pass, targeted post-polish regression and portfolio screenshot preparation. Final `v1.0.0` publication remains pending the Phase 12 GitHub release gate.
 
+## Portfolio Preview
+
+### Management Dashboard
+
+![ProcureFlow Management Dashboard](screenshots/procureflow-management-dashboard.png)
+
+The management dashboard provides a reconciled view of inventory risk, replenishment, open purchase orders, backorders, supplier delivery performance and quality incidents.
+
+### Home & Navigation
+
+![ProcureFlow Home](screenshots/procureflow-home.png)
+
+`00_HOME` provides the primary navigation and operating context, including Reporting Date, Last Successful Refresh and Overall Quality Status.
+
+### Replenishment Report
+
+![ProcureFlow Replenishment Report](screenshots/procureflow-replenishment-report.png)
+
+The operational replenishment report provides prioritized Product × Site actions with configurable filtering and validated replenishment outputs.
+
+### Quality Control
+
+![ProcureFlow Quality Control](screenshots/procureflow-quality-control.png)
+
+The centralized Quality Control layer exposes structural, reconciliation, integrity and business-rule controls with explicit PASS / WARNING / FAIL states.
+
+Additional technical evidence, including the Power Query dependency view, is maintained under `screenshots/`.
 ## Technology Stack
 
 ProcureFlow is intentionally centered on Excel.
@@ -307,6 +337,26 @@ The current Power Query pipeline loads the following structured Excel Tables:
 | `tblReplenishment` | Product × Site replenishment calculation engine | 1,800 |
 | `tblSupplierPerformance` | Supplier-performance calculation model | 40 |
 
+## Quick Start
+
+1. Use Microsoft Excel 365 Desktop for Windows.
+2. Preserve the repository folder relationship between `workbook/` and `data/raw/`.
+3. Place the four required source CSV files in `data/raw/`:
+   - `parts_master.csv`
+   - `supply_chain_history.csv`
+   - `purchase_orders.csv`
+   - `quality_incidents.csv`
+4. Open `workbook/ProcureFlow.xlsm`.
+5. Review the business configuration in `01_CONFIG`.
+6. Return to `00_HOME`.
+7. Run the `Refresh ProcureFlow` button.
+8. Confirm the workflow and Quality Control state before relying on refreshed outputs.
+9. Use `40_RPT_Replenishment` for operational action and `41_DASH_Management` for management reporting.
+
+The complete setup, refresh, operating and troubleshooting workflow is documented in:
+
+`docs/USER_GUIDE.md`
+
 ## Documentation
 
 Canonical project documentation is maintained under:
@@ -323,6 +373,7 @@ Important documents include:
 - `docs/DATA_DICTIONARY.md`
 - `docs/TESTING.md`
 - `docs/FORMULAS.md`
+- `docs/USER_GUIDE.md`
 
 Phase closeout documents are maintained under:
 
@@ -365,19 +416,28 @@ Major functionality is not marked implemented until it has been:
 
 Each completed phase uses a dedicated branch, Pull Request, merge, phase-completion tag and semantic version tag.
 
-## Next Planned Phase
+## Current Development Phase
 
-**Phase 11 — Testing & Hardening**
+**Phase 12 — Documentation & Portfolio Release**
 
 Target version:
 
-`v0.11.0`
+`v1.0.0`
+
 ## Portfolio Status
 
-ProcureFlow is still under active development.
+The final ProcureFlow workbook has completed its Phase 12 UI/UX visual polish and targeted post-polish regression.
 
-The final public-facing portfolio presentation, screenshots, polished repository documentation and complete README are planned for the later documentation and release phase.
+Current final-acceptance state:
 
+- 26 of 32 Definition of Done criteria are accepted;
+- the remaining 6 criteria are GitHub/release-gate items that can only be completed during final Phase 12 closeout;
+- representative final screenshots are versioned under `screenshots/`;
+- no critical known defect is currently open.
+
+The final publication sequence remains:
+
+Phase 12 closeout → final Pull Request → merge to `main` → `phase-12-complete` → `v1.0.0` → GitHub Release.
 ## License
 
 ProcureFlow source code and original project documentation are licensed under the MIT License.

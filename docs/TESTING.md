@@ -2,21 +2,25 @@
 
 ## Document Status
 
-Status: PHASE 11 TESTING COMPLETE
+Status: PHASE 11 TESTING COMPLETE — PHASE 12 FINAL RELEASE VALIDATION PENDING
 
 Current Phase:
 
-Phase 11 — Testing & Hardening
+Phase 12 — Documentation & Portfolio Release
 
 Current Released Version:
 
+`v0.11.1`
+
+Current Phase Target Version:
+
+`v1.0.0`
+
+Last Completed Test Phase Version:
+
 `v0.11.0`
 
-Target Phase Version:
-
-`v0.11.0`
-
-Formal Phase 11 testing and hardening are complete.
+Formal Phase 11 testing and hardening are complete. Phase 12 final documentation, repository and release acceptance evidence has not yet been completed.
 
 This document records validation evidence only for work that has actually been executed.
 
@@ -3435,3 +3439,127 @@ Current executed results:
 All mandatory Phase 11 test suites passed.
 
 No Phase 11 test suite is considered PASS solely because an earlier phase contains historical validation evidence.
+
+# Phase 12 — Release Asset Audit
+
+Status:
+
+PASS
+
+Validated release-asset evidence:
+
+- `workbook/ProcureFlow.xlsm` remains unchanged from the validated `v0.11.1` baseline;
+- 16 versioned Power Query `.pq` files remain unchanged from the validated baseline;
+- 5 production VBA `.bas` modules remain unchanged from the validated baseline;
+- required workbook and canonical documentation assets exist;
+- raw source CSV files remain excluded from Git;
+- no tracked temporary or backup artifacts were detected;
+- all 12 historical Phase 0–11 closeout documents are present;
+- repository release hygiene audit passed.
+
+The release-asset audit intentionally relies on the already validated Phase 11 executable baseline plus Git identity checks rather than re-executing the full functional test suite.
+
+Result:
+
+PASS
+# Phase 12 — Preliminary Definition of Done Acceptance
+
+Status:
+
+PRELIMINARY PASS / FINAL GATE PENDING
+
+The Phase 12 Definition of Done was reviewed before the planned final visual-polish work.
+
+Authoritative matrix:
+
+`docs/phases/PHASE_12_ACCEPTANCE.md`
+
+Current classification:
+
+- 19 criteria PRE-ACCEPTED;
+- 5 criteria require targeted revalidation after visual polish;
+- 2 criteria remain pending final visual presentation;
+- 6 criteria remain pending Phase 12 closeout and final GitHub release publication;
+- no Definition of Done criterion is currently classified as failed.
+
+Final acceptance must not be recorded until the post-polish regression, screenshots, final README presentation and GitHub release gate are complete.
+# Phase 12 — Post-Polish Regression
+
+Status:
+
+PASS
+
+The final Phase 12 UI/UX visual-polish pass was followed by targeted regression against the acceptance contract recorded in `docs/phases/PHASE_12_ACCEPTANCE.md`.
+
+Final results:
+
+| # | Validation | Result |
+|---:|---|---|
+| 1 | `00_HOME` navigation | PASS |
+| 2 | `02_CONTROL` operational status and visibility | PASS |
+| 3 | `40_RPT_Replenishment` integrity and usability | PASS |
+| 4 | `41_DASH_Management` reconciliation and usability | PASS |
+| 5 | Protection and editable boundaries | PASS |
+| 6 | Filters, Slicers and Timelines | PASS |
+| 7 | Explicit PASS / WARNING / FAIL text visibility | PASS |
+| 8 | Normal workbook close and reopen | PASS |
+| 9 | No unintended logic or structural changes | PASS |
+
+Validated post-polish evidence included:
+
+- 35 Quality Control checks PASS;
+- 0 WARNING controls;
+- 0 FAIL controls;
+- 0 exceptions;
+- 1,800 replenishment rows reconciled;
+- report filters validated individually and in combination;
+- report filters restored to `ALL`;
+- all eight management KPIs reconciled;
+- both management charts reconciled;
+- CONFIG and CALC protection boundaries preserved;
+- `10_DATA_Products` restored to all 300 visible rows with no temporary filter;
+- five Slicers validated and restored;
+- three Timelines validated and restored;
+- workbook closed and reopened normally without repair warnings;
+- formulas, VBA, Power Query, Named Ranges, Tables, Data Validation and PivotTable/PivotCache contracts remained preserved.
+
+## Phase 12 Supplier Risk Pivot Correction
+
+During post-polish regression, `pvtSupplierRiskPerformance` was found to aggregate `Avg Lead Time Days` using `SUM`.
+
+The approved Phase 7 analytical contract defines this field as:
+
+`Avg Lead Time Days`
+
+The PivotTable was corrected from:
+
+`SUM`
+
+to:
+
+`AVERAGE`
+
+The correction preserved the field name, position and visual format.
+
+All seven measures in `pvtSupplierRiskPerformance` were then checked against the documented Phase 7 contract and reconciled to the 40-Supplier model.
+
+Result:
+
+PASS
+
+This was a correction of a pre-existing analytical aggregation drift and did not change the underlying Supplier Performance formulas, source data, Power Query pipeline or VBA workflow.
+
+## Phase 12 Portfolio Screenshot Validation
+
+Representative final screenshots are versioned under `screenshots/`:
+
+- `procureflow-home.png`;
+- `procureflow-management-dashboard.png`;
+- `procureflow-quality-control.png`;
+- `procureflow-replenishment-report.png`.
+
+The screenshots represent the final post-polish validated workbook state.
+
+Result:
+
+PASS

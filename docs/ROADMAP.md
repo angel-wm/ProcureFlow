@@ -4,8 +4,8 @@
 
 Status: CONFIRMED
 Project State: IN DEVELOPMENT
-Current Phase: Phase 11 — Testing & Hardening
-Current Phase Status: COMPLETED
+Current Phase: Phase 12 — Documentation & Portfolio Release
+Current Phase Status: IN PROGRESS
 Current Released Version: v0.11.1
 This roadmap defines the approved sequential development plan for ProcureFlow.
 
@@ -361,12 +361,11 @@ Create the first physical ProcureFlow workbook and establish a professional work
 
 ## GitHub Gate
 
-- phase branch `phase/11-testing-hardening` completed;
-- Pull Request `#14 — Phase 11 — Testing & Hardening` merged;
-- merge commit `9b301d6ee20dd6077195d610ff06a30a81e042df`;
-- final release-state synchronization completed on `main`;
-- phase tag `phase-11-complete`;
-- version tag `v0.11.0`.
+- phase branch `phase/02-workbook-foundation` completed;
+- Pull Request `#3 — Phase 2 — Workbook Foundation` merged;
+- merge commit `bf9dcb8`;
+- phase tag `phase-2-complete`;
+- version tag `v0.3.0`.
 
 GitHub Gate: COMPLETE.
 
@@ -455,12 +454,11 @@ Build a reproducible Power Query ingestion and preparation pipeline from raw sou
 
 ## GitHub Gate
 
-- phase branch `phase/11-testing-hardening` completed;
-- Pull Request `#14 — Phase 11 — Testing & Hardening` merged;
-- merge commit `9b301d6ee20dd6077195d610ff06a30a81e042df`;
-- final release-state synchronization completed on `main`;
-- phase tag `phase-11-complete`;
-- version tag `v0.11.0`.
+- phase branch `phase/03-power-query-pipeline` completed;
+- Pull Request `#4 — Phase 3 — Power Query Pipeline` merged;
+- merge commit `540aa99`;
+- phase tag `phase-3-complete`;
+- version tag `v0.4.0`.
 
 GitHub Gate: COMPLETE.
 
@@ -535,12 +533,11 @@ Build the structured operational calculation model required before implementing 
 
 ## GitHub Gate
 
-- phase branch `phase/11-testing-hardening` completed;
-- Pull Request `#14 — Phase 11 — Testing & Hardening` merged;
-- merge commit `9b301d6ee20dd6077195d610ff06a30a81e042df`;
-- final release-state synchronization completed on `main`;
-- phase tag `phase-11-complete`;
-- version tag `v0.11.0`.
+- phase branch `phase/04-operational-model` completed;
+- Pull Request `#5 — Phase 4 — Operational Model` merged;
+- merge commit `7d3f11fdb069436dd767fd1c371be169c31b2804`;
+- phase tag `phase-4-complete`;
+- version tag `v0.5.0`.
 
 GitHub Gate: COMPLETE.
 
@@ -649,12 +646,11 @@ Legacy functions will be understood but not forced into production logic when a 
 
 ## GitHub Gate
 
-- phase branch `phase/11-testing-hardening` completed;
-- Pull Request `#14 — Phase 11 — Testing & Hardening` merged;
-- merge commit `9b301d6ee20dd6077195d610ff06a30a81e042df`;
-- final release-state synchronization completed on `main`;
-- phase tag `phase-11-complete`;
-- version tag `v0.11.0`.
+- phase branch `phase/05-business-logic-advanced-formulas` completed;
+- Pull Request `#6 — Phase 5 — Business Logic & Advanced Formulas` merged;
+- merge commit `43efd6a76bd9f4ce54093121289486bafd32e2bf`;
+- phase tag `phase-5-complete`;
+- version tag `v0.6.0`.
 
 GitHub Gate: COMPLETE.
 
@@ -730,12 +726,11 @@ Implement the formal ProcureFlow data-quality, logic-quality and reconciliation 
 
 ## GitHub Gate
 
-- phase branch `phase/11-testing-hardening` completed;
-- Pull Request `#14 — Phase 11 — Testing & Hardening` merged;
-- merge commit `9b301d6ee20dd6077195d610ff06a30a81e042df`;
-- final release-state synchronization completed on `main`;
-- phase tag `phase-11-complete`;
-- version tag `v0.11.0`.
+- phase branch `phase/06-quality-control-system` completed;
+- Pull Request `#7 — Phase 6 — Quality Control System` merged;
+- merge commit `8a5dc7279eb3701e86c8014250cce0f8671b4515`;
+- phase tag `phase-6-complete`;
+- version tag `v0.7.0`.
 
 GitHub Gate: COMPLETE.
 
@@ -816,12 +811,11 @@ Develop:
 
 ## GitHub Gate
 
-- phase branch `phase/11-testing-hardening` completed;
-- Pull Request `#14 — Phase 11 — Testing & Hardening` merged;
-- merge commit `9b301d6ee20dd6077195d610ff06a30a81e042df`;
-- final release-state synchronization completed on `main`;
-- phase tag `phase-11-complete`;
-- version tag `v0.11.0`.
+- phase branch `phase/07-analysis-pivottables` completed;
+- Pull Request `#8 — Phase 7 — Analysis & PivotTables` merged;
+- merge commit `008340ac0c2a8c8cf872a42d31a44b116df37cf8`;
+- phase tag `phase-7-complete`;
+- version tag `v0.8.0`.
 
 GitHub Gate: COMPLETE.
 
@@ -1183,7 +1177,7 @@ v0.11.0
 
 ## Status
 
-NOT STARTED
+IN PROGRESS
 
 ## Target Version
 
@@ -1208,7 +1202,9 @@ Finalize ProcureFlow as a professional, reproducible and portfolio-ready project
 - verify all phase closeouts;
 - verify decisions;
 - export final VBA source;
-- produce screenshots;
+- complete final UI/UX and visual polish;
+- revalidate affected user-facing and protection boundaries;
+- produce final screenshots only after visual polish;
 - document user workflow;
 - document refresh workflow;
 - document installation / setup;
@@ -1287,30 +1283,43 @@ v1.0.0
 | 9 | Automation | COMPLETED | v0.9.0 |
 | 10 | Reporting & Dashboard | COMPLETED | v0.10.0 |
 | 11 | Testing & Hardening | COMPLETED | v0.11.0 |
-| 12 | Documentation & Portfolio Release | NOT STARTED | v1.0.0 |
+| 12 | Documentation & Portfolio Release | IN PROGRESS | v1.0.0 |
 
 ---
 
 # 17. Current Immediate Next Step
 
-Phase 11 — Testing & Hardening is complete.
+Phase 12 — Documentation & Portfolio Release remains:
 
-Publication evidence:
-
-- Pull Request: `#14 — Phase 11 — Testing & Hardening`
-- Pull Request status: MERGED
-- merge commit: `9b301d6ee20dd6077195d610ff06a30a81e042df`
-- release version: `v0.11.0`
-- phase tag: `phase-11-complete`
-
-The next development phase is:
-
-Phase 12 — Documentation & Portfolio Release
-
-Status:
-
-NOT STARTED
+IN PROGRESS
 
 Target version:
 
 `v1.0.0`
+
+Completed Phase 12 work now includes:
+
+- canonical documentation audit;
+- user/setup/refresh handoff documentation;
+- Release Assets Audit;
+- repository release-hygiene validation;
+- UI/UX & Visual Polish across all 17 worksheets;
+- targeted post-polish regression with 9 / 9 PASS;
+- Supplier Risk Pivot aggregation correction and validation;
+- four representative portfolio screenshots;
+- final public-facing README presentation;
+- final Definition of Done acceptance review.
+
+Current Definition of Done state:
+
+- 26 ACCEPTED;
+- 6 PENDING FINAL GATE;
+- 0 FAILED.
+
+Authoritative acceptance record:
+
+`docs/phases/PHASE_12_ACCEPTANCE.md`
+
+The only remaining work is the Phase 12 closeout and final GitHub/release gate:
+
+Phase 12 closeout → Pull Request → merge to `main` → `phase-12-complete` → `v1.0.0` → GitHub Release → project status `COMPLETED`.

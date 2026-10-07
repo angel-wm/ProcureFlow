@@ -10,15 +10,15 @@ v0.11.1
 
 ## Current Phase
 
-Phase 11 — Testing & Hardening
+Phase 12 — Documentation & Portfolio Release
 
-Status: COMPLETED
+Status: IN PROGRESS
 
-Target Version: `v0.11.0`
+Target Version: `v1.0.0`
 
 Phase Branch:
 
-`phase/11-testing-hardening`
+`phase/12-documentation-portfolio-release`
 
 ## Last Completed Phase
 
@@ -152,8 +152,7 @@ Implemented project assets include:
 - seven Data Validation-controlled configuration inputs;
 - eight workbook-scoped `cfg_*` Defined Names: seven business configuration names plus technical `cfg_RawDataFolder`;
 - Reporting Date exposure;
-- `02_CONTROL` structural foundation;
-- remaining later-phase technical-sheet placeholders;
+- operational `02_CONTROL` Quality Control and automation-state layer;
 - implemented physical `16_DATA_Date` worksheet with `tblDate`;
 - approved workbook visual design system;
 - layer-based worksheet tab colors;
@@ -193,16 +192,68 @@ Implemented project assets include:
 - validated recovery from a controlled Power Query source failure;
 - `00_HOME` integration for Last Successful Refresh and Overall Quality Status;
 - user-facing `Refresh ProcureFlow` Form Control button;
-- Phase 9 automation test evidence recorded in `docs/TESTING.md`.
+- Phase 9 automation test evidence recorded in `docs/TESTING.md`;
+- implemented and validated `40_RPT_Replenishment` operational report;
+- implemented and validated `41_DASH_Management` management dashboard;
+- Dynamic Array operational reporting with validated filtering and priority sorting;
+- eight reconciled management KPI cards;
+- validated management charts and navigation;
+- full-system Phase 11 regression testing;
+- validated failure-path and recovery behavior;
+- Phase 11 edge-case testing and Service Level boundary correction;
+- validated workbook protection hardening;
+- all four mandatory User Acceptance Testing scenarios passed;
+- final Phase 11 end-to-end reconciliation passed;
+- complete production refresh performance measured at approximately 12 minutes;
+- no critical known Phase 11 defect remains open;
+- Phase 12 canonical documentation audit completed against Phase 0–11 release history;
+- `docs/USER_GUIDE.md` created with setup, configuration, production refresh, operational workflow, failure recovery and troubleshooting guidance;
+- README Quick Start added for public-facing onboarding;
+- Release Assets Audit passed against the validated `v0.11.1` pre-polish baseline;
+- all 16 Power Query source files and 5 production VBA modules remain versioned;
+- repository release-hygiene checks passed;
+- Phase 12 UI/UX & Visual Polish completed across all 17 worksheets under `DEC-065`;
+- targeted post-polish regression completed with 9 / 9 PASS;
+- `pvtSupplierRiskPerformance` `Avg Lead Time Days` corrected from `SUM` to the documented `AVERAGE` aggregation and revalidated;
+- final workbook closed and reopened normally without repair warnings;
+- four representative portfolio screenshots created and versioned;
+- final public-facing README portfolio presentation completed.
 
-## Not Yet Implemented
+## Phase 12 Final Acceptance
 
-The following remain assigned to later roadmap phases:
+The authoritative Phase 12 acceptance review is:
 
-- later protection, performance and release-hardening work.
+`docs/phases/PHASE_12_ACCEPTANCE.md`
 
-No future-phase component is considered implemented without actual implementation and validation evidence.
+Current Definition of Done state:
 
+- 26 criteria ACCEPTED;
+- 6 criteria PENDING FINAL GATE;
+- 0 criteria FAILED.
+
+All workbook, functional, documentation, usability and portfolio requirements that can be completed before the final GitHub/release gate are accepted.
+
+Visual polish and post-polish regression are complete.
+
+Representative final screenshots are versioned under:
+
+`screenshots/`
+
+## Remaining Phase 12 Work
+
+Only the final GitHub/release gate remains:
+
+- create `PHASE_12_CLOSEOUT.md`;
+- synchronize final release-state documentation;
+- finalize the Phase 12 Pull Request;
+- merge to `main`;
+- verify final `main`;
+- publish `phase-12-complete`;
+- publish `v1.0.0`;
+- create the final GitHub Release;
+- transition `CURRENT_STATE.md` to project status `COMPLETED`.
+
+Phase 12 remains `IN PROGRESS` until that gate is complete.
 ## Official Dataset
 
 Aerospace Supply Chain Performance & Forecasting
@@ -282,26 +333,38 @@ See:
 
 ## Next Immediate Step
 
-Phase 11 — Testing & Hardening is complete and released as:
+Phase 12 — Documentation & Portfolio Release remains in progress.
 
-`v0.11.0`
+Phase branch:
 
-Publication evidence:
+`phase/12-documentation-portfolio-release`
 
-- Phase branch: `phase/11-testing-hardening`
-- Pull Request: `#14 — Phase 11 — Testing & Hardening`
-- Pull Request status: MERGED
-- Merge commit: `9b301d6ee20dd6077195d610ff06a30a81e042df`
-- Phase tag: `phase-11-complete`
-- Version tag: `v0.11.0`
+Current release baseline:
 
-The next development phase is Phase 12 — Documentation & Portfolio Release.
+`v0.11.1`
 
-## Next Phase
+Next dedicated workstream:
+
+`Phase 12 — UI/UX & Visual Polish`
+
+Authoritative handoff:
+
+`docs/phases/PHASE_12_ACCEPTANCE.md`
+
+The visual-polish work must preserve the validated technical/business baseline unless a functional change is explicitly approved and revalidated.
+
+After visual polish:
+
+- run targeted post-polish regression;
+- capture final portfolio screenshots;
+- finish the public README presentation;
+- complete final acceptance;
+- execute Phase 12 closeout and the `v1.0.0` GitHub gate.
+## Current Development Phase
 
 Phase 12 — Documentation & Portfolio Release
 
-Status: NOT STARTED
+Status: IN PROGRESS
 
 Target Version:
 

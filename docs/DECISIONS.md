@@ -4,9 +4,9 @@
 
 Status: CONFIRMED
 Project State: IN DEVELOPMENT
-Current Phase: Phase 11 — Testing & Hardening
+Current Phase: Phase 12 — Documentation & Portfolio Release
 Current Phase Status: IN PROGRESS
-Current Released Version: v0.10.0
+Current Released Version: v0.11.1
 This document records material project decisions that affect ProcureFlow scope, architecture, business rules, implementation strategy, governance or release management.
 
 ---
@@ -1600,3 +1600,30 @@ Phase 11 edge-case testing demonstrated that worksheet Data Validation allowed e
 Quality Control correctly exposed the invalid state. The defect was resolved by aligning worksheet prevention with the operational domain `0 < Service Level < 1`.
 
 This decision clarifies the valid input boundary supporting the existing Safety Stock methodology and does not alter that methodology.
+## DEC-065 — Phase 12 Visual Polish and Final Presentation Sequence
+
+**Status:** CONFIRMED
+
+**Phase:** 12 — Documentation & Portfolio Release
+
+**Decision:**
+
+The planned UI/UX and visual-polish work will remain inside Phase 12 rather than creating a new numbered project phase.
+
+Final portfolio screenshots and final public-facing README presentation are deferred until visual polish is complete.
+
+The visual-polish scope is primarily presentational and must preserve the validated ProcureFlow business and technical architecture unless a separate documented change explicitly approves functional modification.
+
+After visual polish, ProcureFlow will execute a targeted regression of affected user-facing, navigation, protection, report and dashboard boundaries before final `v1.0.0` acceptance.
+
+The historical `v0.11.1` baseline and earlier release tags will not be moved or rewritten.
+
+**Rationale:**
+
+Phase 12 already includes final workbook cleanup, portfolio presentation, documentation, final acceptance and release preparation.
+
+Producing screenshots before the intended visual improvements would create disposable portfolio evidence and unnecessary rework.
+
+Keeping the work inside Phase 12 preserves roadmap semantics while requiring post-polish validation before final publication.
+
+---

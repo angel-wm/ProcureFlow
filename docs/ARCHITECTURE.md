@@ -4,9 +4,9 @@
 
 Status: CONFIRMED DESIGN BASELINE
 Project State: IN DEVELOPMENT
-Current Phase: Phase 11 — Testing & Hardening
+Current Phase: Phase 12 — Documentation & Portfolio Release
 Current Phase Status: IN PROGRESS
-Current Released Version: v0.10.0
+Current Released Version: v0.11.1
 This document defines the approved architecture of ProcureFlow and records implementation evidence as project phases are completed.
 
 Architecture described here is a design baseline. Components must not be considered implemented until supported by actual workbook, query, formula, VBA or testing evidence.
@@ -1655,6 +1655,20 @@ Defines the data model at field level once Phase 1 is completed.
 
 Maintains testing strategy and evidence.
 
+## `USER_GUIDE.md`
+
+Defines the supported operational handoff for end users and reviewers, including:
+
+- prerequisites and setup;
+- source-data placement;
+- business configuration;
+- production refresh workflow;
+- Quality Control interpretation;
+- replenishment and management workflows;
+- protection boundaries;
+- failure recovery;
+- troubleshooting.
+
 ## `PHASE_XX_CLOSEOUT.md`
 
 Provides historical evidence of each completed phase.
@@ -1712,10 +1726,20 @@ Implemented:
 - Phase 10 operational replenishment report;
 - Phase 10 management dashboard.
 
-Not yet implemented:
+Implemented and validated through Phase 11:
 
-- Phase 11 final testing and hardening;
-- Phase 12 portfolio and final release work.
+- complete-system testing and regression;
+- User Acceptance Testing;
+- protection hardening;
+- failure-path validation;
+- performance measurement;
+- final end-to-end reconciliation.
+
+Remaining Phase 12 work:
+
+- final documentation and portfolio presentation;
+- final repository and release review;
+- final `v1.0.0` publication.
 
 Implementation evidence is recorded in `docs/CURRENT_STATE.md`, `docs/TESTING.md`, the phase closeouts and the versioned workbook/source artifacts.
 
