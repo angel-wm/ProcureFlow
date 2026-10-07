@@ -787,151 +787,151 @@ Expected:
 
 `0`
 
-### Phase 5 — Business Logic & Advanced Formulas
+## Phase 5 — Business Logic & Advanced Formulas
 
 Status: IMPLEMENTED AND VALIDATED
 
-#### Replenishment Engine
+### Replenishment Engine
 
 The following formulas are implemented in `tblReplenishment` on `20_CALC_Replenishment`.
 
-##### HistoricalDemandQty
+#### HistoricalDemandQty
 
     =SUMIFS(tblInventoryHistory[ConsumptionQty],tblInventoryHistory[ProductID],[@ProductID],tblInventoryHistory[SiteID],[@SiteID],tblInventoryHistory[WeekStartDate],">="&[@DemandHistoryStartDate],tblInventoryHistory[WeekStartDate],"<="&[@DemandHistoryEndDate])
 
 Purpose: total historical consumption for the configured Product × Site demand-history window.
 
-##### AverageWeeklyDemand
+#### AverageWeeklyDemand
 
     =[@HistoricalDemandQty]/[@DemandHistoryWeeks]
 
 Purpose: average weekly consumption using the complete configured history window, including zero-consumption weeks.
 
-##### DemandStdDev
+#### DemandStdDev
 
     =STDEV.S(FILTER(tblInventoryHistory[ConsumptionQty],(tblInventoryHistory[ProductID]=[@ProductID])*(tblInventoryHistory[SiteID]=[@SiteID])*(tblInventoryHistory[WeekStartDate]>=[@DemandHistoryStartDate])*(tblInventoryHistory[WeekStartDate]<=[@DemandHistoryEndDate])))
 
 Purpose: sample standard deviation of weekly demand for the configured historical window.
 
-##### AvgActualLeadTimeDays
+#### AvgActualLeadTimeDays
 
     =IF(COUNTIFS(tblPurchaseOrders[ProductID],[@ProductID],tblPurchaseOrders[SiteID],[@SiteID],tblPurchaseOrders[ReceiptDate],"<="&[@ReportingDate])=0,"",AVERAGEIFS(tblPurchaseOrders[ActualLeadTimeDays],tblPurchaseOrders[ProductID],[@ProductID],tblPurchaseOrders[SiteID],[@SiteID],tblPurchaseOrders[ReceiptDate],"<="&[@ReportingDate]))
 
 Purpose: average historical Actual Lead Time using only receipts known by Reporting Date.
 
-##### LeadTimeStdDevDays
+#### LeadTimeStdDevDays
 
     =IF(COUNTIFS(tblPurchaseOrders[ProductID],[@ProductID],tblPurchaseOrders[SiteID],[@SiteID],tblPurchaseOrders[ReceiptDate],"<="&[@ReportingDate])<2,0,STDEV.S(FILTER(tblPurchaseOrders[ActualLeadTimeDays],(tblPurchaseOrders[ProductID]=[@ProductID])*(tblPurchaseOrders[SiteID]=[@SiteID])*(tblPurchaseOrders[ReceiptDate]<=[@ReportingDate]))))
 
 Purpose: sample standard deviation of historical Actual Lead Time. Fewer than two observations returns zero variability.
 
-##### EffectiveLeadTimeDays
+#### EffectiveLeadTimeDays
 
     =IF([@AvgActualLeadTimeDays]="",[@MasterLeadTimeDays],[@AvgActualLeadTimeDays])
 
 Purpose: use observed historical Lead Time when available and master Lead Time as fallback otherwise.
 
-##### OpenPOQty
+#### OpenPOQty
 
     =SUMIFS(tblPurchaseOrders[OrderedQty],tblPurchaseOrders[ProductID],[@ProductID],tblPurchaseOrders[SiteID],[@SiteID],tblPurchaseOrders[OrderDate],"<="&[@ReportingDate],tblPurchaseOrders[ReceiptDate],">"&[@ReportingDate])
 
 Purpose: incoming quantity from Purchase Orders that were open at Reporting Date according to `OrderDate <= ReportingDate < ReceiptDate`.
 
-##### AvailableStock
+#### AvailableStock
 
     =MAX(0,[@OnHandQty]-[@BlockedQty])
 
 Purpose: usable inventory after blocked stock, with zero as the minimum.
 
-##### ServiceLevel
+#### ServiceLevel
 
     =IFS([@CriticalityClass]="A",cfg_ServiceLevelA,[@CriticalityClass]="B",cfg_ServiceLevelB,[@CriticalityClass]="C",cfg_ServiceLevelC)
 
 Purpose: retrieve the configured Service Level for each Criticality Class without hidden constants.
 
-##### SafetyStock
+#### SafetyStock
 
     =NORM.S.INV([@ServiceLevel])*SQRT(([@EffectiveLeadTimeDays]/7)*([@DemandStdDev]^2)+([@AverageWeeklyDemand]^2)*(([@LeadTimeStdDevDays]/7)^2))
 
 Purpose: Safety Stock incorporating both demand variability and Lead-Time variability with consistent weekly time units.
 
-##### ReorderPoint
+#### ReorderPoint
 
     =([@AverageWeeklyDemand]*([@EffectiveLeadTimeDays]/7))+[@SafetyStock]
 
 Purpose: expected demand during Lead Time plus Safety Stock.
 
-##### InventoryPosition
+#### InventoryPosition
 
     =[@AvailableStock]+[@OpenPOQty]-[@BackorderQty]
 
 Purpose: net replenishment position including usable stock, incoming open POs and backorders.
 
-##### TargetStock
+#### TargetStock
 
     =[@AverageWeeklyDemand]*(([@EffectiveLeadTimeDays]/7)+cfg_ReviewPeriodWeeks)+[@SafetyStock]
 
 Purpose: stock target covering Lead Time, configured Review Period and Safety Stock.
 
-##### RecommendedOrderQty
+#### RecommendedOrderQty
 
     =IF(AND([@NoRecentDemand],[@BackorderQty]=0),0,IF([@InventoryPosition]<=[@ReorderPoint],MAX(0,ROUNDUP([@TargetStock]-[@InventoryPosition],0)),0))
 
 Purpose: recommend whole units up to Target Stock only when replenishment is required. No-recent-demand rows without a backorder do not receive an automatic statistical purchase recommendation.
 
-##### InventoryStatus
+#### InventoryStatus
 
     =IFS(AND([@AvailableStock]=0,[@BackorderQty]>0),"STOCKOUT",OR([@BackorderQty]>0,[@AvailableStock]<[@SafetyStock]),"CRITICAL",[@InventoryPosition]<=[@ReorderPoint],"REORDER",[@InventoryPosition]<=[@ReorderPoint]+[@AverageWeeklyDemand],"ATTENTION",[@InventoryPosition]>[@TargetStock]+([@AverageWeeklyDemand]*cfg_ExcessBufferWeeks),"EXCESS",TRUE,"HEALTHY")
 
 Priority order: STOCKOUT, CRITICAL, REORDER, ATTENTION, EXCESS, HEALTHY.
 
-##### NoRecentDemand
+#### NoRecentDemand
 
     =[@HistoricalDemandQty]=0
 
 Purpose: Boolean flag identifying Product × Site combinations with zero consumption across the configured historical window.
 
-#### Supplier Performance
+### Supplier Performance
 
 The following formulas are implemented in `tblSupplierPerformance` on `21_CALC_SupplierPerformance`.
 
-##### ReceivedPOCount
+#### ReceivedPOCount
 
     =COUNTIFS(tblPurchaseOrders[SupplierID],[@SupplierID],tblPurchaseOrders[ReceiptDate],"<="&[@ReportingDate])
 
-##### OnTimePOCount
+#### OnTimePOCount
 
     =COUNTIFS(tblPurchaseOrders[SupplierID],[@SupplierID],tblPurchaseOrders[ReceiptDate],"<="&[@ReportingDate],tblPurchaseOrders[IsLateReceipt],FALSE)
 
-##### OnTimeDeliveryRate
+#### OnTimeDeliveryRate
 
     =IF([@ReceivedPOCount]=0,"",[@OnTimePOCount]/[@ReceivedPOCount])
 
-##### LatePOCount
+#### LatePOCount
 
     =COUNTIFS(tblPurchaseOrders[SupplierID],[@SupplierID],tblPurchaseOrders[ReceiptDate],"<="&[@ReportingDate],tblPurchaseOrders[IsLateReceipt],TRUE)
 
-##### LateDeliveryRate
+#### LateDeliveryRate
 
     =IF([@ReceivedPOCount]=0,"",[@LatePOCount]/[@ReceivedPOCount])
 
-##### PartialPOCount
+#### PartialPOCount
 
     =COUNTIFS(tblPurchaseOrders[SupplierID],[@SupplierID],tblPurchaseOrders[ReceiptDate],"<="&[@ReportingDate],tblPurchaseOrders[IsPartialReceipt],TRUE)
 
-##### PartialReceiptRate
+#### PartialReceiptRate
 
     =IF([@ReceivedPOCount]=0,"",[@PartialPOCount]/[@ReceivedPOCount])
 
-##### AvgActualLeadTimeDays
+#### AvgActualLeadTimeDays
 
     =IF([@ReceivedPOCount]=0,"",AVERAGEIFS(tblPurchaseOrders[ActualLeadTimeDays],tblPurchaseOrders[SupplierID],[@SupplierID],tblPurchaseOrders[ReceiptDate],"<="&[@ReportingDate]))
 
-##### LeadTimeStdDevDays
+#### LeadTimeStdDevDays
 
     =IF([@ReceivedPOCount]<2,0,STDEV.S(FILTER(tblPurchaseOrders[ActualLeadTimeDays],(tblPurchaseOrders[SupplierID]=[@SupplierID])*(tblPurchaseOrders[ReceiptDate]<=[@ReportingDate]))))
 
-##### QualityIncidentCount
+#### QualityIncidentCount
 
     =COUNTIFS(tblQualityIncidents[SupplierID],[@SupplierID],tblQualityIncidents[IncidentDate],"<="&[@ReportingDate])
 
@@ -1131,7 +1131,7 @@ Validated final baseline:
 
 `QC-032 — PivotTable refresh status` remained N/A at the Phase 6 baseline pending the analytical and automation layers. This statement is retained as historical Phase 6 evidence.
 
-### Phase 9 — Automation-Controlled Quality Control Formulas
+## Phase 9 — Automation-Controlled Quality Control Formulas
 
 Phase 9 migrated the automation-dependent Quality Control logic to persistent state in `tblAutomationState`.
 
@@ -1139,7 +1139,7 @@ Phase 9 migrated the automation-dependent Quality Control logic to persistent st
 
 `QC-032` now reads the persistent `PivotRefreshStatus` maintained by the production automation workflow.
 
-#### QC-030 — Last Successful Refresh
+### QC-030 — Last Successful Refresh
 
 Result:
 
@@ -1157,7 +1157,7 @@ Status:
 
     =IF([@Severity]="N/A","N/A",IF([@ExceptionCount]="","",IF([@ExceptionCount]=0,"PASS",IF([@Severity]="Warning","WARNING","FAIL"))))
 
-#### QC-032 — PivotTable Refresh Status
+### QC-032 — PivotTable Refresh Status
 
 Result:
 
